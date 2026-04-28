@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Check, AlertCircle } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { insertLead } from '@/lib/supabase';
+import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
@@ -41,9 +42,11 @@ export function Waitlist() {
     if (result.ok) {
       setStatus('success');
       setEmail('');
+      trackEvent('waitlist_submitted', { locale, source: 'website-waitlist' });
     } else {
       setStatus('error');
       setErrorMsg(t('errorGeneric'));
+      trackEvent('waitlist_failed', { locale });
     }
   }
 

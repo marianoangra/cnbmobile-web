@@ -1,0 +1,386 @@
+{
+  "meta": {
+    "title": "CNB Mobile — Charge your phone. Earn real tokens.",
+    "description": "DePIN on Solana. Every minute of charging generates CNB tokens verified on-chain. Built at Frontier Colosseum.",
+    "keywords": "DePIN, Solana, CNB, mobile, blockchain, rewards, charging"
+  },
+  "nav": {
+    "features": "Features",
+    "howItWorks": "How it works",
+    "token": "Token",
+    "hackathon": "Hackathon",
+    "download": "Download App",
+    "connectWallet": "Connect Wallet",
+    "comingSoon": "Coming soon"
+  },
+  "hero": {
+    "badge": "DePIN · Solana · Frontier Colosseum",
+    "headlineLine1": "Charge your phone",
+    "headlineLine2": "and earn rewards.",
+    "headlineHighlight": "rewards",
+    "subtitle": "Revolutionize the way you charge your device from anywhere in the world. Our innovative global platform turns charging time into valuable points.",
+    "ctaPrimary": "Download App",
+    "ctaSecondary": "View on Solana",
+    "statsLive": "Mainnet live",
+    "statsToken": "SPL Token",
+    "statsBeta": "iOS · Android"
+  },
+  "features": {
+    "badge": "Why CNB",
+    "title": "Decentralized physical infrastructure that pays you",
+    "subtitle": "Not airdrop. Not synthetic farming. Real energy turning into real rewards, proof by proof, on-chain.",
+    "items": {
+      "charging": {
+        "title": "Charging that pays",
+        "description": "Points per charging minute, with a bonus on every full hour. Every kWh counts."
+      },
+      "proof": {
+        "title": "On-chain proof",
+        "description": "Each session is signed and recorded on Solana. ZK privacy, no black box."
+      },
+      "ranking": {
+        "title": "Weekly ranking",
+        "description": "The most active users of the week share an extra CNB pool. Real competition."
+      },
+      "token": {
+        "title": "CNB Token SPL",
+        "description": "Native SPL token on Solana mainnet. DEX liquidity, transferable, real."
+      },
+      "referral": {
+        "title": "Referral system",
+        "description": "+100 CNB per friend signed up. Grow with your network, earn together."
+      },
+      "depin": {
+        "title": "Real DePIN",
+        "description": "Every reward is backed by a verified charging minute. Useful work."
+      }
+    }
+  },
+  "community": {
+    "badge": "Community",
+    "title": "Join our community",
+    "subtitle": "More than an app, we are a community. Join thousands of people already earning CNB and sharing crypto experiences.",
+    "whatsapp": "WhatsApp",
+    "telegram": "Telegram",
+    "instagram": "Instagram",
+    "x": "X (Twitter)"
+  },
+  "howItWorks": {
+    "badge": "In 3 steps",
+    "title": "Start earning in less than a minute",
+    "subtitle": "No heavy KYC, no upfront investment, no special hardware. Just the cable that's already there.",
+    "step1": {
+      "label": "Step 01",
+      "title": "Plug in the charger",
+      "description": "Plug your phone in like you always do. The app automatically detects when charging starts."
+    },
+    "step2": {
+      "label": "Step 02",
+      "title": "Accumulate verified points",
+      "description": "Every minute, +10 CNB are accumulated and the session is signed for on-chain proof."
+    },
+    "step3": {
+      "label": "Step 03",
+      "title": "Redeem your CNB",
+      "description": "Once you reach the minimum balance, redeem CNB tokens to your Solana wallet or trade on DEXs."
+    }
+  },
+  "hackathon": {
+    "badge": "Frontier Colosseum · Solana Foundation",
+    "title": "Built at Frontier Colosseum",
+    "description": "CNB Mobile competes in Frontier Colosseum as an energy DePIN solution. On-chain charging proof, SPL token on mainnet, built for the Brazilian and Latin American market.",
+    "stats": {
+      "category": "Category",
+      "categoryValue": "DePIN",
+      "network": "Network",
+      "networkValue": "Solana Mainnet",
+      "market": "Market",
+      "marketValue": "Brazil + LATAM"
+    },
+    "cta": "Learn more about the hackathon"
+  },
+  "token": {
+    "badge": "SPL Token · Mainnet · Solana",
+    "title": "CNB Token",
+    "subtitle": "The utility token that powers the CNB network. Distributed by charging proof, transferable, with real liquidity.",
+    "mintAddress": "Mint address",
+    "mintPlaceholder": "To be announced soon",
+    "stats": {
+      "supply": "Supply",
+      "supplyValue": "21,000,000,000",
+      "holders": "Holders",
+      "holdersValue": "Growing",
+      "network": "Network",
+      "networkValue": "Solana"
+    },
+    "links": {
+      "solscan": "View on Solscan",
+      "jupiter": "Trade on Jupiter"
+    }
+  },
+  "founder": {
+    "badge": "Founder & CEO",
+    "name": "Rafael Mariano",
+    "role": "CEO & Founder — Cripto no Bolso",
+    "bio1": "Securities Investment Analyst (CNPI), Helicopter Pilot, educator, entrepreneur, and developer of innovative solutions in financial markets and crypto. With experience at XP Investimentos, Rico and Terra Investimentos, he was honored as one of the most influential teachers in his region by SENAI.",
+    "bio2": "Developer and programmer, Rafael combines technology with transformative skills, making a difference in the lives of thousands of people.",
+    "alt": "Rafael Mariano, founder and CEO of CNB Mobile"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently asked questions",
+    "subtitle": "Everything you need to know about CNB Mobile."
+  },
+  "waitlist": {
+    "badge": "Waitlist",
+    "title": "Be the first to know when CNB token launches",
+    "subtitle": "Early access, community drops, and hackathon news straight to your inbox.",
+    "emailPlaceholder": "your@email.com",
+    "submit": "Join the list",
+    "submitting": "Sending...",
+    "success": "You're on the list!",
+    "errorEmail": "Invalid email.",
+    "errorGeneric": "Something went wrong. Try again."
+  },
+  "footer": {
+    "tagline": "Energy DePIN, on Solana.",
+    "product": "Product",
+    "links": {
+      "features": "Features",
+      "howItWorks": "How it works",
+      "token": "Token",
+      "hackathon": "Hackathon",
+      "download": "Download app"
+    },
+    "legal": "Legal",
+    "legalLinks": {
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "privacyEn": "Privacy Policy (EN)",
+      "copyright": "Copyright",
+      "support": "Support",
+      "deleteAccount": "Delete my account",
+      "cloakPrivacy": "Cloak Privacy"
+    },
+    "community": "Community",
+    "poweredBy": "Powered by",
+    "copyright": "© 2026 CNB Mobile. All rights reserved.",
+    "downloadTitle": "Get CNB Mobile",
+    "downloadSubtitle": "Available now on the App Store and Google Play. iOS and Android."
+  },
+  "common": {
+    "back": "Back",
+    "loading": "Loading..."
+  },
+  "pages": {
+    "privacy": {
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: April 4, 2026",
+      "sections": [
+        {
+          "heading": "1. Introduction",
+          "body": ["CNB Mobile is committed to protecting the privacy of our users."]
+        },
+        {
+          "heading": "2. Information Collected"
+        },
+        {
+          "heading": "2.1 Account Information",
+          "items": [
+            "Display name",
+            "Email address",
+            "Profile picture (via Google or Apple)",
+            "Unique account identifier"
+          ]
+        },
+        {
+          "heading": "2.2 Usage Data",
+          "items": [
+            "App access dates",
+            "Accumulated score and check-in history",
+            "Streak of consecutive days",
+            "Ranking position"
+          ]
+        },
+        {
+          "heading": "3. How We Use Your Information",
+          "items": [
+            "Create and manage your account",
+            "Record check-ins and calculate scoring",
+            "Display the user ranking",
+            "Prevent fraud and abuse"
+          ]
+        },
+        {
+          "heading": "4. Sharing",
+          "body": ["We do not sell your personal information."]
+        },
+        {
+          "heading": "5. Security",
+          "body": ["Your data is stored with encryption in transit and at rest."]
+        },
+        {
+          "heading": "6. Your Rights",
+          "body": ["Access, correction, and deletion of your data. Contact: contato@criptonobolso.com.br"]
+        },
+        {
+          "heading": "7. Apple Compliance",
+          "body": ["This App complies with Apple App Store guidelines and App Tracking Transparency (ATT)."]
+        }
+      ]
+    },
+    "terms": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last updated: April 4, 2026",
+      "sections": [
+        {
+          "heading": "1. Acceptance of Terms",
+          "body": [
+            "By accessing and using the CNB Mobile application (\"App\"), you agree to comply with and be bound by these Terms of Service."
+          ]
+        },
+        {
+          "heading": "2. Description of Service",
+          "body": [
+            "CNB Mobile is a gamified application that rewards users with virtual points for accessing the app daily.",
+            "CNB Mobile points DO NOT have real monetary value and do not constitute any form of investment."
+          ]
+        },
+        {
+          "heading": "3. Eligibility",
+          "body": ["You must be at least 13 years old to use the App."]
+        },
+        {
+          "heading": "4. User Account",
+          "body": ["To use the App, you must create an account using authentication via Google or Apple."]
+        },
+        {
+          "heading": "5. Usage Rules",
+          "items": [
+            "Do not use the App for illegal purposes",
+            "Do not attempt to manipulate the points system",
+            "Do not improperly create multiple accounts",
+            "Do not use bots or automated tools"
+          ]
+        },
+        {
+          "heading": "6. Points and Ranking",
+          "body": ["Points are awarded exclusively as a form of gamification. We reserve the right to modify the system at any time."]
+        },
+        {
+          "heading": "7. Intellectual Property",
+          "body": ["All App content is the exclusive property of CNB Mobile."]
+        },
+        {
+          "heading": "8. Limitation of Liability",
+          "body": ["The App is provided \"as is\". We are not responsible for damages arising from the use of the App."]
+        },
+        {
+          "heading": "9. Modifications",
+          "body": ["We reserve the right to modify these Terms at any time."]
+        },
+        {
+          "heading": "10. Contact",
+          "body": ["contato@criptonobolso.com.br"]
+        }
+      ]
+    },
+    "support": {
+      "title": "Support",
+      "intro": "Need help? Get in touch with our team.",
+      "contactTitle": "Email Contact",
+      "emailDescription": "For questions, suggestions, or technical issues:",
+      "email": "contato@criptonobolso.com.br",
+      "responseTime": "We reply within 48 business hours.",
+      "faqTitle": "Frequently Asked Questions",
+      "items": [
+        {
+          "q": "How do I earn points?",
+          "a": "Just open the app once a day to receive 10 points."
+        },
+        {
+          "q": "Do points have monetary value?",
+          "a": "No. Points are exclusively for entertainment and ranking purposes."
+        },
+        {
+          "q": "How do I delete my account?",
+          "a": "Send an email to contato@criptonobolso.com.br."
+        },
+        {
+          "q": "Does the app collect sensitive data?",
+          "a": "No. Only basic profile information via Google or Apple."
+        }
+      ]
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "intro": "Everything you need to know about CNB Mobile.",
+      "items": [
+        {
+          "q": "What is CNB Mobile?",
+          "a": "A DePIN app that rewards you with CNB tokens for every minute of charging verified on-chain on Solana."
+        },
+        {
+          "q": "How do I earn tokens?",
+          "a": "Plug in the charger and open the app. Every charging minute, +10 CNB accumulate, with a +50 bonus on every full hour."
+        },
+        {
+          "q": "Do I need a Solana wallet?",
+          "a": "Not for daily app use. To redeem CNB tokens to your own wallet, yes — any Solana wallet works."
+        },
+        {
+          "q": "Is it safe?",
+          "a": "Yes. Your charging is monitored locally, and each verified session is signed and submitted to Solana as proof."
+        },
+        {
+          "q": "When will the token list?",
+          "a": "We're at hackathon stage. Sign up for the waitlist to be notified."
+        }
+      ]
+    },
+    "token": {
+      "title": "CNB Token",
+      "intro": "Technical details of the SPL token on Solana mainnet."
+    },
+    "hackathon": {
+      "title": "Frontier Colosseum",
+      "intro": "How CNB Mobile competes in the Solana Foundation hackathon."
+    },
+    "wallet": {
+      "title": "Wallet",
+      "intro": "Connect your Solana wallet to redeem and manage your CNB tokens.",
+      "comingSoon": "Coming soon"
+    },
+    "copyright": {
+      "title": "Copyright & Intellectual Property",
+      "lastUpdated": "Last updated: April 16, 2026",
+      "sections": [
+        {
+          "heading": "1. Ownership",
+          "body": ["The CNB Mobile application is the exclusive property of Cripto no Bolso, São Paulo, Brazil. Protected by Brazilian Law No. 9,610/98 and Law No. 9,279/96."]
+        },
+        {
+          "heading": "2. Legal Compliance",
+          "items": [
+            "LGPD — Brazilian Law No. 13,709/2018",
+            "Brazilian Internet Civil Framework — Law No. 12,965/2014",
+            "Apple App Store and Google Play guidelines"
+          ]
+        },
+        {
+          "heading": "3. Restrictions",
+          "items": [
+            "Reproduction, distribution, or modification of any part of the application is prohibited",
+            "Reverse engineering or decompilation is prohibited",
+            "Use of the brand on third-party products is prohibited"
+          ]
+        },
+        {
+          "heading": "4. Contact",
+          "body": ["Cripto no Bolso — contato@criptonobolso.com.br"]
+        }
+      ],
+      "closing": "© 2026 CNB Mobile — Cripto no Bolso. All rights reserved."
+    }
+  }
+}

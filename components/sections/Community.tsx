@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Send, Instagram } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
+import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 const SOCIALS = [
   {
@@ -34,6 +35,7 @@ const SOCIALS = [
 
 export function Community() {
   const t = useTranslations('community');
+  const titleRef = useMetalSpotlight<HTMLHeadingElement>();
 
   return (
     <section id="community" className="relative py-24 md:py-32">
@@ -51,7 +53,7 @@ export function Community() {
           className="max-w-2xl text-center mx-auto"
         >
           <SectionBadge variant="primary">{t('badge')}</SectionBadge>
-          <h2 className="section-title mt-5 text-white">{t('title')}</h2>
+          <h2 ref={titleRef} className="section-title mt-5 metal-text">{t('title')}</h2>
           <p className="mt-5 text-base md:text-lg text-white/55 leading-relaxed">
             {t('subtitle')}
           </p>
@@ -70,9 +72,9 @@ export function Community() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center gap-4 rounded-2xl border border-white/[0.08] bg-white/[0.02] p-5 transition-colors hover:bg-white/[0.05] hover:border-primary/30"
+              className="metal-card group relative flex items-center gap-4 rounded-2xl p-5"
             >
-              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/30 bg-primary/[0.08] text-primary">
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-secondary/30 bg-secondary/[0.08] text-secondary-light">
                 <Icon className="h-5 w-5" />
               </span>
               <span className="flex-1 min-w-0">
@@ -83,7 +85,7 @@ export function Community() {
                   {handle}
                 </span>
               </span>
-              <ArrowUpRight className="h-4 w-4 text-white/40 group-hover:text-primary transition-colors shrink-0" />
+              <ArrowUpRight className="h-4 w-4 text-white/40 group-hover:text-secondary-light transition-colors shrink-0" />
             </a>
           ))}
         </motion.div>

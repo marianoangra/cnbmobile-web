@@ -10,15 +10,13 @@ interface ButtonLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> 
 }
 
 const base =
-  'inline-flex items-center justify-center gap-2 font-bold transition-all duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep';
+  'inline-flex items-center justify-center gap-2 font-bold select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-bg-deep';
 
 const variants: Record<Variant, string> = {
-  primary:
-    'bg-primary text-black hover:bg-[#d4ff6e] hover:shadow-glow-primary active:scale-[0.98]',
-  outline:
-    'bg-white/5 border border-white/10 text-white/90 hover:border-white/25 hover:bg-white/10',
+  primary: 'metal-cta',
+  outline: 'metal-outline',
   ghost:
-    'bg-transparent text-white/70 hover:text-white hover:bg-white/5',
+    'bg-transparent text-white/70 hover:text-secondary-light transition-colors',
 };
 
 const sizes: Record<Size, string> = {

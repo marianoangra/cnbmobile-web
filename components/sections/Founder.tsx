@@ -5,9 +5,11 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowUpRight, Globe, Instagram, Linkedin } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
+import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 export function Founder() {
   const t = useTranslations('founder');
+  const titleRef = useMetalSpotlight<HTMLHeadingElement>();
 
   return (
     <section id="founder" className="relative py-24 md:py-32">
@@ -26,7 +28,7 @@ export function Founder() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="lg:col-span-5"
           >
-            <div className="relative overflow-hidden rounded-[20px] border border-white/[0.08] bg-white/[0.02]">
+            <div className="metal-card relative overflow-hidden rounded-[20px]">
               <Image
                 src="/images/founder.jpg"
                 alt={t('alt')}
@@ -40,7 +42,7 @@ export function Founder() {
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/5 rounded-[20px]"
+                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-secondary/15 rounded-[20px]"
               />
             </div>
           </motion.div>
@@ -54,7 +56,7 @@ export function Founder() {
             className="lg:col-span-7"
           >
             <SectionBadge variant="primary">{t('badge')}</SectionBadge>
-            <h2 className="section-title mt-5 text-white">{t('name')}</h2>
+            <h2 ref={titleRef} className="section-title mt-5 metal-text">{t('name')}</h2>
             <p className="mt-3 text-base md:text-lg font-medium text-primary">
               {t('role')}
             </p>
@@ -67,7 +69,7 @@ export function Founder() {
                 href="https://rafaelmariano.com.br"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2 rounded-[10px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white/85 hover:bg-white/[0.06] hover:text-white hover:border-white/20 transition-colors"
+                className="metal-outline group inline-flex items-center gap-2 rounded-[10px] px-4 py-2.5 text-sm"
               >
                 <Globe className="h-4 w-4" />
                 rafaelmariano.com.br
@@ -77,7 +79,7 @@ export function Founder() {
                 href="https://instagram.com/rafaelmariano"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-[10px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white/85 hover:bg-white/[0.06] hover:text-white hover:border-white/20 transition-colors"
+                className="metal-outline inline-flex items-center gap-2 rounded-[10px] px-4 py-2.5 text-sm"
               >
                 <Instagram className="h-4 w-4" />
                 @rafaelmariano
@@ -86,7 +88,7 @@ export function Founder() {
                 href="https://www.linkedin.com/in/palestranterafaelmariano"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-[10px] border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm text-white/85 hover:bg-white/[0.06] hover:text-white hover:border-white/20 transition-colors"
+                className="metal-outline inline-flex items-center gap-2 rounded-[10px] px-4 py-2.5 text-sm"
               >
                 <Linkedin className="h-4 w-4" />
                 palestranterafaelmariano

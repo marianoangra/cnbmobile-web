@@ -3,9 +3,10 @@
 import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 import { cn } from '@/lib/cn';
+import type { ReactNode } from 'react';
 
 interface PhoneMockupProps {
-  src: string;
+  src?: string;
   alt: string;
   /** width:height ratio for the inner screen — defaults to iPhone ~390x844 */
   width?: number;
@@ -13,6 +14,8 @@ interface PhoneMockupProps {
   className?: string;
   tilt?: boolean;
   priority?: boolean;
+  /** When provided, replaces the screenshot Image with custom screen content. */
+  children?: ReactNode;
 }
 
 export function PhoneMockup({
@@ -23,6 +26,7 @@ export function PhoneMockup({
   className,
   tilt = true,
   priority = false,
+  children,
 }: PhoneMockupProps) {
   const reduce = useReducedMotion();
 
@@ -47,15 +51,19 @@ export function PhoneMockup({
 
         {/* Inner display */}
         <div className="phone-screen">
-          <Image
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            priority={priority}
-            className="h-full w-full object-cover"
-            sizes={`${width}px`}
-          />
+          {children ? (
+            children
+          ) : src ? (
+            <Image
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              priority={priority}
+              className="h-full w-full object-cover"
+              sizes={`${width}px`}
+            />
+          ) : null}
           {/* Punch-hole front camera */}
           <span aria-hidden className="phone-punch" />
           {/* Diagonal glass reflection */}

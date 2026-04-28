@@ -71,7 +71,7 @@ export function Nav() {
               disabled
               title={t('comingSoon')}
               aria-label={t('connectWallet')}
-              className="inline-flex items-center gap-2 rounded-[10px] border border-white/10 bg-white/[0.03] px-3.5 py-2 text-sm text-white/50 cursor-not-allowed"
+              className="metal-outline inline-flex items-center gap-2 rounded-[10px] px-3.5 py-2 text-sm cursor-not-allowed opacity-65"
             >
               <Wallet className="h-4 w-4" />
               <span>{t('connectWallet')}</span>

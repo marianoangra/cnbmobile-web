@@ -4,11 +4,14 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
+import { MockedHomeScreen } from '@/components/ui/MockedHomeScreen';
 import { Stars } from '@/components/ui/Stars';
 import { StoreButtons } from '@/components/ui/StoreButtons';
+import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 export function Hero() {
   const t = useTranslations('hero');
+  const headlineRef = useMetalSpotlight<HTMLSpanElement>();
 
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
@@ -18,6 +21,24 @@ export function Hero() {
       <Stars count={110} seed={73} />
       <div aria-hidden className="absolute inset-0 bg-glow-tr" />
       <div aria-hidden className="absolute inset-0 bg-glow-bl" />
+
+      {/* Bottom fade — long multi-stop dissolve into the next section */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-[420px] z-10"
+        style={{
+          background: `linear-gradient(to bottom,
+            rgba(5, 8, 5, 0) 0%,
+            rgba(5, 8, 5, 0.05) 18%,
+            rgba(5, 8, 5, 0.18) 35%,
+            rgba(5, 8, 5, 0.38) 52%,
+            rgba(5, 8, 5, 0.62) 68%,
+            rgba(5, 8, 5, 0.82) 82%,
+            rgba(5, 8, 5, 0.95) 92%,
+            rgba(5, 8, 5, 1) 100%
+          )`,
+        }}
+      />
 
       <div className="relative z-20 mx-auto max-w-[1280px] px-5 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -39,7 +60,9 @@ export function Hero() {
             >
               {t('headlineLine1')}
               <br />
-              <span className="text-primary">{t('headlineLine2')}</span>
+              <span ref={headlineRef} className="metal-text">
+                {t('headlineLine2')}
+              </span>
             </motion.h1>
 
             <motion.p
@@ -68,7 +91,7 @@ export function Hero() {
               className="mt-12 flex items-center gap-6 text-xs uppercase tracking-wider text-white/35 font-mono"
             >
               <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
                 {t('statsLive')}
               </span>
               <span className="hidden sm:inline-block h-px w-8 bg-white/10" />
@@ -78,13 +101,11 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: phone */}
+          {/* Right: phone with live mocked home screen */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <PhoneMockup
-              src="/images/screen-home.png"
-              alt="CNB Mobile app — Início"
-              priority
-            />
+            <PhoneMockup alt="CNB Mobile app — Início" priority>
+              <MockedHomeScreen />
+            </PhoneMockup>
           </div>
         </div>
       </div>

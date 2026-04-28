@@ -29,7 +29,7 @@ export default async function SupportPage({ params }: Props) {
           <h2 className="text-xl md:text-2xl font-bold text-white mb-5">
             {t('contactTitle')}
           </h2>
-          <div className="rounded-2xl border border-border-glow/40 bg-card-gradient p-6 md:p-8">
+          <div className="metal-card rounded-2xl p-6 md:p-8">
             <p className="text-sm md:text-base text-white/65 leading-relaxed">
               {t('emailDescription')}
             </p>
@@ -55,7 +55,7 @@ export default async function SupportPage({ params }: Props) {
             {items.map((item, i) => (
               <details
                 key={i}
-                className="group rounded-2xl border border-border-glow/40 bg-card-gradient p-5 md:p-6 transition-colors open:border-primary/40 [&_summary::-webkit-details-marker]:hidden"
+                className="metal-accordion group rounded-2xl p-5 md:p-6 [&_summary::-webkit-details-marker]:hidden"
               >
                 <summary className="flex cursor-pointer items-center justify-between gap-4 list-none">
                   <span className="text-base md:text-lg font-semibold text-white">

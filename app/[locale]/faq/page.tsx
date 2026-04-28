@@ -28,7 +28,7 @@ export default async function FaqPage({ params }: Props) {
           {items.map((item, i) => (
             <details
               key={i}
-              className="group rounded-2xl border border-border-glow/40 bg-card-gradient p-5 md:p-6 transition-colors open:border-primary/40 [&_summary::-webkit-details-marker]:hidden"
+              className="metal-accordion group rounded-2xl p-5 md:p-6 [&_summary::-webkit-details-marker]:hidden"
             >
               <summary className="flex cursor-pointer items-center justify-between gap-4 list-none">
                 <span className="text-base md:text-lg font-semibold text-white">

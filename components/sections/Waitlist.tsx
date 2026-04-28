@@ -8,6 +8,7 @@ import { SectionBadge } from '@/components/ui/SectionBadge';
 import { insertLead } from '@/lib/supabase';
 import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
+import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -19,6 +20,7 @@ export function Waitlist() {
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const [errorMsg, setErrorMsg] = useState('');
+  const titleRef = useMetalSpotlight<HTMLHeadingElement>();
 
   async function onSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -61,7 +63,7 @@ export function Waitlist() {
           className="relative mx-auto max-w-3xl text-center"
         >
           <SectionBadge>{t('badge')}</SectionBadge>
-          <h2 className="section-title mt-5 text-white">{t('title')}</h2>
+          <h2 ref={titleRef} className="section-title mt-5 metal-text">{t('title')}</h2>
           <p className="mx-auto mt-5 max-w-xl text-base md:text-lg text-white/55 leading-relaxed">
             {t('subtitle')}
           </p>
@@ -95,10 +97,8 @@ export function Waitlist() {
               type="submit"
               disabled={status === 'submitting' || status === 'success'}
               className={cn(
-                'inline-flex items-center justify-center gap-2 rounded-[14px] px-7 py-3.5 text-[15px] font-bold transition-all',
-                status === 'success'
-                  ? 'bg-secondary text-black'
-                  : 'bg-primary text-black hover:bg-[#d4ff6e] hover:shadow-glow-primary',
+                'inline-flex items-center justify-center gap-2 rounded-[14px] px-7 py-3.5 text-[15px] font-bold',
+                status === 'success' ? 'metal-cta-champagne' : 'metal-cta',
                 'disabled:opacity-70 disabled:cursor-not-allowed'
               )}
             >

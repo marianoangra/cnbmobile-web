@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { SectionBadge } from '@/components/ui/SectionBadge';
+import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 type FaqItem = { q: string; a: string };
 
@@ -10,6 +11,7 @@ export function Faq() {
   const t = useTranslations('faq');
   const tFaq = useTranslations('pages.faq');
   const items = tFaq.raw('items') as FaqItem[];
+  const titleRef = useMetalSpotlight<HTMLHeadingElement>();
 
   return (
     <section id="faq" className="relative py-24 md:py-32">
@@ -27,7 +29,7 @@ export function Faq() {
           className="text-center"
         >
           <SectionBadge>{t('badge')}</SectionBadge>
-          <h2 className="section-title mt-5 text-white">{t('title')}</h2>
+          <h2 ref={titleRef} className="section-title mt-5 metal-text">{t('title')}</h2>
           <p className="mt-5 mx-auto max-w-xl text-base md:text-lg text-white/55 leading-relaxed">
             {t('subtitle')}
           </p>
@@ -43,7 +45,7 @@ export function Faq() {
           {items.map((item, i) => (
             <details
               key={i}
-              className="group rounded-2xl border border-border-glow/40 bg-card-gradient p-5 md:p-6 transition-colors open:border-primary/40 [&_summary::-webkit-details-marker]:hidden"
+              className="metal-accordion group rounded-2xl p-5 md:p-6 [&_summary::-webkit-details-marker]:hidden"
             >
               <summary className="flex cursor-pointer items-center justify-between gap-4 list-none">
                 <span className="text-base md:text-lg font-semibold text-white">

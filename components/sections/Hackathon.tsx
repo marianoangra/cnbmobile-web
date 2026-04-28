@@ -4,9 +4,11 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Trophy } from 'lucide-react';
 import { ButtonLink } from '@/components/ui/ButtonLink';
+import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 export function Hackathon() {
   const t = useTranslations('hackathon');
+  const titleRef = useMetalSpotlight<HTMLHeadingElement>();
 
   return (
     <section className="relative py-24 md:py-32">
@@ -16,7 +18,7 @@ export function Hackathon() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="relative overflow-hidden rounded-[28px] border border-primary/40 bg-card-gradient"
+          className="metal-card relative overflow-hidden rounded-[28px]"
         >
           {/* Decorative gradients */}
           <div aria-hidden className="absolute inset-0 bg-glow-tr opacity-80" />
@@ -34,7 +36,7 @@ export function Hackathon() {
                   {t('badge')}
                 </span>
               </div>
-              <h2 className="section-title mt-6 text-white">{t('title')}</h2>
+              <h2 ref={titleRef} className="section-title mt-6 metal-text">{t('title')}</h2>
               <p className="mt-5 max-w-xl text-base md:text-lg text-white/65 leading-relaxed">
                 {t('description')}
               </p>
@@ -56,7 +58,7 @@ export function Hackathon() {
                 {(['category', 'network', 'market'] as const).map((k) => (
                   <div
                     key={k}
-                    className="rounded-2xl border border-white/[0.06] bg-bg-deep/50 backdrop-blur-sm p-5"
+                    className="metal-stat-card rounded-2xl backdrop-blur-sm p-5"
                   >
                     <dt className="font-mono text-[10px] uppercase tracking-wider text-white/40">
                       {t(`stats.${k}`)}

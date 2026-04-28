@@ -6,19 +6,28 @@ interface SectionBadgeProps {
   variant?: 'default' | 'primary';
 }
 
-export function SectionBadge({ children, className, variant = 'default' }: SectionBadgeProps) {
+export function SectionBadge({
+  children,
+  className,
+  variant = 'default',
+}: SectionBadgeProps) {
   return (
     <div
       className={cn(
         'inline-flex items-center gap-2 px-3 py-1.5 rounded-full',
         variant === 'primary'
-          ? 'bg-primary/10 border border-primary/30 text-primary'
-          : 'bg-white/[0.03] border border-white/[0.08] text-white/60',
+          ? 'metal-badge-primary text-secondary-light'
+          : 'metal-badge text-white/55',
         'section-badge font-mono',
         className
       )}
     >
-      <span className={cn('h-1.5 w-1.5 rounded-full', variant === 'primary' ? 'bg-primary' : 'bg-white/50')} />
+      <span
+        className={cn(
+          'h-1.5 w-1.5 rounded-full',
+          variant === 'primary' ? 'bg-secondary' : 'bg-white/45'
+        )}
+      />
       {children}
     </div>
   );

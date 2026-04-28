@@ -6,6 +6,7 @@ import { Zap, Trophy, Wallet, type LucideIcon } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
 import { cn } from '@/lib/cn';
+import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 const STEPS: Array<{
   key: 'step1' | 'step2' | 'step3';
@@ -20,6 +21,7 @@ const STEPS: Array<{
 
 export function HowItWorks() {
   const t = useTranslations('howItWorks');
+  const titleRef = useMetalSpotlight<HTMLHeadingElement>();
 
   return (
     <section id="how-it-works" className="relative py-24 md:py-32">
@@ -28,7 +30,7 @@ export function HowItWorks() {
       <div className="mx-auto max-w-[1280px] px-5 md:px-8">
         <div className="max-w-2xl">
           <SectionBadge>{t('badge')}</SectionBadge>
-          <h2 className="section-title mt-5 text-white">{t('title')}</h2>
+          <h2 ref={titleRef} className="section-title mt-5 metal-text">{t('title')}</h2>
           <p className="mt-5 max-w-xl text-base md:text-lg text-white/55 leading-relaxed">
             {t('subtitle')}
           </p>
@@ -58,12 +60,18 @@ export function HowItWorks() {
                   )}
                 >
                   {/* Copy */}
-                  <div className="lg:col-span-7 lg:[direction:ltr]">
-                    <span className="font-mono text-xs uppercase tracking-wider text-primary">
-                      {t(`${step.key}.label`)}
-                    </span>
-                    <div className="mt-7 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/[0.08] border border-primary/25 text-primary">
-                      <Icon className="h-6 w-6" />
+                  <div className="group/step lg:col-span-7 lg:[direction:ltr]">
+                    <div className="flex items-center gap-3 mb-7">
+                      <span
+                        aria-hidden
+                        className="h-px w-8 bg-gradient-to-r from-transparent to-secondary-light/40"
+                      />
+                      <span className="font-mono text-[10px] uppercase tracking-[0.32em] font-medium text-secondary-light/85">
+                        {t(`${step.key}.label`)}
+                      </span>
+                    </div>
+                    <div className="metal-step-icon inline-flex h-16 w-16 items-center justify-center rounded-2xl text-secondary-light">
+                      <Icon className="h-7 w-7" />
                     </div>
                     <h3 className="mt-6 text-3xl md:text-4xl font-bold tracking-tight text-white">
                       {t(`${step.key}.title`)}

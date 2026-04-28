@@ -67,7 +67,7 @@ export function Footer() {
     <footer className="relative mt-12 border-t border-white/[0.06] bg-bg-deep">
       {/* Download banner */}
       <div className="mx-auto max-w-[1280px] px-5 md:px-8 pt-14 pb-2">
-        <div className="relative overflow-hidden rounded-3xl border border-primary/30 bg-card-gradient p-8 md:p-10">
+        <div className="metal-card relative overflow-hidden rounded-3xl p-8 md:p-10">
           <div aria-hidden className="absolute inset-0 bg-glow-tr opacity-60" />
           <div
             aria-hidden

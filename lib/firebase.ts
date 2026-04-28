@@ -75,7 +75,9 @@ export async function insertLead(lead: LeadInsert): Promise<{ ok: boolean; error
     if (e instanceof FirestoreError && e.code === 'permission-denied') {
       return { ok: true };
     }
-    const msg = e instanceof Error ? e.message : 'unknown';
+    // eslint-disable-next-line no-console
+    console.error('[insertLead] Firebase write failed:', e);
+    const msg = e instanceof Error ? `${e.name}: ${e.message}` : 'unknown';
     return { ok: false, error: msg };
   }
 }

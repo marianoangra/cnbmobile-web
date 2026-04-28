@@ -48,7 +48,7 @@ export function Waitlist() {
     } else {
       setStatus('error');
       setErrorMsg(t('errorGeneric'));
-      trackEvent('waitlist_failed', { locale });
+      trackEvent('waitlist_failed', { locale, error: result.error });
     }
   }
 

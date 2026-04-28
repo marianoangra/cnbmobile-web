@@ -19,20 +19,46 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'meta' });
 
+  // localePrefix: 'as-needed' — default locale (pt) is served from root.
+  const localePath = locale === 'pt' ? '/' : `/${locale}`;
+  const ogLocale =
+    locale === 'pt' ? 'pt_BR' : locale === 'en' ? 'en_US' : 'es_ES';
+
   return {
     title: t('title'),
     description: t('description'),
     keywords: t('keywords'),
+    alternates: {
+      canonical: localePath,
+      languages: {
+        pt: '/',
+        en: '/en',
+        es: '/es',
+        'x-default': '/',
+      },
+    },
     openGraph: {
       title: t('title'),
       description: t('description'),
       type: 'website',
-      locale,
+      locale: ogLocale,
+      url: localePath,
+      siteName: 'CNB Mobile',
     },
     twitter: {
       card: 'summary_large_image',
       title: t('title'),
       description: t('description'),
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
     icons: {
       icon: '/favicon.ico',

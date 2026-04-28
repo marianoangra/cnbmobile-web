@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { SectionBadge } from '@/components/ui/SectionBadge';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 type FaqItem = { q: string; a: string };
@@ -13,8 +14,22 @@ export function Faq() {
   const items = tFaq.raw('items') as FaqItem[];
   const titleRef = useMetalSpotlight<HTMLHeadingElement>();
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <section id="faq" className="relative py-24 md:py-32">
+      <JsonLd data={faqJsonLd} />
       <div
         aria-hidden
         className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"

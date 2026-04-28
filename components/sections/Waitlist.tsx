@@ -5,7 +5,7 @@ import { useTranslations, useLocale } from 'next-intl';
 import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Check, AlertCircle } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
-import { insertLead } from '@/lib/supabase';
+import { insertLead } from '@/lib/firebase';
 import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/cn';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';

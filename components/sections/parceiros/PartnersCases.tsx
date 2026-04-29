@@ -13,20 +13,27 @@ type Partner = {
   banner: string;
 };
 
+// Default URLs are real affiliate links — env vars can override per-deploy.
 const PARTNERS: Partner[] = [
   {
     key: 'bingx',
-    url: process.env.NEXT_PUBLIC_BINGX_URL ?? 'https://bingx.com',
+    url:
+      process.env.NEXT_PUBLIC_BINGX_URL ??
+      'https://bingxdao.com/partner/rafaelmariano/',
     banner: '/partners/bingx.jpg',
   },
   {
     key: 'okx',
-    url: process.env.NEXT_PUBLIC_OKX_URL ?? 'https://okx.com',
+    url:
+      process.env.NEXT_PUBLIC_OKX_URL ??
+      'https://okx.com/join/RAFAELMARIANO',
     banner: '/partners/okx.png',
   },
   {
     key: 'kast',
-    url: process.env.NEXT_PUBLIC_KAST_URL ?? '#',
+    url:
+      process.env.NEXT_PUBLIC_KAST_URL ??
+      'https://join.kast.xyz/click?offer_id=6&pub_id=96',
     banner: '/partners/kast.png',
   },
 ];

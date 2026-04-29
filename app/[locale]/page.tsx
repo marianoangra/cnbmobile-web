@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { Hero } from '@/components/sections/Hero';
+import { PartnersTrust } from '@/components/sections/PartnersTrust';
 import { Features } from '@/components/sections/Features';
 import { Community } from '@/components/sections/Community';
 import { HowItWorks } from '@/components/sections/HowItWorks';
@@ -85,6 +86,7 @@ export default async function HomePage({ params }: Props) {
     <>
       <JsonLd data={jsonLd} />
       <Hero />
+      <PartnersTrust />
       <Features />
       <Community />
       <HowItWorks />

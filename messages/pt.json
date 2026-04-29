@@ -26,6 +26,12 @@
     "statsToken": "SPL Token",
     "statsBeta": "iOS · Android"
   },
+  "partnersTrust": {
+    "badge": "Parceiros oficiais · Listagens",
+    "title": "Apoiado por quem já é referência",
+    "subtitle": "Exchanges globais e infraestrutura cripto que apostam no token CNB.",
+    "ctaAll": "Conheça todos os parceiros e formatos"
+  },
   "features": {
     "badge": "Por que CNB",
     "title": "Infraestrutura física descentralizada que paga você",

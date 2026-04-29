@@ -45,7 +45,7 @@ export default async function HomePage({ params }: Props) {
           'https://www.instagram.com/criptonobolso',
           'https://t.me/grupcriptocnb',
           'https://chat.whatsapp.com/GsIEmnUPKsn2W95HEjPwW8',
-          'https://github.com/marianoangra/cnbmobile',
+          'https://github.com/marianoangra/cnbapp',
         ],
         founder: {
           '@type': 'Person',

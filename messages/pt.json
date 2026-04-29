@@ -601,15 +601,25 @@
         "badge": "Quem está com a gente",
         "title": "Parceiros que já apostaram no CNB",
         "subtitle": "Comunidade real, parceria real, prova real.",
-        "bingx": {
-          "name": "BingX",
-          "role": "Exchange parceira",
-          "description": "BingX é parceira oficial da CNB Mobile na trajetória do token CNB — apoiando a comunidade brasileira de cripto e o ecossistema Solana com infraestrutura de exchange global.",
-          "cta": "Conhecer a BingX"
-        },
-        "soon": {
-          "title": "Próximo a chegar",
-          "description": "Estamos em conversa com marcas de energia, mobilidade e fintech. Quer ser anunciado aqui? Seu lugar tá aberto."
+        "items": {
+          "bingx": {
+            "name": "BingX",
+            "role": "Exchange parceira",
+            "description": "BingX é parceira oficial da CNB Mobile na trajetória do token CNB — apoiando a comunidade brasileira de cripto e o ecossistema Solana com infraestrutura de exchange global.",
+            "cta": "Conhecer a BingX"
+          },
+          "okx": {
+            "name": "OKX",
+            "role": "Exchange parceira",
+            "description": "OKX é parceira da CNB Mobile no ecossistema cripto — referência global em exchange, derivativos e Web3, somando liquidez e alcance ao token CNB.",
+            "cta": "Conhecer a OKX"
+          },
+          "kast": {
+            "name": "KAST",
+            "role": "Parceira estratégica",
+            "description": "KAST é parceira estratégica da CNB Mobile, conectando infraestrutura de pagamentos cripto e Web3 à rotina dos usuários brasileiros.",
+            "cta": "Conhecer a KAST"
+          }
         }
       },
       "tiers": {

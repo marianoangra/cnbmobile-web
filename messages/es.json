@@ -601,15 +601,25 @@
         "badge": "Quién está con nosotros",
         "title": "Socios que ya apostaron por CNB",
         "subtitle": "Comunidad real, alianza real, prueba real.",
-        "bingx": {
-          "name": "BingX",
-          "role": "Exchange socia",
-          "description": "BingX es socia oficial de CNB Mobile en la trayectoria del token CNB — apoyando a la comunidad cripto brasileña y al ecosistema Solana con infraestructura de exchange global.",
-          "cta": "Conocer BingX"
-        },
-        "soon": {
-          "title": "Próximamente",
-          "description": "Estamos en conversación con marcas de energía, movilidad y fintech. ¿Quieres anunciarte aquí? Tu lugar está abierto."
+        "items": {
+          "bingx": {
+            "name": "BingX",
+            "role": "Exchange socia",
+            "description": "BingX es socia oficial de CNB Mobile en la trayectoria del token CNB — apoyando a la comunidad cripto brasileña y al ecosistema Solana con infraestructura de exchange global.",
+            "cta": "Conocer BingX"
+          },
+          "okx": {
+            "name": "OKX",
+            "role": "Exchange socia",
+            "description": "OKX es socia de CNB Mobile en el ecosistema cripto — referencia global en exchange, derivados y Web3, sumando liquidez y alcance al token CNB.",
+            "cta": "Conocer OKX"
+          },
+          "kast": {
+            "name": "KAST",
+            "role": "Socia estratégica",
+            "description": "KAST es socia estratégica de CNB Mobile, conectando infraestructura de pagos cripto y Web3 a la rutina de los usuarios brasileños.",
+            "cta": "Conocer KAST"
+          }
         }
       },
       "tiers": {

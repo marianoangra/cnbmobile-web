@@ -601,15 +601,25 @@
         "badge": "Who's with us",
         "title": "Partners already betting on CNB",
         "subtitle": "Real community, real partnership, real proof.",
-        "bingx": {
-          "name": "BingX",
-          "role": "Exchange partner",
-          "description": "BingX is CNB Mobile's official partner on the CNB token journey — supporting the Brazilian crypto community and the Solana ecosystem with global exchange infrastructure.",
-          "cta": "Visit BingX"
-        },
-        "soon": {
-          "title": "Coming next",
-          "description": "We're in talks with energy, mobility, and fintech brands. Want to be announced here? Your spot is open."
+        "items": {
+          "bingx": {
+            "name": "BingX",
+            "role": "Exchange partner",
+            "description": "BingX is CNB Mobile's official partner on the CNB token journey — supporting the Brazilian crypto community and the Solana ecosystem with global exchange infrastructure.",
+            "cta": "Visit BingX"
+          },
+          "okx": {
+            "name": "OKX",
+            "role": "Exchange partner",
+            "description": "OKX is a CNB Mobile partner in the crypto ecosystem — a global leader in exchange, derivatives, and Web3, bringing liquidity and reach to the CNB token.",
+            "cta": "Visit OKX"
+          },
+          "kast": {
+            "name": "KAST",
+            "role": "Strategic partner",
+            "description": "KAST is a strategic partner of CNB Mobile, connecting crypto payment infrastructure and Web3 to the daily life of Brazilian users.",
+            "cta": "Visit KAST"
+          }
         }
       },
       "tiers": {

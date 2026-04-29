@@ -1,12 +1,42 @@
 'use client';
 
+import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
-const BINGX_URL = process.env.NEXT_PUBLIC_BINGX_URL ?? 'https://bingx.com';
+type Partner = {
+  key: 'bingx' | 'okx' | 'kast';
+  url: string;
+  /**
+   * Optional logo path under /public. If omitted, the card renders the
+   * partner name in big metallic typography as a fallback.
+   * Drop SVGs at e.g. public/partners/bingx.svg and set them here.
+   */
+  logo?: string;
+  logoWidth?: number;
+  logoHeight?: number;
+};
+
+const PARTNERS: Partner[] = [
+  {
+    key: 'bingx',
+    url: process.env.NEXT_PUBLIC_BINGX_URL ?? 'https://bingx.com',
+    // logo: '/partners/bingx.svg', logoWidth: 160, logoHeight: 40,
+  },
+  {
+    key: 'okx',
+    url: process.env.NEXT_PUBLIC_OKX_URL ?? 'https://okx.com',
+    // logo: '/partners/okx.svg', logoWidth: 160, logoHeight: 40,
+  },
+  {
+    key: 'kast',
+    url: process.env.NEXT_PUBLIC_KAST_URL ?? '#',
+    // logo: '/partners/kast.svg', logoWidth: 160, logoHeight: 40,
+  },
+];
 
 export function PartnersCases() {
   const t = useTranslations('pages.parceiros.cases');
@@ -25,80 +55,74 @@ export function PartnersCases() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-5">
-          {/* Featured: BingX */}
-          <motion.a
-            href={BINGX_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="metal-card group lg:col-span-2 relative overflow-hidden rounded-3xl p-8 md:p-10 cursor-pointer"
-          >
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-secondary/10 blur-3xl"
-            />
-            <div
-              aria-hidden
-              className="pointer-events-none absolute -left-12 -bottom-12 h-44 w-44 rounded-full bg-primary/10 blur-3xl"
-            />
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+          {PARTNERS.map((p, i) => {
+            const hasLink = p.url !== '#';
+            const Wrapper = hasLink ? motion.a : motion.div;
+            const wrapperProps = hasLink
+              ? { href: p.url, target: '_blank', rel: 'noopener noreferrer' }
+              : {};
 
-            <div className="relative">
-              <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.08] px-3 py-1.5">
-                <ShieldCheck className="h-3.5 w-3.5 text-secondary-light" />
-                <span className="font-mono text-[11px] uppercase tracking-wider text-secondary-light">
-                  {t('bingx.role')}
-                </span>
-              </div>
-
-              <div className="mt-6 flex items-baseline gap-3 flex-wrap">
-                <span className="text-5xl md:text-6xl font-bold tracking-tight text-white">
-                  {t('bingx.name')}
-                </span>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white/35">
-                  Exchange · Global
-                </span>
-              </div>
-
-              <p className="mt-6 max-w-2xl text-base md:text-lg text-white/65 leading-relaxed">
-                {t('bingx.description')}
-              </p>
-
-              <div className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-secondary-light group-hover:text-secondary-light/80 transition-colors">
-                {t('bingx.cta')}
-                <ArrowUpRight className="h-4 w-4" />
-              </div>
-            </div>
-          </motion.a>
-
-          {/* Soon slot */}
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-50px' }}
-            transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-            className="metal-stat-card rounded-3xl p-7 md:p-8 border-dashed"
-          >
-            <div className="font-mono text-[10px] uppercase tracking-wider text-white/40">
-              {t('soon.title')}
-            </div>
-            <div className="mt-6 flex items-center justify-center h-24">
-              <div
-                aria-hidden
-                className="flex items-center gap-2 text-white/25"
+            return (
+              <Wrapper
+                key={p.key}
+                {...wrapperProps}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-50px' }}
+                transition={{
+                  duration: 0.7,
+                  delay: i * 0.08,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="metal-card group relative overflow-hidden rounded-3xl p-7 md:p-8 cursor-pointer flex flex-col"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
-                <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
-                <span className="h-1.5 w-1.5 rounded-full bg-white/20" />
-              </div>
-            </div>
-            <p className="mt-2 text-xs text-white/50 leading-relaxed">
-              {t('soon.description')}
-            </p>
-          </motion.div>
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-secondary/10 blur-3xl"
+                />
+
+                <div className="relative flex-1">
+                  {/* Role chip */}
+                  <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.08] px-3 py-1.5">
+                    <ShieldCheck className="h-3.5 w-3.5 text-secondary-light" />
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-secondary-light">
+                      {t(`items.${p.key}.role`)}
+                    </span>
+                  </div>
+
+                  {/* Logo or text fallback */}
+                  <div className="mt-6 flex h-14 items-center">
+                    {p.logo ? (
+                      <Image
+                        src={p.logo}
+                        alt={t(`items.${p.key}.name`)}
+                        width={p.logoWidth ?? 160}
+                        height={p.logoHeight ?? 40}
+                        className="object-contain object-left"
+                        priority={false}
+                      />
+                    ) : (
+                      <span className="text-3xl md:text-4xl font-bold tracking-tight text-white">
+                        {t(`items.${p.key}.name`)}
+                      </span>
+                    )}
+                  </div>
+
+                  <p className="mt-5 text-sm text-white/60 leading-relaxed">
+                    {t(`items.${p.key}.description`)}
+                  </p>
+                </div>
+
+                {hasLink && (
+                  <div className="relative mt-6 inline-flex items-center gap-2 text-sm font-semibold text-secondary-light group-hover:text-secondary-light/80 transition-colors">
+                    {t(`items.${p.key}.cta`)}
+                    <ArrowUpRight className="h-4 w-4" />
+                  </div>
+                )}
+              </Wrapper>
+            );
+          })}
         </div>
       </div>
     </section>

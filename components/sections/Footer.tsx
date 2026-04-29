@@ -57,7 +57,7 @@ export function Footer() {
     privacyEn: '/privacidade',
     copyright: '/copyright',
     support: '/suporte',
-    deleteAccount: 'https://cnbmobile.com/delete-account',
+    deleteAccount: '/delete-account',
     cloakPrivacy: 'https://www.cloak.ag/privacy',
   } as const;
 

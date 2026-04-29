@@ -381,6 +381,70 @@
         }
       ],
       "closing": "© 2026 CNB Mobile — Cripto no Bolso. Todos os direitos reservados."
+    },
+    "deleteAccount": {
+      "title": "Excluir minha conta",
+      "lastUpdated": "Última atualização: 29 de abril de 2026",
+      "sections": [
+        {
+          "heading": "1. Visão geral",
+          "body": [
+            "Você pode solicitar a exclusão da sua conta CNB Mobile a qualquer momento. Esta página descreve as formas de exclusão, o que é apagado e o que pode ser retido por exigência legal."
+          ]
+        },
+        {
+          "heading": "2. Excluir pelo aplicativo",
+          "body": [
+            "A forma mais rápida é excluir direto pelo app:"
+          ],
+          "items": [
+            "Abra o aplicativo CNB Mobile no seu celular.",
+            "Acesse Perfil → Configurações → Conta.",
+            "Toque em \"Excluir conta\" e confirme.",
+            "A conta é desativada na hora e os dados pessoais são removidos em até 30 dias."
+          ]
+        },
+        {
+          "heading": "3. Excluir por email",
+          "body": [
+            "Se você não tem mais acesso ao app, envie um pedido de exclusão a partir do email cadastrado para contato@criptonobolso.com.br com o assunto \"Pedido de exclusão de conta — CNB Mobile\". Confirmamos o recebimento em até 7 dias úteis e concluímos a exclusão em até 30 dias."
+          ]
+        },
+        {
+          "heading": "4. Dados que excluímos",
+          "items": [
+            "Dados de cadastro (nome, email, foto de perfil)",
+            "Histórico de check-ins, pontuação e sequências",
+            "Posição e participação no ranking",
+            "Endereço de carteira vinculada",
+            "Preferências, identificadores de dispositivo e logs de uso pessoais"
+          ]
+        },
+        {
+          "heading": "5. Dados que podemos reter",
+          "body": [
+            "Por exigência legal e de segurança, alguns registros podem ser mantidos mesmo após a exclusão:"
+          ],
+          "items": [
+            "Transações on-chain de CNB já realizadas — públicas e imutáveis na rede Solana, fora do nosso controle",
+            "Registros financeiros e fiscais exigidos pela legislação brasileira",
+            "Logs de segurança anônimos por até 12 meses para prevenção de fraude"
+          ]
+        },
+        {
+          "heading": "6. Avisos importantes",
+          "body": [
+            "A exclusão é definitiva e não pode ser revertida. Pontos não resgatados são perdidos. Tokens CNB já enviados para a sua carteira Solana permanecem com você — fora do nosso controle. Recomendamos resgatar saldos pendentes antes de solicitar a exclusão."
+          ]
+        },
+        {
+          "heading": "7. Contato",
+          "body": [
+            "Cripto no Bolso — contato@criptonobolso.com.br"
+          ]
+        }
+      ],
+      "closing": "© 2026 CNB Mobile — Cripto no Bolso. Todos os direitos reservados."
     }
   }
 }

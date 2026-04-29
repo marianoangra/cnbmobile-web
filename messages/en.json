@@ -381,6 +381,70 @@
         }
       ],
       "closing": "© 2026 CNB Mobile — Cripto no Bolso. All rights reserved."
+    },
+    "deleteAccount": {
+      "title": "Delete my account",
+      "lastUpdated": "Last updated: April 29, 2026",
+      "sections": [
+        {
+          "heading": "1. Overview",
+          "body": [
+            "You can request deletion of your CNB Mobile account at any time. This page describes how to request it, what gets deleted, and what may be retained as required by law."
+          ]
+        },
+        {
+          "heading": "2. Delete from the app",
+          "body": [
+            "The fastest way is to delete directly from the app:"
+          ],
+          "items": [
+            "Open the CNB Mobile app on your phone.",
+            "Go to Profile → Settings → Account.",
+            "Tap \"Delete account\" and confirm.",
+            "Your account is disabled immediately and personal data is removed within 30 days."
+          ]
+        },
+        {
+          "heading": "3. Delete by email",
+          "body": [
+            "If you no longer have access to the app, send a deletion request from your registered email to contato@criptonobolso.com.br with the subject \"Account deletion request — CNB Mobile\". We acknowledge the request within 7 business days and complete deletion within 30 days."
+          ]
+        },
+        {
+          "heading": "4. Data we delete",
+          "items": [
+            "Account profile (name, email, profile picture)",
+            "Check-in history, points and streaks",
+            "Ranking position and participation",
+            "Linked wallet address",
+            "Preferences, device identifiers and personal usage logs"
+          ]
+        },
+        {
+          "heading": "5. Data we may retain",
+          "body": [
+            "Some records may be kept after deletion to comply with legal and security obligations:"
+          ],
+          "items": [
+            "On-chain CNB transactions already executed — public and immutable on the Solana network, outside of our control",
+            "Financial and tax records required by Brazilian law",
+            "Anonymous security logs for up to 12 months to prevent fraud"
+          ]
+        },
+        {
+          "heading": "6. Important notices",
+          "body": [
+            "Deletion is permanent and cannot be reversed. Unredeemed points are forfeited. CNB tokens already sent to your Solana wallet remain yours — outside of our control. We recommend redeeming any pending balance before requesting deletion."
+          ]
+        },
+        {
+          "heading": "7. Contact",
+          "body": [
+            "Cripto no Bolso — contato@criptonobolso.com.br"
+          ]
+        }
+      ],
+      "closing": "© 2026 CNB Mobile — Cripto no Bolso. All rights reserved."
     }
   }
 }

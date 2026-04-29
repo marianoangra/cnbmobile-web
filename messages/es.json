@@ -381,6 +381,70 @@
         }
       ],
       "closing": "© 2026 CNB Mobile — Cripto no Bolso. Todos los derechos reservados."
+    },
+    "deleteAccount": {
+      "title": "Eliminar mi cuenta",
+      "lastUpdated": "Última actualización: 29 de abril de 2026",
+      "sections": [
+        {
+          "heading": "1. Visión general",
+          "body": [
+            "Puedes solicitar la eliminación de tu cuenta CNB Mobile en cualquier momento. Esta página describe cómo solicitarla, qué se elimina y qué puede ser retenido por exigencia legal."
+          ]
+        },
+        {
+          "heading": "2. Eliminar desde la app",
+          "body": [
+            "La forma más rápida es eliminarla directamente desde la app:"
+          ],
+          "items": [
+            "Abre la app CNB Mobile en tu teléfono.",
+            "Ve a Perfil → Ajustes → Cuenta.",
+            "Toca \"Eliminar cuenta\" y confirma.",
+            "Tu cuenta se desactiva al instante y los datos personales se eliminan en hasta 30 días."
+          ]
+        },
+        {
+          "heading": "3. Eliminar por correo",
+          "body": [
+            "Si ya no tienes acceso a la app, envía una solicitud de eliminación desde tu correo registrado a contato@criptonobolso.com.br con el asunto \"Solicitud de eliminación de cuenta — CNB Mobile\". Confirmamos la recepción en hasta 7 días hábiles y completamos la eliminación en hasta 30 días."
+          ]
+        },
+        {
+          "heading": "4. Datos que eliminamos",
+          "items": [
+            "Datos de la cuenta (nombre, correo, foto de perfil)",
+            "Historial de check-ins, puntuación y rachas",
+            "Posición y participación en el ranking",
+            "Dirección de cartera vinculada",
+            "Preferencias, identificadores de dispositivo y registros de uso personales"
+          ]
+        },
+        {
+          "heading": "5. Datos que podemos retener",
+          "body": [
+            "Algunos registros pueden conservarse tras la eliminación por obligaciones legales y de seguridad:"
+          ],
+          "items": [
+            "Transacciones on-chain de CNB ya realizadas — públicas e inmutables en la red Solana, fuera de nuestro control",
+            "Registros financieros y fiscales exigidos por la legislación brasileña",
+            "Registros de seguridad anónimos por hasta 12 meses para prevenir fraudes"
+          ]
+        },
+        {
+          "heading": "6. Avisos importantes",
+          "body": [
+            "La eliminación es definitiva y no puede revertirse. Los puntos no canjeados se pierden. Los tokens CNB ya enviados a tu cartera Solana siguen siendo tuyos — fuera de nuestro control. Recomendamos canjear cualquier saldo pendiente antes de solicitar la eliminación."
+          ]
+        },
+        {
+          "heading": "7. Contacto",
+          "body": [
+            "Cripto no Bolso — contato@criptonobolso.com.br"
+          ]
+        }
+      ],
+      "closing": "© 2026 CNB Mobile — Cripto no Bolso. Todos los derechos reservados."
     }
   }
 }

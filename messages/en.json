@@ -9,6 +9,7 @@
     "howItWorks": "How it works",
     "token": "Token",
     "hackathon": "Hackathon",
+    "parceiros": "Partners",
     "download": "Download App",
     "connectWallet": "Connect Wallet",
     "comingSoon": "Coming soon"
@@ -150,6 +151,7 @@
       "howItWorks": "How it works",
       "token": "Token",
       "hackathon": "Hackathon",
+      "parceiros": "Partners",
       "download": "Download app"
     },
     "legal": "Legal",
@@ -445,6 +447,316 @@
         }
       ],
       "closing": "© 2026 CNB Mobile — Cripto no Bolso. All rights reserved."
+    },
+    "parceiros": {
+      "title": "Partners",
+      "intro": "Connect your brand to a DePIN network with on-chain proof — sponsored missions, native banners, and token integrations on Solana.",
+      "hero": {
+        "badge": "B2B Partnerships · Solana DePIN",
+        "headlineLine1": "Your brand, in the daily routine",
+        "headlineLine2": "of an active DePIN network.",
+        "subtitle": "CNB Mobile is Brazil's first Human Activity DePIN. Every minute of usage is on-chain proof. Place your brand inside sponsored missions, native banners, and token integrations — and measure outcomes by completion, not by impression.",
+        "ctaPrimary": "Become a partner",
+        "ctaSecondary": "See formats",
+        "partnerStamp": "Official partner",
+        "partnerStampHint": "Exchange partner on the CNB token journey"
+      },
+      "kpi": {
+        "badge": "Why CNB",
+        "title": "Active, on-chain audience — and growing",
+        "subtitle": "The numbers that matter to sponsors. Updated each release.",
+        "items": {
+          "downloads": {
+            "label": "Downloads (iOS + Android)",
+            "value": "Growing",
+            "note": "App Store + Google Play · Brazil"
+          },
+          "dau": {
+            "label": "Daily active users",
+            "value": "Growing",
+            "note": "Sessions with on-chain proof"
+          },
+          "retention": {
+            "label": "D7 retention",
+            "value": "Growing",
+            "note": "Daily charging habit"
+          },
+          "sessions": {
+            "label": "Sessions / day",
+            "value": "Growing",
+            "note": "Avg. session: ~90 min"
+          },
+          "geo": {
+            "label": "Primary geography",
+            "value": "Brazil + LATAM",
+            "note": "Focus: SP, RJ, MG, RS"
+          },
+          "demo": {
+            "label": "Dominant profile",
+            "value": "18–45, urban",
+            "note": "Mobile-first, on-chain savvy"
+          }
+        },
+        "disclaimer": "Detailed numbers under NDA — request the deck via the form."
+      },
+      "audience": {
+        "badge": "Who uses CNB",
+        "title": "Not generic audience. Daily habit, wallet in hand.",
+        "subtitle": "Each user signed up, opened the app, and triggered on-chain proof. A quality filter no ad network delivers.",
+        "personas": {
+          "mobile": {
+            "title": "Mobile-first",
+            "description": "100% on-phone. Sessions begin with the charger cable. Real attention, not passive scrolling."
+          },
+          "sustainable": {
+            "title": "Energy-aware",
+            "description": "CNB users think about their energy use. Green brands, EV, urban mobility, and energy speak directly to them."
+          },
+          "web3": {
+            "title": "On-chain savvy",
+            "description": "Active Solana wallet, comfortable with tokens, open to new protocols. Crypto needs no introduction."
+          },
+          "urban": {
+            "title": "Young & urban",
+            "description": "18–45, predominantly in capital cities. Mid/upper income, high willingness to try new products."
+          }
+        }
+      },
+      "offerings": {
+        "badge": "The catalog",
+        "title": "How your brand shows up",
+        "subtitle": "Pick a format or combine several. End-to-end measurement with optional on-chain proof.",
+        "labels": {
+          "metric": "Metric",
+          "example": "Example"
+        },
+        "items": {
+          "missions": {
+            "title": "Sponsored Missions",
+            "description": "Your brand briefs a mission (e.g., visit a store, try the app, share content). The user completes it, gets CNB + your reward, and you measure by real completion.",
+            "metric": "CPMC · Cost Per Mission Completion",
+            "example": "E.g., \"Visit charging station X\" → +500 CNB + brand coupon",
+            "featured": "Featured format"
+          },
+          "banners": {
+            "title": "Native In-App Banners",
+            "description": "Placement inside the feed — no pop-ups, no interruptions. CPM or CPC pricing, with profile-based targeting.",
+            "metric": "CPM · CPC",
+            "example": "E.g., sponsored card between missions, with up to 2 CTAs"
+          },
+          "cashback": {
+            "title": "Cashback / Pay in CNB",
+            "description": "Your brand accepts CNB as payment (auto-converted to BRL via partner gateway) or issues CNB cashback for off-app actions.",
+            "metric": "GMV · Tokenized Volume",
+            "example": "E.g., customer pays for coffee, gets 5% back in CNB"
+          },
+          "geo": {
+            "title": "Geo-fenced Campaigns",
+            "description": "Missions and banners triggered by location. Ideal for physical retail, gas stations, events, and IRL activations with foot-traffic measurement.",
+            "metric": "Visit Rate · Footfall Lift",
+            "example": "E.g., user enters a 200m radius → mission fires"
+          },
+          "loyalty": {
+            "title": "Loyalty Bridge",
+            "description": "Connect your loyalty program to CNB. User burns brand points, earns CNB. Reverse: spend CNB, earn your points. Cross-loyalty.",
+            "metric": "Active Loyalty · Conversion Rate",
+            "example": "E.g., \"500 partner points = 50 CNB\""
+          },
+          "irl": {
+            "title": "IRL Brand Activations",
+            "description": "Co-branding at meetups, hackathons, festivals, and street activations. CNB Mobile + Superteam Brazil + your brand, with integrated digital coverage.",
+            "metric": "Reach · Mentions · UGC",
+            "example": "E.g., co-branded booth at a Solana hackathon"
+          }
+        }
+      },
+      "flow": {
+        "badge": "How it works",
+        "title": "From briefing to reward in 4 steps",
+        "subtitle": "Human curation, automated execution, on-chain measurement.",
+        "steps": {
+          "brief": {
+            "label": "Step 01",
+            "title": "Brand briefing",
+            "description": "You define objective, audience, format (mission/banner/integration), region, and budget. 30-min call."
+          },
+          "curate": {
+            "label": "Step 02",
+            "title": "CNB curation",
+            "description": "Our team designs the mechanics, validates compliance, and prepares the in-app mission. Shared approval before go-live."
+          },
+          "deliver": {
+            "label": "Step 03",
+            "title": "Mission live",
+            "description": "Users see, complete, and receive CNB on-chain + your brand reward. Real time."
+          },
+          "measure": {
+            "label": "Step 04",
+            "title": "Report + payment",
+            "description": "Dashboard with completion rate, completer profile, unit cost, and on-chain proof. Pay by invoice or in CNB."
+          }
+        }
+      },
+      "cases": {
+        "badge": "Who's with us",
+        "title": "Partners already betting on CNB",
+        "subtitle": "Real community, real partnership, real proof.",
+        "bingx": {
+          "name": "BingX",
+          "role": "Exchange partner",
+          "description": "BingX is CNB Mobile's official partner on the CNB token journey — supporting the Brazilian crypto community and the Solana ecosystem with global exchange infrastructure.",
+          "cta": "Visit BingX"
+        },
+        "soon": {
+          "title": "Coming next",
+          "description": "We're in talks with energy, mobility, and fintech brands. Want to be announced here? Your spot is open."
+        }
+      },
+      "tiers": {
+        "badge": "Investment",
+        "title": "Partnership models",
+        "subtitle": "Starter packages — every partnership is customizable. Negotiate via the form.",
+        "cta": "I want this format",
+        "items": {
+          "pilot": {
+            "name": "Pilot",
+            "tagline": "Quick, measurable test",
+            "price": "On request",
+            "duration": "30 days",
+            "features": [
+              "1 sponsored mission, up to 5,000 completions",
+              "User profile targeting",
+              "Measurement dashboard + final report",
+              "Pay in BRL"
+            ]
+          },
+          "growth": {
+            "name": "Growth",
+            "tagline": "Continuous presence",
+            "price": "On request",
+            "duration": "90 days",
+            "features": [
+              "Up to 3 missions + feed banners",
+              "Geo-fencing included",
+              "Co-marketing on CNB social channels",
+              "Pay in BRL or CNB"
+            ]
+          },
+          "enterprise": {
+            "name": "Enterprise",
+            "tagline": "Strategic integration",
+            "price": "Negotiated",
+            "duration": "12 months+",
+            "features": [
+              "Unlimited custom missions",
+              "Loyalty bridge or token integration",
+              "Co-produced IRL brand activation",
+              "Dedicated account manager",
+              "Negotiable category exclusivity"
+            ]
+          }
+        }
+      },
+      "faqSection": {
+        "badge": "Partner FAQ",
+        "title": "Frequently asked questions",
+        "subtitle": "Everything you need to know before signing.",
+        "items": [
+          {
+            "q": "How does payment work?",
+            "a": "By default, payment in BRL via monthly invoice. On Growth and Enterprise plans we can receive in CNB with auto-conversion. User rewards always go out as CNB on-chain."
+          },
+          {
+            "q": "How long until the mission goes live?",
+            "a": "From approved briefing to live mission: 7–14 days. Depends on mechanic complexity and compliance review."
+          },
+          {
+            "q": "What metrics do I receive?",
+            "a": "Dashboard with completion rate, sessions, demographic profile of completers, unit cost, and on-chain proof of rewards paid. Consolidated report at the end of each cycle."
+          },
+          {
+            "q": "Can I get category exclusivity?",
+            "a": "On Enterprise, yes — negotiable per category and region. On Pilot and Growth, we operate non-exclusive but guarantee no competitor on the same day."
+          },
+          {
+            "q": "What about LGPD and compliance?",
+            "a": "Every partnership goes through LGPD and Consumer Protection review before go-live. Minimal data collection, explicit user opt-in, region-specific contracts."
+          },
+          {
+            "q": "Is there a minimum contract?",
+            "a": "Pilot is 30 days. Growth, 90 days. Enterprise, 12 months. Always with the option to upgrade between tiers during the cycle."
+          },
+          {
+            "q": "How do I approve the mission before it goes live?",
+            "a": "We share a draft via Notion or Figma; you approve or request changes. It only goes live with written approval from the brand."
+          },
+          {
+            "q": "Who runs the partnership on my side?",
+            "a": "Pilot and Growth are managed by the CNB team directly. Enterprise includes a dedicated Account Manager with a 4-business-hour response SLA."
+          }
+        ]
+      },
+      "form": {
+        "badge": "Talk to the team",
+        "title": "Let's talk?",
+        "subtitle": "Fill it out — we reply within 48 business hours with an initial proposal.",
+        "fields": {
+          "name": { "label": "Name", "placeholder": "Your name" },
+          "email": { "label": "Work email", "placeholder": "you@company.com" },
+          "company": { "label": "Company", "placeholder": "Company name" },
+          "role": { "label": "Role (optional)", "placeholder": "E.g., Head of Marketing" },
+          "segment": {
+            "label": "Segment",
+            "placeholder": "Select",
+            "options": {
+              "exchange": "Exchange / Crypto",
+              "fintech": "Fintech / Bank",
+              "energy": "Energy / Charging",
+              "mobility": "Mobility",
+              "cpg": "CPG / Retail",
+              "web3": "Web3 / dApp",
+              "other": "Other"
+            }
+          },
+          "partnership": {
+            "label": "Partnership type",
+            "placeholder": "Select",
+            "options": {
+              "missions": "Sponsored missions",
+              "banners": "In-app banners",
+              "cashback": "Cashback / Pay in CNB",
+              "geo": "Geo-fenced campaign",
+              "loyalty": "Loyalty bridge",
+              "irl": "IRL activation",
+              "explore": "Still exploring"
+            }
+          },
+          "budget": {
+            "label": "Approximate budget",
+            "placeholder": "Select range",
+            "options": {
+              "under5": "Up to R$ 5k",
+              "5to25": "R$ 5–25k",
+              "25to100": "R$ 25–100k",
+              "over100": "Over R$ 100k",
+              "tbd": "Still defining"
+            }
+          },
+          "message": { "label": "Tell us what you have in mind", "placeholder": "Briefing, goal, timing, any useful context" }
+        },
+        "submit": "Send proposal",
+        "submitting": "Sending...",
+        "success": "Got it! We'll respond within 48 business hours.",
+        "errorRequired": "Please fill in the required fields.",
+        "errorEmail": "Invalid email.",
+        "errorGeneric": "Something went wrong. Try again or write to parcerias@cnbmobile.com."
+      },
+      "contact": {
+        "label": "Direct line",
+        "email": "parcerias@cnbmobile.com",
+        "x": "@cnbmobile",
+        "note": "Reply within 48 business hours."
+      }
     }
   }
 }

@@ -9,6 +9,7 @@
     "howItWorks": "Cómo funciona",
     "token": "Token",
     "hackathon": "Hackathon",
+    "parceiros": "Socios",
     "download": "Descargar App",
     "connectWallet": "Conectar Cartera",
     "comingSoon": "Próximamente"
@@ -150,6 +151,7 @@
       "howItWorks": "Cómo funciona",
       "token": "Token",
       "hackathon": "Hackathon",
+      "parceiros": "Socios",
       "download": "Descargar app"
     },
     "legal": "Legal",
@@ -445,6 +447,316 @@
         }
       ],
       "closing": "© 2026 CNB Mobile — Cripto no Bolso. Todos los derechos reservados."
+    },
+    "parceiros": {
+      "title": "Socios",
+      "intro": "Conecta tu marca a una red DePIN con prueba on-chain — misiones patrocinadas, banners nativos e integraciones de token en Solana.",
+      "hero": {
+        "badge": "Alianzas B2B · Solana DePIN",
+        "headlineLine1": "Tu marca, en la rutina",
+        "headlineLine2": "de una red DePIN activa.",
+        "subtitle": "CNB Mobile es el primer DePIN de Actividad Humana de Brasil. Cada minuto de uso es prueba on-chain. Coloca tu marca dentro de misiones patrocinadas, banners nativos e integraciones de token — y mide el resultado por completion, no por impresión.",
+        "ctaPrimary": "Quiero ser socio",
+        "ctaSecondary": "Ver formatos",
+        "partnerStamp": "Socia oficial",
+        "partnerStampHint": "Exchange socia en la trayectoria del token CNB"
+      },
+      "kpi": {
+        "badge": "Por qué CNB",
+        "title": "Audiencia activa, on-chain y en crecimiento",
+        "subtitle": "Los números que importan a quien patrocina. Actualizamos en cada release.",
+        "items": {
+          "downloads": {
+            "label": "Descargas (iOS + Android)",
+            "value": "En crecimiento",
+            "note": "App Store + Google Play · Brasil"
+          },
+          "dau": {
+            "label": "Usuarios activos diarios",
+            "value": "En crecimiento",
+            "note": "Sesiones con prueba on-chain"
+          },
+          "retention": {
+            "label": "Retención D7",
+            "value": "En crecimiento",
+            "note": "Hábito diario de carga"
+          },
+          "sessions": {
+            "label": "Sesiones / día",
+            "value": "En crecimiento",
+            "note": "Promedio: ~90 min"
+          },
+          "geo": {
+            "label": "Geografía primaria",
+            "value": "Brasil + LATAM",
+            "note": "Foco SP, RJ, MG, RS"
+          },
+          "demo": {
+            "label": "Perfil dominante",
+            "value": "18–45, urbano",
+            "note": "Mobile-first, on-chain savvy"
+          }
+        },
+        "disclaimer": "Números detallados disponibles bajo NDA — pide el deck en el formulario."
+      },
+      "audience": {
+        "badge": "Quién usa CNB",
+        "title": "No es audiencia genérica. Es hábito diario con cartera en mano.",
+        "subtitle": "Cada usuario se registró, abrió el app y activó prueba on-chain. Filtro de calidad que ninguna ad-network entrega.",
+        "personas": {
+          "mobile": {
+            "title": "Mobile-first",
+            "description": "100% en el celular. La sesión empieza con el cable del cargador. Atención real, no scroll pasivo."
+          },
+          "sustainable": {
+            "title": "Consciente de la energía",
+            "description": "Quien usa CNB piensa en su consumo eléctrico. Marcas verdes, EV, movilidad urbana y energía hablan directo."
+          },
+          "web3": {
+            "title": "On-chain savvy",
+            "description": "Cartera Solana activa, cómodos con tokens, abiertos a nuevos protocolos. Cripto no necesita explicación."
+          },
+          "urban": {
+            "title": "Urbano y joven",
+            "description": "18–45 años, principalmente en capitales. Renta media/alta, alta predisposición a probar productos nuevos."
+          }
+        }
+      },
+      "offerings": {
+        "badge": "El catálogo",
+        "title": "Cómo aparece tu marca",
+        "subtitle": "Elige un formato o combina varios. Medición end-to-end con prueba on-chain opcional.",
+        "labels": {
+          "metric": "Métrica",
+          "example": "Ejemplo"
+        },
+        "items": {
+          "missions": {
+            "title": "Misiones Patrocinadas",
+            "description": "Tu marca brifea una misión (ej.: visita una tienda, prueba el app, comparte contenido). El usuario completa, recibe CNB + tu recompensa, y mides por completion real.",
+            "metric": "CPCM · Costo Por Completion de Misión",
+            "example": "Ej.: \"Visita una estación de carga X\" → +500 CNB + cupón de la marca",
+            "featured": "Formato destacado"
+          },
+          "banners": {
+            "title": "Banners In-App Nativos",
+            "description": "Posicionamiento dentro del feed — sin pop-up, sin interrupción. Modelo CPM o CPC, con targeting por perfil de usuario.",
+            "metric": "CPM · CPC",
+            "example": "Ej.: card patrocinado entre misiones, con hasta 2 CTAs"
+          },
+          "cashback": {
+            "title": "Cashback / Pago en CNB",
+            "description": "Tu marca acepta CNB como pago (con auto-conversión a BRL vía gateway socio) o emite cashback en CNB para acciones fuera del app.",
+            "metric": "GMV · Volumen Tokenizado",
+            "example": "Ej.: cliente paga el café, recibe 5% en CNB"
+          },
+          "geo": {
+            "title": "Campañas Geo-fenced",
+            "description": "Misiones y banners activados por ubicación. Ideal para retail físico, estaciones, eventos, activaciones IRL con medición de flujo.",
+            "metric": "Visit Rate · Footfall Lift",
+            "example": "Ej.: usuario entra en un radio de 200m → misión dispara"
+          },
+          "loyalty": {
+            "title": "Loyalty Bridge",
+            "description": "Conecta tu programa de puntos con CNB. El usuario quema puntos de tu marca, gana CNB. Reverso: gasta CNB, gana tus puntos. Fidelización cruzada.",
+            "metric": "Active Loyalty · Conversion Rate",
+            "example": "Ej.: \"500 puntos socio = 50 CNB\""
+          },
+          "irl": {
+            "title": "Activaciones IRL",
+            "description": "Co-branding en meetups, hackathons, festivales y acciones de calle. CNB Mobile + Superteam Brasil + tu marca, con cobertura digital integrada.",
+            "metric": "Reach · Mentions · UGC",
+            "example": "Ej.: stand co-branded en hackathon Solana"
+          }
+        }
+      },
+      "flow": {
+        "badge": "Cómo funciona",
+        "title": "Del briefing a la recompensa, en 4 etapas",
+        "subtitle": "Curaduría humana, ejecución automatizada, medición on-chain.",
+        "steps": {
+          "brief": {
+            "label": "Etapa 01",
+            "title": "Briefing de la marca",
+            "description": "Defines objetivo, público, formato (misión/banner/integración), región y budget. Reunión de 30 min."
+          },
+          "curate": {
+            "label": "Etapa 02",
+            "title": "Curaduría CNB",
+            "description": "Nuestro equipo diseña la mecánica, valida con compliance y prepara la misión dentro del app. Aprobación compartida antes del go-live."
+          },
+          "deliver": {
+            "label": "Etapa 03",
+            "title": "Misión al aire",
+            "description": "Usuarios la ven, completan y reciben CNB on-chain + la recompensa de tu marca. Tiempo real."
+          },
+          "measure": {
+            "label": "Etapa 04",
+            "title": "Reporte + pago",
+            "description": "Dashboard con completion rate, perfil de quien completó, costo unitario y prueba on-chain. Pago en factura o en CNB."
+          }
+        }
+      },
+      "cases": {
+        "badge": "Quién está con nosotros",
+        "title": "Socios que ya apostaron por CNB",
+        "subtitle": "Comunidad real, alianza real, prueba real.",
+        "bingx": {
+          "name": "BingX",
+          "role": "Exchange socia",
+          "description": "BingX es socia oficial de CNB Mobile en la trayectoria del token CNB — apoyando a la comunidad cripto brasileña y al ecosistema Solana con infraestructura de exchange global.",
+          "cta": "Conocer BingX"
+        },
+        "soon": {
+          "title": "Próximamente",
+          "description": "Estamos en conversación con marcas de energía, movilidad y fintech. ¿Quieres anunciarte aquí? Tu lugar está abierto."
+        }
+      },
+      "tiers": {
+        "badge": "Inversión",
+        "title": "Modelos de alianza",
+        "subtitle": "Paquetes de partida — toda alianza es customizable. Negocia en el formulario.",
+        "cta": "Quiero este formato",
+        "items": {
+          "pilot": {
+            "name": "Pilot",
+            "tagline": "Prueba rápida y mensurable",
+            "price": "Bajo consulta",
+            "duration": "30 días",
+            "features": [
+              "1 misión patrocinada con hasta 5.000 completions",
+              "Targeting por perfil de usuario",
+              "Dashboard de medición + reporte final",
+              "Pago en BRL"
+            ]
+          },
+          "growth": {
+            "name": "Growth",
+            "tagline": "Presencia continua",
+            "price": "Bajo consulta",
+            "duration": "90 días",
+            "features": [
+              "Hasta 3 misiones + banners en el feed",
+              "Geo-fencing incluido",
+              "Co-marketing en redes sociales CNB",
+              "Pago en BRL o CNB"
+            ]
+          },
+          "enterprise": {
+            "name": "Enterprise",
+            "tagline": "Integración estratégica",
+            "price": "Negociado",
+            "duration": "12 meses+",
+            "features": [
+              "Misiones customizadas ilimitadas",
+              "Loyalty bridge o integración de token",
+              "Activación IRL co-producida",
+              "Account manager dedicado",
+              "Cláusula de exclusividad negociable"
+            ]
+          }
+        }
+      },
+      "faqSection": {
+        "badge": "FAQ Socios",
+        "title": "Preguntas frecuentes",
+        "subtitle": "Todo lo que necesitas saber antes de cerrar.",
+        "items": [
+          {
+            "q": "¿Cómo funciona el pago?",
+            "a": "Por defecto, pago en BRL vía factura mensual. En paquetes Growth y Enterprise podemos recibir en CNB con auto-conversión. Las recompensas a usuarios siempre salen en CNB on-chain."
+          },
+          {
+            "q": "¿En cuánto tiempo la misión va al aire?",
+            "a": "De briefing aprobado a misión al aire: 7 a 14 días. Depende de la complejidad de la mecánica y la revisión de compliance."
+          },
+          {
+            "q": "¿Qué métricas recibo?",
+            "a": "Dashboard con completion rate, sesiones, perfil demográfico de quien completó, costo unitario, prueba on-chain de las recompensas pagadas. Reporte consolidado al fin de cada ciclo."
+          },
+          {
+            "q": "¿Puedo tener exclusividad de categoría?",
+            "a": "En paquetes Enterprise, sí — exclusividad negociable por categoría y región. En Pilot y Growth operamos no-exclusivo, pero garantizamos no-concurrencia el mismo día."
+          },
+          {
+            "q": "¿Y sobre LGPD y compliance?",
+            "a": "Toda alianza pasa por revisión LGPD y de defensa del consumidor antes del go-live. Recolección mínima de datos, opt-in explícito del usuario, contratos específicos por región."
+          },
+          {
+            "q": "¿Hay contrato mínimo?",
+            "a": "Pilot es 30 días. Growth, 90 días. Enterprise, 12 meses. Siempre con opción de upgrade entre paquetes durante el ciclo."
+          },
+          {
+            "q": "¿Cómo apruebo la misión antes de salir al aire?",
+            "a": "Compartimos un borrador vía Notion o Figma; tú apruebas o pides ajustes. Solo sale al aire con aprobación por escrito de la marca."
+          },
+          {
+            "q": "¿Quién opera la alianza de mi lado?",
+            "a": "Pilot y Growth los gestiona el equipo CNB directamente. Enterprise incluye un Account Manager dedicado, con SLA de respuesta en 4h hábiles."
+          }
+        ]
+      },
+      "form": {
+        "badge": "Hablar con el equipo",
+        "title": "¿Conversamos?",
+        "subtitle": "Llena los campos — respondemos en hasta 48h hábiles con propuesta inicial.",
+        "fields": {
+          "name": { "label": "Nombre", "placeholder": "Tu nombre" },
+          "email": { "label": "Email corporativo", "placeholder": "tu@empresa.com" },
+          "company": { "label": "Empresa", "placeholder": "Nombre de la empresa" },
+          "role": { "label": "Cargo (opcional)", "placeholder": "Ej.: Head de Marketing" },
+          "segment": {
+            "label": "Segmento",
+            "placeholder": "Selecciona",
+            "options": {
+              "exchange": "Exchange / Cripto",
+              "fintech": "Fintech / Banco",
+              "energy": "Energía / Charging",
+              "mobility": "Movilidad",
+              "cpg": "CPG / Retail",
+              "web3": "Web3 / dApp",
+              "other": "Otro"
+            }
+          },
+          "partnership": {
+            "label": "Tipo de alianza",
+            "placeholder": "Selecciona",
+            "options": {
+              "missions": "Misiones patrocinadas",
+              "banners": "Banners en el app",
+              "cashback": "Cashback / Pago en CNB",
+              "geo": "Campaña geo-fenced",
+              "loyalty": "Loyalty bridge",
+              "irl": "Activación IRL",
+              "explore": "Aún explorando"
+            }
+          },
+          "budget": {
+            "label": "Budget aproximado",
+            "placeholder": "Selecciona rango",
+            "options": {
+              "under5": "Hasta R$ 5 mil",
+              "5to25": "R$ 5–25 mil",
+              "25to100": "R$ 25–100 mil",
+              "over100": "Sobre R$ 100 mil",
+              "tbd": "Aún definiendo"
+            }
+          },
+          "message": { "label": "Cuéntanos qué tienes en mente", "placeholder": "Briefing, objetivo, plazo, cualquier contexto útil" }
+        },
+        "submit": "Enviar propuesta",
+        "submitting": "Enviando...",
+        "success": "¡Recibido! Volvemos en hasta 48h hábiles.",
+        "errorRequired": "Llena los campos obligatorios.",
+        "errorEmail": "Email inválido.",
+        "errorGeneric": "Algo salió mal. Intenta nuevamente o escribe a parcerias@cnbmobile.com."
+      },
+      "contact": {
+        "label": "Directo con el equipo",
+        "email": "parcerias@cnbmobile.com",
+        "x": "@cnbmobile",
+        "note": "Respuesta en hasta 48h hábiles."
+      }
     }
   }
 }

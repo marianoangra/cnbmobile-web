@@ -31,6 +31,7 @@ export function Footer() {
     { key: 'howItWorks', isHash: true },
     { key: 'token', isHash: false },
     { key: 'hackathon', isHash: false },
+    { key: 'parceiros', isHash: false },
     { key: 'download', isHash: true },
   ];
 
@@ -39,6 +40,7 @@ export function Footer() {
     howItWorks: '#how-it-works',
     token: '/token',
     hackathon: '/hackathon',
+    parceiros: '/parceiros',
     download: '#waitlist',
   } as const;
 

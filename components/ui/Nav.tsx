@@ -35,6 +35,7 @@ export function Nav() {
     { href: '#how-it-works', label: t('howItWorks') },
     { href: '/token', label: t('token') },
     { href: '/hackathon', label: t('hackathon') },
+    { href: '/parceiros', label: t('parceiros') },
   ];
 
   return (

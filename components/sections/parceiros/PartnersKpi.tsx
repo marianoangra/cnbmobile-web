@@ -17,8 +17,8 @@ import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 const ITEMS: Array<{ key: string; icon: LucideIcon }> = [
   { key: 'downloads', icon: Download },
   { key: 'dau', icon: Activity },
-  { key: 'retention', icon: TrendingUp },
-  { key: 'sessions', icon: Clock },
+  { key: 'retention', icon: Clock },
+  { key: 'sessions', icon: TrendingUp },
   { key: 'geo', icon: Globe },
   { key: 'demo', icon: Users },
 ];

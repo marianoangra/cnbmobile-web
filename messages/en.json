@@ -468,23 +468,23 @@
         "items": {
           "downloads": {
             "label": "Downloads (iOS + Android)",
-            "value": "Growing",
+            "value": "10K",
             "note": "App Store + Google Play · Brazil"
           },
           "dau": {
             "label": "Daily active users",
-            "value": "Growing",
+            "value": "4K",
             "note": "Sessions with on-chain proof"
           },
           "retention": {
-            "label": "D7 retention",
-            "value": "Growing",
-            "note": "Daily charging habit"
+            "label": "Engagement time",
+            "value": "23 min",
+            "note": "Average daily time in app"
           },
           "sessions": {
-            "label": "Sessions / day",
-            "value": "Growing",
-            "note": "Avg. session: ~90 min"
+            "label": "New accounts / day",
+            "value": "500",
+            "note": "Organic month-over-month growth"
           },
           "geo": {
             "label": "Primary geography",
@@ -497,7 +497,7 @@
             "note": "Mobile-first, on-chain savvy"
           }
         },
-        "disclaimer": "Detailed numbers under NDA — request the deck via the form."
+        "disclaimer": "Numbers updated each release. Detailed metrics (cohorts, geographic breakdown, traffic sources) available under NDA."
       },
       "audience": {
         "badge": "Who uses CNB",

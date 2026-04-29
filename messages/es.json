@@ -605,19 +605,19 @@
           "bingx": {
             "name": "BingX",
             "role": "Exchange socia",
-            "description": "BingX es socia oficial de CNB Mobile en la trayectoria del token CNB — apoyando a la comunidad cripto brasileña y al ecosistema Solana con infraestructura de exchange global.",
+            "description": "Exchange global socia de CNB Mobile y Official Crypto Exchange Partner del Chelsea FC. Liquidez, infraestructura y alcance internacional para el token CNB.",
             "cta": "Conocer BingX"
           },
           "okx": {
             "name": "OKX",
-            "role": "Exchange socia",
-            "description": "OKX es socia de CNB Mobile en el ecosistema cripto — referencia global en exchange, derivados y Web3, sumando liquidez y alcance al token CNB.",
+            "role": "Exchange & Pagos",
+            "description": "OKX es socia de CNB Mobile en el ecosistema cripto — una de las exchanges líderes globales, creadora de X Pay para pagos cripto end-to-end.",
             "cta": "Conocer OKX"
           },
           "kast": {
             "name": "KAST",
-            "role": "Socia estratégica",
-            "description": "KAST es socia estratégica de CNB Mobile, conectando infraestructura de pagos cripto y Web3 a la rutina de los usuarios brasileños.",
+            "role": "Tarjeta cripto socia",
+            "description": "KAST es socia de CNB Mobile con tarjeta Visa Platinum cripto — lleva el saldo on-chain a los pagos del día a día, en la misma dirección del CNB.",
             "cta": "Conocer KAST"
           }
         }

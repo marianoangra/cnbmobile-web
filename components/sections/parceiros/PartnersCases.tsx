@@ -10,31 +10,24 @@ import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 type Partner = {
   key: 'bingx' | 'okx' | 'kast';
   url: string;
-  /**
-   * Optional logo path under /public. If omitted, the card renders the
-   * partner name in big metallic typography as a fallback.
-   * Drop SVGs at e.g. public/partners/bingx.svg and set them here.
-   */
-  logo?: string;
-  logoWidth?: number;
-  logoHeight?: number;
+  banner: string;
 };
 
 const PARTNERS: Partner[] = [
   {
     key: 'bingx',
     url: process.env.NEXT_PUBLIC_BINGX_URL ?? 'https://bingx.com',
-    // logo: '/partners/bingx.svg', logoWidth: 160, logoHeight: 40,
+    banner: '/partners/bingx.jpg',
   },
   {
     key: 'okx',
     url: process.env.NEXT_PUBLIC_OKX_URL ?? 'https://okx.com',
-    // logo: '/partners/okx.svg', logoWidth: 160, logoHeight: 40,
+    banner: '/partners/okx.png',
   },
   {
     key: 'kast',
     url: process.env.NEXT_PUBLIC_KAST_URL ?? '#',
-    // logo: '/partners/kast.svg', logoWidth: 160, logoHeight: 40,
+    banner: '/partners/kast.png',
   },
 ];
 
@@ -75,51 +68,45 @@ export function PartnersCases() {
                   delay: i * 0.08,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="metal-card group relative overflow-hidden rounded-3xl p-7 md:p-8 cursor-pointer flex flex-col"
+                className="metal-card group relative overflow-hidden rounded-3xl flex flex-col cursor-pointer"
               >
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -right-16 -top-16 h-44 w-44 rounded-full bg-secondary/10 blur-3xl"
-                />
+                {/* Banner */}
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-bg-deep">
+                  <Image
+                    src={p.banner}
+                    alt={t(`items.${p.key}.name`)}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                    priority={i === 0}
+                  />
+                  {/* Subtle gradient at the bottom for legibility transition */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-b from-transparent to-black/40"
+                  />
+                </div>
 
-                <div className="relative flex-1">
-                  {/* Role chip */}
-                  <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.08] px-3 py-1.5">
+                {/* Body */}
+                <div className="relative flex flex-1 flex-col p-6 md:p-7">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.08] px-3 py-1.5 self-start">
                     <ShieldCheck className="h-3.5 w-3.5 text-secondary-light" />
                     <span className="font-mono text-[11px] uppercase tracking-wider text-secondary-light">
                       {t(`items.${p.key}.role`)}
                     </span>
                   </div>
 
-                  {/* Logo or text fallback */}
-                  <div className="mt-6 flex h-14 items-center">
-                    {p.logo ? (
-                      <Image
-                        src={p.logo}
-                        alt={t(`items.${p.key}.name`)}
-                        width={p.logoWidth ?? 160}
-                        height={p.logoHeight ?? 40}
-                        className="object-contain object-left"
-                        priority={false}
-                      />
-                    ) : (
-                      <span className="text-3xl md:text-4xl font-bold tracking-tight text-white">
-                        {t(`items.${p.key}.name`)}
-                      </span>
-                    )}
-                  </div>
-
-                  <p className="mt-5 text-sm text-white/60 leading-relaxed">
+                  <p className="mt-4 text-sm text-white/65 leading-relaxed flex-1">
                     {t(`items.${p.key}.description`)}
                   </p>
-                </div>
 
-                {hasLink && (
-                  <div className="relative mt-6 inline-flex items-center gap-2 text-sm font-semibold text-secondary-light group-hover:text-secondary-light/80 transition-colors">
-                    {t(`items.${p.key}.cta`)}
-                    <ArrowUpRight className="h-4 w-4" />
-                  </div>
-                )}
+                  {hasLink && (
+                    <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-secondary-light group-hover:text-secondary-light/80 transition-colors">
+                      {t(`items.${p.key}.cta`)}
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                  )}
+                </div>
               </Wrapper>
             );
           })}

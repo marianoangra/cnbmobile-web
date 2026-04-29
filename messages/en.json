@@ -605,19 +605,19 @@
           "bingx": {
             "name": "BingX",
             "role": "Exchange partner",
-            "description": "BingX is CNB Mobile's official partner on the CNB token journey — supporting the Brazilian crypto community and the Solana ecosystem with global exchange infrastructure.",
+            "description": "Global exchange partner of CNB Mobile and Official Crypto Exchange Partner of Chelsea FC. Liquidity, infrastructure, and international reach for the CNB token.",
             "cta": "Visit BingX"
           },
           "okx": {
             "name": "OKX",
-            "role": "Exchange partner",
-            "description": "OKX is a CNB Mobile partner in the crypto ecosystem — a global leader in exchange, derivatives, and Web3, bringing liquidity and reach to the CNB token.",
+            "role": "Exchange & Payments",
+            "description": "OKX is CNB Mobile's partner in the crypto ecosystem — a global leading exchange and creator of X Pay, the end-to-end crypto payments platform.",
             "cta": "Visit OKX"
           },
           "kast": {
             "name": "KAST",
-            "role": "Strategic partner",
-            "description": "KAST is a strategic partner of CNB Mobile, connecting crypto payment infrastructure and Web3 to the daily life of Brazilian users.",
+            "role": "Crypto card partner",
+            "description": "KAST partners with CNB Mobile on a Visa Platinum crypto card — taking on-chain balance into everyday payments, aligned with CNB's mission.",
             "cta": "Visit KAST"
           }
         }

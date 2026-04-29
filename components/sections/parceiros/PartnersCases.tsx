@@ -55,7 +55,7 @@ export function PartnersCases() {
           </p>
         </div>
 
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div id="partner-cases" className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
           {PARTNERS.map((p, i) => {
             const hasLink = p.url !== '#';
             const Wrapper = hasLink ? motion.a : motion.div;
@@ -118,6 +118,10 @@ export function PartnersCases() {
             );
           })}
         </div>
+
+        <p className="mt-8 max-w-3xl text-xs text-white/35 italic leading-relaxed">
+          {t('affiliateDisclosure')}
+        </p>
       </div>
     </section>
   );

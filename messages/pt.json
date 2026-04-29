@@ -601,6 +601,7 @@
         "badge": "Quem está com a gente",
         "title": "Parceiros que já apostaram no CNB",
         "subtitle": "Comunidade real, parceria real, prova real.",
+        "affiliateDisclosure": "Os links de parceria acima incluem programa de afiliados — a CNB Mobile pode receber comissão sobre cadastros e operações realizadas via esses links, sem custo adicional pra você.",
         "items": {
           "bingx": {
             "name": "BingX",

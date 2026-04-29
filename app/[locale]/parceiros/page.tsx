@@ -9,7 +9,7 @@ import { PartnersFlow } from '@/components/sections/parceiros/PartnersFlow';
 import { PartnersCases } from '@/components/sections/parceiros/PartnersCases';
 import { PartnersTiers } from '@/components/sections/parceiros/PartnersTiers';
 import { PartnersFaq } from '@/components/sections/parceiros/PartnersFaq';
-import { PartnersForm } from '@/components/sections/parceiros/PartnersForm';
+import { PartnersContact } from '@/components/sections/parceiros/PartnersContact';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -99,7 +99,7 @@ export default async function ParceirosPage({ params }: Props) {
       <PartnersCases />
       <PartnersTiers />
       <PartnersFaq />
-      <PartnersForm />
+      <PartnersContact />
     </>
   );
 }

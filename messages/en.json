@@ -696,66 +696,16 @@
           }
         ]
       },
-      "form": {
-        "badge": "Talk to the team",
-        "title": "Let's talk?",
-        "subtitle": "Fill it out — we reply within 48 business hours with an initial proposal.",
-        "fields": {
-          "name": { "label": "Name", "placeholder": "Your name" },
-          "email": { "label": "Work email", "placeholder": "you@company.com" },
-          "company": { "label": "Company", "placeholder": "Company name" },
-          "role": { "label": "Role (optional)", "placeholder": "E.g., Head of Marketing" },
-          "segment": {
-            "label": "Segment",
-            "placeholder": "Select",
-            "options": {
-              "exchange": "Exchange / Crypto",
-              "fintech": "Fintech / Bank",
-              "energy": "Energy / Charging",
-              "mobility": "Mobility",
-              "cpg": "CPG / Retail",
-              "web3": "Web3 / dApp",
-              "other": "Other"
-            }
-          },
-          "partnership": {
-            "label": "Partnership type",
-            "placeholder": "Select",
-            "options": {
-              "missions": "Sponsored missions",
-              "banners": "In-app banners",
-              "cashback": "Cashback / Pay in CNB",
-              "geo": "Geo-fenced campaign",
-              "loyalty": "Loyalty bridge",
-              "irl": "IRL activation",
-              "explore": "Still exploring"
-            }
-          },
-          "budget": {
-            "label": "Approximate budget",
-            "placeholder": "Select range",
-            "options": {
-              "under5": "Up to R$ 5k",
-              "5to25": "R$ 5–25k",
-              "25to100": "R$ 25–100k",
-              "over100": "Over R$ 100k",
-              "tbd": "Still defining"
-            }
-          },
-          "message": { "label": "Tell us what you have in mind", "placeholder": "Briefing, goal, timing, any useful context" }
-        },
-        "submit": "Send proposal",
-        "submitting": "Sending...",
-        "success": "Got it! We'll respond within 48 business hours.",
-        "errorRequired": "Please fill in the required fields.",
-        "errorEmail": "Invalid email.",
-        "errorGeneric": "Something went wrong. Try again or write to parcerias@cnbmobile.com."
-      },
       "contact": {
-        "label": "Direct line",
-        "email": "parcerias@cnbmobile.com",
-        "x": "@cnbmobile",
-        "note": "Reply within 48 business hours."
+        "badge": "Let's talk",
+        "title": "Ready to build together?",
+        "subtitle": "Drop me an email with the idea. I reply myself — no SDR filter, no form queue. Initial response within 24 business hours.",
+        "ctaEmail": "Send proposal",
+        "ctaX": "DM on X",
+        "founderLabel": "Direct from the founder",
+        "founderName": "Rafael Mariano",
+        "founderRole": "CEO & Founder, CNB Mobile",
+        "note": "Reply within 24 business hours."
       }
     }
   }

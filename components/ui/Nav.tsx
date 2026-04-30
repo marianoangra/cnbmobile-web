@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Wallet, Menu, X } from 'lucide-react';
-import { Logo } from './Logo';
+import { JuiceWordmark } from './JuiceWordmark';
 import { LangSwitcher } from './LangSwitcher';
 import { cn } from '@/lib/cn';
 
@@ -49,8 +49,8 @@ export function Nav() {
         )}
       >
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-5 py-3.5 md:px-8">
-          <Link href="/" aria-label="CNB Mobile">
-            <Logo />
+          <Link href="/" aria-label="JUICE" className="inline-flex items-center">
+            <JuiceWordmark className="h-7 w-auto md:h-8" />
           </Link>
 
           {/* Desktop nav */}

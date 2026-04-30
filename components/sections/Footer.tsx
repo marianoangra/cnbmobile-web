@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Twitter, Github, Send, MessageCircle } from 'lucide-react';
-import { Logo } from '@/components/ui/Logo';
+import { JuiceWordmark } from '@/components/ui/JuiceWordmark';
 import { LangSwitcher } from '@/components/ui/LangSwitcher';
 import { StoreButtons } from '@/components/ui/StoreButtons';
 
@@ -93,7 +93,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
           {/* Brand column */}
           <div className="md:col-span-4">
-            <Logo />
+            <JuiceWordmark className="h-8 w-auto" />
             <p className="mt-4 max-w-xs text-sm text-white/50 leading-relaxed">
               {t('tagline')}
             </p>

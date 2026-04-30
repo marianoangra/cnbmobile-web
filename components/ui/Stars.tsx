@@ -240,17 +240,12 @@ export function Stars({
         </div>
       </motion.div>
 
-      {/* Outside the motion wrapper — satellites, starlink train, and the
-          planet are independent of the mouse-driven parallax. */}
+      {/* Outside the motion wrapper — satellites and the planet are
+          independent of the mouse-driven parallax. */}
       {satellites && !reduce && (
         <>
           <span aria-hidden className="satellite satellite-1" />
           <span aria-hidden className="satellite satellite-2" />
-          <div aria-hidden className="starlink-train">
-            {Array.from({ length: 18 }).map((_, i) => (
-              <span key={i} />
-            ))}
-          </div>
 
           <motion.span
             aria-hidden

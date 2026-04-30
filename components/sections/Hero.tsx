@@ -58,10 +58,10 @@ export function Hero() {
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="hero-headline mt-6 text-white"
             >
-              <span className="block whitespace-nowrap">
+              <span className="block whitespace-normal sm:whitespace-nowrap">
                 {t('headlineLine1')}
               </span>
-              <span ref={headlineRef} className="metal-text block whitespace-nowrap">
+              <span ref={headlineRef} className="metal-text block whitespace-normal sm:whitespace-nowrap">
                 {t('headlineLine2')}
               </span>
             </motion.h1>

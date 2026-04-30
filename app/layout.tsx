@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Suspense } from 'react';
 import { Inter, JetBrains_Mono } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/next';
@@ -29,6 +29,17 @@ export const metadata: Metadata = {
     ],
     shortcut: '/icon.jpg',
   },
+};
+
+// Without this, the mobile browser falls back to a 980px layout
+// viewport (desktop default), which is exactly why the live site was
+// rendering off-center on iOS — the content was wider than the
+// device, so iOS Safari scrolled into the page on first paint.
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: '#091323',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

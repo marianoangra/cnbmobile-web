@@ -91,8 +91,9 @@ function TrustCard({
         }}
         className="metal-card relative overflow-hidden rounded-2xl will-change-transform"
       >
-        {/* Banner strip (16:5 ratio — flatter than the /parceiros cards) */}
-        <div className="relative aspect-[16/5] w-full overflow-hidden bg-bg-deep">
+        {/* Banner strip (16:6 ratio — slightly taller, still flatter
+            than the /parceiros cases) */}
+        <div className="relative aspect-[16/6] w-full overflow-hidden bg-bg-deep">
           <Image
             src={partner.banner}
             alt={tCases(`items.${partner.key}.name`)}

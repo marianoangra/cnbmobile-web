@@ -5,16 +5,18 @@ import { motion } from 'framer-motion';
 import { Zap, Trophy, Wallet, type LucideIcon } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
+import { MockedChargingScreen } from '@/components/ui/MockedChargingScreen';
+import { UsbCable } from '@/components/ui/UsbCable';
 import { cn } from '@/lib/cn';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 const STEPS: Array<{
   key: 'step1' | 'step2' | 'step3';
   icon: LucideIcon;
-  image: string;
+  image?: string;
   alt: string;
 }> = [
-  { key: 'step1', icon: Zap, image: '/images/screen-charging.png', alt: 'Carregar' },
+  { key: 'step1', icon: Zap, alt: 'Carregar' },
   { key: 'step2', icon: Trophy, image: '/images/screen-missions.png', alt: 'Missões' },
   { key: 'step3', icon: Wallet, image: '/images/screen-profile.png', alt: 'Perfil' },
 ];
@@ -82,13 +84,27 @@ export function HowItWorks() {
                   </div>
                   {/* Phone */}
                   <div className="lg:col-span-5 flex justify-center lg:[direction:ltr]">
-                    <PhoneMockup
-                      src={step.image}
-                      alt={step.alt}
-                      width={260}
-                      height={562}
-                      tilt={false}
-                    />
+                    {step.key === 'step1' ? (
+                      <div className="relative flex flex-col items-center">
+                        <PhoneMockup
+                          alt={step.alt}
+                          width={260}
+                          height={562}
+                          tilt={false}
+                        >
+                          <MockedChargingScreen />
+                        </PhoneMockup>
+                        <UsbCable className="-mt-px relative z-10" />
+                      </div>
+                    ) : (
+                      <PhoneMockup
+                        src={step.image}
+                        alt={step.alt}
+                        width={260}
+                        height={562}
+                        tilt={false}
+                      />
+                    )}
                   </div>
                 </motion.div>
               );

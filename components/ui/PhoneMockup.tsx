@@ -49,6 +49,9 @@ export function PhoneMockup({
         <span aria-hidden className="phone-button phone-button-vol-down" />
         <span aria-hidden className="phone-button phone-button-power" />
 
+        {/* USB-C port — visible slot on the bottom edge */}
+        <span aria-hidden className="phone-usbc-port" />
+
         {/* Inner display */}
         <div className="phone-screen">
           {children ? (

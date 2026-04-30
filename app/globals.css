@@ -213,6 +213,44 @@ body {
   border-radius: 2px 0 0 2px;
 }
 
+/* USB-C port — small dark slot at the bottom edge of the phone-frame.
+   The cable's connector boot sits flush below this slot so the metal
+   plug visually disappears INTO the phone. */
+.phone-usbc-port {
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  width: 26px;
+  height: 5px;
+  border-radius: 3px;
+  background:
+    radial-gradient(ellipse at center, #0a0a0a 0%, #050505 60%, #000 100%);
+  box-shadow:
+    inset 0 1.5px 1.5px rgba(0, 0, 0, 0.85),
+    inset 0 -0.5px 0 rgba(255, 255, 255, 0.06),
+    0 0.5px 0 rgba(255, 255, 255, 0.04);
+}
+
+/* The metal plug INSIDE the slot — tiny lighter shape suggesting the
+   plug is inserted. Sits inside the phone-usbc-port. */
+.phone-usbc-port::after {
+  content: '';
+  position: absolute;
+  inset: 1px 2px;
+  border-radius: 1.5px;
+  background: linear-gradient(
+    180deg,
+    #2a2a2a 0%,
+    #1a1a1a 50%,
+    #0d0d0d 100%
+  );
+  box-shadow:
+    inset 0 0.5px 0 rgba(255, 255, 255, 0.10),
+    inset 0 -0.5px 0 rgba(0, 0, 0, 0.6);
+}
+
 /* Bright star diffraction spikes */
 .star-bright::before,
 .star-bright::after {

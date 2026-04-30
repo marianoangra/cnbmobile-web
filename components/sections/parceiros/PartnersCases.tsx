@@ -1,8 +1,14 @@
 'use client';
 
+import { useRef } from 'react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from 'framer-motion';
 import { ArrowUpRight, ShieldCheck } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
@@ -38,6 +44,123 @@ const PARTNERS: Partner[] = [
   },
 ];
 
+function PartnerCard({
+  partner,
+  index,
+}: {
+  partner: Partner;
+  index: number;
+}) {
+  const t = useTranslations('pages.parceiros.cases');
+  const ref = useRef<HTMLAnchorElement>(null);
+
+  // Mouse position relative to the card's center, in [-0.5, 0.5].
+  const px = useMotionValue(0);
+  const py = useMotionValue(0);
+
+  // Map mouse position to tilt angles. py drives rotateX (vertical mouse
+  // tilts the card up/down), px drives rotateY (horizontal mouse tilts
+  // the card left/right). Spring smooths both for natural follow-through.
+  const rotX = useSpring(useTransform(py, [-0.5, 0.5], [9, -9]), {
+    stiffness: 220,
+    damping: 22,
+    mass: 0.5,
+  });
+  const rotY = useSpring(useTransform(px, [-0.5, 0.5], [-9, 9]), {
+    stiffness: 220,
+    damping: 22,
+    mass: 0.5,
+  });
+
+  // Banner pops slightly forward in z-space for added depth on tilt.
+  const bannerZ = useSpring(useTransform(px, [-0.5, 0.5], [0, 0]), {
+    stiffness: 220,
+    damping: 22,
+  });
+
+  function onMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    px.set((e.clientX - r.left) / r.width - 0.5);
+    py.set((e.clientY - r.top) / r.height - 0.5);
+  }
+
+  function onLeave() {
+    px.set(0);
+    py.set(0);
+  }
+
+  const hasLink = partner.url !== '#';
+
+  return (
+    <motion.a
+      ref={ref}
+      href={hasLink ? partner.url : undefined}
+      target={hasLink ? '_blank' : undefined}
+      rel={hasLink ? 'noopener noreferrer' : undefined}
+      onMouseMove={onMove}
+      onMouseLeave={onLeave}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      style={{
+        rotateX: rotX,
+        rotateY: rotY,
+        transformPerspective: 1200,
+        transformStyle: 'preserve-3d',
+      }}
+      className="metal-card group relative flex cursor-pointer flex-col overflow-hidden rounded-3xl will-change-transform"
+    >
+      {/* Banner */}
+      <motion.div
+        className="relative aspect-[16/9] w-full overflow-hidden bg-bg-deep"
+        style={{ z: bannerZ, transformStyle: 'preserve-3d' }}
+      >
+        <Image
+          src={partner.banner}
+          alt={t(`items.${partner.key}.name`)}
+          fill
+          sizes="(min-width: 768px) 33vw, 100vw"
+          className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+          priority={index === 0}
+        />
+        {/* Subtle gradient at the bottom for legibility transition */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-b from-transparent to-black/40"
+        />
+      </motion.div>
+
+      {/* Body */}
+      <div className="relative flex flex-1 flex-col p-6 md:p-7">
+        <div className="inline-flex items-center gap-2 self-start rounded-full border border-secondary/30 bg-secondary/[0.08] px-3 py-1.5">
+          <ShieldCheck className="h-3.5 w-3.5 text-secondary-light" />
+          <span className="font-mono text-[11px] uppercase tracking-wider text-secondary-light">
+            {t(`items.${partner.key}.role`)}
+          </span>
+        </div>
+
+        <p className="mt-4 flex-1 text-sm leading-relaxed text-white/65">
+          {t(`items.${partner.key}.description`)}
+        </p>
+
+        {hasLink && (
+          <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-secondary-light transition-colors group-hover:text-secondary-light/80">
+            {t(`items.${partner.key}.cta`)}
+            <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </div>
+        )}
+      </div>
+    </motion.a>
+  );
+}
+
 export function PartnersCases() {
   const t = useTranslations('pages.parceiros.cases');
   const titleRef = useMetalSpotlight<HTMLHeadingElement>();
@@ -55,71 +178,17 @@ export function PartnersCases() {
           </p>
         </div>
 
-        <div id="partner-cases" className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-5">
-          {PARTNERS.map((p, i) => {
-            const hasLink = p.url !== '#';
-            const Wrapper = hasLink ? motion.a : motion.div;
-            const wrapperProps = hasLink
-              ? { href: p.url, target: '_blank', rel: 'noopener noreferrer' }
-              : {};
-
-            return (
-              <Wrapper
-                key={p.key}
-                {...wrapperProps}
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{
-                  duration: 0.7,
-                  delay: i * 0.08,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="metal-card group relative overflow-hidden rounded-3xl flex flex-col cursor-pointer"
-              >
-                {/* Banner */}
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-bg-deep">
-                  <Image
-                    src={p.banner}
-                    alt={t(`items.${p.key}.name`)}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
-                    priority={i === 0}
-                  />
-                  {/* Subtle gradient at the bottom for legibility transition */}
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-b from-transparent to-black/40"
-                  />
-                </div>
-
-                {/* Body */}
-                <div className="relative flex flex-1 flex-col p-6 md:p-7">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-secondary/30 bg-secondary/[0.08] px-3 py-1.5 self-start">
-                    <ShieldCheck className="h-3.5 w-3.5 text-secondary-light" />
-                    <span className="font-mono text-[11px] uppercase tracking-wider text-secondary-light">
-                      {t(`items.${p.key}.role`)}
-                    </span>
-                  </div>
-
-                  <p className="mt-4 text-sm text-white/65 leading-relaxed flex-1">
-                    {t(`items.${p.key}.description`)}
-                  </p>
-
-                  {hasLink && (
-                    <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-secondary-light group-hover:text-secondary-light/80 transition-colors">
-                      {t(`items.${p.key}.cta`)}
-                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                    </div>
-                  )}
-                </div>
-              </Wrapper>
-            );
-          })}
+        <div
+          id="partner-cases"
+          className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3"
+          style={{ perspective: '1200px' }}
+        >
+          {PARTNERS.map((p, i) => (
+            <PartnerCard key={p.key} partner={p} index={i} />
+          ))}
         </div>
 
-        <p className="mt-8 max-w-3xl text-xs text-white/35 italic leading-relaxed">
+        <p className="mt-8 max-w-3xl text-xs italic text-white/35 leading-relaxed">
           {t('affiliateDisclosure')}
         </p>
       </div>

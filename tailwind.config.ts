@@ -25,11 +25,11 @@ const config: Config = {
         'metal-light': '#E0E2E5',
         'metal-dark': '#7A7C7E',
 
-        // Backgrounds — warmer, with hint of olive (not pure black)
-        'bg-deep': '#08100A',
+        // Backgrounds — testing cooler navy base (#091323 family)
+        'bg-deep': '#091323',
         'bg-card': '#131C12',
         'bg-mid': '#0E160E',
-        'bg-page': '#08100A',
+        'bg-page': '#091323',
 
         // Surface tints
         'border-glow': 'rgba(107, 131, 51, 0.30)',
@@ -45,7 +45,7 @@ const config: Config = {
       },
       backgroundImage: {
         'hero-gradient':
-          'linear-gradient(180deg, #08100A 0%, #050605 100%)',
+          'linear-gradient(180deg, #0c1d36 0%, #091323 48%, #040b1a 100%)',
         'glow-tr':
           'radial-gradient(circle at 100% 0%, rgba(107,131,51,0.20) 0%, transparent 65%)',
         'glow-bl':

@@ -15,6 +15,14 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion'],
   },
+  async rewrites() {
+    return {
+      beforeFiles: [
+        // Surface the static pitch deck under a friendlier URL.
+        { source: '/demoday', destination: '/pitch.html' },
+      ],
+    };
+  },
 };
 
 export default withNextIntl(nextConfig);

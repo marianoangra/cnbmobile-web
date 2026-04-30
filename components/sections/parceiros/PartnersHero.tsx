@@ -17,6 +17,9 @@ const SLIDES: readonly Slide[] = [
   { kind: 'partner', name: 'BingX', src: '/partners/bingx.jpg' },
   { kind: 'partner', name: 'OKX', src: '/partners/okx.png' },
   { kind: 'partner', name: 'KAST', src: '/partners/kast.png' },
+  { kind: 'partner', name: 'Kaxis Club', src: '/partners/kaxis.png' },
+  { kind: 'partner', name: 'Solflare', src: '/partners/solflare.jpg' },
+  { kind: 'partner', name: 'Mind Protocol', src: '/partners/mind.jpg' },
   { kind: 'cta' },
 ] as const;
 
@@ -47,14 +50,14 @@ export function PartnersHero() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-[420px] z-10"
         style={{
           background: `linear-gradient(to bottom,
-            rgba(5, 8, 5, 0) 0%,
-            rgba(5, 8, 5, 0.05) 18%,
-            rgba(5, 8, 5, 0.18) 35%,
-            rgba(5, 8, 5, 0.38) 52%,
-            rgba(5, 8, 5, 0.62) 68%,
-            rgba(5, 8, 5, 0.82) 82%,
-            rgba(5, 8, 5, 0.95) 92%,
-            rgba(5, 8, 5, 1) 100%
+            rgba(4, 11, 26, 0) 0%,
+            rgba(4, 11, 26, 0.05) 18%,
+            rgba(4, 11, 26, 0.18) 35%,
+            rgba(4, 11, 26, 0.38) 52%,
+            rgba(4, 11, 26, 0.62) 68%,
+            rgba(4, 11, 26, 0.82) 82%,
+            rgba(4, 11, 26, 0.95) 92%,
+            rgba(4, 11, 26, 1) 100%
           )`,
         }}
       />
@@ -140,7 +143,7 @@ export function PartnersHero() {
               </div>
 
               {/* Billboard frame */}
-              <div className="relative aspect-[16/10] rounded-2xl border border-white/10 bg-[#0a0d0a] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/[0.04] overflow-hidden">
+              <div className="relative aspect-[16/10] rounded-2xl border border-white/10 bg-[#0a1424] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/[0.04] overflow-hidden">
                 {/* Inner bezel */}
                 <div className="absolute inset-1.5 rounded-xl overflow-hidden bg-black">
                   <AnimatePresence mode="wait">

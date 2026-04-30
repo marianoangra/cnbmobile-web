@@ -14,7 +14,7 @@ import { SectionBadge } from '@/components/ui/SectionBadge';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
 type Partner = {
-  key: 'bingx' | 'okx' | 'kast';
+  key: 'bingx' | 'okx' | 'kast' | 'kaxis' | 'solflare' | 'mind';
   url: string;
   banner: string;
 };
@@ -41,6 +41,21 @@ const PARTNERS: Partner[] = [
       process.env.NEXT_PUBLIC_KAST_URL ??
       'https://join.kast.xyz/click?offer_id=6&pub_id=96',
     banner: '/partners/kast.png',
+  },
+  {
+    key: 'kaxis',
+    url: 'https://kaxis.club/',
+    banner: '/partners/kaxis.png',
+  },
+  {
+    key: 'solflare',
+    url: 'https://www.solflare.com/',
+    banner: '/partners/solflare.jpg',
+  },
+  {
+    key: 'mind',
+    url: 'https://www.mindprotocol.xyz/',
+    banner: '/partners/mind.jpg',
   },
 ];
 

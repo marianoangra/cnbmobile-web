@@ -14,14 +14,21 @@ import { Link } from '@/i18n/routing';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 
 type Partner = {
-  key: 'bingx' | 'okx' | 'kast';
+  key: 'bingx' | 'okx' | 'kast' | 'kaxis' | 'solflare' | 'mind';
   banner: string;
+  objectPosition?: string;
 };
 
 const PARTNERS: Partner[] = [
   { key: 'bingx', banner: '/partners/bingx.jpg' },
   { key: 'okx', banner: '/partners/okx.png' },
   { key: 'kast', banner: '/partners/kast.png' },
+  { key: 'kaxis', banner: '/partners/kaxis.png' },
+  // Solflare share-image has wordmark up top + iPhone bottom; pull the
+  // crop window upward so the "Solflare" mark + tagline stay visible
+  // inside the flatter 16:5 home strip.
+  { key: 'solflare', banner: '/partners/solflare.jpg', objectPosition: '50% 28%' },
+  { key: 'mind', banner: '/partners/mind.jpg' },
 ];
 
 function TrustCard({
@@ -92,6 +99,7 @@ function TrustCard({
             fill
             sizes="(min-width: 640px) 33vw, 100vw"
             className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+            style={{ objectPosition: partner.objectPosition ?? 'center' }}
           />
         </div>
 
@@ -119,7 +127,7 @@ export function PartnersTrust() {
     <section className="relative py-16 md:py-24">
       <div
         aria-hidden
-        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
+        className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/[0.04] to-transparent"
       />
 
       <div className="mx-auto max-w-[1280px] px-5 md:px-8">

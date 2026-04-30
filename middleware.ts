@@ -11,5 +11,5 @@ export default createMiddleware(routing);
 export const config = {
   // Match all paths except API, _next, _vercel, and static files (anything
   // with a dot in the last segment, e.g. /favicon.ico, /robots.txt).
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)'],
+  matcher: ['/((?!api|_next|_vercel|demoday|.*\\..*).*)'],
 };

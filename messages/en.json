@@ -887,7 +887,7 @@
       },
       "cases": {
         "badge": "Who's with us",
-        "title": "Partners already betting on CNB",
+        "title": "Partners who already use the App",
         "subtitle": "Real community, real partnership, real proof.",
         "affiliateDisclosure": "The partnership links above include affiliate programs — CNB Mobile may earn a commission on signups and transactions made through these links, at no extra cost to you.",
         "items": {
@@ -908,6 +908,24 @@
             "role": "Crypto card partner",
             "description": "KAST partners with CNB Mobile on a Visa Platinum crypto card — taking on-chain balance into everyday payments, aligned with CNB's mission.",
             "cta": "Visit KAST"
+          },
+          "kaxis": {
+            "name": "Kaxis Club",
+            "role": "Brazilian neobank on Solana",
+            "description": "Kaxis is the Brazilian neobank built on Solana — account, card and crypto in one app, aligned with CNB's mission to bring Web3 into real everyday life.",
+            "cta": "Visit Kaxis"
+          },
+          "solflare": {
+            "name": "Solflare",
+            "role": "The most powerful wallet on Solana",
+            "description": "Solflare is the most powerful wallet on Solana — native staking, swap and NFTs. A natural fit for users earning CNB points who want secure self-custody.",
+            "cta": "Visit Solflare"
+          },
+          "mind": {
+            "name": "Mind Protocol",
+            "role": "A2A settlement layer on Solana",
+            "description": "Mind Protocol turns Solana into the agent-to-agent (A2A) settlement layer — infrastructure for the next generation of automated on-chain payments.",
+            "cta": "Visit Mind"
           }
         }
       },

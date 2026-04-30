@@ -44,7 +44,17 @@ body {
 
 /* Hero headline custom sizing */
 .hero-headline {
-  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  font-size: clamp(2.2rem, 4.4vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Partners hero — slightly smaller cap because line 2 ("de uma rede
+   DePIN ativa.") is 24 chars and would overflow the col-span-7 width
+   when paired with whitespace-nowrap on each phrase span. */
+.partners-headline {
+  font-size: clamp(1.9rem, 3.6vw, 3.25rem);
   font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;

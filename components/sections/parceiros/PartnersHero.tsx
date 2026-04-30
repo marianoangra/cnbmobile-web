@@ -62,7 +62,7 @@ export function PartnersHero() {
       <div className="relative z-20 mx-auto max-w-[1280px] px-5 md:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           {/* Left: copy */}
-          <div className="lg:col-span-7 max-w-2xl">
+          <div className="lg:col-span-7">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -75,7 +75,7 @@ export function PartnersHero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="hero-headline mt-6 text-white"
+              className="partners-headline mt-6 text-white"
             >
               <span className="block whitespace-nowrap">
                 {t('headlineLine1')}

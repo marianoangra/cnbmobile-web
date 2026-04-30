@@ -465,7 +465,17 @@
         "ctaPrimary": "Quiero ser socio",
         "ctaSecondary": "Ver formatos",
         "partnerStamp": "Socia oficial",
-        "partnerStampHint": "Exchange socia en la trayectoria del token CNB"
+        "partnerStampHint": "Exchange socia en la trayectoria del token CNB",
+        "billboard": {
+          "liveLabel": "EN VIVO",
+          "availableLabel": "Espacio abierto",
+          "yourBrandHere": "Tu marca aquí",
+          "availableSub": "Próxima rotación disponible",
+          "currentLabel": "En rotación ahora",
+          "statDownloads": "Descargas",
+          "statDau": "Activos/día",
+          "statTime": "Min/día"
+        }
       },
       "kpi": {
         "badge": "Por qué CNB",

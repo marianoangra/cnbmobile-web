@@ -1,15 +1,38 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 import { ArrowRight, ArrowDown } from 'lucide-react';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { Stars } from '@/components/ui/Stars';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
+type Slide =
+  | { kind: 'partner'; name: string; src: string }
+  | { kind: 'cta' };
+
+const SLIDES: readonly Slide[] = [
+  { kind: 'partner', name: 'BingX', src: '/partners/bingx.jpg' },
+  { kind: 'partner', name: 'OKX', src: '/partners/okx.png' },
+  { kind: 'partner', name: 'KAST', src: '/partners/kast.png' },
+  { kind: 'cta' },
+] as const;
+
 export function PartnersHero() {
   const t = useTranslations('pages.parceiros.hero');
   const headlineRef = useMetalSpotlight<HTMLSpanElement>();
+  const [slideIdx, setSlideIdx] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setSlideIdx((i) => (i + 1) % SLIDES.length);
+    }, 3000);
+    return () => clearInterval(id);
+  }, []);
+
+  const slide = SLIDES[slideIdx];
 
   return (
     <section className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28">
@@ -93,85 +116,147 @@ export function PartnersHero() {
             </motion.div>
           </div>
 
-          {/* Right: CNB token visual */}
+          {/* Right: outdoor / billboard */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <motion.div
-              initial={{ opacity: 0, scale: 0.94, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              transition={{ duration: 0.9, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="metal-card relative w-full max-w-sm rounded-3xl p-8 overflow-hidden"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-md"
             >
-              {/* Decorative glows */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-primary/15 blur-3xl"
+                className="pointer-events-none absolute -inset-8 bg-glow-tr opacity-50 blur-3xl"
               />
               <div
                 aria-hidden
-                className="pointer-events-none absolute -left-12 -bottom-12 h-44 w-44 rounded-full bg-secondary/10 blur-3xl"
+                className="pointer-events-none absolute -inset-8 bg-glow-bl opacity-30 blur-3xl"
               />
 
-              {/* Sci-fi corner brackets */}
-              <div aria-hidden className="absolute top-3 left-3 h-3 w-3 border-l border-t border-secondary/40" />
-              <div aria-hidden className="absolute top-3 right-3 h-3 w-3 border-r border-t border-secondary/40" />
-              <div aria-hidden className="absolute bottom-3 left-3 h-3 w-3 border-l border-b border-secondary/40" />
-              <div aria-hidden className="absolute bottom-3 right-3 h-3 w-3 border-r border-b border-secondary/40" />
-
-              {/* Status pulse */}
-              <div className="relative inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/[0.06] px-3 py-1.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-green-400" />
-                </span>
-                <span className="font-mono text-[11px] uppercase tracking-wider text-green-400/90">
-                  Mainnet Live
-                </span>
+              {/* Top mast */}
+              <div className="relative mx-auto mb-2 flex justify-center">
+                <div className="h-1 w-28 rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent" />
               </div>
 
-              {/* CNB hero text */}
-              <div className="relative mt-7 text-center">
-                <div className="metal-text text-[5.5rem] md:text-[6.5rem] font-black tracking-tighter leading-none">
-                  CNB
-                </div>
-                <div className="mt-3 font-mono text-[10px] uppercase tracking-[0.32em] text-secondary-light">
-                  DePIN · Solana
+              {/* Billboard frame */}
+              <div className="relative aspect-[16/10] rounded-2xl border border-white/10 bg-[#0a0d0a] shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] ring-1 ring-white/[0.04] overflow-hidden">
+                {/* Inner bezel */}
+                <div className="absolute inset-1.5 rounded-xl overflow-hidden bg-black">
+                  <AnimatePresence mode="wait">
+                    {slide.kind === 'partner' ? (
+                      <motion.div
+                        key={slide.name}
+                        initial={{ opacity: 0, scale: 1.04 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.98 }}
+                        transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                        className="absolute inset-0"
+                      >
+                        <Image
+                          src={slide.src}
+                          alt={slide.name}
+                          fill
+                          sizes="(max-width: 768px) 90vw, 28rem"
+                          className="object-cover"
+                          priority={slideIdx === 0}
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20"
+                        />
+                        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between">
+                          <span className="rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-[10px] font-mono uppercase tracking-wider text-white/80 border border-white/10">
+                            {t('billboard.currentLabel')}
+                          </span>
+                          <span className="rounded-md bg-black/70 backdrop-blur-sm px-2 py-1 text-xs font-bold text-white border border-white/10">
+                            {slide.name}
+                          </span>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        key="cta"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="absolute inset-0 flex flex-col items-center justify-center px-6"
+                      >
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-gradient-to-br from-primary/[0.12] via-transparent to-secondary/[0.10]"
+                        />
+                        <div
+                          aria-hidden
+                          className="absolute inset-0 bg-grid opacity-30"
+                        />
+                        <span className="relative text-[10px] font-mono uppercase tracking-[0.4em] text-white/50">
+                          {t('billboard.availableLabel')}
+                        </span>
+                        <span className="metal-text relative mt-3 text-3xl md:text-4xl font-black leading-tight tracking-tight text-center">
+                          {t('billboard.yourBrandHere')}
+                        </span>
+                        <span className="relative mt-3 text-xs text-white/45">
+                          {t('billboard.availableSub')}
+                        </span>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Live indicator */}
+                  <div className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-black/80 backdrop-blur-sm px-2 py-1 border border-white/10">
+                    <span className="relative flex h-1.5 w-1.5">
+                      <span
+                        aria-hidden
+                        className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-500 opacity-75"
+                      />
+                      <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-red-500" />
+                    </span>
+                    <span className="text-[9px] font-mono uppercase tracking-wider text-white/85">
+                      {t('billboard.liveLabel')}
+                    </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Stat chips */}
-              <div className="relative mt-7 grid grid-cols-3 gap-2">
-                <div className="metal-stat-card rounded-xl py-3 px-2 text-center">
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-white/40">
-                    Supply
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-white">
-                    21B
-                  </div>
-                </div>
-                <div className="metal-stat-card rounded-xl py-3 px-2 text-center">
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-white/40">
-                    Token
-                  </div>
-                  <div className="mt-1 text-sm font-semibold text-white">
-                    SPL
-                  </div>
-                </div>
-                <div className="metal-stat-card rounded-xl py-3 px-2 flex flex-col items-center justify-center">
-                  <div className="font-mono text-[9px] uppercase tracking-wider text-white/40">
-                    Brasil
-                  </div>
-                  <svg
-                    width="18"
-                    height="13"
-                    viewBox="0 0 28 20"
-                    xmlns="http://www.w3.org/2000/svg"
+              {/* Support legs */}
+              <div className="relative mx-auto mt-1 flex w-3/5 justify-between">
+                <div className="h-10 w-1 bg-gradient-to-b from-white/15 to-transparent" />
+                <div className="h-10 w-1 bg-gradient-to-b from-white/15 to-transparent" />
+              </div>
+
+              {/* Progress dots */}
+              <div className="relative mt-3 flex justify-center gap-1.5">
+                {SLIDES.map((_, i) => (
+                  <span
+                    key={i}
                     aria-hidden
-                    className="mt-1.5"
-                  >
-                    <rect width="28" height="20" rx="2" fill="#009c3b" />
-                    <polygon points="14,3 25,10 14,17 3,10" fill="#ffdf00" />
-                    <circle cx="14" cy="10" r="3.4" fill="#002776" />
-                  </svg>
+                    className={`h-1 rounded-full transition-all duration-500 ${
+                      i === slideIdx ? 'w-6 bg-primary' : 'w-1 bg-white/20'
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Stats strip */}
+              <div className="relative mt-5 grid grid-cols-3 rounded-xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden">
+                <div className="px-2 py-3 text-center">
+                  <div className="text-base md:text-lg font-bold text-white tabular-nums">10K</div>
+                  <div className="mt-0.5 text-[9px] uppercase tracking-wider text-white/50">
+                    {t('billboard.statDownloads')}
+                  </div>
+                </div>
+                <div className="border-x border-white/[0.06] px-2 py-3 text-center">
+                  <div className="text-base md:text-lg font-bold text-white tabular-nums">4K</div>
+                  <div className="mt-0.5 text-[9px] uppercase tracking-wider text-white/50">
+                    {t('billboard.statDau')}
+                  </div>
+                </div>
+                <div className="px-2 py-3 text-center">
+                  <div className="text-base md:text-lg font-bold text-white tabular-nums">23</div>
+                  <div className="mt-0.5 text-[9px] uppercase tracking-wider text-white/50">
+                    {t('billboard.statTime')}
+                  </div>
                 </div>
               </div>
             </motion.div>

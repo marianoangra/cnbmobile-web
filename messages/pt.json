@@ -465,7 +465,17 @@
         "ctaPrimary": "Quero ser parceiro",
         "ctaSecondary": "Ver formatos",
         "partnerStamp": "Parceira oficial",
-        "partnerStampHint": "Exchange parceira na trajetória do token CNB"
+        "partnerStampHint": "Exchange parceira na trajetória do token CNB",
+        "billboard": {
+          "liveLabel": "AO VIVO",
+          "availableLabel": "Espaço aberto",
+          "yourBrandHere": "Sua marca aqui",
+          "availableSub": "Próxima rotação disponível",
+          "currentLabel": "Em rotação agora",
+          "statDownloads": "Downloads",
+          "statDau": "Ativos/dia",
+          "statTime": "Min/dia"
+        }
       },
       "kpi": {
         "badge": "Por que CNB",

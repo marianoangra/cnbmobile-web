@@ -465,7 +465,17 @@
         "ctaPrimary": "Become a partner",
         "ctaSecondary": "See formats",
         "partnerStamp": "Official partner",
-        "partnerStampHint": "Exchange partner on the CNB token journey"
+        "partnerStampHint": "Exchange partner on the CNB token journey",
+        "billboard": {
+          "liveLabel": "ON AIR",
+          "availableLabel": "Slot available",
+          "yourBrandHere": "Your brand here",
+          "availableSub": "Next rotation open",
+          "currentLabel": "Now showing",
+          "statDownloads": "Downloads",
+          "statDau": "Daily users",
+          "statTime": "Min/day"
+        }
       },
       "kpi": {
         "badge": "Why CNB",

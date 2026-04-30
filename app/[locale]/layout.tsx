@@ -4,6 +4,7 @@ import { getMessages, getTranslations, setRequestLocale } from 'next-intl/server
 import { notFound } from 'next/navigation';
 import { routing } from '@/i18n/routing';
 import { Nav } from '@/components/ui/Nav';
+import { BackToTop } from '@/components/ui/BackToTop';
 import { Footer } from '@/components/sections/Footer';
 
 export function generateStaticParams() {
@@ -81,6 +82,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <Nav />
       <main className="min-h-screen">{children}</main>
       <Footer />
+      <BackToTop />
     </NextIntlClientProvider>
   );
 }

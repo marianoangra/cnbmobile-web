@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Wallet, Menu, X } from 'lucide-react';
-import { JuiceWordmark } from './JuiceWordmark';
+import { Logo } from './Logo';
 import { LangSwitcher } from './LangSwitcher';
 import { cn } from '@/lib/cn';
 
@@ -31,8 +31,8 @@ export function Nav() {
   }, [open]);
 
   const navItems = [
-    { href: '#features', label: t('features') },
-    { href: '#how-it-works', label: t('howItWorks') },
+    { href: '/#features', label: t('features') },
+    { href: '/#how-it-works', label: t('howItWorks') },
     { href: '/token', label: t('token') },
     { href: '/hackathon', label: t('hackathon') },
     { href: '/parceiros', label: t('parceiros') },
@@ -49,19 +49,15 @@ export function Nav() {
         )}
       >
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-5 py-3.5 md:px-8">
-          <Link href="/" aria-label="JUICE" className="inline-flex items-center">
-            <JuiceWordmark className="h-7 w-auto md:h-8" />
+          <Link href="/" aria-label="CNB Mobile">
+            <Logo />
           </Link>
 
           {/* Desktop nav */}
           <ul className="hidden md:flex items-center gap-1">
             {navItems.map((item) => (
               <li key={item.href}>
-                <NavItem
-                  href={item.href}
-                  label={item.label}
-                  isHash={item.href.startsWith('#')}
-                />
+                <NavItem href={item.href} label={item.label} />
               </li>
             ))}
           </ul>
@@ -106,29 +102,17 @@ export function Nav() {
             onClick={(e) => e.stopPropagation()}
           >
             <ul className="flex flex-col gap-1">
-              {navItems.map((item) =>
-                item.href.startsWith('#') ? (
-                  <li key={item.href}>
-                    <a
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="block rounded-xl px-4 py-3.5 text-base text-white/85 hover:bg-white/[0.04]"
-                    >
-                      {item.label}
-                    </a>
-                  </li>
-                ) : (
-                  <li key={item.href}>
-                    <Link
-                      href={item.href}
-                      onClick={() => setOpen(false)}
-                      className="block rounded-xl px-4 py-3.5 text-base text-white/85 hover:bg-white/[0.04]"
-                    >
-                      {item.label}
-                    </Link>
-                  </li>
-                )
-              )}
+              {navItems.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-xl px-4 py-3.5 text-base text-white/85 hover:bg-white/[0.04]"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
             <div className="mt-6 flex items-center">
               <LangSwitcher />
@@ -140,34 +124,15 @@ export function Nav() {
   );
 }
 
-function NavItem({
-  href,
-  label,
-  isHash,
-}: {
-  href: string;
-  label: string;
-  isHash: boolean;
-}) {
+function NavItem({ href, label }: { href: string; label: string }) {
   const className =
     'nav-link relative rounded-lg px-3 py-2 text-sm text-white/65 hover:text-white transition-colors';
-  const inner = (
-    <span className="relative inline-block">
-      {label}
-      <span aria-hidden className="nav-link-trail" />
-    </span>
-  );
-
-  if (isHash) {
-    return (
-      <a href={href} className={className}>
-        {inner}
-      </a>
-    );
-  }
   return (
     <Link href={href} className={className}>
-      {inner}
+      <span className="relative inline-block">
+        {label}
+        <span aria-hidden className="nav-link-trail" />
+      </span>
     </Link>
   );
 }

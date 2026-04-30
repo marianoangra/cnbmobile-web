@@ -3,7 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { Link } from '@/i18n/routing';
 import { Twitter, Github, Send, MessageCircle } from 'lucide-react';
-import { JuiceWordmark } from '@/components/ui/JuiceWordmark';
+import { Logo } from '@/components/ui/Logo';
 import { LangSwitcher } from '@/components/ui/LangSwitcher';
 import { StoreButtons } from '@/components/ui/StoreButtons';
 
@@ -26,23 +26,23 @@ const SOCIALS: Array<{ key: string; href: string | undefined; Icon: typeof Twitt
 export function Footer() {
   const t = useTranslations('footer');
 
-  const productLinks: Array<{ key: keyof typeof productHrefs; isHash: boolean }> = [
-    { key: 'features', isHash: true },
-    { key: 'howItWorks', isHash: true },
-    { key: 'token', isHash: false },
-    { key: 'hackathon', isHash: false },
-    { key: 'parceiros', isHash: false },
-    { key: 'download', isHash: true },
-  ];
-
   const productHrefs = {
-    features: '#features',
-    howItWorks: '#how-it-works',
+    features: '/#features',
+    howItWorks: '/#how-it-works',
     token: '/token',
     hackathon: '/hackathon',
     parceiros: '/parceiros',
-    download: '#waitlist',
+    download: '/#waitlist',
   } as const;
+
+  const productLinks: Array<keyof typeof productHrefs> = [
+    'features',
+    'howItWorks',
+    'token',
+    'hackathon',
+    'parceiros',
+    'download',
+  ];
 
   const legalLinks = [
     'terms',
@@ -93,7 +93,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-8">
           {/* Brand column */}
           <div className="md:col-span-4">
-            <JuiceWordmark className="h-8 w-auto" />
+            <Logo />
             <p className="mt-4 max-w-xs text-sm text-white/50 leading-relaxed">
               {t('tagline')}
             </p>
@@ -127,23 +127,14 @@ export function Footer() {
               {t('product')}
             </h4>
             <ul className="mt-4 space-y-2.5">
-              {productLinks.map(({ key, isHash }) => (
+              {productLinks.map((key) => (
                 <li key={key}>
-                  {isHash ? (
-                    <a
-                      href={productHrefs[key]}
-                      className="text-sm text-white/70 hover:text-white transition-colors"
-                    >
-                      {t(`links.${key}`)}
-                    </a>
-                  ) : (
-                    <Link
-                      href={productHrefs[key]}
-                      className="text-sm text-white/70 hover:text-white transition-colors"
-                    >
-                      {t(`links.${key}`)}
-                    </Link>
-                  )}
+                  <Link
+                    href={productHrefs[key]}
+                    className="text-sm text-white/70 hover:text-white transition-colors"
+                  >
+                    {t(`links.${key}`)}
+                  </Link>
                 </li>
               ))}
             </ul>

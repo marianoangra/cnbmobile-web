@@ -8,6 +8,7 @@
     "features": "Features",
     "howItWorks": "How it works",
     "token": "Token",
+    "tokenomics": "Tokenomics",
     "hackathon": "Hackathon",
     "parceiros": "Partners",
     "download": "Download App",
@@ -152,12 +153,18 @@
   },
   "footer": {
     "tagline": "Human Activity DePin.",
+    "company": "Company",
+    "companyLinks": {
+      "pitch": "For investors",
+      "hackathon": "Frontier Colosseum",
+      "founder": "Founder"
+    },
     "product": "Product",
-    "links": {
+    "productLinks": {
       "features": "Features",
       "howItWorks": "How it works",
       "token": "Token",
-      "hackathon": "Hackathon",
+      "tokenomics": "Tokenomics",
       "parceiros": "Partners",
       "download": "Download app"
     },
@@ -167,9 +174,13 @@
       "privacy": "Privacy Policy",
       "privacyEn": "Privacy Policy (EN)",
       "copyright": "Copyright",
-      "support": "Support",
-      "deleteAccount": "Delete my account",
       "cloakPrivacy": "Cloak Privacy"
+    },
+    "support": "Support",
+    "supportLinks": {
+      "helpCenter": "Help center",
+      "faq": "FAQ",
+      "deleteAccount": "Delete my account"
     },
     "community": "Community",
     "poweredBy": "Powered by",
@@ -180,6 +191,260 @@
   "common": {
     "back": "Back",
     "loading": "Loading..."
+  },
+  "tokenomics": {
+    "hero": {
+      "eyebrow": "Tokenomics",
+      "title": "The fuel of the JUICE ecosystem",
+      "subtitle": "$JUICE is the native Solana token that tokenizes every minute of charging. Deflationary by design, with real utility and community governance.",
+      "stats": {
+        "supplyLabel": "Total supply",
+        "supplyValue": "1,000,000,000",
+        "chainLabel": "Blockchain",
+        "chainValue": "Solana",
+        "modelLabel": "Model",
+        "modelValue": "Deflationary"
+      },
+      "ctaWhitepaper": "Read whitepaper"
+    },
+    "overview": {
+      "badge": "Overview",
+      "title": "Token parameters",
+      "subtitle": "Everything you need to know about $JUICE in one table.",
+      "rows": {
+        "name": ["Name", "JUICE"],
+        "ticker": ["Ticker", "$JUICE"],
+        "chain": ["Blockchain", "Solana (SPL Token)"],
+        "supply": ["Total supply", "1,000,000,000 (fixed)"],
+        "decimals": ["Decimals", "9"],
+        "address": ["Contract address", "Coming soon"]
+      }
+    },
+    "distribution": {
+      "badge": "Distribution",
+      "title": "How the supply is allocated",
+      "subtitle": "Each slice is clickable — tap to see allocation details.",
+      "totalLabel": "Total supply",
+      "totalValue": "1B $JUICE",
+      "supplyLabel": "Amount",
+      "noteLabel": "Details",
+      "slices": {
+        "community": {
+          "label": "Community Rewards",
+          "tagline": "Charge-to-Earn",
+          "note": "Distributed across ~10 years via halving curve to app users. The organic growth engine of the ecosystem."
+        },
+        "ecosystem": {
+          "label": "Ecosystem & Partnerships",
+          "tagline": "Grants & integrations",
+          "note": "Reserved for ecosystem grants, integrations with other DePINs and strategic sponsorships. Released by DAO proposal."
+        },
+        "team": {
+          "label": "Team & Advisors",
+          "tagline": "4-year vesting · 12-month cliff",
+          "note": "Team and advisors. 12-month cliff followed by 36 months of linear vesting to align long-term incentives."
+        },
+        "treasury": {
+          "label": "DAO Treasury",
+          "tagline": "Community-controlled",
+          "note": "Treasury controlled by the DAO. Used for future emissions, bounties, security audits and initiatives decided in governance."
+        },
+        "liquidity": {
+          "label": "Liquidity",
+          "tagline": "Raydium + Orca · 2-year lock",
+          "note": "Initial pools on Raydium and Orca. LP tokens locked for 24 months to guarantee market depth at launch."
+        },
+        "airdrop": {
+          "label": "Retroactive Airdrop",
+          "tagline": "CNB Mobile / JUICE users",
+          "note": "Reward for users who supported the ecosystem before TGE. Distributed based on a snapshot of accumulated points."
+        },
+        "private": {
+          "label": "Private Sale",
+          "tagline": "24-month vesting",
+          "note": "Closed strategic round. Linear vesting over 24 months, no cliff, to avoid sell pressure at listing."
+        },
+        "public": {
+          "label": "Public Sale / IDO",
+          "tagline": "Open distribution",
+          "note": "Public sale via partner launchpad. No lock — promotes fair price discovery on day one with a small, controlled float."
+        }
+      }
+    },
+    "emission": {
+      "badge": "Emission curve",
+      "title": "Emission with halving",
+      "subtitle": "Inspired by Bitcoin, the Community Rewards supply emits on a decaying curve. Early adopters earn disproportionately more.",
+      "yearLabel": "Year",
+      "amountLabel": "Issued",
+      "amountSuffix": "M $JUICE"
+    },
+    "utility": {
+      "badge": "Utility",
+      "title": "What $JUICE is for",
+      "subtitle": "Five real utilities — not an empty governance token.",
+      "items": {
+        "withdraw": {
+          "title": "Fee-free withdrawals",
+          "body": "Withdraw in $JUICE: 0% fee. Withdraw in PIX: 5% — 50% burned, 50% to the treasury."
+        },
+        "boost": {
+          "title": "Mining Boost",
+          "body": "Stake $JUICE to multiply points per minute. Bronze (1k) 1.2x · Silver (10k) 1.5x · Gold (100k) 2x."
+        },
+        "nft": {
+          "title": "Charger NFTs",
+          "body": "Charger skins and boosters as Solana cNFTs. Permanent multiplier, mint cost in cents."
+        },
+        "dao": {
+          "title": "DAO Governance",
+          "body": "Holders vote on emissions, app parameters, new partnerships and treasury usage."
+        },
+        "marketplace": {
+          "title": "Rewards marketplace",
+          "body": "Power banks, gift cards and electronics paid in $JUICE — discounted vs. fiat price."
+        }
+      }
+    },
+    "burn": {
+      "badge": "Deflationary mechanics",
+      "title": "Programmed burn",
+      "subtitle": "$JUICE isn't only distributed — it's also taken out of circulation in a transparent, auditable way.",
+      "sourcesTitle": "Burn sources",
+      "sources": {
+        "withdrawal": "50% of PIX withdrawal fees",
+        "marketplace": "30% of marketplace sales",
+        "nftMint": "100% of NFT mints",
+        "quarterly": "Quarterly burn from ad revenue"
+      },
+      "counterLabel": "Total burned",
+      "counterUnit": "$JUICE",
+      "counterNote": "On-chain counter · live after TGE"
+    },
+    "staking": {
+      "badge": "Staking",
+      "title": "Real Yield, no inflationary APY",
+      "subtitle": "Stakers receive a share of real fees generated by the app — paid in USDC or $JUICE, the staker's choice.",
+      "tableHeaders": {
+        "lockup": "Lock-up",
+        "multiplier": "Multiplier"
+      },
+      "tiers": {
+        "flexible": ["Flexible", "0x (governance only)"],
+        "thirty": ["30 days", "1x"],
+        "ninety": ["90 days", "1.5x"],
+        "oneeighty": ["180 days", "2.5x"]
+      }
+    },
+    "converter": {
+      "badge": "Conversion",
+      "title": "App points convert to $JUICE",
+      "subtitle": "The conversion rule is simple and fixed — no fine print.",
+      "ratio": "1,000 points = 1 $JUICE",
+      "minWithdraw": "Minimum withdrawal: 100 $JUICE (= 100,000 points)",
+      "calculatorTitle": "Calculator",
+      "inputLabel": "Your points",
+      "outputLabel": "You'd receive",
+      "outputUnit": "$JUICE",
+      "minWarning": "Below minimum withdrawal",
+      "minWarningSuffix": "points to withdraw"
+    },
+    "whySolana": {
+      "badge": "Infra",
+      "title": "Why Solana",
+      "subtitle": "Tokenizing every minute of charging at scale is only viable on a chain like Solana.",
+      "items": {
+        "fees": {
+          "title": "$0.0001 fees",
+          "body": "Make it economically viable to tokenize every minute without eating the user's reward."
+        },
+        "cnft": {
+          "title": "cNFTs",
+          "body": "Compressed NFTs allow millions of charger skins for cents."
+        },
+        "depin": {
+          "title": "DePIN ecosystem",
+          "body": "Neighbors with Helium, Hivemapper, Render — real composability between physical networks."
+        },
+        "wallet": {
+          "title": "Phantom Wallet",
+          "body": "Native mobile-first wallet, UX that matches our smartphone audience."
+        }
+      }
+    },
+    "roadmap": {
+      "badge": "Roadmap",
+      "title": "Launch roadmap",
+      "subtitle": "From whitepaper to live marketplace in 6 months.",
+      "milestones": {
+        "whitepaper": {
+          "title": "Whitepaper + community",
+          "when": "Month 0",
+          "status": "done"
+        },
+        "audit": {
+          "title": "Contract audit",
+          "when": "Month 1-2",
+          "status": "pending"
+        },
+        "snapshot": {
+          "title": "Snapshot for airdrop",
+          "when": "Month 3",
+          "status": "pending"
+        },
+        "ido": {
+          "title": "IDO + Raydium listing",
+          "when": "Month 4",
+          "status": "pending"
+        },
+        "wallet": {
+          "title": "Wallet inside the app",
+          "when": "Month 5",
+          "status": "pending"
+        },
+        "marketplace": {
+          "title": "Marketplace + NFTs live",
+          "when": "Month 6",
+          "status": "pending"
+        }
+      }
+    },
+    "faq": {
+      "badge": "Questions",
+      "title": "Quick FAQ",
+      "subtitle": "The most common $JUICE questions — one sentence each.",
+      "items": [
+        {
+          "q": "When will it launch?",
+          "a": "We're on track for TGE in ~6 months. Exact dates depend on the contract audit and snapshot. Join the community to be notified first."
+        },
+        {
+          "q": "Will I lose my current points?",
+          "a": "No. Accumulated points are preserved and converted to $JUICE at the rate of 1,000 points = 1 $JUICE at snapshot time."
+        },
+        {
+          "q": "Do I need a wallet to keep using the app?",
+          "a": "No. You can keep using the app with points only. The wallet is needed only if you want to withdraw $JUICE, stake or shop in the marketplace."
+        },
+        {
+          "q": "Is the token regulated in Brazil?",
+          "a": "$JUICE is a utility token — not a security, investment offering or yield promise. We address compliance proactively with local counsel."
+        },
+        {
+          "q": "How do I qualify for the airdrop?",
+          "a": "Use the app before snapshot (announced at least 30 days in advance). The more points accumulated by that date, the larger your retroactive allocation."
+        }
+      ]
+    },
+    "disclaimer": "$JUICE is a utility token of the JUICE ecosystem. It is not a security, investment offering or financial return promise. Crypto involves risks. Always consult local regulation.",
+    "finalCta": {
+      "title": "Join the community before TGE",
+      "subtitle": "Active community holders get priority on the airdrop, IDO whitelist and NFT drops.",
+      "telegram": "Telegram",
+      "discord": "Discord",
+      "twitter": "X (Twitter)",
+      "whitepaper": "Whitepaper"
+    }
   },
   "pages": {
     "privacy": {
@@ -350,6 +615,12 @@
     "token": {
       "title": "CNB Token",
       "intro": "Technical details of the SPL token on Solana mainnet."
+    },
+    "tokenomics": {
+      "title": "Tokenomics",
+      "intro": "The economic model of $JUICE — distribution, emission, burn and utility.",
+      "metaTitle": "$JUICE Tokenomics — Distribution, Emission and Utility",
+      "metaDescription": "Full economic model of the $JUICE token on Solana: 1B fixed supply, distribution, halving curve, real-yield staking and deflationary mechanics."
     },
     "hackathon": {
       "title": "Frontier Colosseum",

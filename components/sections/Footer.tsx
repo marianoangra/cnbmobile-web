@@ -26,42 +26,59 @@ const SOCIALS: Array<{ key: string; href: string | undefined; Icon: typeof Twitt
 export function Footer() {
   const t = useTranslations('footer');
 
+  const companyHrefs = {
+    pitch: '/pitch',
+    hackathon: '/hackathon',
+    founder: '/#founder',
+  } as const;
+  const companyLinks: Array<keyof typeof companyHrefs> = [
+    'pitch',
+    'hackathon',
+    'founder',
+  ];
+
   const productHrefs = {
     features: '/#features',
     howItWorks: '/#how-it-works',
     token: '/token',
-    hackathon: '/hackathon',
+    tokenomics: '/tokenomics',
     parceiros: '/parceiros',
     download: '/#waitlist',
   } as const;
-
   const productLinks: Array<keyof typeof productHrefs> = [
     'features',
     'howItWorks',
     'token',
-    'hackathon',
+    'tokenomics',
     'parceiros',
     'download',
   ];
 
-  const legalLinks = [
-    'terms',
-    'privacy',
-    'privacyEn',
-    'copyright',
-    'support',
-    'deleteAccount',
-    'cloakPrivacy',
-  ] as const;
   const legalHrefs = {
     terms: '/termos',
     privacy: '/privacidade',
     privacyEn: '/privacidade',
     copyright: '/copyright',
-    support: '/suporte',
-    deleteAccount: '/delete-account',
     cloakPrivacy: 'https://www.cloak.ag/privacy',
   } as const;
+  const legalLinks: Array<keyof typeof legalHrefs> = [
+    'terms',
+    'privacy',
+    'privacyEn',
+    'copyright',
+    'cloakPrivacy',
+  ];
+
+  const supportHrefs = {
+    helpCenter: '/suporte',
+    faq: '/faq',
+    deleteAccount: '/delete-account',
+  } as const;
+  const supportLinks: Array<keyof typeof supportHrefs> = [
+    'helpCenter',
+    'faq',
+    'deleteAccount',
+  ];
 
   const visibleSocials = SOCIALS.filter((s) => !!s.href);
 
@@ -121,67 +138,112 @@ export function Footer() {
             )}
           </div>
 
-          {/* Product */}
-          <div className="md:col-span-3">
-            <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
-              {t('product')}
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              {productLinks.map((key) => (
-                <li key={key}>
-                  <Link
-                    href={productHrefs[key]}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
-                  >
-                    {t(`links.${key}`)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Legal */}
-          <div className="md:col-span-3">
-            <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
-              {t('legal')}
-            </h4>
-            <ul className="mt-4 space-y-2.5">
-              {legalLinks.map((key) => {
-                const href = legalHrefs[key];
-                const isExternal = href.startsWith('http');
-                return (
-                  <li key={key}>
-                    {isExternal ? (
-                      <a
-                        href={href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-white/70 hover:text-white transition-colors"
-                      >
-                        {t(`legalLinks.${key}`)}
-                      </a>
-                    ) : (
+          {/* Link grid: 4 columns */}
+          <div className="md:col-span-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+              {/* Company */}
+              <div>
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  {t('company')}
+                </h4>
+                <ul className="mt-4 space-y-2.5">
+                  {companyLinks.map((key) => (
+                    <li key={key}>
                       <Link
-                        href={href}
-                        {...(key === 'privacyEn' ? { locale: 'en' as const } : {})}
+                        href={companyHrefs[key]}
                         className="text-sm text-white/70 hover:text-white transition-colors"
                       >
-                        {t(`legalLinks.${key}`)}
+                        {t(`companyLinks.${key}`)}
                       </Link>
-                    )}
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          {/* Powered by + lang */}
-          <div className="md:col-span-2 flex flex-col items-start md:items-end gap-4">
+              {/* Product */}
+              <div>
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  {t('product')}
+                </h4>
+                <ul className="mt-4 space-y-2.5">
+                  {productLinks.map((key) => (
+                    <li key={key}>
+                      <Link
+                        href={productHrefs[key]}
+                        className="text-sm text-white/70 hover:text-white transition-colors"
+                      >
+                        {t(`productLinks.${key}`)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Legal */}
+              <div>
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  {t('legal')}
+                </h4>
+                <ul className="mt-4 space-y-2.5">
+                  {legalLinks.map((key) => {
+                    const href = legalHrefs[key];
+                    const isExternal = href.startsWith('http');
+                    return (
+                      <li key={key}>
+                        {isExternal ? (
+                          <a
+                            href={href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-white/70 hover:text-white transition-colors"
+                          >
+                            {t(`legalLinks.${key}`)}
+                          </a>
+                        ) : (
+                          <Link
+                            href={href}
+                            {...(key === 'privacyEn' ? { locale: 'en' as const } : {})}
+                            className="text-sm text-white/70 hover:text-white transition-colors"
+                          >
+                            {t(`legalLinks.${key}`)}
+                          </Link>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+
+              {/* Support */}
+              <div>
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  {t('support')}
+                </h4>
+                <ul className="mt-4 space-y-2.5">
+                  {supportLinks.map((key) => (
+                    <li key={key}>
+                      <Link
+                        href={supportHrefs[key]}
+                        className="text-sm text-white/70 hover:text-white transition-colors"
+                      >
+                        {t(`supportLinks.${key}`)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom bar: powered by + lang + copyright */}
+        <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+          <div className="flex flex-wrap items-center gap-5">
             <a
               href="https://solana.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-white/60 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 text-xs text-white/55 hover:text-white transition-colors"
               aria-label="Powered by Solana"
             >
               <span>{t('poweredBy')}</span>
@@ -189,13 +251,12 @@ export function Footer() {
             </a>
             <LangSwitcher variant="footer" />
           </div>
-        </div>
-
-        <div className="mt-12 pt-8 border-t border-white/[0.06] flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
-          <p className="text-xs text-white/40">{t('copyright')}</p>
-          <p className="font-mono text-[10px] uppercase tracking-wider text-white/30">
-            Mainnet · Solana · v1.0
-          </p>
+          <div className="flex flex-wrap items-center gap-4">
+            <p className="text-xs text-white/40">{t('copyright')}</p>
+            <p className="font-mono text-[10px] uppercase tracking-wider text-white/30">
+              Mainnet · Solana · v1.0
+            </p>
+          </div>
         </div>
       </div>
     </footer>

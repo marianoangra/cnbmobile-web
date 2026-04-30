@@ -8,6 +8,7 @@
     "features": "Funciones",
     "howItWorks": "Cómo funciona",
     "token": "Token",
+    "tokenomics": "Tokenomics",
     "hackathon": "Hackathon",
     "parceiros": "Socios",
     "download": "Descargar App",
@@ -152,12 +153,18 @@
   },
   "footer": {
     "tagline": "DePin de Actividad Humana.",
+    "company": "Empresa",
+    "companyLinks": {
+      "pitch": "Para inversores",
+      "hackathon": "Frontier Colosseum",
+      "founder": "Fundador"
+    },
     "product": "Producto",
-    "links": {
+    "productLinks": {
       "features": "Funciones",
       "howItWorks": "Cómo funciona",
       "token": "Token",
-      "hackathon": "Hackathon",
+      "tokenomics": "Tokenomics",
       "parceiros": "Socios",
       "download": "Descargar app"
     },
@@ -167,9 +174,13 @@
       "privacy": "Política de Privacidad",
       "privacyEn": "Privacy Policy (EN)",
       "copyright": "Copyright",
-      "support": "Soporte",
-      "deleteAccount": "Eliminar mi cuenta",
       "cloakPrivacy": "Cloak Privacy"
+    },
+    "support": "Soporte",
+    "supportLinks": {
+      "helpCenter": "Centro de ayuda",
+      "faq": "FAQ",
+      "deleteAccount": "Eliminar mi cuenta"
     },
     "community": "Comunidad",
     "poweredBy": "Powered by",
@@ -180,6 +191,260 @@
   "common": {
     "back": "Volver",
     "loading": "Cargando..."
+  },
+  "tokenomics": {
+    "hero": {
+      "eyebrow": "Tokenomics",
+      "title": "El combustible del ecosistema JUICE",
+      "subtitle": "$JUICE es el token nativo de Solana que tokeniza cada minuto de carga. Sistema deflacionario, utilidad real y gobernanza comunitaria.",
+      "stats": {
+        "supplyLabel": "Supply Total",
+        "supplyValue": "1.000.000.000",
+        "chainLabel": "Blockchain",
+        "chainValue": "Solana",
+        "modelLabel": "Modelo",
+        "modelValue": "Deflacionario"
+      },
+      "ctaWhitepaper": "Leer whitepaper"
+    },
+    "overview": {
+      "badge": "Visión general",
+      "title": "Parámetros del token",
+      "subtitle": "Todo lo que necesitas saber sobre $JUICE en una tabla.",
+      "rows": {
+        "name": ["Nombre", "JUICE"],
+        "ticker": ["Ticker", "$JUICE"],
+        "chain": ["Blockchain", "Solana (SPL Token)"],
+        "supply": ["Supply Total", "1.000.000.000 (fijo)"],
+        "decimals": ["Decimales", "9"],
+        "address": ["Dirección del contrato", "Próximamente"]
+      }
+    },
+    "distribution": {
+      "badge": "Distribución",
+      "title": "Cómo se asigna el supply",
+      "subtitle": "Cada slice es interactivo — toca para ver el detalle de la asignación.",
+      "totalLabel": "Supply total",
+      "totalValue": "1B $JUICE",
+      "supplyLabel": "Cantidad",
+      "noteLabel": "Detalle",
+      "slices": {
+        "community": {
+          "label": "Community Rewards",
+          "tagline": "Charge-to-Earn",
+          "note": "Distribuido a lo largo de ~10 años vía curva de halving a los usuarios del app. Es el motor de crecimiento orgánico del ecosistema."
+        },
+        "ecosystem": {
+          "label": "Ecosystem & Partnerships",
+          "tagline": "Grants e integraciones",
+          "note": "Reservado para grants de ecosistema, integraciones con otros DePINs y patrocinios estratégicos. Liberación por propuesta DAO."
+        },
+        "team": {
+          "label": "Team & Advisors",
+          "tagline": "Vesting 4 años · cliff 12 meses",
+          "note": "Equipo y advisors. 12 meses de cliff seguidos de vesting lineal a lo largo de 36 meses para alinear incentivos a largo plazo."
+        },
+        "treasury": {
+          "label": "DAO Treasury",
+          "tagline": "Tesorería comunitaria",
+          "note": "Tesorería controlada por la DAO. Usada para emisión futura, bounties, auditorías y iniciativas decididas en gobernanza."
+        },
+        "liquidity": {
+          "label": "Liquidez",
+          "tagline": "Raydium + Orca · locked 2 años",
+          "note": "Pools iniciales en Raydium y Orca. LP tokens lockeados por 24 meses para garantizar profundidad de mercado al lanzamiento."
+        },
+        "airdrop": {
+          "label": "Airdrop Retroactivo",
+          "tagline": "Usuarios CNB Mobile / JUICE",
+          "note": "Recompensa para los usuarios que apoyaron el ecosistema antes del TGE. Distribuido en base a snapshot de puntos acumulados."
+        },
+        "private": {
+          "label": "Private Sale",
+          "tagline": "Vesting 24 meses",
+          "note": "Ronda estratégica cerrada. Vesting lineal de 24 meses sin cliff para evitar presión de venta en el listing."
+        },
+        "public": {
+          "label": "Public Sale / IDO",
+          "tagline": "Distribución abierta",
+          "note": "Venta pública vía launchpad partner. Sin lock — promueve descubrimiento de precio justo en el día 1 con float pequeño y controlado."
+        }
+      }
+    },
+    "emission": {
+      "badge": "Curva de emisión",
+      "title": "Emisión con halving",
+      "subtitle": "Inspirado en Bitcoin, el supply de Community Rewards se emite en curva decreciente. Los early adopters ganan desproporcionadamente más.",
+      "yearLabel": "Año",
+      "amountLabel": "Emitido",
+      "amountSuffix": "M $JUICE"
+    },
+    "utility": {
+      "badge": "Utilidad",
+      "title": "Para qué sirve $JUICE",
+      "subtitle": "Cinco utilidades reales — no un token de gobernanza vacío.",
+      "items": {
+        "withdraw": {
+          "title": "Retiro sin tarifa",
+          "body": "Retirar en $JUICE: 0%. Retirar en PIX: 5% — 50% quemado, 50% al treasury."
+        },
+        "boost": {
+          "title": "Mining Boost",
+          "body": "Hace stake $JUICE para multiplicar puntos por minuto. Bronze (1k) 1.2x · Silver (10k) 1.5x · Gold (100k) 2x."
+        },
+        "nft": {
+          "title": "Charger NFTs",
+          "body": "Skins y boosters de cargador como cNFTs Solana. Multiplicador permanente, mint en centavos."
+        },
+        "dao": {
+          "title": "Gobernanza DAO",
+          "body": "Holders votan emisión, parámetros del app, nuevas alianzas y uso del treasury."
+        },
+        "marketplace": {
+          "title": "Marketplace de recompensas",
+          "body": "Power banks, gift cards y electrónicos pagados en $JUICE — con descuento vs. precio fiat."
+        }
+      }
+    },
+    "burn": {
+      "badge": "Mecánica deflacionaria",
+      "title": "Burn programado",
+      "subtitle": "$JUICE no solo se distribuye — también sale de circulación de forma transparente y auditable.",
+      "sourcesTitle": "Fuentes de quema",
+      "sources": {
+        "withdrawal": "50% de las tarifas de retiro PIX",
+        "marketplace": "30% de las ventas en el marketplace",
+        "nftMint": "100% de los NFT mints",
+        "quarterly": "Burn trimestral vía ingresos de ads"
+      },
+      "counterLabel": "Total quemado",
+      "counterUnit": "$JUICE",
+      "counterNote": "Contador on-chain · activo después del TGE"
+    },
+    "staking": {
+      "badge": "Staking",
+      "title": "Real Yield, sin APY inflacionario",
+      "subtitle": "Stakers reciben parte de las tarifas reales generadas por el app — pagado en USDC o $JUICE, a elección del staker.",
+      "tableHeaders": {
+        "lockup": "Lock-up",
+        "multiplier": "Multiplicador"
+      },
+      "tiers": {
+        "flexible": ["Flexible", "0x (solo gobernanza)"],
+        "thirty": ["30 días", "1x"],
+        "ninety": ["90 días", "1.5x"],
+        "oneeighty": ["180 días", "2.5x"]
+      }
+    },
+    "converter": {
+      "badge": "Conversión",
+      "title": "Los puntos del app se convierten en $JUICE",
+      "subtitle": "La regla de conversión es simple y fija — sin letra chica.",
+      "ratio": "1.000 puntos = 1 $JUICE",
+      "minWithdraw": "Retiro mínimo: 100 $JUICE (= 100.000 puntos)",
+      "calculatorTitle": "Calculadora",
+      "inputLabel": "Tus puntos",
+      "outputLabel": "Recibirías",
+      "outputUnit": "$JUICE",
+      "minWarning": "Por debajo del mínimo de retiro",
+      "minWarningSuffix": "puntos para retirar"
+    },
+    "whySolana": {
+      "badge": "Infra",
+      "title": "Por qué Solana",
+      "subtitle": "Tokenizar cada minuto de carga a escala solo es viable en una chain como Solana.",
+      "items": {
+        "fees": {
+          "title": "Tarifas de $0.0001",
+          "body": "Hacen económicamente viable tokenizar cada minuto sin consumir toda la recompensa del usuario."
+        },
+        "cnft": {
+          "title": "cNFTs",
+          "body": "Compresión de NFTs permite millones de skins de cargador por centavos."
+        },
+        "depin": {
+          "title": "Ecosistema DePIN",
+          "body": "Vecindad con Helium, Hivemapper, Render — composabilidad real entre redes físicas."
+        },
+        "wallet": {
+          "title": "Phantom Wallet",
+          "body": "Cartera mobile-first nativa, UX que combina con nuestro público de smartphone."
+        }
+      }
+    },
+    "roadmap": {
+      "badge": "Roadmap",
+      "title": "Roadmap de lanzamiento",
+      "subtitle": "Del whitepaper al marketplace en vivo en 6 meses.",
+      "milestones": {
+        "whitepaper": {
+          "title": "Whitepaper + comunidad",
+          "when": "Mes 0",
+          "status": "done"
+        },
+        "audit": {
+          "title": "Auditoría de contrato",
+          "when": "Mes 1-2",
+          "status": "pending"
+        },
+        "snapshot": {
+          "title": "Snapshot para airdrop",
+          "when": "Mes 3",
+          "status": "pending"
+        },
+        "ido": {
+          "title": "IDO + listing en Raydium",
+          "when": "Mes 4",
+          "status": "pending"
+        },
+        "wallet": {
+          "title": "Wallet integrada en el app",
+          "when": "Mes 5",
+          "status": "pending"
+        },
+        "marketplace": {
+          "title": "Marketplace + NFTs en vivo",
+          "when": "Mes 6",
+          "status": "pending"
+        }
+      }
+    },
+    "faq": {
+      "badge": "Preguntas",
+      "title": "FAQ rápido",
+      "subtitle": "Las dudas más comunes sobre $JUICE — una frase cada una.",
+      "items": [
+        {
+          "q": "¿Cuándo se lanza?",
+          "a": "Estamos en camino al TGE en ~6 meses. Las fechas exactas dependen de la auditoría del contrato y del snapshot. Únete a la comunidad para ser avisado primero."
+        },
+        {
+          "q": "¿Voy a perder mis puntos actuales?",
+          "a": "No. Los puntos acumulados se preservan y se convierten en $JUICE a 1.000 puntos = 1 $JUICE en el momento del snapshot."
+        },
+        {
+          "q": "¿Necesito wallet para seguir usando el app?",
+          "a": "No. Puedes seguir usando el app solo con puntos. La wallet entra en juego solo si quieres retirar en $JUICE, hacer staking o comprar en el marketplace."
+        },
+        {
+          "q": "¿El token está regulado en Brasil?",
+          "a": "$JUICE es un token utilitario — no es valor mobiliario, oferta de inversión ni promesa de retorno. Tratamos compliance proactivamente con asesoría local."
+        },
+        {
+          "q": "¿Cómo participo del airdrop?",
+          "a": "Usa el app antes del snapshot (anunciado con al menos 30 días de antelación). Cuantos más puntos acumulados a esa fecha, mayor tu asignación retroactiva."
+        }
+      ]
+    },
+    "disclaimer": "$JUICE es un token utilitario del ecosistema JUICE. No constituye valor mobiliario, oferta de inversión ni promesa de retorno financiero. Cripto implica riesgos. Consulta siempre la regulación local.",
+    "finalCta": {
+      "title": "Únete a la comunidad antes del TGE",
+      "subtitle": "Holders activos de la comunidad tienen prioridad en el airdrop, en la whitelist del IDO y en los drops de NFT.",
+      "telegram": "Telegram",
+      "discord": "Discord",
+      "twitter": "X (Twitter)",
+      "whitepaper": "Whitepaper"
+    }
   },
   "pages": {
     "privacy": {
@@ -350,6 +615,12 @@
     "token": {
       "title": "CNB Token",
       "intro": "Detalles técnicos del token SPL en mainnet de Solana."
+    },
+    "tokenomics": {
+      "title": "Tokenomics",
+      "intro": "El modelo económico de $JUICE — distribución, emisión, quema y utilidad.",
+      "metaTitle": "Tokenomics de $JUICE — Distribución, Emisión y Utilidad",
+      "metaDescription": "Modelo económico completo del token $JUICE en Solana: 1B de supply fijo, distribución, curva de halving, staking real-yield y mecánica deflacionaria."
     },
     "hackathon": {
       "title": "Frontier Colosseum",

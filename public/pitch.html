@@ -691,7 +691,7 @@
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.5s ease-in 0.1s;
-      filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.4));
+      filter: drop-shadow(0 0 0.6px rgba(255, 255, 255, 0.5));
     }
     .ph-charge {
       transition: background 0.4s ease-out;
@@ -723,6 +723,61 @@
     }
     .ph-charge.shattered .ph-cracks {
       opacity: 1;
+    }
+
+    /* === Market funnel infographic (slide Mercado) ===================== */
+    .market-tier {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.45);
+      margin: 0 0 14px;
+      font-family: 'Inter', system-ui;
+    }
+    .market-tier.is-focus {
+      color: var(--primary);
+    }
+    .market-desc {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
+      margin: 12px 0 0;
+    }
+    .market-source {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.32);
+      margin: 18px 0 0;
+      font-family: 'Inter', system-ui;
+    }
+    .market-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .market-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, rgba(168, 219, 58, 0.45), rgba(168, 219, 58, 0.95));
+      border-radius: 3px;
+      box-shadow: 0 0 12px rgba(168, 219, 58, 0.3);
+    }
+    .market-card-focus {
+      border-color: rgba(168, 219, 58, 0.45) !important;
+      box-shadow: 0 0 28px rgba(168, 219, 58, 0.12);
+    }
+    .market-engagement {
+      margin-top: clamp(36px, 4vw, 56px);
+      padding: 18px 24px;
+      border-left: 2px solid var(--primary);
+      background: rgba(168, 219, 58, 0.04);
+      border-radius: 0 8px 8px 0;
+      font-size: clamp(13px, 1.15vw, 15px);
+      color: rgba(255, 255, 255, 0.78);
+      line-height: 1.55;
     }
 
     /* === Stat row === */
@@ -1298,111 +1353,210 @@
                 </div>
 
                 <!-- Crack overlay — invisible until .shattered is added.
-                     Densely detailed: radial fractures, multi-level forks,
-                     concentric ring fragments, angular plate breaks, micro
-                     splinters, and an impact glow at center. -->
+                     Realistic shattered glass: dust cloud, displaced fragment
+                     polygons, two-stroke jagged primary cracks (wide soft base
+                     + narrow offset bright core for edge-light depth on dark
+                     screen), branching forks, ring fragments, splinters, and
+                     impact halo + burst. -->
                 <svg class="ph-cracks" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
                   <defs>
                     <radialGradient id="ph-impact-glow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="rgba(255,255,255,0.55)"/>
+                      <stop offset="0%" stop-color="rgba(255,255,255,0.62)"/>
                       <stop offset="35%" stop-color="rgba(255,255,255,0.18)"/>
+                      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                    </radialGradient>
+                    <radialGradient id="ph-dust-cloud" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="rgba(255,255,255,0.16)"/>
+                      <stop offset="60%" stop-color="rgba(255,255,255,0.04)"/>
                       <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
                     </radialGradient>
                   </defs>
 
-                  <!-- Impact halo (glow behind everything) -->
-                  <circle cx="50" cy="100" r="14" fill="url(#ph-impact-glow)" />
+                  <!-- DUST CLOUD (atmospheric haze around impact) -->
+                  <ellipse cx="50" cy="100" rx="34" ry="38" fill="url(#ph-dust-cloud)"/>
 
-                  <!-- PRIMARY radial fractures (thick, full-strength) -->
-                  <g stroke="rgba(255, 255, 255, 0.62)" stroke-width="0.5" fill="none" stroke-linecap="round">
-                    <path d="M 50 100 L 28 56" />
-                    <path d="M 50 100 L 72 62" />
-                    <path d="M 50 100 L 22 132" />
-                    <path d="M 50 100 L 78 138" />
-                    <path d="M 50 100 L 52 28" />
-                    <path d="M 50 100 L 46 178" />
-                    <path d="M 50 100 L 92 105" />
-                    <path d="M 50 100 L 8 95" />
-                    <path d="M 50 100 L 38 38" />
-                    <path d="M 50 100 L 62 162" />
-                    <path d="M 50 100 L 18 75" />
-                    <path d="M 50 100 L 82 80" />
-                    <path d="M 50 100 L 30 165" />
-                    <path d="M 50 100 L 70 20" />
+                  <!-- DISPLACED GLASS PLATES (subtle white-tinted polygons —
+                       suggests fragments shifted out of plane) -->
+                  <g fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.14)" stroke-width="0.18" stroke-linejoin="round">
+                    <polygon points="42,70 56,62 65,76 52,90"/>
+                    <polygon points="32,90 50,84 55,108 38,114"/>
+                    <polygon points="62,105 78,92 80,118 64,124"/>
+                    <polygon points="38,128 56,120 62,140 45,148"/>
+                    <polygon points="50,55 65,42 72,58 58,68"/>
+                    <polygon points="55,142 70,136 75,160 60,164"/>
+                    <polygon points="20,82 36,76 38,98 22,100"/>
+                    <polygon points="64,80 80,72 84,90 70,94"/>
                   </g>
 
-                  <!-- SECONDARY forks (medium strength, branching off primaries) -->
-                  <g stroke="rgba(255, 255, 255, 0.45)" stroke-width="0.35" fill="none" stroke-linecap="round">
-                    <path d="M 28 56 L 18 44" />
-                    <path d="M 28 56 L 22 65" />
-                    <path d="M 72 62 L 84 50" />
-                    <path d="M 72 62 L 78 75" />
-                    <path d="M 22 132 L 12 148" />
-                    <path d="M 22 132 L 28 142" />
-                    <path d="M 78 138 L 90 154" />
-                    <path d="M 78 138 L 70 148" />
-                    <path d="M 52 28 L 58 12" />
-                    <path d="M 52 28 L 44 18" />
-                    <path d="M 46 178 L 42 195" />
-                    <path d="M 46 178 L 52 188" />
-                    <path d="M 38 38 L 30 25" />
-                    <path d="M 38 38 L 44 30" />
-                    <path d="M 62 162 L 70 175" />
-                    <path d="M 18 75 L 10 70" />
-                    <path d="M 82 80 L 90 72" />
+                  <!-- PRIMARY radial cracks — WIDE SOFT BASE
+                       (semitransparent halo around each crack) -->
+                  <g stroke="rgba(255, 255, 255, 0.38)" stroke-width="0.7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50 100 L 47 94 L 42 86 L 38 76 L 32 66 L 28 56"/>
+                    <path d="M 50 100 L 54 95 L 60 88 L 65 78 L 70 70 L 72 62"/>
+                    <path d="M 50 100 L 47 108 L 42 116 L 35 122 L 28 130 L 22 132"/>
+                    <path d="M 50 100 L 54 108 L 62 116 L 68 124 L 73 132 L 78 138"/>
+                    <path d="M 50 100 L 51 92 L 53 80 L 52 68 L 53 50 L 52 28"/>
+                    <path d="M 50 100 L 49 110 L 47 130 L 48 150 L 47 165 L 46 178"/>
+                    <path d="M 50 100 L 60 102 L 72 103 L 82 104 L 92 105"/>
+                    <path d="M 50 100 L 40 99 L 28 97 L 18 96 L 8 95"/>
+                    <path d="M 50 100 L 46 90 L 42 80 L 40 65 L 38 50 L 38 38"/>
+                    <path d="M 50 100 L 52 115 L 56 130 L 60 145 L 62 162"/>
+                    <path d="M 50 100 L 42 96 L 32 90 L 24 85 L 18 75"/>
+                    <path d="M 50 100 L 58 96 L 68 92 L 76 85 L 82 80"/>
+                    <path d="M 50 100 L 46 115 L 40 130 L 35 150 L 30 165"/>
+                    <path d="M 50 100 L 56 88 L 60 70 L 66 50 L 70 20"/>
                   </g>
 
-                  <!-- TERTIARY micro-forks (thin, faint hairline cracks) -->
-                  <g stroke="rgba(255, 255, 255, 0.32)" stroke-width="0.25" fill="none" stroke-linecap="round">
-                    <path d="M 18 44 L 12 38" />
-                    <path d="M 84 50 L 90 42" />
-                    <path d="M 12 148 L 6 156" />
-                    <path d="M 90 154 L 96 162" />
-                    <path d="M 58 12 L 64 4" />
-                    <path d="M 42 195 L 38 200" />
-                    <path d="M 30 25 L 24 18" />
-                    <path d="M 70 175 L 76 188" />
-                    <path d="M 22 65 L 16 72" />
-                    <path d="M 78 75 L 86 68" />
+                  <!-- PRIMARY radial cracks — SHARP CORE
+                       (the actual fracture line, full opacity) -->
+                  <g stroke="rgba(255, 255, 255, 0.92)" stroke-width="0.32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 50 100 L 47 94 L 42 86 L 38 76 L 32 66 L 28 56"/>
+                    <path d="M 50 100 L 54 95 L 60 88 L 65 78 L 70 70 L 72 62"/>
+                    <path d="M 50 100 L 47 108 L 42 116 L 35 122 L 28 130 L 22 132"/>
+                    <path d="M 50 100 L 54 108 L 62 116 L 68 124 L 73 132 L 78 138"/>
+                    <path d="M 50 100 L 51 92 L 53 80 L 52 68 L 53 50 L 52 28"/>
+                    <path d="M 50 100 L 49 110 L 47 130 L 48 150 L 47 165 L 46 178"/>
+                    <path d="M 50 100 L 60 102 L 72 103 L 82 104 L 92 105"/>
+                    <path d="M 50 100 L 40 99 L 28 97 L 18 96 L 8 95"/>
+                    <path d="M 50 100 L 46 90 L 42 80 L 40 65 L 38 50 L 38 38"/>
+                    <path d="M 50 100 L 52 115 L 56 130 L 60 145 L 62 162"/>
+                    <path d="M 50 100 L 42 96 L 32 90 L 24 85 L 18 75"/>
+                    <path d="M 50 100 L 58 96 L 68 92 L 76 85 L 82 80"/>
+                    <path d="M 50 100 L 46 115 L 40 130 L 35 150 L 30 165"/>
+                    <path d="M 50 100 L 56 88 L 60 70 L 66 50 L 70 20"/>
                   </g>
 
-                  <!-- ANGULAR PLATE FRAGMENTS (zig-zag connecting cracks
-                       between radials — suggests glass plates breaking off) -->
-                  <g stroke="rgba(255, 255, 255, 0.52)" stroke-width="0.32" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 38 76 L 45 80 L 52 75 L 60 82 L 66 78" />
-                    <path d="M 36 122 L 44 119 L 51 124 L 59 120 L 66 125" />
-                    <path d="M 32 92 L 38 96 L 36 105 L 32 108" />
-                    <path d="M 68 92 L 64 95 L 67 105 L 71 110" />
+                  <!-- PRIMARY cracks — DISPLACEMENT-EDGE GLINT
+                       (ultra-thin offset line — light catching the lifted edge
+                       of the glass fragment, simulates 3D depth) -->
+                  <g stroke="rgba(255, 255, 255, 1)" stroke-width="0.14" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.18, -0.18)">
+                    <path d="M 50 100 L 47 94 L 42 86 L 38 76 L 32 66 L 28 56"/>
+                    <path d="M 50 100 L 54 95 L 60 88 L 65 78 L 70 70 L 72 62"/>
+                    <path d="M 50 100 L 47 108 L 42 116 L 35 122 L 28 130 L 22 132"/>
+                    <path d="M 50 100 L 54 108 L 62 116 L 68 124 L 73 132 L 78 138"/>
+                    <path d="M 50 100 L 51 92 L 53 80 L 52 68 L 53 50 L 52 28"/>
+                    <path d="M 50 100 L 49 110 L 47 130 L 48 150 L 47 165 L 46 178"/>
+                    <path d="M 50 100 L 60 102 L 72 103 L 82 104 L 92 105"/>
+                    <path d="M 50 100 L 40 99 L 28 97 L 18 96 L 8 95"/>
                   </g>
 
-                  <!-- CONCENTRIC RING FRAGMENTS (broken circles around impact) -->
-                  <g stroke="rgba(255, 255, 255, 0.38)" stroke-width="0.28" fill="none" stroke-linecap="round">
-                    <path d="M 36 95 Q 42 88 50 87 Q 58 88 64 94" />
-                    <path d="M 38 110 Q 44 116 50 117 Q 57 116 63 110" />
-                    <path d="M 32 86 Q 40 78 50 77" opacity="0.6" />
-                    <path d="M 50 117 Q 60 116 68 110" opacity="0.55" />
+                  <!-- SECONDARY forks (jagged, branching off primaries) -->
+                  <g stroke="rgba(255, 255, 255, 0.55)" stroke-width="0.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 28 56 L 24 50 L 18 44"/>
+                    <path d="M 28 56 L 25 60 L 22 65"/>
+                    <path d="M 72 62 L 78 56 L 84 50"/>
+                    <path d="M 72 62 L 75 68 L 78 75"/>
+                    <path d="M 22 132 L 16 140 L 12 148"/>
+                    <path d="M 22 132 L 26 138 L 28 142"/>
+                    <path d="M 78 138 L 84 146 L 90 154"/>
+                    <path d="M 78 138 L 74 144 L 70 148"/>
+                    <path d="M 52 28 L 56 18 L 58 12"/>
+                    <path d="M 52 28 L 48 22 L 44 18"/>
+                    <path d="M 46 178 L 44 188 L 42 195"/>
+                    <path d="M 46 178 L 50 184 L 52 188"/>
+                    <path d="M 38 38 L 33 30 L 30 25"/>
+                    <path d="M 38 38 L 41 34 L 44 30"/>
+                    <path d="M 62 162 L 66 170 L 70 175"/>
+                    <path d="M 18 75 L 14 73 L 10 70"/>
+                    <path d="M 82 80 L 86 76 L 90 72"/>
                   </g>
 
-                  <!-- MICRO SPLINTERS (tiny disconnected shards) -->
-                  <g stroke="rgba(255, 255, 255, 0.5)" stroke-width="0.22" fill="none" stroke-linecap="round">
-                    <path d="M 41 87 L 45 85" />
-                    <path d="M 55 86 L 59 88" />
-                    <path d="M 42 113 L 46 115" />
-                    <path d="M 56 114 L 60 112" />
-                    <path d="M 35 100 L 39 99" />
-                    <path d="M 61 100 L 65 101" />
-                    <path d="M 48 81 L 51 79" />
-                    <path d="M 49 119 L 52 121" />
-                    <path d="M 26 92 L 30 90" />
-                    <path d="M 70 92 L 74 94" />
-                    <path d="M 48 50 L 51 48" />
-                    <path d="M 48 150 L 51 152" />
+                  <!-- TERTIARY micro-forks (hairlines fading at extremities) -->
+                  <g stroke="rgba(255, 255, 255, 0.34)" stroke-width="0.22" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 18 44 L 14 41 L 12 38"/>
+                    <path d="M 84 50 L 87 46 L 90 42"/>
+                    <path d="M 12 148 L 9 152 L 6 156"/>
+                    <path d="M 90 154 L 93 158 L 96 162"/>
+                    <path d="M 58 12 L 61 8 L 64 4"/>
+                    <path d="M 42 195 L 40 198 L 38 200"/>
+                    <path d="M 30 25 L 27 22 L 24 18"/>
+                    <path d="M 70 175 L 73 181 L 76 188"/>
+                    <path d="M 22 65 L 19 68 L 16 72"/>
+                    <path d="M 78 75 L 82 71 L 86 68"/>
                   </g>
 
-                  <!-- IMPACT BURST (bright center) -->
-                  <circle cx="50" cy="100" r="0.9" fill="rgba(255, 255, 255, 0.95)" />
-                  <circle cx="50" cy="100" r="2.2" fill="rgba(255, 255, 255, 0.35)" />
-                  <circle cx="50" cy="100" r="4.5" fill="rgba(255, 255, 255, 0.10)" />
+                  <!-- ANGULAR PLATE FRAGMENTS (zig-zag connecting cracks —
+                       glass plates separating between radials) -->
+                  <g stroke="rgba(255, 255, 255, 0.6)" stroke-width="0.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 38 76 L 45 80 L 52 75 L 60 82 L 66 78"/>
+                    <path d="M 36 122 L 44 119 L 51 124 L 59 120 L 66 125"/>
+                    <path d="M 32 92 L 38 96 L 36 105 L 32 108"/>
+                    <path d="M 68 92 L 64 95 L 67 105 L 71 110"/>
+                    <path d="M 42 64 L 48 68 L 54 64 L 60 70"/>
+                    <path d="M 42 134 L 50 130 L 56 134 L 62 130"/>
+                  </g>
+
+                  <!-- CONCENTRIC RING FRAGMENTS (broken arcs around impact) -->
+                  <g stroke="rgba(255, 255, 255, 0.4)" stroke-width="0.26" fill="none" stroke-linecap="round">
+                    <path d="M 36 95 Q 42 88 50 87 Q 58 88 64 94"/>
+                    <path d="M 38 110 Q 44 116 50 117 Q 57 116 63 110"/>
+                    <path d="M 32 86 Q 40 78 50 77" opacity="0.6"/>
+                    <path d="M 50 117 Q 60 116 68 110" opacity="0.55"/>
+                    <path d="M 30 102 Q 35 95 42 95" opacity="0.5"/>
+                    <path d="M 58 105 Q 65 105 70 98" opacity="0.5"/>
+                  </g>
+
+                  <!-- MICRO SPLINTERS (tiny disconnected shards near impact) -->
+                  <g stroke="rgba(255, 255, 255, 0.55)" stroke-width="0.22" fill="none" stroke-linecap="round">
+                    <path d="M 41 87 L 45 85"/>
+                    <path d="M 55 86 L 59 88"/>
+                    <path d="M 42 113 L 46 115"/>
+                    <path d="M 56 114 L 60 112"/>
+                    <path d="M 35 100 L 39 99"/>
+                    <path d="M 61 100 L 65 101"/>
+                    <path d="M 48 81 L 51 79"/>
+                    <path d="M 49 119 L 52 121"/>
+                    <path d="M 26 92 L 30 90"/>
+                    <path d="M 70 92 L 74 94"/>
+                    <path d="M 48 50 L 51 48"/>
+                    <path d="M 48 150 L 51 152"/>
+                  </g>
+
+                  <!-- DUST/POWDER PARTICLES (scattered around impact —
+                       irregular sizes, suggests pulverized glass dust) -->
+                  <g fill="rgba(255, 255, 255, 0.55)">
+                    <circle cx="38" cy="84" r="0.18"/>
+                    <circle cx="61" cy="82" r="0.16"/>
+                    <circle cx="44" cy="78" r="0.14"/>
+                    <circle cx="56" cy="119" r="0.18"/>
+                    <circle cx="43" cy="115" r="0.15"/>
+                    <circle cx="35" cy="103" r="0.16"/>
+                    <circle cx="65" cy="98" r="0.14"/>
+                    <circle cx="48" cy="80" r="0.13"/>
+                    <circle cx="52" cy="120" r="0.15"/>
+                    <circle cx="40" cy="92" r="0.14"/>
+                    <circle cx="60" cy="108" r="0.16"/>
+                    <circle cx="46" cy="86" r="0.12"/>
+                    <circle cx="58" cy="92" r="0.14"/>
+                    <circle cx="42" cy="100" r="0.18"/>
+                    <circle cx="56" cy="100" r="0.13"/>
+                    <circle cx="50" cy="84" r="0.14"/>
+                    <circle cx="50" cy="116" r="0.15"/>
+                    <circle cx="64" cy="115" r="0.12"/>
+                    <circle cx="36" cy="115" r="0.13"/>
+                    <circle cx="68" cy="100" r="0.16"/>
+                    <circle cx="32" cy="100" r="0.14"/>
+                    <circle cx="44" cy="124" r="0.13"/>
+                    <circle cx="56" cy="76" r="0.14"/>
+                    <circle cx="48" cy="68" r="0.12"/>
+                    <circle cx="52" cy="132" r="0.13"/>
+                    <circle cx="38" cy="68" r="0.11"/>
+                    <circle cx="62" cy="68" r="0.13"/>
+                    <circle cx="64" cy="132" r="0.12"/>
+                    <circle cx="36" cy="132" r="0.14"/>
+                    <circle cx="50" cy="60" r="0.12"/>
+                    <circle cx="50" cy="140" r="0.13"/>
+                    <circle cx="30" cy="90" r="0.11"/>
+                    <circle cx="70" cy="110" r="0.12"/>
+                  </g>
+
+                  <!-- IMPACT HALO (top — soft glow at center) -->
+                  <circle cx="50" cy="100" r="14" fill="url(#ph-impact-glow)"/>
+
+                  <!-- IMPACT BURST (bright center, layered) -->
+                  <circle cx="50" cy="100" r="0.9" fill="rgba(255, 255, 255, 0.98)"/>
+                  <circle cx="50" cy="100" r="2.2" fill="rgba(255, 255, 255, 0.4)"/>
+                  <circle cx="50" cy="100" r="4.5" fill="rgba(255, 255, 255, 0.12)"/>
                 </svg>
               </div>
             </div>
@@ -1443,6 +1597,63 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 3: MERCADO (TAM / SAM / SOM) ==================================== -->
+    <section class="slide" data-slide="3" aria-label="Mercado">
+      <div class="slide-inner">
+        <p class="eyebrow">Mercado</p>
+        <h2 style="font-size: clamp(24px, 3.4vw, 42px);">
+          O hábito mais universal do mundo.<br />
+          <span class="metal-text">A oportunidade mais subexplorada.</span>
+        </h2>
+
+        <div class="grid-3" style="margin-top: clamp(40px, 5vw, 64px);">
+          <!-- TAM — Global -->
+          <div class="card">
+            <p class="market-tier">TAM · Global</p>
+            <div class="number-xl">7,21<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
+            <p class="market-desc">smartphones ativos no mundo.</p>
+            <div class="market-bar" aria-hidden="true">
+              <div class="market-bar-fill" style="width: 100%;"></div>
+            </div>
+            <p class="market-source">Statista, 2024</p>
+          </div>
+
+          <!-- SAM — Mercados emergentes com instant payment -->
+          <div class="card">
+            <p class="market-tier">SAM · Crypto + PIX-like</p>
+            <div class="number-xl">2<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
+            <p class="market-desc">smartphones em economias com rails de pagamento instantâneo (PIX, UPI, etc).</p>
+            <div class="market-bar" aria-hidden="true">
+              <div class="market-bar-fill" style="width: 28%;"></div>
+            </div>
+            <p class="market-source">GSMA Mobile Economy, 2024</p>
+          </div>
+
+          <!-- SOM — Brasil first 24m (focus) -->
+          <div class="card market-card-focus">
+            <p class="market-tier is-focus">SOM · Brasil · 24m</p>
+            <div class="number-xl">157<span style="font-size: 0.55em; margin-left: 6px;">M</span></div>
+            <p class="market-desc">smartphones ativos no Brasil — onde o PIX já é o padrão.</p>
+            <div class="market-bar" aria-hidden="true">
+              <div class="market-bar-fill" style="width: 4%;"></div>
+            </div>
+            <p class="market-source">Anatel, 2024</p>
+          </div>
+        </div>
+
+        <!-- Engagement angle: time-on-charger × population -->
+        <div class="market-engagement">
+          ⚡ Cada smartphone passa <strong>~5 horas/dia</strong> conectado ao carregador.
+          7,21B × 5h × 365 dias = <strong>~13 trilhões de horas/ano</strong> de tempo-em-tomada
+          <strong>nunca monetizadas pelo usuário final.</strong>
+        </div>
+
+        <p style="margin-top: clamp(28px, 3vw, 40px); font-size: 11px; color: var(--secondary); letter-spacing: 0.08em; opacity: 0.55;">
+          Fontes: Statista 2024 · GSMA Mobile Economy 2024 · Anatel 2024 · Bankmycell 2024
+        </p>
       </div>
     </section>
 
@@ -1506,42 +1717,6 @@
             <div class="mockup-caption">Ranking</div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 7: MERCADO (TAM) ================================================ -->
-    <section class="slide" data-slide="7" aria-label="Mercado">
-      <div class="slide-inner" style="text-align: center;">
-        <p class="eyebrow">Mercado · Brasil</p>
-        <h2 style="text-align: left;">
-          Um mercado grande<br />
-          que ninguém atacou direito.
-        </h2>
-
-        <div class="grid-3" style="margin-top: 64px; text-align: center;">
-          <div>
-            <div class="number-xl">150M</div>
-            <p class="text-secondary" style="margin-top: 16px; font-size: 14px;">
-              brasileiros com smartphone
-            </p>
-          </div>
-          <div>
-            <div class="number-xl">5h</div>
-            <p class="text-secondary" style="margin-top: 16px; font-size: 14px;">
-              tempo médio diário carregando
-            </p>
-          </div>
-          <div>
-            <div class="number-xl">R$ 8B</div>
-            <p class="text-secondary" style="margin-top: 16px; font-size: 14px;">
-              mercado de programas de recompensa
-            </p>
-          </div>
-        </div>
-
-        <p style="margin-top: 64px; font-size: 11px; color: var(--secondary); letter-spacing: 0.08em; opacity: 0.6;">
-          Fontes: IBGE 2024, Statista, ABEP
-        </p>
       </div>
     </section>
 

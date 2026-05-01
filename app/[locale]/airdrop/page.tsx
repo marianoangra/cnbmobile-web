@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { AirdropForm } from '@/components/sections/AirdropForm';
 
@@ -16,5 +17,12 @@ export default async function AirdropPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  return <AirdropForm />;
+  // Suspense required because AirdropForm uses useSearchParams() — Next.js
+  // bails out of static rendering for the form subtree but the rest of the
+  // route still prerenders.
+  return (
+    <Suspense fallback={null}>
+      <AirdropForm />
+    </Suspense>
+  );
 }

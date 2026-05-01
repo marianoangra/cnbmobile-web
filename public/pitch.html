@@ -725,6 +725,52 @@
       opacity: 1;
     }
 
+    /* === Corner logo (decorative, slides 4+) ============================
+       Mantém a marca presente nos slides que não têm o wordmark hero. */
+    .slide-corner-logo {
+      position: absolute;
+      top: clamp(20px, 2.6vh, 32px);
+      right: clamp(24px, 2.5vw, 40px);
+      height: clamp(20px, 1.9vw, 26px);
+      opacity: 0.42;
+      z-index: 1;
+      pointer-events: none;
+      filter: drop-shadow(0 0 12px rgba(168, 219, 58, 0.18));
+    }
+
+    /* === Journey step card (slide Como Funciona) ======================== */
+    .journey-step {
+      text-align: center;
+      padding: clamp(20px, 2.4vw, 32px) clamp(16px, 1.8vw, 24px);
+    }
+    .journey-step-num {
+      font-family: 'Inter', system-ui;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.4);
+      margin-bottom: 14px;
+    }
+    .journey-step-icon {
+      font-size: clamp(32px, 3.6vw, 42px);
+      line-height: 1;
+      margin-bottom: 14px;
+    }
+    .journey-step-title {
+      font-size: clamp(15px, 1.4vw, 18px);
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+    }
+    .journey-step-desc {
+      font-size: clamp(11px, 1vw, 13px);
+      color: rgba(255, 255, 255, 0.55);
+      line-height: 1.5;
+      margin: 0;
+    }
+
     /* === Market funnel infographic (slide Mercado) ===================== */
     .market-tier {
       font-size: 11px;
@@ -1602,6 +1648,7 @@
 
     <!-- SLIDE 3: MERCADO (TAM / SAM / SOM) ==================================== -->
     <section class="slide" data-slide="3" aria-label="Mercado">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Mercado</p>
         <h2 style="font-size: clamp(24px, 3.4vw, 42px);">
@@ -1659,37 +1706,60 @@
 
     <!-- SLIDE 5: COMO FUNCIONA ================================================ -->
     <section class="slide" data-slide="5" aria-label="Como Funciona">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Como Funciona</p>
-        <h2>Cada minuto vira ponto. Cada 100 mil pontos vira PIX.</h2>
+        <h2 style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+          Baixou grátis. Carregou.<br />
+          <span class="metal-text">Ganhou pontos. Trocou por $JUICE.</span>
+        </h2>
 
-        <div class="table-card" style="margin-top: 40px;">
-          <div class="stat-row">
-            <span class="stat-label">⚡ 1 minuto carregando</span>
-            <span class="stat-value">+10 pts</span>
+        <div class="grid-4" style="margin-top: clamp(40px, 5vw, 64px);">
+          <div class="card journey-step">
+            <div class="journey-step-num">01</div>
+            <div class="journey-step-icon">📲</div>
+            <h3 class="journey-step-title">Baixou grátis</h3>
+            <p class="journey-step-desc">
+              App Store ou Google Play.<br />Sem cartão, sem assinatura.
+            </p>
           </div>
-          <div class="stat-row">
-            <span class="stat-label">🎁 Bônus a cada hora completa</span>
-            <span class="stat-value">+50 pts</span>
+          <div class="card journey-step">
+            <div class="journey-step-num">02</div>
+            <div class="journey-step-icon">🔌</div>
+            <h3 class="journey-step-title">Carregou</h3>
+            <p class="journey-step-desc">
+              5h/dia em média.<br />Cada sessão vira prova on-chain na Solana.
+            </p>
           </div>
-          <div class="stat-row">
-            <span class="stat-label">📅 Login diário</span>
-            <span class="stat-value">+10 pts</span>
+          <div class="card journey-step">
+            <div class="journey-step-num">03</div>
+            <div class="journey-step-icon">⭐</div>
+            <h3 class="journey-step-title">Ganhou pontos</h3>
+            <p class="journey-step-desc">
+              +10 pts/min · +50 bônus/hora<br />+100 por amigo indicado.
+            </p>
           </div>
-          <div class="stat-row">
-            <span class="stat-label">👥 Amigo indicado</span>
-            <span class="stat-value">+100 pts</span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">💰 Meta para saque PIX</span>
-            <span class="stat-value">100.000 pts</span>
+          <div class="card journey-step">
+            <div class="journey-step-num">04</div>
+            <div class="journey-step-icon">💎</div>
+            <h3 class="journey-step-title">Trocou por $JUICE</h3>
+            <p class="journey-step-desc">
+              1.000 pts = 1 $JUICE.<br />Saque cripto ou PIX direto pra conta.
+            </p>
           </div>
         </div>
+
+        <p style="margin-top: clamp(28px, 3.5vw, 44px); text-align: center; font-size: 13px; color: rgba(255,255,255,0.5);">
+          Saque mínimo: <strong style="color: #fff;">100 $JUICE</strong> (= 100k pts) ·
+          swap pra <strong style="color: #fff;">USDT, SOL</strong> via Jupiter ·
+          ou <strong style="color: #fff;">PIX</strong> em segundos.
+        </p>
       </div>
     </section>
 
     <!-- SLIDE 6: PRODUTO (mockups) ============================================ -->
     <section class="slide" data-slide="6" aria-label="Produto">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Produto</p>
         <h2 style="margin-bottom: 48px;">Três telas, um loop.</h2>
@@ -1722,80 +1792,105 @@
 
     <!-- SLIDE 8: MODELO DE NEGÓCIO ============================================ -->
     <section class="slide" data-slide="8" aria-label="Modelo de Negócio">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Modelo de Negócio</p>
-        <h2>Três pilares de receita.</h2>
-        <p class="subtitle">
-          Receita diversificada e escalável — não dependemos de uma única fonte.
+        <h2 style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+          Receita diversificada.<br />
+          <span class="metal-text">100% Solana-native.</span>
+        </h2>
+        <p class="subtitle" style="margin-top: 20px;">
+          Toda receita do app vira valor pro token — não pra extrativismo Web2.
+          Três pilares que se reforçam.
         </p>
 
-        <div class="grid-3" style="margin-top: 56px;">
+        <div class="grid-3" style="margin-top: clamp(40px, 5vw, 64px);">
           <div class="card pillar">
-            <div class="pillar-icon">📺</div>
-            <h3>Anúncios</h3>
+            <div class="pillar-icon">⚡</div>
+            <h3>Token utility</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-              Banners e rewarded ads enquanto o usuário carrega.
-              Inventário premium com alto tempo de tela.
+              $JUICE como meio de troca, governance e
+              <strong style="color: #fff;">burn</strong> em ações premium do app.
+              Cada uso aperta o supply.
             </p>
           </div>
           <div class="card pillar">
-            <div class="pillar-icon">🤝</div>
-            <h3>Afiliados</h3>
+            <div class="pillar-icon">🔒</div>
+            <h3>Real-yield staking</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-              Comissão sobre conversões de parceiros — varejo,
-              streaming, fintechs.
+              Receita do app (ads, afiliados, premium)
+              <strong style="color: #fff;">distribuída aos holders</strong>
+              de $JUICE que fazem stake. Yield real, não inflação.
             </p>
           </div>
           <div class="card pillar">
-            <div class="pillar-icon">⭐</div>
-            <h3>Premium</h3>
+            <div class="pillar-icon">🇧🇷</div>
+            <h3>Brasil PIX rail</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-              Assinatura com multiplicador de pontos, zero anúncios
-              e saque acelerado.
+              Única DePIN com saída fiat instantânea via
+              <strong style="color: #fff;">PIX</strong>.
+              Onboarding sem fricção, retenção sem custódia.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 9: TRAÇÃO ======================================================= -->
-    <!-- TODO: substituir métricas reais antes de apresentar -->
-    <section class="slide" data-slide="9" aria-label="Tração">
+    <!-- SLIDE 9: CRESCIMENTO =================================================== -->
+    <section class="slide" data-slide="9" aria-label="Crescimento">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <p class="eyebrow">Tração</p>
-        <h2>Crescimento orgânico, sem ads pagos.</h2>
+        <p class="eyebrow">Crescimento</p>
+        <h2 style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+          Crescimento orgânico.<br />
+          <span class="metal-text">O loop viral do hábito mais comum do mundo.</span>
+        </h2>
+        <p class="subtitle" style="margin-top: 20px;">
+          Quatro vetores que se compõem — sem ads pagos, sem CAC inflado.
+        </p>
 
-        <div class="grid-4" style="margin-top: 56px;">
+        <div class="grid-4" style="margin-top: clamp(40px, 5vw, 64px);">
           <div class="card">
-            <div class="number-lg mono">[X.XXX]</div>
-            <p class="text-secondary" style="margin-top: 12px; font-size: 13px;">
-              usuários ativos
+            <div style="font-size: 32px; margin-bottom: 16px;">🔁</div>
+            <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">Indicação +100 pts</h3>
+            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
+              Cada usuário traz 1+ amigo pelo loop de pontos. CAC orgânico abaixo do mercado.
             </p>
           </div>
           <div class="card">
-            <div class="number-lg mono">[X.XXX.XXX]</div>
-            <p class="text-secondary" style="margin-top: 12px; font-size: 13px;">
-              minutos carregados
+            <div style="font-size: 32px; margin-bottom: 16px;">🇧🇷</div>
+            <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">PIX cash-out</h3>
+            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
+              Saída fiat em segundos — diferencial Brasil-only que nenhuma DePIN global tem.
             </p>
           </div>
           <div class="card">
-            <div class="number-lg mono">[X.XXX]</div>
-            <p class="text-secondary" style="margin-top: 12px; font-size: 13px;">
-              indicações orgânicas
+            <div style="font-size: 32px; margin-bottom: 16px;">💬</div>
+            <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">Comunidade ativa</h3>
+            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
+              Telegram, WhatsApp e Instagram CNB legacy — base pré-existente que migra pro JUICE.
             </p>
           </div>
           <div class="card">
-            <div class="number-lg mono">[XX%]</div>
-            <p class="text-secondary" style="margin-top: 12px; font-size: 13px;">
-              retenção D7
+            <div style="font-size: 32px; margin-bottom: 16px;">🎁</div>
+            <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">Airdrop pré-TGE</h3>
+            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
+              Quem carrega primeiro, ganha primeiro. Snapshot de carregamento vira allocation.
             </p>
           </div>
+        </div>
+
+        <div class="market-engagement" style="margin-top: clamp(36px, 4vw, 56px);">
+          ⚡ <strong>Loop estrutural:</strong> usuário carrega → ganha pts → indica amigo →
+          amigo carrega → ambos sacam <strong>via PIX ou $JUICE</strong> → token sobe →
+          mais valor pra cada minuto carregando. <strong>Reforço positivo on-chain.</strong>
         </div>
       </div>
     </section>
 
     <!-- SLIDE 10: DIFERENCIAL ================================================= -->
     <section class="slide" data-slide="10" aria-label="Diferencial">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Por que Juice ganha</p>
         <h2>O combo que ninguém replica.</h2>
@@ -1855,6 +1950,7 @@
 
     <!-- SLIDE 11: ROADMAP ===================================================== -->
     <section class="slide" data-slide="11" aria-label="Roadmap">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Roadmap</p>
         <h2>Doze meses de execução.</h2>
@@ -1893,80 +1989,89 @@
       </div>
     </section>
 
-    <!-- SLIDE 12: TIME ======================================================== -->
-    <!-- TODO: preencher time real -->
-    <section class="slide" data-slide="12" aria-label="Time">
+    <!-- SLIDE 12: FOUNDER ===================================================== -->
+    <section class="slide" data-slide="12" aria-label="Founder">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <p class="eyebrow">Time</p>
-        <h2>Quem está construindo.</h2>
+        <p class="eyebrow">Founder</p>
+        <h2 style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+          Quem está construindo<br />
+          <span class="metal-text">a primeira DePIN brasileira na Solana.</span>
+        </h2>
 
-        <div class="grid-3" style="margin-top: 56px;">
-          <div class="card team-card">
-            <div class="team-photo">JR</div>
-            <h3>[Nome 1]</h3>
-            <p class="text-secondary" style="font-size: 13px; margin: 0; letter-spacing: 0.04em;">
-              CEO &amp; Founder
+        <div class="grid-2" style="margin-top: clamp(40px, 5vw, 64px); align-items: center; gap: clamp(32px, 4vw, 64px);">
+          <!-- Foto + nome + role -->
+          <div style="text-align: center;">
+            <div style="position: relative; display: inline-block;">
+              <div style="width: clamp(220px, 24vw, 320px); height: clamp(220px, 24vw, 320px); border-radius: 50%; overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 60px rgba(168, 219, 58, 0.18);">
+                <img src="images/founder.jpg" alt="Rafael Mariano" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
+              </div>
+            </div>
+            <h3 style="font-size: clamp(22px, 2.4vw, 32px); font-weight: 900; margin: 24px 0 6px; letter-spacing: -0.02em;">
+              Rafael Mariano
+            </h3>
+            <p style="font-size: clamp(13px, 1.2vw, 15px); color: var(--primary); font-weight: 600; letter-spacing: 0.04em; margin: 0;">
+              CEO &amp; Founder · Cripto no Bolso
             </p>
           </div>
-          <div class="card team-card">
-            <div class="team-photo">JT</div>
-            <h3>[Nome 2]</h3>
-            <p class="text-secondary" style="font-size: 13px; margin: 0; letter-spacing: 0.04em;">
-              CTO
+
+          <!-- Formações + qualidades -->
+          <div>
+            <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 16px;">
+              Formações
             </p>
-          </div>
-          <div class="card team-card">
-            <div class="team-photo">JP</div>
-            <h3>[Nome 3]</h3>
-            <p class="text-secondary" style="font-size: 13px; margin: 0; letter-spacing: 0.04em;">
-              Head of Growth
+            <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 10px;">
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                <span><strong style="color: #fff;">Analista de Investimentos CNPI</strong></span>
+              </li>
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                <span>Ex-<strong style="color: #fff;">XP Investimentos</strong> · <strong style="color: #fff;">Rico</strong> · <strong style="color: #fff;">Terra Investimentos</strong></span>
+              </li>
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                <span><strong style="color: #fff;">Educador SENAI</strong> — premiado como um dos professores mais influentes da região</span>
+              </li>
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                <span><strong style="color: #fff;">Piloto de Helicóptero</strong> · <strong style="color: #fff;">Full-stack Developer</strong></span>
+              </li>
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                <span><strong style="color: #fff;">Empresário</strong> — soluções inovadoras no mercado financeiro e cripto</span>
+              </li>
+            </ul>
+
+            <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 14px;">
+              A tese
             </p>
+            <p style="font-size: clamp(14px, 1.3vw, 17px); color: rgba(255, 255, 255, 0.78); line-height: 1.6; margin: 0 0 24px; font-style: italic;">
+              "Une mercado financeiro, educação e tecnologia para fazer diferença na vida de milhares de pessoas."
+            </p>
+
+            <!-- Sociais / contato -->
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center;">
+              <a href="https://rafaelmariano.com.br" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); font-size: 12px; color: rgba(255,255,255,0.75); text-decoration: none; letter-spacing: 0.02em;">
+                🌐 rafaelmariano.com.br
+              </a>
+              <a href="https://www.linkedin.com/in/palestranterafaelmariano" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); font-size: 12px; color: rgba(255,255,255,0.75); text-decoration: none; letter-spacing: 0.02em;">
+                in/ palestranterafaelmariano
+              </a>
+              <a href="https://instagram.com/rafaelmariano" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); font-size: 12px; color: rgba(255,255,255,0.75); text-decoration: none; letter-spacing: 0.02em;">
+                @rafaelmariano
+              </a>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 13: PEDIDO / CONTATO ============================================ -->
-    <section class="slide" data-slide="13" aria-label="Contato">
-      <div class="slide-inner" style="text-align: center;">
-        <p class="eyebrow">O Pedido</p>
-        <!-- TODO: substituir [X] e [objetivo] -->
-        <h1 style="text-align: center; margin: 0 auto; max-width: 18ch;">
-          Estamos levantando<br />
-          <span class="text-primary">R$ [X]M</span> para [objetivo].
-        </h1>
-
-        <p class="subtitle" style="margin: 32px auto 0; text-align: center;">
-          Vamos conversar. Resposta em até 24h úteis.
-        </p>
-
-        <div style="margin-top: 48px;">
-          <a class="btn-primary" href="mailto:marianoangra@gmail.com?subject=Juice%20%E2%80%94%20Pitch%20deck">
-            Falar com o time
-            <span aria-hidden>→</span>
-          </a>
-        </div>
-
-        <div style="margin-top: 24px; font-family: 'Inter'; font-size: 14px; color: var(--secondary); letter-spacing: 0.04em;">
-          <a href="mailto:marianoangra@gmail.com" style="color: var(--secondary); text-decoration: none; border-bottom: 1px dotted rgba(138,154,138,0.4);">
-            marianoangra@gmail.com
-          </a>
-        </div>
-
-        <div style="margin-top: 64px;">
-          <img
-            src="brand/juice-wordmark.svg"
-            alt="Juice"
-            style="height: 32px; opacity: 0.6;"
-          />
-        </div>
-      </div>
-    </section>
   </main>
 
   <!-- Progress + counter -->
   <nav class="controls" aria-label="Navegação dos slides">
-    <span class="counter mono" id="counter">01 / 13</span>
+    <span class="counter mono" id="counter">01 / 11</span>
     <button class="dot active" data-go="0" aria-label="Slide 1"></button>
     <button class="dot" data-go="1" aria-label="Slide 2"></button>
     <button class="dot" data-go="2" aria-label="Slide 3"></button>
@@ -1978,7 +2083,6 @@
     <button class="dot" data-go="8" aria-label="Slide 9"></button>
     <button class="dot" data-go="9" aria-label="Slide 10"></button>
     <button class="dot" data-go="10" aria-label="Slide 11"></button>
-    <button class="dot" data-go="11" aria-label="Slide 12"></button>
   </nav>
 
   <button class="btn-fs" id="btn-fs" aria-label="Tela cheia" title="Tela cheia (F)">

@@ -45,7 +45,7 @@
       },
       "proof": {
         "title": "Prueba on-chain",
-        "description": "Cada sesión se firma y se registra en Solana. Privacidad ZK, sin caja negra."
+        "description": "Cada sesión se firma y se registra en Solana. Identidad pseudónima vía hash on-chain, sin caja negra."
       },
       "ranking": {
         "title": "Ranking semanal",
@@ -151,6 +151,11 @@
     "errorEmail": "Email inválido.",
     "errorGeneric": "Algo salió mal. Inténtalo de nuevo."
   },
+  "walletButton": {
+    "connect": "Conectar cartera",
+    "connecting": "Conectando…",
+    "disconnect": "Desconectar cartera"
+  },
   "footer": {
     "tagline": "DePin de Actividad Humana.",
     "company": "Empresa",
@@ -166,6 +171,7 @@
       "token": "Token",
       "tokenomics": "Tokenomics",
       "parceiros": "Socios",
+      "airdrop": "Airdrop $JUICE",
       "download": "Descargar app"
     },
     "legal": "Legal",
@@ -357,6 +363,10 @@
         "fees": {
           "title": "Tarifas de $0.0001",
           "body": "Hacen económicamente viable tokenizar cada minuto sin consumir toda la recompensa del usuario."
+        },
+        "compression": {
+          "title": "ZK Compression",
+          "body": "Light Protocol comprime las cuentas on-chain de cada usuario con pruebas de Merkle — el costo de creación cae ~5000×, viabilizando 1 cuenta por cargador a escala de millones."
         },
         "cnft": {
           "title": "cNFTs",
@@ -630,6 +640,31 @@
       "title": "Cartera",
       "intro": "Conecta tu cartera Solana para canjear y gestionar tus tokens CNB.",
       "comingSoon": "Próximamente"
+    },
+    "airdrop": {
+      "metaTitle": "Airdrop $JUICE — Lista de Espera",
+      "metaDescription": "Quien carga primero, gana primero. Únete a la lista del airdrop $JUICE — DePIN de Solana que paga en token real.",
+      "badge": "Lista de espera · Pre-TGE",
+      "title": "Airdrop $JUICE",
+      "subtitle": "Quien carga primero, gana primero. Registra tu correo y (opcional) tu cartera Solana para asegurar prioridad en el airdrop.",
+      "fromAppBadge": "Vienes desde la app — bono de prioridad aplicado",
+      "step1Label": "1. Tu correo",
+      "emailPlaceholder": "tu@email.com",
+      "step2Label": "2. Tu cartera Solana",
+      "step2Optional": "(opcional, pero recomendado)",
+      "step2Help": "Conectar ahora hace que el drop caiga directo en tu cartera. ¿Sin cartera? Te enviamos instrucciones por correo en el TGE.",
+      "submit": "Unirme a la lista",
+      "submitting": "Enviando…",
+      "success": "¡Estás dentro!",
+      "successWithWallet": "Tu cartera está marcada para el airdrop. Te avisamos por correo cuando se cierre el snapshot.",
+      "successWithoutWallet": "Correo confirmado. Vuelve a conectar la cartera antes del snapshot — tu lugar está asegurado.",
+      "errorEmail": "Por favor, ingresa un correo válido.",
+      "errorGeneric": "No pudimos registrarte ahora. Intenta de nuevo en un momento.",
+      "reassurance": {
+        "noSpam": "Sin spam. Solo aviso del snapshot.",
+        "firstAccess": "Acceso prioritario en el TGE",
+        "noPurchase": "No es compra — solo lista"
+      }
     },
     "copyright": {
       "title": "Copyright y Propiedad Intelectual",

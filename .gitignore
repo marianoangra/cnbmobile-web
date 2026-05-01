@@ -40,6 +40,9 @@ yarn-error.log*
 # Claude Code (user-specific local settings)
 .claude/settings.local.json
 
+# Kuka memory (per-developer learning notes — local only, not for public repo)
+.kuka/
+
 # IDE
 .idea/
 .vscode/

@@ -43,6 +43,7 @@ export function Footer() {
     token: '/token',
     tokenomics: '/tokenomics',
     parceiros: '/parceiros',
+    airdrop: '/airdrop',
     download: '/#waitlist',
   } as const;
   const productLinks: Array<keyof typeof productHrefs> = [
@@ -51,6 +52,7 @@ export function Footer() {
     'token',
     'tokenomics',
     'parceiros',
+    'airdrop',
     'download',
   ];
 

@@ -45,7 +45,7 @@
       },
       "proof": {
         "title": "On-chain proof",
-        "description": "Each session is signed and recorded on Solana. ZK privacy, no black box."
+        "description": "Each session is signed and recorded on Solana. Pseudonymous on-chain via salted hash, no black box."
       },
       "ranking": {
         "title": "Weekly ranking",
@@ -151,6 +151,11 @@
     "errorEmail": "Invalid email.",
     "errorGeneric": "Something went wrong. Try again."
   },
+  "walletButton": {
+    "connect": "Connect wallet",
+    "connecting": "Connecting…",
+    "disconnect": "Disconnect wallet"
+  },
   "footer": {
     "tagline": "Human Activity DePin.",
     "company": "Company",
@@ -166,6 +171,7 @@
       "token": "Token",
       "tokenomics": "Tokenomics",
       "parceiros": "Partners",
+      "airdrop": "$JUICE Airdrop",
       "download": "Download app"
     },
     "legal": "Legal",
@@ -357,6 +363,10 @@
         "fees": {
           "title": "$0.0001 fees",
           "body": "Make it economically viable to tokenize every minute without eating the user's reward."
+        },
+        "compression": {
+          "title": "ZK Compression",
+          "body": "Light Protocol compresses each user's on-chain account with Merkle proofs — creation cost drops ~5000×, making one account per charger viable at millions of users."
         },
         "cnft": {
           "title": "cNFTs",
@@ -630,6 +640,31 @@
       "title": "Wallet",
       "intro": "Connect your Solana wallet to redeem and manage your CNB tokens.",
       "comingSoon": "Coming soon"
+    },
+    "airdrop": {
+      "metaTitle": "$JUICE Airdrop — Waitlist",
+      "metaDescription": "Charge first, get the drop first. Join the $JUICE airdrop waitlist — Solana DePIN that pays in real token.",
+      "badge": "Waitlist · Pre-TGE",
+      "title": "$JUICE Airdrop",
+      "subtitle": "Charge first, drop first. Sign up with your email and (optionally) your Solana wallet to lock in priority on the airdrop.",
+      "fromAppBadge": "You came from the app — priority bonus applied",
+      "step1Label": "1. Your email",
+      "emailPlaceholder": "you@email.com",
+      "step2Label": "2. Your Solana wallet",
+      "step2Optional": "(optional, but recommended)",
+      "step2Help": "Connecting now means the drop lands directly in your wallet. No wallet? We'll email instructions at TGE.",
+      "submit": "Join the waitlist",
+      "submitting": "Sending…",
+      "success": "You're in!",
+      "successWithWallet": "Your wallet is locked in for the drop. We'll email you when the snapshot closes.",
+      "successWithoutWallet": "Email confirmed. Come back to connect a wallet before the snapshot — your spot is safe.",
+      "errorEmail": "Please enter a valid email.",
+      "errorGeneric": "Couldn't sign you up right now. Try again in a moment.",
+      "reassurance": {
+        "noSpam": "No spam. Snapshot notice only.",
+        "firstAccess": "Priority access at TGE",
+        "noPurchase": "Not a purchase — just a list"
+      }
     },
     "copyright": {
       "title": "Copyright & Intellectual Property",

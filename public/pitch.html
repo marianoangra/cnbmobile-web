@@ -153,6 +153,29 @@
     .text-primary { color: var(--primary); }
     .text-accent { color: var(--accent); }
 
+    /* Metallic text effect (mirror of cnbweb's .metal-text — static version,
+       no mouse-following highlight since pitch slides don't track cursor). */
+    .metal-text {
+      background:
+        linear-gradient(
+          135deg,
+          #eaf5b8 0%,
+          #c5d97c 16%,
+          #94b048 32%,
+          #d4e58c 48%,
+          #f0f8c8 56%,
+          #b8cd6b 72%,
+          #8aa83d 88%,
+          #c5d97c 100%
+        );
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter:
+        drop-shadow(0 1px 0 rgba(255, 255, 255, 0.05))
+        drop-shadow(0 2px 10px rgba(168, 219, 58, 0.18));
+    }
+
     /* === Cards === */
     .card {
       background: var(--card);
@@ -231,7 +254,7 @@
       border-radius: 52px;
       background: #000;
       padding: 5px;
-      max-width: 320px;
+      max-width: 270px;
       width: 100%;
       aspect-ratio: 9 / 19.5;
       box-shadow:
@@ -583,8 +606,8 @@
     }
     .ph-battery-wrap {
       position: relative;
-      width: 78%;
-      margin: 4px 0 2px;
+      width: 22%;
+      margin: 8px auto 4px;
     }
     .ph-battery-svg {
       width: 100%;
@@ -593,17 +616,19 @@
       filter: drop-shadow(0 0 22px rgba(0, 255, 127, 0.55));
     }
     .ph-battery-fill {
-      transform-origin: 9px center;
+      transform-box: fill-box;
+      transform-origin: center bottom;
       animation: bat-fill 4.5s cubic-bezier(0.55, 0, 0.3, 1) infinite;
     }
     @keyframes bat-fill {
-      0%   { transform: scaleX(0.18); }
-      85%  { transform: scaleX(1); }
-      100% { transform: scaleX(1); }
+      0%   { transform: scaleY(0.18); }
+      85%  { transform: scaleY(1); }
+      100% { transform: scaleY(1); }
     }
     .ph-battery-bolt {
       animation: bolt-pulse 1.9s ease-in-out infinite;
-      transform-origin: 116px 50px;
+      transform-box: fill-box;
+      transform-origin: center;
     }
     @keyframes bolt-pulse {
       0%, 100% { opacity: 0.85; }
@@ -653,6 +678,51 @@
       color: rgba(255, 255, 255, 0.45);
       letter-spacing: 0.04em;
       margin-top: 2px;
+    }
+
+    /* === Shatter sequence (slide 2 narrative) ===========================
+       Loop: 6s normal → 0.45s shake → 6s shattered → reset. Drives the
+       "hours charging, device dies, you got nothing" visual beat. */
+    .ph-cracks {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.5s ease-in 0.1s;
+      filter: drop-shadow(0 0 1.5px rgba(255, 255, 255, 0.4));
+    }
+    .ph-charge {
+      transition: background 0.4s ease-out;
+    }
+    .ph-status,
+    .ph-charge-body {
+      transition: opacity 0.35s ease-out, filter 0.35s ease-out;
+    }
+    .ph-charge.shattering {
+      animation: ph-shake 0.45s cubic-bezier(.36, .07, .19, .97) both;
+    }
+    @keyframes ph-shake {
+      0%, 100% { transform: translateX(0) rotate(0); }
+      10% { transform: translateX(-2px) rotate(-0.4deg); }
+      25% { transform: translateX(3px) rotate(0.5deg); }
+      45% { transform: translateX(-4px) rotate(-0.6deg); }
+      65% { transform: translateX(3px) rotate(0.4deg); }
+      85% { transform: translateX(-2px) rotate(-0.2deg); }
+    }
+    .ph-charge.shattered {
+      background:
+        radial-gradient(80% 50% at 50% 50%, rgba(255, 255, 255, 0.04) 0%, transparent 60%),
+        #000 !important;
+    }
+    .ph-charge.shattered .ph-status,
+    .ph-charge.shattered .ph-charge-body {
+      opacity: 0;
+      filter: blur(6px);
+    }
+    .ph-charge.shattered .ph-cracks {
+      opacity: 1;
     }
 
     /* === Stat row === */
@@ -1141,13 +1211,14 @@
         <div class="cover-tagline">
           <strong>Charge &amp; Earn</strong>
         </div>
-        <div class="cover-footer">Pitch Deck — 2026</div>
+        <div class="cover-footer">DePIN · Solana · Frontier Colosseum 2026</div>
       </div>
     </section>
 
     <!-- SLIDE 2: PRODUTO AO VIVO (logo + iPhone 17 Pro Max) ================== -->
-    <section class="slide" data-slide="2" aria-label="Produto ao vivo">
+    <section class="slide" data-slide="2" aria-label="O Problema">
       <div class="slide-inner">
+        <p class="eyebrow">O Problema</p>
         <div class="grid-2" style="align-items: center;">
           <!-- Left: logo + headline -->
           <div>
@@ -1157,17 +1228,14 @@
               style="width: clamp(160px, 22vw, 280px); display: block; margin-bottom: 32px;
                      filter: drop-shadow(0 0 40px rgba(0, 255, 127, 0.35));"
             />
-            <h2>
-              Cada minuto<br />
-              <span class="text-primary">vira ponto.</span>
+            <h2 style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+              Você recarrega o celular.<br />
+              <span class="metal-text">Não recebe nada por isso.</span>
             </h2>
-            <p class="subtitle">
-              Conecte o cabo. Pontos sobem em tempo real, on-chain.
-              Saque via PIX a partir de 100.000 pts.
+            <p class="subtitle" style="margin-top: 20px;">
+              Toda DePIN paga sensor, energia, hotspot.
+              <strong>Ninguém paga o ato digital mais frequente do mundo.</strong>
             </p>
-            <div style="margin-top: 24px;">
-              <span class="badge">Ao vivo · agora mesmo</span>
-            </div>
           </div>
 
           <!-- Right: iPhone 17 Pro Max — charging hero + R$ 0,00 -->
@@ -1188,82 +1256,156 @@
 
                 <!-- Charging hero -->
                 <div class="ph-charge-body">
-                  <div class="ph-charge-label">Carregando</div>
-                  <div class="ph-charge-time" id="charge-time">02:47:13</div>
+                  <div class="ph-charge-label">Charging</div>
+                  <div class="ph-charge-time" id="charge-time">0%</div>
 
                   <div class="ph-battery-wrap" aria-hidden="true">
-                    <svg class="ph-battery-svg" viewBox="0 0 240 100">
+                    <svg class="ph-battery-svg" viewBox="0 0 100 240">
                       <defs>
-                        <linearGradient id="bat-fill" x1="0" y1="0" x2="1" y2="0">
+                        <!-- Vertical gradient — bottom (saturated green) to top (lighter) -->
+                        <linearGradient id="bat-fill" x1="0" y1="1" x2="0" y2="0">
                           <stop offset="0%"  stop-color="#3aff9b"/>
                           <stop offset="50%" stop-color="#a8db3a"/>
                           <stop offset="100%" stop-color="#7fff3a"/>
                         </linearGradient>
-                        <linearGradient id="bat-tip" x1="0" y1="0" x2="0" y2="1">
+                        <linearGradient id="bat-tip" x1="0" y1="0" x2="1" y2="0">
                           <stop offset="0%" stop-color="rgba(168,219,58,0.65)"/>
                           <stop offset="100%" stop-color="rgba(168,219,58,0.35)"/>
                         </linearGradient>
                       </defs>
-                      <!-- Body outline -->
-                      <rect x="3" y="6" width="210" height="88" rx="14"
+                      <!-- Body outline (tall) -->
+                      <rect x="6" y="14" width="88" height="210" rx="14"
                             fill="rgba(255,255,255,0.03)"
                             stroke="rgba(168,219,58,0.55)" stroke-width="2.5"/>
-                      <!-- Tip -->
-                      <rect x="216" y="34" width="14" height="32" rx="4" fill="url(#bat-tip)"/>
-                      <!-- Animated fill -->
+                      <!-- Tip (top, centered horizontally) -->
+                      <rect x="34" y="0" width="32" height="14" rx="4" fill="url(#bat-tip)"/>
+                      <!-- Animated fill (grows from bottom up via scaleY) -->
                       <rect class="ph-battery-fill"
-                            x="9" y="12" width="198" height="76" rx="9"
+                            x="12" y="20" width="76" height="198" rx="9"
                             fill="url(#bat-fill)"/>
-                      <!-- Lightning bolt -->
+                      <!-- Lightning bolt (vertical, centered at 50, 119) -->
                       <path class="ph-battery-bolt"
-                            d="M 124 22 L 100 56 L 116 56 L 104 80 L 132 50 L 116 50 Z"
+                            d="M 53 89 L 32 119 L 50 119 L 41 149 L 68 113 L 50 113 Z"
                             fill="#ffffff" opacity="0.92"/>
                     </svg>
                   </div>
 
                   <div class="ph-divider" aria-hidden="true"></div>
 
-                  <div class="ph-zero-label">Retorno até agora</div>
-                  <div class="ph-zero-value">R$ 0,00</div>
-                  <div class="ph-zero-sub">por horas carregando</div>
+                  <div class="ph-zero-label">Earned so far</div>
+                  <div class="ph-zero-value">$ 0.00</div>
+                  <div class="ph-zero-sub">for hours charging</div>
                 </div>
+
+                <!-- Crack overlay — invisible until .shattered is added.
+                     Densely detailed: radial fractures, multi-level forks,
+                     concentric ring fragments, angular plate breaks, micro
+                     splinters, and an impact glow at center. -->
+                <svg class="ph-cracks" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
+                  <defs>
+                    <radialGradient id="ph-impact-glow" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="rgba(255,255,255,0.55)"/>
+                      <stop offset="35%" stop-color="rgba(255,255,255,0.18)"/>
+                      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
+                    </radialGradient>
+                  </defs>
+
+                  <!-- Impact halo (glow behind everything) -->
+                  <circle cx="50" cy="100" r="14" fill="url(#ph-impact-glow)" />
+
+                  <!-- PRIMARY radial fractures (thick, full-strength) -->
+                  <g stroke="rgba(255, 255, 255, 0.62)" stroke-width="0.5" fill="none" stroke-linecap="round">
+                    <path d="M 50 100 L 28 56" />
+                    <path d="M 50 100 L 72 62" />
+                    <path d="M 50 100 L 22 132" />
+                    <path d="M 50 100 L 78 138" />
+                    <path d="M 50 100 L 52 28" />
+                    <path d="M 50 100 L 46 178" />
+                    <path d="M 50 100 L 92 105" />
+                    <path d="M 50 100 L 8 95" />
+                    <path d="M 50 100 L 38 38" />
+                    <path d="M 50 100 L 62 162" />
+                    <path d="M 50 100 L 18 75" />
+                    <path d="M 50 100 L 82 80" />
+                    <path d="M 50 100 L 30 165" />
+                    <path d="M 50 100 L 70 20" />
+                  </g>
+
+                  <!-- SECONDARY forks (medium strength, branching off primaries) -->
+                  <g stroke="rgba(255, 255, 255, 0.45)" stroke-width="0.35" fill="none" stroke-linecap="round">
+                    <path d="M 28 56 L 18 44" />
+                    <path d="M 28 56 L 22 65" />
+                    <path d="M 72 62 L 84 50" />
+                    <path d="M 72 62 L 78 75" />
+                    <path d="M 22 132 L 12 148" />
+                    <path d="M 22 132 L 28 142" />
+                    <path d="M 78 138 L 90 154" />
+                    <path d="M 78 138 L 70 148" />
+                    <path d="M 52 28 L 58 12" />
+                    <path d="M 52 28 L 44 18" />
+                    <path d="M 46 178 L 42 195" />
+                    <path d="M 46 178 L 52 188" />
+                    <path d="M 38 38 L 30 25" />
+                    <path d="M 38 38 L 44 30" />
+                    <path d="M 62 162 L 70 175" />
+                    <path d="M 18 75 L 10 70" />
+                    <path d="M 82 80 L 90 72" />
+                  </g>
+
+                  <!-- TERTIARY micro-forks (thin, faint hairline cracks) -->
+                  <g stroke="rgba(255, 255, 255, 0.32)" stroke-width="0.25" fill="none" stroke-linecap="round">
+                    <path d="M 18 44 L 12 38" />
+                    <path d="M 84 50 L 90 42" />
+                    <path d="M 12 148 L 6 156" />
+                    <path d="M 90 154 L 96 162" />
+                    <path d="M 58 12 L 64 4" />
+                    <path d="M 42 195 L 38 200" />
+                    <path d="M 30 25 L 24 18" />
+                    <path d="M 70 175 L 76 188" />
+                    <path d="M 22 65 L 16 72" />
+                    <path d="M 78 75 L 86 68" />
+                  </g>
+
+                  <!-- ANGULAR PLATE FRAGMENTS (zig-zag connecting cracks
+                       between radials — suggests glass plates breaking off) -->
+                  <g stroke="rgba(255, 255, 255, 0.52)" stroke-width="0.32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M 38 76 L 45 80 L 52 75 L 60 82 L 66 78" />
+                    <path d="M 36 122 L 44 119 L 51 124 L 59 120 L 66 125" />
+                    <path d="M 32 92 L 38 96 L 36 105 L 32 108" />
+                    <path d="M 68 92 L 64 95 L 67 105 L 71 110" />
+                  </g>
+
+                  <!-- CONCENTRIC RING FRAGMENTS (broken circles around impact) -->
+                  <g stroke="rgba(255, 255, 255, 0.38)" stroke-width="0.28" fill="none" stroke-linecap="round">
+                    <path d="M 36 95 Q 42 88 50 87 Q 58 88 64 94" />
+                    <path d="M 38 110 Q 44 116 50 117 Q 57 116 63 110" />
+                    <path d="M 32 86 Q 40 78 50 77" opacity="0.6" />
+                    <path d="M 50 117 Q 60 116 68 110" opacity="0.55" />
+                  </g>
+
+                  <!-- MICRO SPLINTERS (tiny disconnected shards) -->
+                  <g stroke="rgba(255, 255, 255, 0.5)" stroke-width="0.22" fill="none" stroke-linecap="round">
+                    <path d="M 41 87 L 45 85" />
+                    <path d="M 55 86 L 59 88" />
+                    <path d="M 42 113 L 46 115" />
+                    <path d="M 56 114 L 60 112" />
+                    <path d="M 35 100 L 39 99" />
+                    <path d="M 61 100 L 65 101" />
+                    <path d="M 48 81 L 51 79" />
+                    <path d="M 49 119 L 52 121" />
+                    <path d="M 26 92 L 30 90" />
+                    <path d="M 70 92 L 74 94" />
+                    <path d="M 48 50 L 51 48" />
+                    <path d="M 48 150 L 51 152" />
+                  </g>
+
+                  <!-- IMPACT BURST (bright center) -->
+                  <circle cx="50" cy="100" r="0.9" fill="rgba(255, 255, 255, 0.95)" />
+                  <circle cx="50" cy="100" r="2.2" fill="rgba(255, 255, 255, 0.35)" />
+                  <circle cx="50" cy="100" r="4.5" fill="rgba(255, 255, 255, 0.10)" />
+                </svg>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 3: PROBLEMA ===================================================== -->
-    <section class="slide" data-slide="3" aria-label="O Problema">
-      <div class="slide-inner">
-        <p class="eyebrow">O Problema</p>
-        <h2>
-          Seu celular fica <span class="text-primary">8 horas por dia</span> carregando.<br />
-          E você não ganha nada com isso.
-        </h2>
-
-        <div class="grid-3" style="margin-top: 56px;">
-          <div class="card">
-            <div style="font-size: 32px; margin-bottom: 16px;">📱</div>
-            <div class="number-lg">5h+</div>
-            <p class="text-secondary" style="margin: 12px 0 0; font-size: 15px;">
-              por dia conectado ao carregador
-            </p>
-          </div>
-          <div class="card">
-            <div style="font-size: 32px; margin-bottom: 16px;">💸</div>
-            <div class="number-lg">R$ 0</div>
-            <p class="text-secondary" style="margin: 12px 0 0; font-size: 15px;">
-              de retorno sobre esse tempo
-            </p>
-          </div>
-          <div class="card">
-            <div style="font-size: 32px; margin-bottom: 16px;">🔋</div>
-            <div class="number-lg">100%</div>
-            <p class="text-secondary" style="margin: 12px 0 0; font-size: 15px;">
-              das pessoas carregam o celular
-            </p>
           </div>
         </div>
       </div>
@@ -1273,20 +1415,25 @@
     <section class="slide" data-slide="4" aria-label="A Solução">
       <div class="slide-inner">
         <p class="eyebrow">A Solução</p>
-        <div class="grid-2">
+        <div class="grid-2" style="align-items: center;">
           <div>
-            <h2>
-              Juice transforma <span class="text-primary">tempo de tomada</span><br />
-              em dinheiro real.
+            <img
+              src="brand/juice-wordmark-pitch.svg"
+              alt="Juice"
+              style="width: clamp(160px, 22vw, 280px); display: block; margin-bottom: 32px;
+                     filter: drop-shadow(0 0 40px rgba(0, 255, 127, 0.35));"
+            />
+            <h2 style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+              Transformamos tempo<br />
+              <span class="metal-text">de carregamento em </span><span class="metal-text" style="font-size: 1.4em; font-weight: 900; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.05)) drop-shadow(0 2px 12px rgba(168,219,58,0.25)) drop-shadow(0 0 28px rgba(168,219,58,0.5));">valor.</span>
             </h2>
-            <p class="subtitle">
-              Conecte o cabo. Ganhe pontos. Saque via PIX a partir de 100.000 pontos.
-              Sem cartão pré-pago, sem letra miúda.
+            <p class="subtitle" style="margin-top: 20px;">
+              O primeiro DePIN do hábito mais comum do mundo.
+              Cada minuto carregando vira ponto on-chain na Solana.
             </p>
-            <div style="display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap;">
-              <span class="badge">Android · iOS</span>
-              <span class="badge">PIX nativo</span>
-              <span class="badge">Sem cadastro complexo</span>
+            <div style="margin-top: 12px; display: inline-flex; align-items: center; gap: 10px; padding: 10px 16px; border-radius: 12px; background: rgba(168, 219, 58, 0.06); border: 1px solid rgba(168, 219, 58, 0.18); font-size: clamp(12px, 1.1vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.45;">
+              <span aria-hidden style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); flex-shrink: 0; box-shadow: 0 0 8px rgba(168, 219, 58, 0.6);"></span>
+              <span>Saque em <strong style="color: #fff;">$JUICE</strong> (swap para USDT, SOL) ou <strong style="color: #fff;">PIX</strong> direto pra conta.</span>
             </div>
           </div>
           <div>
@@ -1657,7 +1804,6 @@
     <button class="dot" data-go="9" aria-label="Slide 10"></button>
     <button class="dot" data-go="10" aria-label="Slide 11"></button>
     <button class="dot" data-go="11" aria-label="Slide 12"></button>
-    <button class="dot" data-go="12" aria-label="Slide 13"></button>
   </nav>
 
   <button class="btn-fs" id="btn-fs" aria-label="Tela cheia" title="Tela cheia (F)">
@@ -1899,20 +2045,60 @@
         }
       }
 
-      // Slide 2 charging-time counter — ticks every second to dramatize
-      // the "you've been charging this long, and earned R$ 0,00" message.
+      // Slide 2 narrative cycle — loops forever:
+      //   0–10s    : screen normal, percentage climbs 0% → 100%
+      //   10–10.45 : screen shakes (impact)
+      //   10.45–16.45 : screen shattered, dark + cracks visible
+      //   16.45    : reset → cycle repeats
+      // Hammers home "you charge for hours and end up with nothing."
       var chargeTime = document.getElementById('charge-time');
-      if (chargeTime) {
-        var seconds = 2 * 3600 + 47 * 60 + 13; // start at 02:47:13
-        function pad(n) { return n < 10 ? '0' + n : '' + n; }
-        function renderClock() {
-          var h = Math.floor(seconds / 3600);
-          var m = Math.floor((seconds % 3600) / 60);
-          var s = seconds % 60;
-          chargeTime.textContent = pad(h) + ':' + pad(m) + ':' + pad(s);
+      var phoneScreen = document.querySelector('.iphone-17-screen.ph-charge');
+      var chargeInterval = null;
+      var pct = 0;
+
+      function renderPct() {
+        if (chargeTime) chargeTime.textContent = pct + '%';
+      }
+
+      function startCounter() {
+        pct = 0;
+        renderPct();
+        if (chargeInterval) clearInterval(chargeInterval);
+        chargeInterval = setInterval(function () {
+          pct = Math.min(pct + 1, 100); // climbs to 100% over ~10s
+          renderPct();
+        }, 100);
+      }
+
+      function stopCounter() {
+        if (chargeInterval) {
+          clearInterval(chargeInterval);
+          chargeInterval = null;
         }
-        renderClock();
-        setInterval(function () { seconds += 1; renderClock(); }, 1000);
+      }
+
+      function runCycle() {
+        if (!phoneScreen) return;
+        // Reset state — bring screen back to life
+        phoneScreen.classList.remove('shattered');
+        startCounter();
+
+        // After 10s, shake
+        setTimeout(function () {
+          phoneScreen.classList.add('shattering');
+          // After the shake completes, swap to dead state
+          setTimeout(function () {
+            phoneScreen.classList.remove('shattering');
+            phoneScreen.classList.add('shattered');
+            stopCounter();
+            // Stay shattered for 6s, then loop back to start
+            setTimeout(runCycle, 6000);
+          }, 450); // matches ph-shake duration
+        }, 10000);
+      }
+
+      if (chargeTime || phoneScreen) {
+        runCycle();
       }
     })();
   </script>

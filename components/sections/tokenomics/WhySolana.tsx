@@ -5,6 +5,7 @@ import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import {
   Zap,
+  Layers,
   Image as ImageIcon,
   Globe,
   Smartphone,
@@ -13,10 +14,11 @@ import {
 import { SectionBadge } from '@/components/ui/SectionBadge';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
-type WhyKey = 'fees' | 'cnft' | 'depin' | 'wallet';
+type WhyKey = 'fees' | 'compression' | 'cnft' | 'depin' | 'wallet';
 
 const ITEMS: { key: WhyKey; Icon: ComponentType<LucideProps> }[] = [
   { key: 'fees', Icon: Zap },
+  { key: 'compression', Icon: Layers },
   { key: 'cnft', Icon: ImageIcon },
   { key: 'depin', Icon: Globe },
   { key: 'wallet', Icon: Smartphone },
@@ -53,7 +55,7 @@ export function WhySolana() {
           </p>
         </motion.div>
 
-        <ul className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
+        <ul className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-5">
           {ITEMS.map((item, i) => (
             <motion.li
               key={item.key}

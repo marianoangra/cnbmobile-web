@@ -1,6 +1,6 @@
 # Patch CNB Mobile — atualização de identidade visual
 
-Atualizações: logo oficial, screenshots novos do app, botões App Store + Google Play, vocabulário alinhado com o app (kWh, ZK, DePIN, mainnet ativa).
+Atualizações: logo oficial, screenshots novos do app, botões App Store + Google Play, vocabulário alinhado com o app (kWh, pseudônimo on-chain, DePIN, mainnet ativa).
 
 ---
 
@@ -76,10 +76,10 @@ Não precisa rodar `npm install` de novo — nenhuma dependência mudou.
 
 Mudanças cirúrgicas, sem quebrar o pitch amplo:
 
-- Hero subtitle agora menciona **"kWh"** e **"privacidade ZK"** (palavras do app)
+- Hero subtitle agora menciona **"kWh"** e identidade pseudônima on-chain (palavras do app)
 - Stats no Hero: "Mainnet ativa", "SPL Token", "**iOS · Android**" (era "Open beta")
 - Feature card "Carregamento que rende": descrição agora fala "Cada kWh conta"
-- Feature card "Prova on-chain": agora menciona "Privacidade ZK"
+- Feature card "Prova on-chain": agora menciona identidade pseudônima via hash on-chain (substituiu "Privacidade ZK" — termo era impreciso, ZK Compression real entra como pilar em /tokenomics).
 
 Nada além disso. O resto do site mantém o pitch DePIN/Solana mais amplo, como você pediu.
 

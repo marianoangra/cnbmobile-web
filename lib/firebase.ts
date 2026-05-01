@@ -38,6 +38,55 @@ export type LeadInsert = {
   source?: string;
 };
 
+export type WaitlistInsert = {
+  email: string;
+  walletAddress?: string | null;
+  locale: string;
+  source?: string;
+  uid?: string | null;
+};
+
+/**
+ * Inserts a wallet-aware signup into the JUICE airdrop waitlist.
+ * Doc ID = sanitized email so the second submit hits the same doc and is
+ * blocked by the create-only rule (UX still shows success — already on list).
+ */
+export async function insertWaitlist(
+  entry: WaitlistInsert,
+): Promise<{ ok: boolean; error?: string }> {
+  const db = getDb();
+  if (!db) return { ok: false, error: 'firebase_not_configured' };
+
+  const { doc, setDoc, serverTimestamp, FirestoreError } = await import(
+    'firebase/firestore'
+  );
+
+  const docId = entry.email
+    .toLowerCase()
+    .replace(/[^a-z0-9@._-]/g, '_')
+    .slice(0, 140);
+
+  try {
+    await setDoc(doc(db, 'juice_waitlist', docId), {
+      email: entry.email.toLowerCase().trim(),
+      walletAddress: entry.walletAddress ?? null,
+      locale: entry.locale,
+      source: entry.source ?? 'web-airdrop',
+      uid: entry.uid ?? null,
+      createdAt: serverTimestamp(),
+    });
+    return { ok: true };
+  } catch (e) {
+    if (e instanceof FirestoreError && e.code === 'permission-denied') {
+      return { ok: true };
+    }
+    // eslint-disable-next-line no-console
+    console.error('[insertWaitlist] Firebase write failed:', e);
+    const msg = e instanceof Error ? `${e.name}: ${e.message}` : 'unknown';
+    return { ok: false, error: msg };
+  }
+}
+
 /**
  * Inserts a lead into the `leads` Firestore collection. Idempotent on email:
  * subsequent submits of the same email no-op (security rule blocks update).

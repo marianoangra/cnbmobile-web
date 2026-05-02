@@ -14,8 +14,9 @@ import { Stars } from '@/components/ui/Stars';
 import { StoreButtons } from '@/components/ui/StoreButtons';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
 
-const POINTS_START = 159_580;
-const POINTS_END = 180_400;
+const POINTS_START = 60_000;
+const POINTS_END = 120_000;
+const POINTS_GOAL = 100_000;
 const COUNT_SECONDS = 5;
 const PAUSE_SECONDS = 1.8;
 const LIME = '#a8db3a';
@@ -135,30 +136,66 @@ function AnimatedPointsOverlay() {
     Math.floor(v).toLocaleString('pt-BR')
   );
 
+  // Bar fill: 0..100k maps to 0..100%, capped at 100% past the goal.
+  const barFill = useTransform(
+    points,
+    (v) => `${Math.min(100, (v / POINTS_GOAL) * 100).toFixed(2)}%`
+  );
+
   return (
-    <div
-      aria-hidden
-      className="absolute pointer-events-none"
-      style={{ top: '17%', left: '6.5%' }}
-    >
-      {/* Feathered backdrop — blur softens edges so it blends into the
-          surrounding panel instead of sitting on top like a sticker. */}
+    <>
+      {/* Animated number — overlays the static "159.580" baked into the PNG. */}
       <div
-        style={{
-          position: 'absolute',
-          inset: '-3px -10px',
-          background: 'linear-gradient(180deg, #0e1a10 0%, #0a130c 100%)',
-          borderRadius: 8,
-          filter: 'blur(2.5px)',
-          opacity: 0.96,
-        }}
-      />
-      <motion.span
-        className="relative font-extrabold leading-none tracking-tight tabular-nums"
-        style={{ color: LIME, fontSize: 26 }}
+        aria-hidden
+        className="absolute pointer-events-none"
+        style={{ top: '17%', left: '6.5%' }}
       >
-        {text}
-      </motion.span>
-    </div>
+        {/* Feathered backdrop — heavy blur + radial mask so the patch blends
+            into the surrounding panel instead of looking like a sticker. */}
+        <div
+          style={{
+            position: 'absolute',
+            inset: '-6px -16px',
+            background: 'linear-gradient(180deg, #0e1a10 0%, #0a130c 100%)',
+            borderRadius: 14,
+            filter: 'blur(6px)',
+            opacity: 0.9,
+            WebkitMaskImage:
+              'radial-gradient(ellipse 95% 110% at 50% 50%, black 45%, transparent 100%)',
+            maskImage:
+              'radial-gradient(ellipse 95% 110% at 50% 50%, black 45%, transparent 100%)',
+          }}
+        />
+        <motion.span
+          className="relative font-extrabold leading-none tracking-tight tabular-nums"
+          style={{ color: LIME, fontSize: 26 }}
+        >
+          {text}
+        </motion.span>
+      </div>
+
+      {/* Animated progress bar — overlays the static 100% bar in the PNG. */}
+      <div
+        aria-hidden
+        className="absolute pointer-events-none overflow-hidden"
+        style={{
+          top: '25.6%',
+          left: '9%',
+          width: '82%',
+          height: 5,
+          background: 'rgba(255,255,255,0.06)',
+          borderRadius: 999,
+        }}
+      >
+        <motion.div
+          style={{
+            height: '100%',
+            width: barFill,
+            background: `linear-gradient(90deg, #7fb028, ${LIME})`,
+            borderRadius: 999,
+          }}
+        />
+      </div>
+    </>
   );
 }

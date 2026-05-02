@@ -54,9 +54,7 @@ export function PhoneMockup({
 
         {/* Inner display */}
         <div className="phone-screen">
-          {children ? (
-            children
-          ) : src ? (
+          {src && (
             <Image
               src={src}
               alt={alt}
@@ -66,7 +64,8 @@ export function PhoneMockup({
               className="h-full w-full object-cover"
               sizes={`${width}px`}
             />
-          ) : null}
+          )}
+          {children}
           {/* Punch-hole front camera */}
           <span aria-hidden className="phone-punch" />
           {/* Diagonal glass reflection */}

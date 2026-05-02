@@ -1,11 +1,24 @@
 'use client';
 
+import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import {
+  motion,
+  useMotionValue,
+  useTransform,
+  animate,
+  useReducedMotion,
+} from 'framer-motion';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
 import { Stars } from '@/components/ui/Stars';
 import { StoreButtons } from '@/components/ui/StoreButtons';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
+
+const POINTS_START = 159_580;
+const POINTS_END = 180_400;
+const COUNT_SECONDS = 5;
+const PAUSE_SECONDS = 1.8;
+const LIME = '#a8db3a';
 
 export function Hero() {
   const t = useTranslations('hero');
@@ -86,10 +99,62 @@ export function Hero() {
               priority
               width={202}
               height={436}
-            />
+            >
+              <AnimatedPointsOverlay />
+            </PhoneMockup>
           </div>
         </div>
       </div>
     </section>
+  );
+}
+
+// Overlay that masks the static "159.580" baked into screen-home-real.png and
+// animates the points up to 180.400 in a loop. Position is calibrated visually
+// against the screenshot inside a 202×436 phone-screen.
+function AnimatedPointsOverlay() {
+  const reduce = useReducedMotion();
+  const points = useMotionValue(POINTS_START);
+
+  useEffect(() => {
+    if (reduce) {
+      points.set(POINTS_END);
+      return;
+    }
+    const c = animate(points, POINTS_END, {
+      duration: COUNT_SECONDS,
+      ease: 'easeOut',
+      repeat: Infinity,
+      repeatType: 'loop',
+      repeatDelay: PAUSE_SECONDS,
+    });
+    return () => c.stop();
+  }, [points, reduce]);
+
+  const text = useTransform(points, (v) =>
+    Math.floor(v).toLocaleString('pt-BR')
+  );
+
+  return (
+    <div
+      aria-hidden
+      className="absolute pointer-events-none"
+      style={{
+        top: '17%',
+        left: '6.5%',
+        // Solid backdrop matching the points-card gradient — masks the static
+        // number painted into the underlying PNG.
+        background: 'linear-gradient(180deg, #0e1a10 0%, #0a130c 100%)',
+        padding: '2px 6px 3px 4px',
+        borderRadius: 3,
+      }}
+    >
+      <motion.span
+        className="font-extrabold leading-none tracking-tight tabular-nums"
+        style={{ color: LIME, fontSize: 26 }}
+      >
+        {text}
+      </motion.span>
+    </div>
   );
 }

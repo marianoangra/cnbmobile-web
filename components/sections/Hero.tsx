@@ -62,6 +62,7 @@ export function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="hero-subtitle mt-7 max-w-xl"
+              style={{ fontSize: 'clamp(0.9rem, 1.8vw, 1.08rem)' }}
             >
               {t('subtitle')}
             </motion.p>
@@ -80,7 +81,7 @@ export function Hero() {
           {/* Right: phone with live mocked home screen — sized to fit
               the hero viewport without scroll (~30% smaller than default). */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <PhoneMockup alt="CNB Mobile app — Início" priority width={224} height={484}>
+            <PhoneMockup alt="CNB Mobile app — Início" priority width={202} height={436}>
               <MockedHomeScreen />
             </PhoneMockup>
           </div>

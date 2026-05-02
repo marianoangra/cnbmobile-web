@@ -174,21 +174,33 @@ function AnimatedPointsOverlay() {
         </motion.span>
       </div>
 
-      {/* Animated progress bar — overlays the static 100% bar in the PNG. */}
+      {/* Animated progress bar — overlays the static 100% bar in the PNG.
+          Opaque backdrop fully masks the static fill below; subtle track
+          highlight + lime fill render on top. Slightly taller than the
+          original to guarantee coverage even with positioning drift. */}
       <div
         aria-hidden
         className="absolute pointer-events-none overflow-hidden"
         style={{
-          top: '25.6%',
-          left: '9%',
-          width: '82%',
-          height: 5,
-          background: 'rgba(255,255,255,0.06)',
+          top: '25.4%',
+          left: '8.5%',
+          width: '83%',
+          height: 7,
+          background: '#0c170e',
           borderRadius: 999,
         }}
       >
+        <div
+          style={{
+            position: 'absolute',
+            inset: 0,
+            background: 'rgba(255,255,255,0.06)',
+            borderRadius: 999,
+          }}
+        />
         <motion.div
           style={{
+            position: 'relative',
             height: '100%',
             width: barFill,
             background: `linear-gradient(90deg, #7fb028, ${LIME})`,

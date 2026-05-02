@@ -19,7 +19,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://cnbmobile.com'),
+  metadataBase: new URL('https://usejuicemobile.com'),
   icons: {
     icon: [
       { url: '/icon.jpg', type: 'image/jpeg' },

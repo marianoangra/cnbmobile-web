@@ -57,7 +57,7 @@ export default async function ParceirosPage({ params }: Props) {
     serviceType: 'Brand Partnership · DePIN Sponsored Missions',
     provider: {
       '@type': 'Organization',
-      '@id': 'https://cnbmobile.com/#organization',
+      '@id': 'https://usejuicemobile.com/#organization',
       name: 'CNB Mobile',
     },
     description: t('intro'),

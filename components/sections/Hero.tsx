@@ -139,18 +139,22 @@ function AnimatedPointsOverlay() {
     <div
       aria-hidden
       className="absolute pointer-events-none"
-      style={{
-        top: '17%',
-        left: '6.5%',
-        // Solid backdrop matching the points-card gradient — masks the static
-        // number painted into the underlying PNG.
-        background: 'linear-gradient(180deg, #0e1a10 0%, #0a130c 100%)',
-        padding: '2px 6px 3px 4px',
-        borderRadius: 3,
-      }}
+      style={{ top: '17%', left: '6.5%' }}
     >
+      {/* Feathered backdrop — blur softens edges so it blends into the
+          surrounding panel instead of sitting on top like a sticker. */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: '-3px -10px',
+          background: 'linear-gradient(180deg, #0e1a10 0%, #0a130c 100%)',
+          borderRadius: 8,
+          filter: 'blur(2.5px)',
+          opacity: 0.96,
+        }}
+      />
       <motion.span
-        className="font-extrabold leading-none tracking-tight tabular-nums"
+        className="relative font-extrabold leading-none tracking-tight tabular-nums"
         style={{ color: LIME, fontSize: 26 }}
       >
         {text}

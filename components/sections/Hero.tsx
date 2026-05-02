@@ -2,7 +2,6 @@
 
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
-import { SectionBadge } from '@/components/ui/SectionBadge';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
 import { MockedHomeScreen } from '@/components/ui/MockedHomeScreen';
 import { Stars } from '@/components/ui/Stars';
@@ -41,22 +40,14 @@ export function Hero() {
       />
 
       <div className="relative z-20 mx-auto max-w-[1280px] px-5 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 items-center">
           {/* Left: copy */}
           <div className="lg:col-span-7">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            >
-              <SectionBadge variant="primary">{t('badge')}</SectionBadge>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="hero-headline mt-6 text-white"
+              className="hero-headline text-white"
             >
               <span className="block whitespace-normal sm:whitespace-nowrap">
                 {t('headlineLine1')}
@@ -84,27 +75,11 @@ export function Hero() {
               <StoreButtons size="lg" />
             </motion.div>
 
-            {/* Stats strip */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.7, delay: 0.5 }}
-              className="mt-12 flex items-center gap-6 text-xs uppercase tracking-wider text-white/35 font-mono"
-            >
-              <span className="flex items-center gap-2">
-                <span className="h-1.5 w-1.5 rounded-full bg-secondary animate-pulse" />
-                {t('statsLive')}
-              </span>
-              <span className="hidden sm:inline-block h-px w-8 bg-white/10" />
-              <span>{t('statsToken')}</span>
-              <span className="hidden sm:inline-block h-px w-8 bg-white/10" />
-              <span>{t('statsBeta')}</span>
-            </motion.div>
           </div>
 
           {/* Right: phone with live mocked home screen — sized to fit
               the hero viewport without scroll (~30% smaller than default). */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="lg:col-span-5 flex justify-center lg:justify-start">
             <PhoneMockup alt="CNB Mobile app — Início" priority width={224} height={484}>
               <MockedHomeScreen />
             </PhoneMockup>

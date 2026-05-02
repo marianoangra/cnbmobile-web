@@ -40,7 +40,7 @@ export function Hero() {
       />
 
       <div className="relative z-20 mx-auto max-w-[1280px] px-5 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-center">
           {/* Left: copy */}
           <div className="lg:col-span-7">
             <motion.h1
@@ -79,7 +79,7 @@ export function Hero() {
 
           {/* Right: phone with live mocked home screen — sized to fit
               the hero viewport without scroll (~30% smaller than default). */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-start">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <PhoneMockup alt="CNB Mobile app — Início" priority width={224} height={484}>
               <MockedHomeScreen />
             </PhoneMockup>

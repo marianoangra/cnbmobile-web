@@ -40,7 +40,7 @@ export function Hero() {
       />
 
       <div className="relative z-20 mx-auto max-w-[1080px] px-5 md:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-center">
           {/* Left: copy */}
           <div className="lg:col-span-7">
             <motion.h1

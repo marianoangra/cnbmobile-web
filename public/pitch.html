@@ -756,6 +756,35 @@
       font-size: clamp(32px, 3.6vw, 42px);
       line-height: 1;
       margin-bottom: 14px;
+      color: var(--primary);
+    }
+    /* === SVG icon used to replace emoji tiles in slides 5/7/8/9 ========
+       Sized via parent's font-size; stroke uses currentColor so it inherits
+       the JUICE primary green from the parent .tile-icon-wrap or context. */
+    .tile-icon {
+      width: 1em;
+      height: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      color: var(--primary);
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .tile-icon-bullet {
+      width: 1.1em;
+      height: 1.1em;
+      display: inline-block;
+      vertical-align: -0.2em;
+      color: var(--primary);
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      margin-right: 6px;
     }
     .journey-step-title {
       font-size: clamp(15px, 1.4vw, 18px);
@@ -1717,7 +1746,11 @@
         <div class="grid-4" style="margin-top: clamp(40px, 5vw, 64px);">
           <div class="card journey-step">
             <div class="journey-step-num">01</div>
-            <div class="journey-step-icon">📲</div>
+            <div class="journey-step-icon">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/>
+              </svg>
+            </div>
             <h3 class="journey-step-title">Baixou grátis</h3>
             <p class="journey-step-desc">
               App Store ou Google Play.<br />Sem cartão, sem assinatura.
@@ -1725,7 +1758,13 @@
           </div>
           <div class="card journey-step">
             <div class="journey-step-num">02</div>
-            <div class="journey-step-icon">🔌</div>
+            <div class="journey-step-icon">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M9 2v4"/><path d="M15 2v4"/>
+                <path d="M7 6h10v8a5 5 0 0 1-5 5h0a5 5 0 0 1-5-5z"/>
+                <path d="M12 19v3"/>
+              </svg>
+            </div>
             <h3 class="journey-step-title">Carregou</h3>
             <p class="journey-step-desc">
               5h/dia em média.<br />Cada sessão vira prova on-chain na Solana.
@@ -1733,7 +1772,11 @@
           </div>
           <div class="card journey-step">
             <div class="journey-step-num">03</div>
-            <div class="journey-step-icon">⭐</div>
+            <div class="journey-step-icon">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3 14.5 9.5 21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5z"/>
+              </svg>
+            </div>
             <h3 class="journey-step-title">Ganhou pontos</h3>
             <p class="journey-step-desc">
               +10 pts/min · +50 bônus/hora<br />+100 por amigo indicado.
@@ -1741,7 +1784,13 @@
           </div>
           <div class="card journey-step">
             <div class="journey-step-num">04</div>
-            <div class="journey-step-icon">💎</div>
+            <div class="journey-step-icon">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6 3h12l4 6-10 13L2 9z"/>
+                <path d="M11 3 8 9l4 13 4-13-3-6"/>
+                <path d="M2 9h20"/>
+              </svg>
+            </div>
             <h3 class="journey-step-title">Trocou por $JUICE</h3>
             <p class="journey-step-desc">
               1.000 pts = 1 $JUICE.<br />Saque cripto ou PIX direto pra conta.
@@ -1806,7 +1855,11 @@
 
         <div class="grid-3" style="margin-top: clamp(40px, 5vw, 64px);">
           <div class="card pillar">
-            <div class="pillar-icon">⚡</div>
+            <div class="pillar-icon">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M13 2 4 14h7l-2 8 9-12h-7l2-8z"/>
+              </svg>
+            </div>
             <h3>Token utility</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
               $JUICE como meio de troca, governance e
@@ -1815,7 +1868,12 @@
             </p>
           </div>
           <div class="card pillar">
-            <div class="pillar-icon">🔒</div>
+            <div class="pillar-icon">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="4" y="11" width="16" height="11" rx="2"/>
+                <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+              </svg>
+            </div>
             <h3>Real-yield staking</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
               Receita do app (ads, afiliados, premium)
@@ -1824,7 +1882,13 @@
             </p>
           </div>
           <div class="card pillar">
-            <div class="pillar-icon">🇧🇷</div>
+            <div class="pillar-icon">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                <circle cx="12" cy="12" r="2.5"/>
+                <path d="M6 12h.01M18 12h.01"/>
+              </svg>
+            </div>
             <h3>Brasil PIX rail</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
               Única DePIN com saída fiat instantânea via
@@ -1851,28 +1915,53 @@
 
         <div class="grid-4" style="margin-top: clamp(40px, 5vw, 64px);">
           <div class="card">
-            <div style="font-size: 32px; margin-bottom: 16px;">🔁</div>
+            <div style="font-size: 32px; margin-bottom: 16px; color: var(--primary);">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 12a9 9 0 0 1 15.74-6L21 8"/>
+                <path d="M21 3v5h-5"/>
+                <path d="M21 12a9 9 0 0 1-15.74 6L3 16"/>
+                <path d="M3 21v-5h5"/>
+              </svg>
+            </div>
             <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">Indicação +100 pts</h3>
             <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
               Cada usuário traz 1+ amigo pelo loop de pontos. CAC orgânico abaixo do mercado.
             </p>
           </div>
           <div class="card">
-            <div style="font-size: 32px; margin-bottom: 16px;">🇧🇷</div>
+            <div style="font-size: 32px; margin-bottom: 16px; color: var(--primary);">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="2" y="6" width="20" height="12" rx="2"/>
+                <circle cx="12" cy="12" r="2.5"/>
+                <path d="M6 12h.01M18 12h.01"/>
+              </svg>
+            </div>
             <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">PIX cash-out</h3>
             <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
               Saída fiat em segundos — diferencial Brasil-only que nenhuma DePIN global tem.
             </p>
           </div>
           <div class="card">
-            <div style="font-size: 32px; margin-bottom: 16px;">💬</div>
+            <div style="font-size: 32px; margin-bottom: 16px; color: var(--primary);">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+              </svg>
+            </div>
             <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">Comunidade ativa</h3>
             <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
               Telegram, WhatsApp e Instagram CNB legacy — base pré-existente que migra pro JUICE.
             </p>
           </div>
           <div class="card">
-            <div style="font-size: 32px; margin-bottom: 16px;">🎁</div>
+            <div style="font-size: 32px; margin-bottom: 16px; color: var(--primary);">
+              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="8" width="18" height="4" rx="1"/>
+                <path d="M12 8v13"/>
+                <path d="M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"/>
+                <path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8"/>
+                <path d="M16.5 8a2.5 2.5 0 0 0 0-5C13 3 12 8 12 8"/>
+              </svg>
+            </div>
             <h3 style="font-size: clamp(15px, 1.4vw, 18px); margin: 0 0 8px;">Airdrop pré-TGE</h3>
             <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
               Quem carrega primeiro, ganha primeiro. Snapshot de carregamento vira allocation.
@@ -1881,7 +1970,9 @@
         </div>
 
         <div class="market-engagement" style="margin-top: clamp(36px, 4vw, 56px);">
-          ⚡ <strong>Loop estrutural:</strong> usuário carrega → ganha pts → indica amigo →
+          <svg class="tile-icon-bullet" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M13 2 4 14h7l-2 8 9-12h-7l2-8z"/>
+          </svg><strong>Loop estrutural:</strong> usuário carrega → ganha pts → indica amigo →
           amigo carrega → ambos sacam <strong>via PIX ou $JUICE</strong> → token sobe →
           mais valor pra cada minuto carregando. <strong>Reforço positivo on-chain.</strong>
         </div>
@@ -1898,7 +1989,11 @@
         <div class="grid-2" style="margin-top: 48px; gap: clamp(16px, 2vw, 24px);">
           <div class="card">
             <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px;">⚡</div>
+              <div style="font-size: 28px; color: var(--primary);">
+                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M13 2L4.5 13.5h7L11 22l8.5-11.5h-7L13 2z"/>
+                </svg>
+              </div>
               <div>
                 <h3>Único no Brasil</h3>
                 <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
@@ -1910,7 +2005,13 @@
           </div>
           <div class="card">
             <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px;">🔋</div>
+              <div style="font-size: 28px; color: var(--primary);">
+                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="8" width="14" height="10" rx="2"/>
+                  <path d="M17 11h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-2"/>
+                  <path d="M7 11v4M11 11v4"/>
+                </svg>
+              </div>
               <div>
                 <h3>Zero esforço</h3>
                 <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
@@ -1922,7 +2023,13 @@
           </div>
           <div class="card">
             <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px;">🇧🇷</div>
+              <div style="font-size: 28px; color: var(--primary);">
+                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="2" y="6" width="20" height="12" rx="2"/>
+                  <circle cx="12" cy="12" r="2.5"/>
+                  <path d="M6 10v4M18 10v4"/>
+                </svg>
+              </div>
               <div>
                 <h3>PIX nativo</h3>
                 <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
@@ -1934,7 +2041,12 @@
           </div>
           <div class="card">
             <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px;">🚀</div>
+              <div style="font-size: 28px; color: var(--primary);">
+                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M3 17l6-6 4 4 8-8"/>
+                  <path d="M14 7h7v7"/>
+                </svg>
+              </div>
               <div>
                 <h3>Loop viral</h3>
                 <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">

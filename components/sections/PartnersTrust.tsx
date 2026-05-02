@@ -14,21 +14,17 @@ import { Link } from '@/i18n/routing';
 import { SectionBadge } from '@/components/ui/SectionBadge';
 
 type Partner = {
-  key: 'bingx' | 'okx' | 'kast' | 'kaxis' | 'solflare' | 'mind';
+  key: 'bingx' | 'okx' | 'kast';
   banner: string;
   objectPosition?: string;
 };
 
+// Home strip: only the 3 active B2B partners. Kaxis, Solflare and Mind are
+// showcase examples and live exclusively on /parceiros.
 const PARTNERS: Partner[] = [
   { key: 'bingx', banner: '/partners/bingx.jpg' },
   { key: 'okx', banner: '/partners/okx.png' },
   { key: 'kast', banner: '/partners/kast.png' },
-  { key: 'kaxis', banner: '/partners/kaxis.png' },
-  // Solflare share-image has wordmark up top + iPhone bottom; pull the
-  // crop window upward so the "Solflare" mark + tagline stay visible
-  // inside the flatter 16:5 home strip.
-  { key: 'solflare', banner: '/partners/solflare.jpg', objectPosition: '50% 28%' },
-  { key: 'mind', banner: '/partners/mind.jpg' },
 ];
 
 function TrustCard({

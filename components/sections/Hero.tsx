@@ -84,7 +84,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="mt-14 flex flex-col sm:flex-row sm:items-center gap-4"
+              className="mt-20 flex flex-col sm:flex-row sm:items-center gap-4"
             >
               <StoreButtons size="lg" />
             </motion.div>

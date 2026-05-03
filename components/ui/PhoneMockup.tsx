@@ -61,7 +61,6 @@ export function PhoneMockup({
               width={width}
               height={height}
               priority={priority}
-              unoptimized
               className="h-full w-full object-cover"
               sizes={`${width}px`}
             />

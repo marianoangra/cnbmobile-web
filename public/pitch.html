@@ -1777,78 +1777,118 @@
         <p class="eyebrow">Moat técnico</p>
         <h2 class="metal-text">Bot não recarrega celular.</h2>
         <p class="subtitle" style="margin-top: 20px;">
-          Sybil-resistance física. A defesa não está só no código — está no mundo real.
+          Sybil-resistance física, em camadas. 4 defesas já no ar · 4 a caminho no Q3.
+          Sem inflar o que ainda não foi feito.
         </p>
 
-        <div class="grid-2" style="margin-top: 48px; gap: clamp(16px, 2vw, 24px);">
-          <div class="card">
-            <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px; color: var(--primary);">
-                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M9 2v4"/><path d="M15 2v4"/>
-                  <path d="M7 6h10v8a5 5 0 0 1-5 5h0a5 5 0 0 1-5-5z"/>
-                  <path d="M12 19v3"/>
-                </svg>
+        <div class="grid-2" style="margin-top: clamp(32px, 4vw, 48px); gap: clamp(20px, 3vw, 32px); align-items: stretch;">
+
+          <!-- COLUNA 1 — HOJE / EM PRODUÇÃO -->
+          <div class="card" style="border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px;">
+              <p style="font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0;">
+                ✓ Hoje · em produção
+              </p>
+              <p style="font-size: 11px; color: rgba(168, 219, 58, 0.6); margin: 0; font-weight: 600;">4 camadas</p>
+            </div>
+            <p style="font-size: 12px; color: rgba(255, 255, 255, 0.5); margin: 0 0 18px;">
+              shipped no app + cloud functions
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 16px; line-height: 1.3; flex-shrink: 0;">✓</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: #fff; margin: 0 0 3px; line-height: 1.3;">Memo on-chain por sessão</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.45;">
+                    Cada sessão escrita no Solana memo program, mainnet — auditável por qualquer um.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3>Prova física</h3>
-                <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-                  Cada Proof-of-Human-Activity exige um aparelho real,
-                  bateria real e tempo real. Não há atalho computacional.
-                </p>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 16px; line-height: 1.3; flex-shrink: 0;">✓</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: #fff; margin: 0 0 3px; line-height: 1.3;">Rules cap server-side</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.45;">
+                    Firestore limita <strong style="color:#fff;">+60 pts</strong> e
+                    <strong style="color:#fff;">+1 min</strong> por write · sessão bounded em 24h.
+                  </p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 16px; line-height: 1.3; flex-shrink: 0;">✓</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: #fff; margin: 0 0 3px; line-height: 1.3;">Anti-bot 8h diário</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.45;">
+                    Limite hard-coded por usuário freia automação básica de farm.
+                  </p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: var(--primary); font-size: 16px; line-height: 1.3; flex-shrink: 0;">✓</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: #fff; margin: 0 0 3px; line-height: 1.3;">Pseudonymity SHA-256</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.6); margin: 0; line-height: 1.45;">
+                    UID hasheado antes de qualquer escrita on-chain — privacidade by-design.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px; color: var(--primary);">
-                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <circle cx="12" cy="12" r="9"/>
-                  <path d="M9 12l2 2 4-4"/>
-                </svg>
+
+          <!-- COLUNA 2 — Q3 2026 / ROADMAP -->
+          <div class="card" style="border-color: rgba(168, 219, 58, 0.18); border-style: dashed; background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 70%);">
+            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 4px;">
+              <p style="font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(168, 219, 58, 0.78); font-weight: 700; margin: 0;">
+                ⟶ Q3 2026 · roadmap
+              </p>
+              <p style="font-size: 11px; color: rgba(168, 219, 58, 0.45); margin: 0; font-weight: 600;">4 camadas</p>
+            </div>
+            <p style="font-size: 12px; color: rgba(255, 255, 255, 0.45); margin: 0 0 18px;">
+              ~28-32h de dev · 1 sprint pra fechar todos
+            </p>
+
+            <div style="display: flex; flex-direction: column; gap: 14px;">
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: rgba(168, 219, 58, 0.6); font-size: 14px; line-height: 1.3; flex-shrink: 0; margin-top: 2px;">○</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: rgba(255, 255, 255, 0.88); margin: 0 0 3px; line-height: 1.3;">Play Integrity + App Attest</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.45;">
+                    Hardware attestation Android/iOS gateando cada sessão.
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3>Validação on-chain</h3>
-                <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-                  Cada sessão é assinada e contabilizada na Solana.
-                  Auditável, imutável, sem custódia centralizada.
-                </p>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: rgba(168, 219, 58, 0.6); font-size: 14px; line-height: 1.3; flex-shrink: 0; margin-top: 2px;">○</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: rgba(255, 255, 255, 0.88); margin: 0 0 3px; line-height: 1.3;">Nonce server-issued per session</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.45;">
+                    <code style="font-family: 'Inter', system-ui;">/sessions/init</code>
+                    com nonce assinado pelo Keystore / Secure Enclave.
+                  </p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: rgba(168, 219, 58, 0.6); font-size: 14px; line-height: 1.3; flex-shrink: 0; margin-top: 2px;">○</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: rgba(255, 255, 255, 0.88); margin: 0 0 3px; line-height: 1.3;">Battery delta validation</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.45;">
+                    Payload com nível antes/depois · backend rejeita anomalias.
+                  </p>
+                </div>
+              </div>
+              <div style="display: flex; gap: 12px; align-items: flex-start;">
+                <span style="color: rgba(168, 219, 58, 0.6); font-size: 14px; line-height: 1.3; flex-shrink: 0; margin-top: 2px;">○</span>
+                <div>
+                  <p style="font-size: clamp(13px, 1.25vw, 15px); font-weight: 700; color: rgba(255, 255, 255, 0.88); margin: 0 0 3px; line-height: 1.3;">Device fingerprint dedup</p>
+                  <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin: 0; line-height: 1.45;">
+                    Máximo 3 contas por device via <code style="font-family:'Inter';">expo-device</code>.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
-          <div class="card">
-            <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px; color: var(--primary);">
-                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <rect x="3" y="11" width="18" height="11" rx="2"/>
-                  <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-              </div>
-              <div>
-                <h3>Anti-farm econômico</h3>
-                <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-                  Custo de infra pra simular bateria + carregamento real
-                  excede a recompensa. Farm vira prejuízo.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="card">
-            <div style="display: flex; gap: 16px; align-items: flex-start;">
-              <div style="font-size: 28px; color: var(--primary);">
-                <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2 4 6v6c0 5 3.5 9 8 10 4.5-1 8-5 8-10V6l-8-4z"/>
-                </svg>
-              </div>
-              <div>
-                <h3>Defesa em camadas</h3>
-                <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-                  Device fingerprint + behavior + on-chain attestation.
-                  Quem replica precisa de fábrica, não de servidor.
-                </p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

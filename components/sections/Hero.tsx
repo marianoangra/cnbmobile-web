@@ -182,10 +182,10 @@ function AnimatedPointsOverlay() {
         aria-hidden
         className="absolute pointer-events-none overflow-hidden"
         style={{
-          top: '25.4%',
+          top: '24.2%',
           left: '8.5%',
           width: '83%',
-          height: 7,
+          height: 9,
           background: '#0c170e',
           borderRadius: 999,
         }}

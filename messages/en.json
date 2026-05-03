@@ -280,10 +280,20 @@
     "emission": {
       "badge": "Emission curve",
       "title": "Emission with halving",
-      "subtitle": "Inspired by Bitcoin, the Community Rewards supply emits on a decaying curve. Early adopters earn disproportionately more.",
+      "subtitle": "Inspired by Bitcoin halving. Decaying yearly pool, distributed proportionally among active users each quarter. No inflation as the user base grows.",
       "yearLabel": "Year",
       "amountLabel": "Issued",
-      "amountSuffix": "M $JUICE"
+      "amountSuffix": "M $JUICE",
+      "claim": {
+        "title": "How the claim works",
+        "subtitle": "Self-balancing — fixed supply, proportional share. No death spiral as the base grows.",
+        "steps": {
+          "pool": { "label": "Fixed pool per quarter", "body": "Y1 = 200M $JUICE ÷ 4 = 50M per quarter. Deterministic halving curve — doesn't move with adoption." },
+          "earn": { "label": "You accumulate points", "body": "1 minute charging = 10 pts. +50 per full hour. +100 per referral. Each session is validated on-chain." },
+          "share": { "label": "Your share = proportional", "body": "(your points ÷ network total this quarter) × pool. More active users = your slice gets smaller — emitted supply stays fixed." },
+          "redeem": { "label": "On-chain claim", "body": "At quarter end you claim your $JUICE straight to wallet. Or keep accumulating for the next one." }
+        }
+      }
     },
     "utility": {
       "badge": "Utility",

@@ -280,10 +280,20 @@
     "emission": {
       "badge": "Curva de emissão",
       "title": "Emissão com halving",
-      "subtitle": "Inspirado no Bitcoin, o supply de Community Rewards é emitido em curva decrescente. Early adopters ganham desproporcionalmente mais.",
+      "subtitle": "Inspirado no halving do Bitcoin. Pool decrescente por ano, distribuído proporcionalmente entre usuários ativos no trimestre. Sem inflação por crescimento da base.",
       "yearLabel": "Ano",
       "amountLabel": "Emitido",
-      "amountSuffix": "M $JUICE"
+      "amountSuffix": "M $JUICE",
+      "claim": {
+        "title": "Como funciona o claim",
+        "subtitle": "Self-balancing — supply fixo, share proporcional. Sem death spiral por crescimento da base.",
+        "steps": {
+          "pool": { "label": "Pool fixo no trimestre", "body": "Y1 = 200M $JUICE ÷ 4 = 50M por trimestre. Curva determinística pelo halving — não muda com a adoção." },
+          "earn": { "label": "Você acumula pontos", "body": "1 minuto carregando = 10 pts. +50 por hora cheia. +100 por indicação. Cada sessão é validada on-chain." },
+          "share": { "label": "Sua share = proporcional", "body": "(seus pontos ÷ total da rede no trimestre) × pool. Mais usuários ativos = sua fatia menor — supply emitido permanece fixo." },
+          "redeem": { "label": "Claim on-chain", "body": "No fim do trimestre você reivindica seu $JUICE direto na carteira. Ou continua acumulando para o próximo." }
+        }
+      }
     },
     "utility": {
       "badge": "Utilidade",

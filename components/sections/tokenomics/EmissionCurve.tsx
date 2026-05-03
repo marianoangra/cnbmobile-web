@@ -166,6 +166,43 @@ export function EmissionCurve() {
             )}
           </div>
         </motion.div>
+
+        {/* Como funciona o claim — proportional emission flow (Option A) */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-80px' }}
+          transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-14 md:mt-20"
+        >
+          <div className="max-w-2xl">
+            <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white">
+              {t('claim.title')}
+            </h3>
+            <p className="mt-3 text-sm md:text-base text-white/55 leading-relaxed">
+              {t('claim.subtitle')}
+            </p>
+          </div>
+
+          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {(['pool', 'earn', 'share', 'redeem'] as const).map((key, i) => (
+              <div
+                key={key}
+                className="metal-card rounded-2xl p-5 md:p-6 flex flex-col gap-3"
+              >
+                <p className="font-mono text-[10px] uppercase tracking-wider text-secondary-light/70">
+                  {String(i + 1).padStart(2, '0')}
+                </p>
+                <p className="text-base md:text-lg font-bold text-white leading-tight">
+                  {t(`claim.steps.${key}.label`)}
+                </p>
+                <p className="text-sm text-white/55 leading-relaxed">
+                  {t(`claim.steps.${key}.body`)}
+                </p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

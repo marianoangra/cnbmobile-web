@@ -1141,6 +1141,69 @@
     .deck { background: transparent; }
     .slide { background: transparent; }
 
+    /* Slide 2 — neon line divider between "+2 trilhões" and "Zero" */
+    .neon-line {
+      position: relative;
+      width: clamp(140px, 28vw, 320px);
+      height: 2px;
+      border-radius: 2px;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.55) 18%,
+        #ff2a3a 50%,
+        rgba(255, 255, 255, 0.55) 82%,
+        transparent 100%
+      );
+      box-shadow:
+        0 0 8px rgba(255, 42, 58, 0.65),
+        0 0 18px rgba(255, 42, 58, 0.45),
+        0 0 36px rgba(255, 42, 58, 0.25);
+      animation: neon-pulse 2.4s ease-in-out infinite;
+      overflow: hidden;
+    }
+    .neon-line::before {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -40%;
+      width: 40%;
+      height: calc(100% + 2px);
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.95) 50%,
+        transparent 100%
+      );
+      filter: blur(1.5px);
+      animation: neon-scan 2.8s ease-in-out infinite;
+    }
+    @keyframes neon-pulse {
+      0%, 100% {
+        box-shadow:
+          0 0 8px rgba(255, 42, 58, 0.55),
+          0 0 18px rgba(255, 42, 58, 0.35),
+          0 0 36px rgba(255, 42, 58, 0.18);
+        opacity: 0.92;
+      }
+      50% {
+        box-shadow:
+          0 0 12px rgba(255, 42, 58, 0.85),
+          0 0 28px rgba(255, 42, 58, 0.6),
+          0 0 56px rgba(255, 42, 58, 0.35);
+        opacity: 1;
+      }
+    }
+    @keyframes neon-scan {
+      0%   { left: -40%; }
+      55%  { left: 100%; }
+      100% { left: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .neon-line { animation: none; }
+      .neon-line::before { animation: none; display: none; }
+    }
+
     .cover-footer {
       font-family: 'Inter', monospace;
       font-feature-settings: 'tnum';
@@ -1366,8 +1429,8 @@
             </p>
           </div>
 
-          <!-- Divider (responsive: shrinks with viewport) -->
-          <div aria-hidden="true" style="width: clamp(50px, 14vw, 100px); height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);"></div>
+          <!-- Animated neon divider (red glow + scanning shine) -->
+          <div aria-hidden="true" class="neon-line"></div>
 
           <!-- Beat 2: Zero -->
           <div>
@@ -1418,7 +1481,66 @@
       </div>
     </section>
 
-    <!-- SLIDE 4: WHY NOW ======================================================= -->
+    <!-- SLIDE 4: MERCADO (TAM / SAM / SOM) — swapped to come before WHY NOW === -->
+    <section class="slide" data-slide="3" aria-label="Mercado">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
+      <div class="slide-inner">
+        <p class="eyebrow">Mercado</p>
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); text-align: center;">
+          O hábito mais universal do mundo.<br />
+          A oportunidade mais subexplorada.
+        </h2>
+
+        <div class="grid-3" style="margin-top: clamp(40px, 5vw, 64px);">
+          <!-- TAM — Global -->
+          <div class="card">
+            <p class="market-tier">TAM · Global</p>
+            <div class="number-xl">5,84<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
+            <p class="market-desc">assinantes únicos de mobile no mundo.</p>
+            <div class="market-bar" aria-hidden="true">
+              <div class="market-bar-fill" style="width: 100%;"></div>
+            </div>
+            <p class="market-source">GSMA Mobile Economy, 2026</p>
+          </div>
+
+          <!-- SAM — LATAM com instant payment + crypto rails -->
+          <div class="card">
+            <p class="market-tier">SAM · LATAM</p>
+            <div class="number-xl">450<span style="font-size: 0.55em; margin-left: 6px;">M</span></div>
+            <p class="market-desc">usuários em economias com rails instantâneos (PIX, SPEI, Yape).</p>
+            <div class="market-bar" aria-hidden="true">
+              <div class="market-bar-fill" style="width: 28%;"></div>
+            </div>
+            <p class="market-source">GSMA LATAM, 2026</p>
+          </div>
+
+          <!-- SOM — Brasil ICP inicial (focus) -->
+          <div class="card market-card-focus">
+            <p class="market-tier is-focus">SOM · Brasil · ICP inicial</p>
+            <div class="number-xl">157<span style="font-size: 0.55em; margin-left: 6px;">M</span></div>
+            <p class="market-desc">smartphones ativos no Brasil — onde o PIX já é o padrão.</p>
+            <div class="market-bar" aria-hidden="true">
+              <div class="market-bar-fill" style="width: 4%;"></div>
+            </div>
+            <p class="market-source">Anatel, 2026</p>
+          </div>
+        </div>
+
+        <!-- Engagement angle: ~1 charge/day × population -->
+        <div class="market-engagement">
+          ⚡ Cada usuário recarrega o celular <strong>~1x por dia</strong>.
+          5,84B × 365 = <strong>+2 trilhões de eventos de recarga/ano</strong>*
+          <strong>com zero recompensa pro usuário.</strong>
+        </div>
+
+        <p style="margin-top: clamp(28px, 3vw, 40px); font-size: 11px; color: var(--secondary); letter-spacing: 0.08em; opacity: 0.55;">
+          Fontes: GSMA Mobile Economy 2026 · Anatel 2026 · Ericsson Mobility Report 2025.
+          *Estimativa derivada (assinantes únicos × ~1 recarga/dia).
+        </p>
+      </div>
+    </section>
+
+    <!-- SLIDE 5: WHY NOW — swapped to come after MERCADO ====================== -->
     <section class="slide" data-slide="3" aria-label="Por que agora">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
@@ -1501,65 +1623,6 @@
 
         <p style="margin-top: clamp(20px, 2.5vw, 32px); font-size: 11px; color: rgba(255,255,255,0.4); font-family: monospace;">
           *Estimativa derivada de GSMA "Mobile Economy 2026" + Ericsson Mobility Report (~1 charge/dia).
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: MERCADO (TAM / SAM / SOM) ==================================== -->
-    <section class="slide" data-slide="3" aria-label="Mercado">
-      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
-      <div class="slide-inner">
-        <p class="eyebrow">Mercado</p>
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); text-align: center;">
-          O hábito mais universal do mundo.<br />
-          A oportunidade mais subexplorada.
-        </h2>
-
-        <div class="grid-3" style="margin-top: clamp(40px, 5vw, 64px);">
-          <!-- TAM — Global -->
-          <div class="card">
-            <p class="market-tier">TAM · Global</p>
-            <div class="number-xl">5,84<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
-            <p class="market-desc">assinantes únicos de mobile no mundo.</p>
-            <div class="market-bar" aria-hidden="true">
-              <div class="market-bar-fill" style="width: 100%;"></div>
-            </div>
-            <p class="market-source">GSMA Mobile Economy, 2026</p>
-          </div>
-
-          <!-- SAM — LATAM com instant payment + crypto rails -->
-          <div class="card">
-            <p class="market-tier">SAM · LATAM</p>
-            <div class="number-xl">450<span style="font-size: 0.55em; margin-left: 6px;">M</span></div>
-            <p class="market-desc">usuários em economias com rails instantâneos (PIX, SPEI, Yape).</p>
-            <div class="market-bar" aria-hidden="true">
-              <div class="market-bar-fill" style="width: 28%;"></div>
-            </div>
-            <p class="market-source">GSMA LATAM, 2026</p>
-          </div>
-
-          <!-- SOM — Brasil ICP inicial (focus) -->
-          <div class="card market-card-focus">
-            <p class="market-tier is-focus">SOM · Brasil · ICP inicial</p>
-            <div class="number-xl">157<span style="font-size: 0.55em; margin-left: 6px;">M</span></div>
-            <p class="market-desc">smartphones ativos no Brasil — onde o PIX já é o padrão.</p>
-            <div class="market-bar" aria-hidden="true">
-              <div class="market-bar-fill" style="width: 4%;"></div>
-            </div>
-            <p class="market-source">Anatel, 2026</p>
-          </div>
-        </div>
-
-        <!-- Engagement angle: ~1 charge/day × population -->
-        <div class="market-engagement">
-          ⚡ Cada usuário recarrega o celular <strong>~1x por dia</strong>.
-          5,84B × 365 = <strong>+2 trilhões de eventos de recarga/ano</strong>*
-          <strong>com zero recompensa pro usuário.</strong>
-        </div>
-
-        <p style="margin-top: clamp(28px, 3vw, 40px); font-size: 11px; color: var(--secondary); letter-spacing: 0.08em; opacity: 0.55;">
-          Fontes: GSMA Mobile Economy 2026 · Anatel 2026 · Ericsson Mobility Report 2025.
-          *Estimativa derivada (assinantes únicos × ~1 recarga/dia).
         </p>
       </div>
     </section>

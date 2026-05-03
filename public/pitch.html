@@ -1367,275 +1367,6 @@
               <strong>Ninguém paga o ato digital mais frequente do mundo.</strong>
             </p>
           </div>
-
-          <!-- Right: iPhone 17 Pro Max — charging hero + R$ 0,00 -->
-          <div style="display: flex; justify-content: center;">
-            <div class="iphone-17">
-              <div class="iphone-17-screen ph-charge">
-                <div class="dynamic-island" aria-hidden="true"></div>
-
-                <!-- Status bar -->
-                <div class="ph-status">
-                  <span>3:11</span>
-                  <div class="icons">
-                    <svg width="12" height="9" viewBox="0 0 13 9" fill="currentColor"><rect x="0" y="6" width="2.4" height="3" rx="0.5"/><rect x="3.2" y="4" width="2.4" height="5" rx="0.5"/><rect x="6.4" y="2" width="2.4" height="7" rx="0.5"/><rect x="9.6" y="0" width="2.4" height="9" rx="0.5"/></svg>
-                    <svg width="11" height="8" viewBox="0 0 11 8" fill="currentColor"><path d="M5.5 8a1 1 0 100-2 1 1 0 000 2zM2.4 4.6l1 1a3 3 0 014.2 0l1-1a4.5 4.5 0 00-6.2 0zM0.5 2.7l1 1a5.7 5.7 0 018 0l1-1a7.2 7.2 0 00-10 0z"/></svg>
-                    <svg width="20" height="11" viewBox="0 0 22 11" fill="none" stroke="currentColor"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5"/><rect x="2" y="2" width="14" height="7" rx="1" fill="#a8db3a"/><rect x="19" y="3.5" width="1.5" height="4" rx="0.5" fill="currentColor"/></svg>
-                  </div>
-                </div>
-
-                <!-- Charging hero -->
-                <div class="ph-charge-body">
-                  <div class="ph-charge-label">Charging</div>
-                  <div class="ph-charge-time" id="charge-time">0%</div>
-
-                  <div class="ph-battery-wrap" aria-hidden="true">
-                    <svg class="ph-battery-svg" viewBox="0 0 100 240">
-                      <defs>
-                        <!-- Vertical gradient — bottom (saturated green) to top (lighter) -->
-                        <linearGradient id="bat-fill" x1="0" y1="1" x2="0" y2="0">
-                          <stop offset="0%"  stop-color="#3aff9b"/>
-                          <stop offset="50%" stop-color="#a8db3a"/>
-                          <stop offset="100%" stop-color="#7fff3a"/>
-                        </linearGradient>
-                        <linearGradient id="bat-tip" x1="0" y1="0" x2="1" y2="0">
-                          <stop offset="0%" stop-color="rgba(168,219,58,0.65)"/>
-                          <stop offset="100%" stop-color="rgba(168,219,58,0.35)"/>
-                        </linearGradient>
-                      </defs>
-                      <!-- Body outline (tall) -->
-                      <rect x="6" y="14" width="88" height="210" rx="14"
-                            fill="rgba(255,255,255,0.03)"
-                            stroke="rgba(168,219,58,0.55)" stroke-width="2.5"/>
-                      <!-- Tip (top, centered horizontally) -->
-                      <rect x="34" y="0" width="32" height="14" rx="4" fill="url(#bat-tip)"/>
-                      <!-- Animated fill (grows from bottom up via scaleY) -->
-                      <rect class="ph-battery-fill"
-                            x="12" y="20" width="76" height="198" rx="9"
-                            fill="url(#bat-fill)"/>
-                      <!-- Lightning bolt (vertical, centered at 50, 119) -->
-                      <path class="ph-battery-bolt"
-                            d="M 53 89 L 32 119 L 50 119 L 41 149 L 68 113 L 50 113 Z"
-                            fill="#ffffff" opacity="0.92"/>
-                    </svg>
-                  </div>
-
-                  <div class="ph-divider" aria-hidden="true"></div>
-
-                  <div class="ph-zero-label">Earned so far</div>
-                  <div class="ph-zero-value">$ 0.00</div>
-                  <div class="ph-zero-sub">for hours charging</div>
-                </div>
-
-                <!-- Crack overlay — invisible until .shattered is added.
-                     Realistic shattered glass: dust cloud, displaced fragment
-                     polygons, two-stroke jagged primary cracks (wide soft base
-                     + narrow offset bright core for edge-light depth on dark
-                     screen), branching forks, ring fragments, splinters, and
-                     impact halo + burst. -->
-                <svg class="ph-cracks" viewBox="0 0 100 200" preserveAspectRatio="none" aria-hidden="true">
-                  <defs>
-                    <radialGradient id="ph-impact-glow" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="rgba(255,255,255,0.62)"/>
-                      <stop offset="35%" stop-color="rgba(255,255,255,0.18)"/>
-                      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                    </radialGradient>
-                    <radialGradient id="ph-dust-cloud" cx="50%" cy="50%" r="50%">
-                      <stop offset="0%" stop-color="rgba(255,255,255,0.16)"/>
-                      <stop offset="60%" stop-color="rgba(255,255,255,0.04)"/>
-                      <stop offset="100%" stop-color="rgba(255,255,255,0)"/>
-                    </radialGradient>
-                  </defs>
-
-                  <!-- DUST CLOUD (atmospheric haze around impact) -->
-                  <ellipse cx="50" cy="100" rx="34" ry="38" fill="url(#ph-dust-cloud)"/>
-
-                  <!-- DISPLACED GLASS PLATES (subtle white-tinted polygons —
-                       suggests fragments shifted out of plane) -->
-                  <g fill="rgba(255,255,255,0.035)" stroke="rgba(255,255,255,0.14)" stroke-width="0.18" stroke-linejoin="round">
-                    <polygon points="42,70 56,62 65,76 52,90"/>
-                    <polygon points="32,90 50,84 55,108 38,114"/>
-                    <polygon points="62,105 78,92 80,118 64,124"/>
-                    <polygon points="38,128 56,120 62,140 45,148"/>
-                    <polygon points="50,55 65,42 72,58 58,68"/>
-                    <polygon points="55,142 70,136 75,160 60,164"/>
-                    <polygon points="20,82 36,76 38,98 22,100"/>
-                    <polygon points="64,80 80,72 84,90 70,94"/>
-                  </g>
-
-                  <!-- PRIMARY radial cracks — WIDE SOFT BASE
-                       (semitransparent halo around each crack) -->
-                  <g stroke="rgba(255, 255, 255, 0.38)" stroke-width="0.7" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 50 100 L 47 94 L 42 86 L 38 76 L 32 66 L 28 56"/>
-                    <path d="M 50 100 L 54 95 L 60 88 L 65 78 L 70 70 L 72 62"/>
-                    <path d="M 50 100 L 47 108 L 42 116 L 35 122 L 28 130 L 22 132"/>
-                    <path d="M 50 100 L 54 108 L 62 116 L 68 124 L 73 132 L 78 138"/>
-                    <path d="M 50 100 L 51 92 L 53 80 L 52 68 L 53 50 L 52 28"/>
-                    <path d="M 50 100 L 49 110 L 47 130 L 48 150 L 47 165 L 46 178"/>
-                    <path d="M 50 100 L 60 102 L 72 103 L 82 104 L 92 105"/>
-                    <path d="M 50 100 L 40 99 L 28 97 L 18 96 L 8 95"/>
-                    <path d="M 50 100 L 46 90 L 42 80 L 40 65 L 38 50 L 38 38"/>
-                    <path d="M 50 100 L 52 115 L 56 130 L 60 145 L 62 162"/>
-                    <path d="M 50 100 L 42 96 L 32 90 L 24 85 L 18 75"/>
-                    <path d="M 50 100 L 58 96 L 68 92 L 76 85 L 82 80"/>
-                    <path d="M 50 100 L 46 115 L 40 130 L 35 150 L 30 165"/>
-                    <path d="M 50 100 L 56 88 L 60 70 L 66 50 L 70 20"/>
-                  </g>
-
-                  <!-- PRIMARY radial cracks — SHARP CORE
-                       (the actual fracture line, full opacity) -->
-                  <g stroke="rgba(255, 255, 255, 0.92)" stroke-width="0.32" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 50 100 L 47 94 L 42 86 L 38 76 L 32 66 L 28 56"/>
-                    <path d="M 50 100 L 54 95 L 60 88 L 65 78 L 70 70 L 72 62"/>
-                    <path d="M 50 100 L 47 108 L 42 116 L 35 122 L 28 130 L 22 132"/>
-                    <path d="M 50 100 L 54 108 L 62 116 L 68 124 L 73 132 L 78 138"/>
-                    <path d="M 50 100 L 51 92 L 53 80 L 52 68 L 53 50 L 52 28"/>
-                    <path d="M 50 100 L 49 110 L 47 130 L 48 150 L 47 165 L 46 178"/>
-                    <path d="M 50 100 L 60 102 L 72 103 L 82 104 L 92 105"/>
-                    <path d="M 50 100 L 40 99 L 28 97 L 18 96 L 8 95"/>
-                    <path d="M 50 100 L 46 90 L 42 80 L 40 65 L 38 50 L 38 38"/>
-                    <path d="M 50 100 L 52 115 L 56 130 L 60 145 L 62 162"/>
-                    <path d="M 50 100 L 42 96 L 32 90 L 24 85 L 18 75"/>
-                    <path d="M 50 100 L 58 96 L 68 92 L 76 85 L 82 80"/>
-                    <path d="M 50 100 L 46 115 L 40 130 L 35 150 L 30 165"/>
-                    <path d="M 50 100 L 56 88 L 60 70 L 66 50 L 70 20"/>
-                  </g>
-
-                  <!-- PRIMARY cracks — DISPLACEMENT-EDGE GLINT
-                       (ultra-thin offset line — light catching the lifted edge
-                       of the glass fragment, simulates 3D depth) -->
-                  <g stroke="rgba(255, 255, 255, 1)" stroke-width="0.14" fill="none" stroke-linecap="round" stroke-linejoin="round" transform="translate(-0.18, -0.18)">
-                    <path d="M 50 100 L 47 94 L 42 86 L 38 76 L 32 66 L 28 56"/>
-                    <path d="M 50 100 L 54 95 L 60 88 L 65 78 L 70 70 L 72 62"/>
-                    <path d="M 50 100 L 47 108 L 42 116 L 35 122 L 28 130 L 22 132"/>
-                    <path d="M 50 100 L 54 108 L 62 116 L 68 124 L 73 132 L 78 138"/>
-                    <path d="M 50 100 L 51 92 L 53 80 L 52 68 L 53 50 L 52 28"/>
-                    <path d="M 50 100 L 49 110 L 47 130 L 48 150 L 47 165 L 46 178"/>
-                    <path d="M 50 100 L 60 102 L 72 103 L 82 104 L 92 105"/>
-                    <path d="M 50 100 L 40 99 L 28 97 L 18 96 L 8 95"/>
-                  </g>
-
-                  <!-- SECONDARY forks (jagged, branching off primaries) -->
-                  <g stroke="rgba(255, 255, 255, 0.55)" stroke-width="0.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 28 56 L 24 50 L 18 44"/>
-                    <path d="M 28 56 L 25 60 L 22 65"/>
-                    <path d="M 72 62 L 78 56 L 84 50"/>
-                    <path d="M 72 62 L 75 68 L 78 75"/>
-                    <path d="M 22 132 L 16 140 L 12 148"/>
-                    <path d="M 22 132 L 26 138 L 28 142"/>
-                    <path d="M 78 138 L 84 146 L 90 154"/>
-                    <path d="M 78 138 L 74 144 L 70 148"/>
-                    <path d="M 52 28 L 56 18 L 58 12"/>
-                    <path d="M 52 28 L 48 22 L 44 18"/>
-                    <path d="M 46 178 L 44 188 L 42 195"/>
-                    <path d="M 46 178 L 50 184 L 52 188"/>
-                    <path d="M 38 38 L 33 30 L 30 25"/>
-                    <path d="M 38 38 L 41 34 L 44 30"/>
-                    <path d="M 62 162 L 66 170 L 70 175"/>
-                    <path d="M 18 75 L 14 73 L 10 70"/>
-                    <path d="M 82 80 L 86 76 L 90 72"/>
-                  </g>
-
-                  <!-- TERTIARY micro-forks (hairlines fading at extremities) -->
-                  <g stroke="rgba(255, 255, 255, 0.34)" stroke-width="0.22" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 18 44 L 14 41 L 12 38"/>
-                    <path d="M 84 50 L 87 46 L 90 42"/>
-                    <path d="M 12 148 L 9 152 L 6 156"/>
-                    <path d="M 90 154 L 93 158 L 96 162"/>
-                    <path d="M 58 12 L 61 8 L 64 4"/>
-                    <path d="M 42 195 L 40 198 L 38 200"/>
-                    <path d="M 30 25 L 27 22 L 24 18"/>
-                    <path d="M 70 175 L 73 181 L 76 188"/>
-                    <path d="M 22 65 L 19 68 L 16 72"/>
-                    <path d="M 78 75 L 82 71 L 86 68"/>
-                  </g>
-
-                  <!-- ANGULAR PLATE FRAGMENTS (zig-zag connecting cracks —
-                       glass plates separating between radials) -->
-                  <g stroke="rgba(255, 255, 255, 0.6)" stroke-width="0.3" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M 38 76 L 45 80 L 52 75 L 60 82 L 66 78"/>
-                    <path d="M 36 122 L 44 119 L 51 124 L 59 120 L 66 125"/>
-                    <path d="M 32 92 L 38 96 L 36 105 L 32 108"/>
-                    <path d="M 68 92 L 64 95 L 67 105 L 71 110"/>
-                    <path d="M 42 64 L 48 68 L 54 64 L 60 70"/>
-                    <path d="M 42 134 L 50 130 L 56 134 L 62 130"/>
-                  </g>
-
-                  <!-- CONCENTRIC RING FRAGMENTS (broken arcs around impact) -->
-                  <g stroke="rgba(255, 255, 255, 0.4)" stroke-width="0.26" fill="none" stroke-linecap="round">
-                    <path d="M 36 95 Q 42 88 50 87 Q 58 88 64 94"/>
-                    <path d="M 38 110 Q 44 116 50 117 Q 57 116 63 110"/>
-                    <path d="M 32 86 Q 40 78 50 77" opacity="0.6"/>
-                    <path d="M 50 117 Q 60 116 68 110" opacity="0.55"/>
-                    <path d="M 30 102 Q 35 95 42 95" opacity="0.5"/>
-                    <path d="M 58 105 Q 65 105 70 98" opacity="0.5"/>
-                  </g>
-
-                  <!-- MICRO SPLINTERS (tiny disconnected shards near impact) -->
-                  <g stroke="rgba(255, 255, 255, 0.55)" stroke-width="0.22" fill="none" stroke-linecap="round">
-                    <path d="M 41 87 L 45 85"/>
-                    <path d="M 55 86 L 59 88"/>
-                    <path d="M 42 113 L 46 115"/>
-                    <path d="M 56 114 L 60 112"/>
-                    <path d="M 35 100 L 39 99"/>
-                    <path d="M 61 100 L 65 101"/>
-                    <path d="M 48 81 L 51 79"/>
-                    <path d="M 49 119 L 52 121"/>
-                    <path d="M 26 92 L 30 90"/>
-                    <path d="M 70 92 L 74 94"/>
-                    <path d="M 48 50 L 51 48"/>
-                    <path d="M 48 150 L 51 152"/>
-                  </g>
-
-                  <!-- DUST/POWDER PARTICLES (scattered around impact —
-                       irregular sizes, suggests pulverized glass dust) -->
-                  <g fill="rgba(255, 255, 255, 0.55)">
-                    <circle cx="38" cy="84" r="0.18"/>
-                    <circle cx="61" cy="82" r="0.16"/>
-                    <circle cx="44" cy="78" r="0.14"/>
-                    <circle cx="56" cy="119" r="0.18"/>
-                    <circle cx="43" cy="115" r="0.15"/>
-                    <circle cx="35" cy="103" r="0.16"/>
-                    <circle cx="65" cy="98" r="0.14"/>
-                    <circle cx="48" cy="80" r="0.13"/>
-                    <circle cx="52" cy="120" r="0.15"/>
-                    <circle cx="40" cy="92" r="0.14"/>
-                    <circle cx="60" cy="108" r="0.16"/>
-                    <circle cx="46" cy="86" r="0.12"/>
-                    <circle cx="58" cy="92" r="0.14"/>
-                    <circle cx="42" cy="100" r="0.18"/>
-                    <circle cx="56" cy="100" r="0.13"/>
-                    <circle cx="50" cy="84" r="0.14"/>
-                    <circle cx="50" cy="116" r="0.15"/>
-                    <circle cx="64" cy="115" r="0.12"/>
-                    <circle cx="36" cy="115" r="0.13"/>
-                    <circle cx="68" cy="100" r="0.16"/>
-                    <circle cx="32" cy="100" r="0.14"/>
-                    <circle cx="44" cy="124" r="0.13"/>
-                    <circle cx="56" cy="76" r="0.14"/>
-                    <circle cx="48" cy="68" r="0.12"/>
-                    <circle cx="52" cy="132" r="0.13"/>
-                    <circle cx="38" cy="68" r="0.11"/>
-                    <circle cx="62" cy="68" r="0.13"/>
-                    <circle cx="64" cy="132" r="0.12"/>
-                    <circle cx="36" cy="132" r="0.14"/>
-                    <circle cx="50" cy="60" r="0.12"/>
-                    <circle cx="50" cy="140" r="0.13"/>
-                    <circle cx="30" cy="90" r="0.11"/>
-                    <circle cx="70" cy="110" r="0.12"/>
-                  </g>
-
-                  <!-- IMPACT HALO (top — soft glow at center) -->
-                  <circle cx="50" cy="100" r="14" fill="url(#ph-impact-glow)"/>
-
-                  <!-- IMPACT BURST (bright center, layered) -->
-                  <circle cx="50" cy="100" r="0.9" fill="rgba(255, 255, 255, 0.98)"/>
-                  <circle cx="50" cy="100" r="2.2" fill="rgba(255, 255, 255, 0.4)"/>
-                  <circle cx="50" cy="100" r="4.5" fill="rgba(255, 255, 255, 0.12)"/>
-                </svg>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
@@ -2129,36 +1860,36 @@
 
           <!-- Formações + qualidades -->
           <div>
-            <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 16px;">
+            <p style="font-family: 'Inter', system-ui; font-size: 14px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 16px;">
               Formações
             </p>
             <ul style="list-style: none; padding: 0; margin: 0 0 32px; display: flex; flex-direction: column; gap: 10px;">
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(15px, 1.5vw, 18px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
                 <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
                 <span><strong style="color: #fff;">Analista de Investimentos CNPI</strong></span>
               </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(15px, 1.5vw, 18px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
                 <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
                 <span>Ex-<strong style="color: #fff;">XP Investimentos</strong> · <strong style="color: #fff;">Rico</strong> · <strong style="color: #fff;">Terra Investimentos</strong></span>
               </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(15px, 1.5vw, 18px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
                 <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
                 <span><strong style="color: #fff;">Educador SENAI</strong> — premiado como um dos professores mais influentes da região</span>
               </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(15px, 1.5vw, 18px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
                 <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
                 <span><strong style="color: #fff;">Piloto de Helicóptero</strong> · <strong style="color: #fff;">Full-stack Developer</strong></span>
               </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
+              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(15px, 1.5vw, 18px); color: rgba(255, 255, 255, 0.85); line-height: 1.5;">
                 <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
                 <span><strong style="color: #fff;">Empresário</strong> — soluções inovadoras no mercado financeiro e cripto</span>
               </li>
             </ul>
 
-            <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 14px;">
+            <p style="font-family: 'Inter', system-ui; font-size: 14px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 14px;">
               A tese
             </p>
-            <p style="font-size: clamp(14px, 1.3vw, 17px); color: rgba(255, 255, 255, 0.78); line-height: 1.6; margin: 0 0 24px; font-style: italic;">
+            <p style="font-size: clamp(16px, 1.6vw, 20px); color: rgba(255, 255, 255, 0.78); line-height: 1.6; margin: 0 0 24px; font-style: italic;">
               "Une mercado financeiro, educação e tecnologia para fazer diferença na vida de milhares de pessoas."
             </p>
 

@@ -1,25 +1,11 @@
 'use client';
 
-import { useEffect } from 'react';
 import { useTranslations } from 'next-intl';
-import {
-  motion,
-  useMotionValue,
-  useTransform,
-  animate,
-  useReducedMotion,
-} from 'framer-motion';
+import { motion } from 'framer-motion';
 import { PhoneMockup } from '@/components/ui/PhoneMockup';
 import { Stars } from '@/components/ui/Stars';
 import { StoreButtons } from '@/components/ui/StoreButtons';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
-
-const POINTS_START = 60_000;
-const POINTS_END = 120_000;
-const POINTS_GOAL = 100_000;
-const COUNT_SECONDS = 5;
-const PAUSE_SECONDS = 1.8;
-const LIME = '#a8db3a';
 
 export function Hero() {
   const t = useTranslations('hero');
@@ -95,13 +81,22 @@ export function Hero() {
               the hero viewport without scroll (~30% smaller than default). */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
             <PhoneMockup
-              src="/images/screen-home-real.png"
               alt="CNB Mobile app — Início"
               priority
               width={202}
               height={436}
             >
-              <AnimatedPointsOverlay />
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                poster="/images/screen-home-real.png"
+                aria-label="CNB Mobile app — demo"
+                className="absolute inset-0 h-full w-full object-cover"
+              >
+                <source src="/videos/app-home-demo.mp4" type="video/mp4" />
+              </video>
             </PhoneMockup>
           </div>
         </div>
@@ -110,104 +105,3 @@ export function Hero() {
   );
 }
 
-// Overlay that masks the static "159.580" baked into screen-home-real.png and
-// animates the points up to 180.400 in a loop. Position is calibrated visually
-// against the screenshot inside a 202×436 phone-screen.
-function AnimatedPointsOverlay() {
-  const reduce = useReducedMotion();
-  const points = useMotionValue(POINTS_START);
-
-  useEffect(() => {
-    if (reduce) {
-      points.set(POINTS_END);
-      return;
-    }
-    const c = animate(points, POINTS_END, {
-      duration: COUNT_SECONDS,
-      ease: 'easeOut',
-      repeat: Infinity,
-      repeatType: 'loop',
-      repeatDelay: PAUSE_SECONDS,
-    });
-    return () => c.stop();
-  }, [points, reduce]);
-
-  const text = useTransform(points, (v) =>
-    Math.floor(v).toLocaleString('pt-BR')
-  );
-
-  // Bar fill: 0..100k maps to 0..100%, capped at 100% past the goal.
-  const barFill = useTransform(
-    points,
-    (v) => `${Math.min(100, (v / POINTS_GOAL) * 100).toFixed(2)}%`
-  );
-
-  return (
-    <>
-      {/* Animated number — overlays the static "159.580" baked into the PNG. */}
-      <div
-        aria-hidden
-        className="absolute pointer-events-none"
-        style={{ top: '17%', left: '6.5%' }}
-      >
-        {/* Feathered backdrop — heavy blur + radial mask so the patch blends
-            into the surrounding panel instead of looking like a sticker. */}
-        <div
-          style={{
-            position: 'absolute',
-            inset: '-6px -16px',
-            background: 'linear-gradient(180deg, #0e1a10 0%, #0a130c 100%)',
-            borderRadius: 14,
-            filter: 'blur(6px)',
-            opacity: 0.9,
-            WebkitMaskImage:
-              'radial-gradient(ellipse 95% 110% at 50% 50%, black 45%, transparent 100%)',
-            maskImage:
-              'radial-gradient(ellipse 95% 110% at 50% 50%, black 45%, transparent 100%)',
-          }}
-        />
-        <motion.span
-          className="relative font-extrabold leading-none tracking-tight tabular-nums"
-          style={{ color: LIME, fontSize: 26 }}
-        >
-          {text}
-        </motion.span>
-      </div>
-
-      {/* Animated progress bar — overlays the static 100% bar in the PNG.
-          Opaque backdrop fully masks the static fill below; subtle track
-          highlight + lime fill render on top. Slightly taller than the
-          original to guarantee coverage even with positioning drift. */}
-      <div
-        aria-hidden
-        className="absolute pointer-events-none overflow-hidden"
-        style={{
-          top: '24.2%',
-          left: '8.5%',
-          width: '83%',
-          height: 9,
-          background: '#0c170e',
-          borderRadius: 999,
-        }}
-      >
-        <div
-          style={{
-            position: 'absolute',
-            inset: 0,
-            background: 'rgba(255,255,255,0.06)',
-            borderRadius: 999,
-          }}
-        />
-        <motion.div
-          style={{
-            position: 'relative',
-            height: '100%',
-            width: barFill,
-            background: `linear-gradient(90deg, #7fb028, ${LIME})`,
-            borderRadius: 999,
-          }}
-        />
-      </div>
-    </>
-  );
-}

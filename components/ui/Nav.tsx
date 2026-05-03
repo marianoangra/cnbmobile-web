@@ -33,7 +33,7 @@ export function Nav() {
   const navItems = [
     { href: '/#features', label: t('features') },
     { href: '/#how-it-works', label: t('howItWorks') },
-    { href: '/token', label: t('token') },
+    { href: '/manifesto', label: t('manifesto') },
     { href: '/tokenomics', label: t('tokenomics') },
     { href: '/hackathon', label: t('hackathon') },
     { href: '/parceiros', label: t('parceiros') },

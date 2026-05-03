@@ -7,7 +7,7 @@
   "nav": {
     "features": "Funciones",
     "howItWorks": "Cómo funciona",
-    "token": "Token",
+    "manifesto": "Manifesto",
     "tokenomics": "Tokenomics",
     "hackathon": "Hackathon",
     "parceiros": "Socios",
@@ -641,6 +641,10 @@
       "intro": "El modelo económico de $JUICE — distribución, emisión, quema y utilidad.",
       "metaTitle": "Tokenomics de $JUICE — Distribución, Emisión y Utilidad",
       "metaDescription": "Modelo económico completo del token $JUICE en Solana: 1B de supply fijo, distribución, curva de halving, staking real-yield y mecánica deflacionaria."
+    },
+    "manifesto": {
+      "metaTitle": "Manifesto Juice — De CNB Mobile al mundo",
+      "metaDescription": "La historia, la transición CNB Mobile → Juice, por qué Solana y qué sigue igual. Manifesto del equipo Juice."
     },
     "hackathon": {
       "title": "Frontier Colosseum",

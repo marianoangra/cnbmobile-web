@@ -1189,7 +1189,7 @@
     .timeline::before {
       content: '';
       position: absolute;
-      top: 18px;
+      top: 12px;
       left: 6%;
       right: 6%;
       height: 2px;
@@ -1203,15 +1203,15 @@
     }
     .milestone {
       position: relative;
-      padding-top: 48px;
+      padding-top: 32px;
     }
     .milestone-dot {
       position: absolute;
-      top: 12px;
+      top: 8px;
       left: 50%;
       transform: translateX(-50%);
-      width: 14px;
-      height: 14px;
+      width: 10px;
+      height: 10px;
       border-radius: 999px;
       background: rgba(0, 255, 127, 0.15);
       border: 2px solid var(--primary);
@@ -1934,9 +1934,9 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Roadmap & Tração</p>
-        <h2 class="metal-text">Doze meses de execução. Loop orgânico.</h2>
+        <h2 class="metal-text" style="font-size: clamp(22px, 3vw, 38px); margin: 0;">Doze meses de execução. Loop orgânico.</h2>
 
-        <div class="timeline" style="margin-top: clamp(28px, 3vw, 40px);">
+        <div class="timeline" style="margin-top: clamp(20px, 2.4vw, 32px);">
           <div class="milestone done">
             <div class="milestone-dot"></div>
             <div class="milestone-quarter">Q2 · 2026</div>
@@ -1968,54 +1968,50 @@
           </div>
         </div>
 
-        <!-- Tração HOJE — números reais -->
-        <p class="eyebrow" style="margin-top: clamp(28px, 3.5vw, 44px);">Tração hoje</p>
-        <div class="grid-4" style="margin-top: clamp(12px, 1.6vw, 20px);">
-          <div class="card">
-            <p class="number-lg" style="font-size: clamp(28px, 3.5vw, 44px); margin: 0;">3k</p>
-            <p style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 8px 0 2px;">Usuários ativos</p>
-            <p style="font-size: 11px; color: rgba(255,255,255,0.42); margin: 0;">Analytics · MAU</p>
+        <!-- Tração HOJE — números reais (compacto) -->
+        <p class="eyebrow" style="margin-top: clamp(20px, 2.6vw, 32px);">Tração hoje</p>
+        <div class="grid-4" style="margin-top: clamp(10px, 1.2vw, 14px); gap: clamp(10px, 1.4vw, 16px);">
+          <div class="card" style="padding: clamp(14px, 1.6vw, 20px);">
+            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">3k</p>
+            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
+            <p style="font-size: 10px; color: rgba(255,255,255,0.4); margin: 0;">Analytics · MAU</p>
           </div>
-          <div class="card">
-            <p class="number-lg" style="font-size: clamp(28px, 3.5vw, 44px); margin: 0;">460k+</p>
-            <p style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 8px 0 2px;">Minutos validados</p>
-            <p style="font-size: 11px; color: rgba(255,255,255,0.42); margin: 0;">Solana mainnet · auditável</p>
+          <div class="card" style="padding: clamp(14px, 1.6vw, 20px);">
+            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">460k+</p>
+            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
+            <p style="font-size: 10px; color: rgba(255,255,255,0.4); margin: 0;">Solana mainnet · auditável</p>
           </div>
-          <div class="card">
-            <p class="number-lg" style="font-size: clamp(28px, 3.5vw, 44px); margin: 0;">10,2k</p>
-            <p style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 8px 0 2px;">$JUICE distribuídos</p>
-            <p style="font-size: 11px; color: rgba(255,255,255,0.42); margin: 0;">10,2M pts ÷ 1000</p>
+          <div class="card" style="padding: clamp(14px, 1.6vw, 20px);">
+            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">10,2k</p>
+            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">$JUICE distribuídos</p>
+            <p style="font-size: 10px; color: rgba(255,255,255,0.4); margin: 0;">10,2M pts ÷ 1000</p>
           </div>
-          <div class="card" style="border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(28px, 3.5vw, 44px); margin: 0;">20</p>
-            <p style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 8px 0 2px;">Saques PIX</p>
-            <p style="font-size: 11px; color: var(--primary); margin: 0; font-weight: 600;">Loop earn → fiat ✓</p>
+          <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
+            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">20</p>
+            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Saques PIX</p>
+            <p style="font-size: 10px; color: var(--primary); margin: 0; font-weight: 600;">Loop earn → fiat ✓</p>
           </div>
         </div>
 
-        <!-- Vetores de crescimento (compactos) -->
-        <p class="eyebrow" style="margin-top: clamp(20px, 2.5vw, 32px);">Vetores de crescimento</p>
-        <div style="margin-top: clamp(10px, 1.2vw, 16px); padding: 14px clamp(16px, 2vw, 22px); border-radius: 14px; border: 1px solid var(--border); background: rgba(255,255,255,0.015); display: flex; flex-wrap: wrap; gap: clamp(14px, 2.5vw, 28px); align-items: center; justify-content: space-between;">
-          <span style="font-size: clamp(12px, 1.15vw, 14px); color: rgba(255,255,255,0.85);">
-            <strong style="color: #fff;">Indicação +100 pts</strong>
-            <span style="color: rgba(255,255,255,0.5); margin-left: 6px;">· 302 referrals · K-factor alvo &gt; 1</span>
+        <!-- Vetores de crescimento — pílulas inline (sem card wrapper) -->
+        <div style="margin-top: clamp(14px, 1.8vw, 22px); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center;">
+          <span style="font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); font-weight: 700; margin-right: 4px;">Vetores</span>
+          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
+            Indicação +100 pts <span style="color: rgba(255,255,255,0.5);">· 302 refs</span>
           </span>
-          <span style="font-size: clamp(12px, 1.15vw, 14px); color: rgba(255,255,255,0.85);">
-            <strong style="color: #fff;">PIX cash-out</strong>
-            <span style="color: rgba(255,255,255,0.5); margin-left: 6px;">· diferencial Brasil/LATAM</span>
+          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
+            PIX cash-out <span style="color: rgba(255,255,255,0.5);">· Brasil/LATAM</span>
           </span>
-          <span style="font-size: clamp(12px, 1.15vw, 14px); color: rgba(255,255,255,0.85);">
-            <strong style="color: #fff;">Comunidade Web3</strong>
-            <span style="color: rgba(255,255,255,0.5); margin-left: 6px;">· bridge cripto → hábito</span>
+          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
+            Comunidade Web3 <span style="color: rgba(255,255,255,0.5);">· bridge cripto→hábito</span>
           </span>
-          <span style="font-size: clamp(12px, 1.15vw, 14px); color: rgba(255,255,255,0.85);">
-            <strong style="color: #fff;">Airdrop pré-TGE</strong>
-            <span style="color: rgba(255,255,255,0.5); margin-left: 6px;">· snapshot de PoHA = allocation</span>
+          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
+            Airdrop pré-TGE <span style="color: rgba(255,255,255,0.5);">· PoHA snapshot</span>
           </span>
         </div>
 
-        <p style="margin-top: clamp(16px, 2vw, 22px); font-size: 11px; color: rgba(255,255,255,0.4); font-family: monospace;">
-          Fonte: <code style="font-family: monospace;">stats/public</code> Firebase + Solana mainnet memo program · atualizado 2026-05-03.
+        <p style="margin-top: clamp(12px, 1.5vw, 18px); font-size: 10px; color: rgba(255,255,255,0.35); font-family: monospace;">
+          Fonte: <code style="font-family: monospace;">stats/public</code> Firebase + Solana mainnet memo · 2026-05-03
         </p>
       </div>
     </section>

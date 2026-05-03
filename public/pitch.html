@@ -1215,6 +1215,55 @@
       opacity: 0.7;
     }
 
+    /* Slide 5 — Why Now: traction pill bar (responsive) */
+    .traction-pillbar {
+      margin-top: clamp(24px, 3vw, 36px);
+      padding: 14px clamp(18px, 2vw, 24px);
+      border-radius: 14px;
+      border: 1px solid rgba(168, 219, 58, 0.24);
+      background: linear-gradient(90deg, rgba(168, 219, 58, 0.08) 0%, rgba(168, 219, 58, 0.015) 100%);
+      display: flex;
+      gap: clamp(16px, 2.5vw, 28px);
+      align-items: center;
+      justify-content: space-between;
+    }
+    .traction-label {
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--primary);
+      font-weight: 700;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .traction-stats {
+      display: flex;
+      gap: clamp(16px, 2.5vw, 32px);
+      flex-wrap: wrap;
+    }
+    .traction-stats > span {
+      font-size: clamp(13px, 1.25vw, 15px);
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .traction-source {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: rgba(255, 255, 255, 0.4);
+      margin: 0;
+      font-family: monospace;
+      flex-shrink: 0;
+    }
+    /* Stack vertically on narrower viewports — fixes ugly wrapping
+       between ~900-1100px where label/stats/source collide. */
+    @media (max-width: 1100px) {
+      .traction-pillbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+      .traction-source { align-self: flex-end; }
+    }
+
     /* Slide 4 — Como Funciona table */
     .table-card {
       background: var(--card);
@@ -1546,24 +1595,16 @@
         </p>
 
         <!-- Tração Solana DePIN — validação de tese (vem ANTES dos 3 pillars) -->
-        <div style="margin-top: clamp(24px, 3vw, 36px); padding: 14px clamp(18px, 2vw, 24px); border-radius: 14px; border: 1px solid rgba(168, 219, 58, 0.24); background: linear-gradient(90deg, rgba(168, 219, 58, 0.08) 0%, rgba(168, 219, 58, 0.015) 100%); display: flex; gap: clamp(16px, 2.5vw, 28px); align-items: center; flex-wrap: wrap; justify-content: space-between;">
-          <p style="font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0; flex-shrink: 0;">
+        <div class="traction-pillbar">
+          <p class="traction-label">
             DePIN na Solana já tracionou
           </p>
-          <div style="display: flex; gap: clamp(16px, 2.5vw, 32px); flex-wrap: wrap;">
-            <span style="font-size: clamp(13px, 1.25vw, 15px); color: rgba(255,255,255,0.85);">
-              <strong style="color: #fff;">US$ 600M+</strong> funding
-            </span>
-            <span style="font-size: clamp(13px, 1.25vw, 15px); color: rgba(255,255,255,0.85);">
-              <strong style="color: #fff;">+33% YoY</strong> revenue
-            </span>
-            <span style="font-size: clamp(13px, 1.25vw, 15px); color: rgba(255,255,255,0.85);">
-              <strong style="color: #fff;">US$ 3,25B</strong> mcap agregado
-            </span>
+          <div class="traction-stats">
+            <span><strong style="color: #fff;">US$ 600M+</strong> funding</span>
+            <span><strong style="color: #fff;">+33% YoY</strong> revenue</span>
+            <span><strong style="color: #fff;">US$ 3,25B</strong> mcap agregado</span>
           </div>
-          <p style="font-size: 10px; letter-spacing: 0.06em; color: rgba(255,255,255,0.4); margin: 0; font-family: monospace; flex-shrink: 0;">
-            Helius H1 2025
-          </p>
+          <p class="traction-source">Helius H1 2025</p>
         </div>
 
         <div class="grid-3" style="margin-top: clamp(28px, 3.5vw, 44px);">
@@ -2047,24 +2088,7 @@
           </div>
         </div>
 
-        <!-- Vetores de crescimento — pílulas inline (sem card wrapper) -->
-        <div style="margin-top: clamp(14px, 1.8vw, 22px); display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center;">
-          <span style="font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); font-weight: 700; margin-right: 4px;">Vetores</span>
-          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
-            Indicação +100 pts <span style="color: rgba(255,255,255,0.5);">· 302 refs</span>
-          </span>
-          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
-            PIX cash-out <span style="color: rgba(255,255,255,0.5);">· Brasil/LATAM</span>
-          </span>
-          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
-            Comunidade Web3 <span style="color: rgba(255,255,255,0.5);">· bridge cripto→hábito</span>
-          </span>
-          <span style="font-size: clamp(11px, 1.05vw, 13px); padding: 5px 12px; border-radius: 999px; border: 1px solid var(--border); background: rgba(255,255,255,0.025); color: #fff;">
-            Airdrop pré-TGE <span style="color: rgba(255,255,255,0.5);">· PoHA snapshot</span>
-          </span>
-        </div>
-
-        <p style="margin-top: clamp(12px, 1.5vw, 18px); font-size: 10px; color: rgba(255,255,255,0.35); font-family: monospace;">
+        <p style="margin-top: clamp(14px, 1.8vw, 22px); font-size: 10px; color: rgba(255,255,255,0.35); font-family: monospace;">
           Fonte: <code style="font-family: monospace;">stats/public</code> Firebase + Solana mainnet memo · 2026-05-03
         </p>
       </div>
@@ -2104,7 +2128,7 @@
           <!-- Foto + nome + role -->
           <div style="text-align: center;">
             <div style="position: relative; display: inline-block;">
-              <div style="width: clamp(200px, 20vw, 280px); height: clamp(200px, 20vw, 280px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 50px rgba(168, 219, 58, 0.18);">
+              <div style="width: clamp(200px, 20vw, 280px); height: clamp(200px, 20vw, 280px); overflow: hidden; border-radius: 999px; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 50px rgba(168, 219, 58, 0.18);">
                 <img src="images/founder.jpg" alt="Rafael Mariano" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
             </div>

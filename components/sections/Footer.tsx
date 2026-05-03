@@ -27,11 +27,13 @@ export function Footer() {
   const t = useTranslations('footer');
 
   const companyHrefs = {
+    manifesto: '/manifesto',
     pitch: '/pitch',
     hackathon: '/hackathon',
     founder: '/#founder',
   } as const;
   const companyLinks: Array<keyof typeof companyHrefs> = [
+    'manifesto',
     'pitch',
     'hackathon',
     'founder',

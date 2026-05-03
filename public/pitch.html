@@ -741,7 +741,7 @@
     /* === Journey step card (slide Como Funciona) ======================== */
     .journey-step {
       text-align: center;
-      padding: clamp(20px, 2.4vw, 32px) clamp(16px, 1.8vw, 24px);
+      padding: clamp(16px, 2vw, 24px) clamp(14px, 1.6vw, 20px);
     }
     .journey-step-num {
       font-family: 'Inter', system-ui;
@@ -750,7 +750,14 @@
       letter-spacing: 0.32em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.4);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
+    }
+    /* iPhone inside a journey-step shrinks with viewport height so the
+       three columns + slide chrome always fit inside 100vh, even on
+       1366×768 / 1280×800 laptops. */
+    .journey-step .iphone-frame {
+      max-width: clamp(130px, 20vh, 200px);
+      margin: 10px auto 14px;
     }
     .journey-step-icon {
       font-size: clamp(32px, 3.6vw, 42px);
@@ -1732,10 +1739,10 @@
           <span class="metal-text">Três passos, sem fricção.</span>
         </h2>
 
-        <div class="grid-3" style="margin-top: clamp(40px, 5vw, 64px); align-items: stretch;">
+        <div class="grid-3" style="margin-top: clamp(24px, 3vw, 40px); align-items: stretch;">
           <div class="card journey-step">
             <div class="journey-step-num">01 · Plug</div>
-            <div class="iphone-frame" style="margin: 16px auto 20px; max-width: 220px;">
+            <div class="iphone-frame">
               <img src="images/screen-charging.png" alt="Tela de carregamento" />
             </div>
             <h3 class="journey-step-title">Conectou o cabo.</h3>
@@ -1745,7 +1752,7 @@
           </div>
           <div class="card journey-step">
             <div class="journey-step-num">02 · Validação</div>
-            <div class="iphone-frame" style="margin: 16px auto 20px; max-width: 220px;">
+            <div class="iphone-frame">
               <img src="images/screen-home.png" alt="Tela inicial — pontos" />
             </div>
             <h3 class="journey-step-title">Proof-of-Human-Activity.</h3>
@@ -1755,7 +1762,7 @@
           </div>
           <div class="card journey-step">
             <div class="journey-step-num">03 · Reward</div>
-            <div class="iphone-frame" style="margin: 16px auto 20px; max-width: 220px;">
+            <div class="iphone-frame">
               <img src="images/screen-ranking.png" alt="Tela de ranking" />
             </div>
             <h3 class="journey-step-title">$JUICE na carteira.</h3>

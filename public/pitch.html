@@ -1844,33 +1844,38 @@
           Quatro pilares de sustentabilidade.
         </h2>
         <div class="grid-4" style="margin-top: clamp(28px, 3.5vw, 44px); gap: clamp(14px, 1.8vw, 24px);">
-          <div class="card pillar">
-            <h3>Comunidade ativa</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              Canais diretos com builders, validadores e usuários.
-              <strong style="color:#fff;">Iteração rápida</strong>, feedback em produção, retenção alta.
-            </p>
+          <div class="card pillar" style="text-align: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: clamp(44px, 4.4vw, 60px); height: auto; color: var(--primary); margin: 0 auto 14px; display: block;">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+            <h3 style="margin: 0;">Comunidade ativa</h3>
           </div>
-          <div class="card pillar">
-            <h3>Acompanhamento online</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              Dashboards públicos + memo on-chain na Solana mainnet.
-              <strong style="color:#fff;">Visibilidade total</strong> da operação 24/7.
-            </p>
+          <div class="card pillar" style="text-align: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: clamp(44px, 4.4vw, 60px); height: auto; color: var(--primary); margin: 0 auto 14px; display: block;">
+              <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+            </svg>
+            <h3 style="margin: 0;">Acompanhamento online</h3>
           </div>
-          <div class="card pillar">
-            <h3>Suporte automatizado</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              Saques PIX automáticos via Cloud Functions.
-              <strong style="color:#fff;">Escala sem ops linear</strong> — atende milhares sem inflar custo.
-            </p>
+          <div class="card pillar" style="text-align: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: clamp(44px, 4.4vw, 60px); height: auto; color: var(--primary); margin: 0 auto 14px; display: block;">
+              <path d="M12 8V4H8"/>
+              <rect width="16" height="12" x="4" y="8" rx="2"/>
+              <path d="M2 14h2"/>
+              <path d="M20 14h2"/>
+              <path d="M15 13v2"/>
+              <path d="M9 13v2"/>
+            </svg>
+            <h3 style="margin: 0;">Suporte automatizado</h3>
           </div>
-          <div class="card pillar">
-            <h3>Tokenomics robusto</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              Supply fixo 1B · halving Bitcoin-style · distribuição proporcional.
-              <strong style="color:#fff;">Sem death spiral.</strong>
-            </p>
+          <div class="card pillar" style="text-align: center;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="width: clamp(44px, 4.4vw, 60px); height: auto; color: var(--primary); margin: 0 auto 14px; display: block;">
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+            </svg>
+            <h3 style="margin: 0;">Tokenomics robusto</h3>
           </div>
         </div>
 
@@ -1902,62 +1907,64 @@
           Toda receita do app vira valor REAL.
         </p>
 
-        <div class="grid-4" style="margin-top: clamp(28px, 3.5vw, 44px); gap: clamp(14px, 1.8vw, 24px);">
-          <div class="card pillar">
-            <div class="pillar-icon">
+        <!-- Staircase ascendente — todos os cards começam pela esquerda. -->
+        <div style="margin-top: clamp(24px, 3vw, 36px); display: flex; flex-direction: column; gap: clamp(10px, 1.2vw, 16px);">
+          <div class="card pillar" style="width: 40%; display: flex; gap: clamp(14px, 1.6vw, 22px); align-items: center; padding: clamp(14px, 1.6vw, 22px);">
+            <div class="pillar-icon" style="margin: 0; flex-shrink: 0; font-size: clamp(28px, 2.8vw, 38px);">
               <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M13 2 4 14h7l-2 8 9-12h-7l2-8z"/>
               </svg>
             </div>
-            <h3>Token utility</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              A receita das vendas é usada para
-              <strong style="color: #fff;">Recompra e Queima</strong>
-              do $JUICE no mercado, gerando escassez e valorização.
-            </p>
+            <div style="min-width: 0; flex: 1;">
+              <h3 style="margin: 0 0 3px; font-size: clamp(14px, 1.3vw, 18px);">Token utility</h3>
+              <p class="text-secondary" style="font-size: clamp(11px, 1vw, 13px); line-height: 1.4; margin: 0;">
+                Receita usada em <strong style="color: #fff;">Recompra e Queima</strong> do $JUICE.
+              </p>
+            </div>
           </div>
-          <div class="card pillar">
-            <div class="pillar-icon">
+          <div class="card pillar" style="width: 60%; display: flex; gap: clamp(14px, 1.6vw, 22px); align-items: center; padding: clamp(14px, 1.6vw, 22px);">
+            <div class="pillar-icon" style="margin: 0; flex-shrink: 0; font-size: clamp(28px, 2.8vw, 38px);">
               <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="4" y="11" width="16" height="11" rx="2"/>
                 <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
               </svg>
             </div>
-            <h3>Real-yield staking</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              Receita do app (ads, afiliados, premium)
-              <strong style="color: #fff;">distribuída aos holders</strong>
-              de $JUICE que fazem stake. Yield real, não inflação.
-            </p>
+            <div style="min-width: 0; flex: 1;">
+              <h3 style="margin: 0 0 3px; font-size: clamp(14px, 1.3vw, 18px);">Real-yield staking</h3>
+              <p class="text-secondary" style="font-size: clamp(11px, 1vw, 13px); line-height: 1.4; margin: 0;">
+                Receita do app <strong style="color: #fff;">distribuída aos holders</strong> que fazem stake. Yield real, não inflação.
+              </p>
+            </div>
           </div>
-          <div class="card pillar">
-            <div class="pillar-icon">
+          <div class="card pillar" style="width: 80%; display: flex; gap: clamp(14px, 1.6vw, 22px); align-items: center; padding: clamp(14px, 1.6vw, 22px);">
+            <div class="pillar-icon" style="margin: 0; flex-shrink: 0; font-size: clamp(28px, 2.8vw, 38px);">
               <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="2" y="6" width="20" height="12" rx="2"/>
                 <circle cx="12" cy="12" r="2.5"/>
                 <path d="M6 12h.01M18 12h.01"/>
               </svg>
             </div>
-            <h3>ADS &amp; Publi</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              <strong style="color: #fff;">Créditos publicitários</strong>
-              vendidos em parcerias mensais e semestrais com marcas e plataformas.
-            </p>
+            <div style="min-width: 0; flex: 1;">
+              <h3 style="margin: 0 0 3px; font-size: clamp(14px, 1.3vw, 18px);">ADS &amp; Publi</h3>
+              <p class="text-secondary" style="font-size: clamp(11px, 1vw, 13px); line-height: 1.4; margin: 0;">
+                <strong style="color: #fff;">Créditos publicitários</strong> vendidos em parcerias mensais e semestrais com marcas e plataformas.
+              </p>
+            </div>
           </div>
-          <div class="card pillar">
-            <div class="pillar-icon">
+          <div class="card pillar" style="width: 100%; display: flex; gap: clamp(14px, 1.6vw, 22px); align-items: center; padding: clamp(14px, 1.6vw, 22px);">
+            <div class="pillar-icon" style="margin: 0; flex-shrink: 0; font-size: clamp(28px, 2.8vw, 38px);">
               <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
                 <rect x="6" y="6" width="12" height="12" rx="1.5"/>
                 <rect x="10" y="10" width="4" height="4" rx="0.5"/>
                 <path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>
               </svg>
             </div>
-            <h3>Tratamento de Dados com IA</h3>
-            <p class="text-secondary" style="font-size: 13px; line-height: 1.5; margin: 0;">
-              Comportamento de uso anonimizado processado por IA.
-              <strong style="color: #fff;">Parcerias B2B</strong>
-              com marcas, telecom e governos para insights em tempo real.
-            </p>
+            <div style="min-width: 0; flex: 1;">
+              <h3 style="margin: 0 0 3px; font-size: clamp(14px, 1.3vw, 18px);">Tratamento de Dados com IA</h3>
+              <p class="text-secondary" style="font-size: clamp(11px, 1vw, 13px); line-height: 1.4; margin: 0;">
+                Comportamento de uso anonimizado processado por IA. <strong style="color: #fff;">Parcerias B2B</strong> com marcas, telecom e governos.
+              </p>
+            </div>
           </div>
         </div>
       </div>

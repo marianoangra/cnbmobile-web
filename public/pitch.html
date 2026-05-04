@@ -1353,6 +1353,12 @@
     .slide-sustentabilidade .card.pillar:hover {
       border-color: rgba(168, 219, 58, 0.65);
     }
+    /* Fix legibility on the lighter olive cards — secondary text on
+       this surface needs higher contrast than the deck default. */
+    .slide-sustentabilidade .card.pillar h3 { color: #ffffff; }
+    .slide-sustentabilidade .card.pillar .text-secondary {
+      color: rgba(255, 255, 255, 0.92) !important;
+    }
 
     /* Slide 5 — Why Now: flatter pillar cards (no icons, less padding) */
     .slide-why-now .card.pillar {

@@ -989,9 +989,10 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      /* Lift the cover stack above the optical center to leave room
-         for the store buttons sitting absolute at the bottom. */
-      margin-top: clamp(-80px, -7vh, -40px);
+      /* Anchor the cover stack toward the upper-third of the slide
+         (above optical center) so the area below the footer line can
+         breathe — clean editorial layout. */
+      margin-top: clamp(-260px, -22vh, -140px);
     }
     /* Golden-ratio rhythm on the cover stack:
          logo → tagline gap = φ × tagline → footer gap. */

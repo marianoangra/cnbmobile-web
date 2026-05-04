@@ -1000,12 +1000,9 @@
     .cover-tagline { margin-top: clamp(36px, 5vh, 64px); }
     .cover-footer  { margin-top: clamp(22px, 3vh, 40px); }
     .cover-logo {
-      --mx: 50%;
-      --my: 50%;
       position: relative;
       width: clamp(220px, 36vw, 480px);
       filter: drop-shadow(0 0 60px rgba(0, 255, 127, 0.45));
-      cursor: default;
     }
     .cover-logo img,
     .cover-logo svg {
@@ -1013,65 +1010,6 @@
       height: auto;
       display: block;
     }
-    /* Mouse-following specular highlight — a radial gradient that
-       brightens the logo where the cursor is. The SVG is also used as
-       a CSS mask so the highlight stays inside the logo silhouette
-       (no glow leaking onto the background). */
-    .cover-logo-shine {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: radial-gradient(
-        circle 200px at var(--mx) var(--my),
-        rgba(255, 255, 255, 0.85) 0%,
-        rgba(0, 255, 127, 0.55) 22%,
-        rgba(0, 255, 127, 0.10) 50%,
-        transparent 72%
-      );
-      mix-blend-mode: screen;
-      opacity: 0;
-      transition: opacity 320ms ease;
-      -webkit-mask-image: url(brand/juice-wordmark-pitch.svg);
-      mask-image: url(brand/juice-wordmark-pitch.svg);
-      -webkit-mask-size: 100% 100%;
-      mask-size: 100% 100%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-    }
-    .cover-logo:hover .cover-logo-shine,
-    .cover-logo:focus-within .cover-logo-shine {
-      opacity: 1;
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .cover-logo-shine { display: none; }
-    }
-
-    /* Static metallic sheen — bright diagonal highlight fixed across
-       the wordmark (light hitting from upper-right). Masked to the
-       logo silhouette so the sheen never leaks onto the background. */
-    .cover-logo-sheen {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(
-        115deg,
-        transparent 0%,
-        rgba(255, 255, 255, 0.18) 22%,
-        rgba(255, 255, 255, 0.55) 38%,
-        rgba(255, 255, 255, 0.85) 50%,
-        rgba(255, 255, 255, 0.55) 62%,
-        rgba(255, 255, 255, 0.18) 78%,
-        transparent 100%
-      );
-      mix-blend-mode: screen;
-      -webkit-mask-image: url(brand/juice-wordmark-pitch.svg);
-      mask-image: url(brand/juice-wordmark-pitch.svg);
-      -webkit-mask-size: 100% 100%;
-      mask-size: 100% 100%;
-      -webkit-mask-repeat: no-repeat;
-      mask-repeat: no-repeat;
-    }
-
 
     .cover-tagline {
       /* Tagline ≈ footer × φ — golden hierarchy with the line below. */
@@ -1625,16 +1563,12 @@
     <section class="slide" data-slide="1" aria-label="Capa">
       <div class="slide-inner cover" style="margin-top: clamp(40px, 5vh, 80px);">
         <div class="cover-logo" id="cover-logo">
-          <!-- Wordmark JUICE — variante do pitch:
-               - bolt deslocado +10 unidades pra dar respiro do "U"
-               - animação SMIL (opacity breathing) embarcada no próprio
-                 SVG, então funciona normalmente como <img> e o hover
-                 effect com mask-image continua alinhado. -->
+          <!-- Wordmark JUICE — variante do pitch.
+               Sheen/shine overlays intencionalmente removidas: mask-image com SVG
+               <text> não renderiza no Safari/macOS, o que fazia aparecer um
+               retângulo iluminado em volta da logo na projeção. O gradiente
+               metálico DENTRO do SVG já entrega o efeito. -->
           <img src="brand/juice-wordmark-pitch.svg" alt="Juice" />
-          <!-- Auto metallic sheen sweep — runs every 5s, masked to logo. -->
-          <span class="cover-logo-sheen" aria-hidden="true"></span>
-          <!-- Mouse-following specular highlight (CSS-masked to logo shape) -->
-          <span class="cover-logo-shine" aria-hidden="true"></span>
         </div>
         <div class="cover-tagline">
           <strong>Recarregou. Validou. Ganhou.</strong>
@@ -2519,24 +2453,6 @@
             else prev();
           }
         }, { passive: true });
-      }
-
-      // Cover logo — mouse-following specular highlight
-      var coverLogo = document.getElementById('cover-logo');
-      if (coverLogo) {
-        var raf = null;
-        var lx = 50, ly = 50;
-        var apply = function () {
-          raf = null;
-          coverLogo.style.setProperty('--mx', lx + '%');
-          coverLogo.style.setProperty('--my', ly + '%');
-        };
-        coverLogo.addEventListener('mousemove', function (e) {
-          var r = coverLogo.getBoundingClientRect();
-          lx = ((e.clientX - r.left) / r.width) * 100;
-          ly = ((e.clientY - r.top) / r.height) * 100;
-          if (raf === null) raf = requestAnimationFrame(apply);
-        });
       }
 
       // Fullscreen

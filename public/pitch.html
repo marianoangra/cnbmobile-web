@@ -1250,6 +1250,26 @@
       opacity: 0.7;
     }
 
+    /* Slide 4 — Mercado: lift content + lime-accented compact cards */
+    .slide-mercado .slide-inner {
+      margin-top: clamp(-80px, -7vh, -40px);
+    }
+    .slide-mercado .card {
+      padding: clamp(14px, 1.8vw, 22px);
+      border-color: rgba(168, 219, 58, 0.22);
+      background:
+        linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, rgba(168, 219, 58, 0.01) 100%),
+        var(--card);
+    }
+    .slide-mercado .card.market-card-focus {
+      border-color: rgba(168, 219, 58, 0.55) !important;
+      background:
+        linear-gradient(180deg, rgba(168, 219, 58, 0.10) 0%, rgba(168, 219, 58, 0.02) 100%),
+        var(--card);
+      box-shadow: 0 0 32px rgba(168, 219, 58, 0.16);
+    }
+    .slide-mercado .market-source { margin-top: 14px; }
+
     /* Slide 5 — Why Now: traction pill bar (responsive) */
     .traction-pillbar {
       margin-top: clamp(24px, 3vw, 36px);
@@ -1572,18 +1592,18 @@
     </section>
 
     <!-- SLIDE 4: MERCADO (TAM / SAM / SOM) — swapped to come before WHY NOW === -->
-    <section class="slide" data-slide="3" aria-label="Mercado">
+    <section class="slide slide-mercado" data-slide="3" aria-label="Mercado">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <p class="eyebrow">Mercado</p>
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); text-align: center;">
+        <p class="eyebrow" style="margin-bottom: 14px;">Mercado</p>
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); text-align: center; margin: 0;">
           Mais celulares do que bancos e tomadas.
         </h2>
-        <p class="subtitle" style="text-align: center; max-width: 64ch; margin: 18px auto 0;">
+        <p class="subtitle" style="text-align: center; max-width: 64ch; margin: 14px auto 0;">
           Smartphones chegam onde o sistema bancário e a rede elétrica estável não chegam.
         </p>
 
-        <div class="grid-3" style="margin-top: clamp(32px, 4vw, 48px);">
+        <div class="grid-3" style="margin-top: clamp(22px, 2.8vw, 36px);">
           <!-- TAM — Global -->
           <div class="card">
             <p class="market-tier">TAM · Global</p>

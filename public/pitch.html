@@ -1326,6 +1326,29 @@
       transform: none;
     }
 
+    /* Slide 8 — Sustentabilidade: same mid-tone olive metallic cards
+       used on slide 4 (Mercado), so the deck's two card-heavy slides
+       share visual language. */
+    .slide-sustentabilidade .card.pillar {
+      border: 1px solid rgba(168, 219, 58, 0.4);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(212, 232, 122, 0.22) 0%,
+          rgba(90, 122, 24, 0.08) 28%,
+          rgba(251, 255, 232, 0.32) 50%,
+          rgba(90, 122, 24, 0.08) 72%,
+          rgba(212, 232, 122, 0.22) 100%
+        ),
+        rgba(45, 65, 18, 0.78);
+      box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(212, 232, 122, 0.18);
+    }
+    .slide-sustentabilidade .card.pillar:hover {
+      border-color: rgba(168, 219, 58, 0.6);
+    }
+
     /* Slide 5 — Why Now: flatter pillar cards (no icons, less padding) */
     .slide-why-now .card.pillar {
       padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px);
@@ -1864,7 +1887,7 @@
     </section>
 
     <!-- SLIDE 7b: POR QUE JUICE NÃO MORRE COMO STEPN ========================= -->
-    <section class="slide" data-slide="14" aria-label="Sustentabilidade tokenomics">
+    <section class="slide slide-sustentabilidade" data-slide="14" aria-label="Sustentabilidade tokenomics">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Sustentabilidade</p>

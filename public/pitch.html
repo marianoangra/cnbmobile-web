@@ -1309,6 +1309,11 @@
       box-shadow: 0 0 12px rgba(168, 219, 58, 0.5);
     }
 
+    /* Slide 6 — Onde estamos no mapa: lift content cluster (matches slide 1 feel) */
+    .slide-mapa .slide-inner {
+      margin-top: clamp(-80px, -7vh, -40px);
+    }
+
     /* Slide 5 — Why Now: flatter pillar cards (no icons, less padding) */
     .slide-why-now .card.pillar {
       padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px);
@@ -1742,7 +1747,7 @@
     </section>
 
     <!-- SLIDE 5b: ONDE ESTAMOS NO MAPA (DePIN landscape) ===================== -->
-    <section class="slide" data-slide="13" aria-label="Onde estamos no mapa">
+    <section class="slide slide-mapa" data-slide="13" aria-label="Onde estamos no mapa">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Onde estamos no mapa</p>

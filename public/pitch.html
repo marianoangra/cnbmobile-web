@@ -1254,55 +1254,59 @@
     .slide-mercado .slide-inner {
       margin-top: clamp(-80px, -7vh, -40px);
     }
-    /* Light polished-metal cards — mirror the logo's olive-lime gradient
-       (cream highlights + lime mid-tones), with dark-olive text inside
-       for true metal contrast. Creates the 'moment of opportunity'
-       light-card moment used by McKinsey/BCG-style market-sizing slides. */
+    /* Mid-tone olive metallic cards — luxury-watch-dial vibe: dark
+       olive base + metallic sheen overlay using the logo's bright/
+       shadow palette. Visible against the navy slide bg, but not the
+       cream-paper look that came before. White text retained. */
     .slide-mercado .card {
       padding: clamp(14px, 1.8vw, 22px);
-      border: 1px solid rgba(120, 145, 50, 0.45);
-      background: linear-gradient(
-        135deg,
-        #f8fdd8 0%,
-        #e2ed8a 28%,
-        #fbffe8 50%,
-        #e2ed8a 72%,
-        #f8fdd8 100%
-      );
+      border: 1px solid rgba(168, 219, 58, 0.4);
+      background:
+        linear-gradient(
+          135deg,
+          rgba(212, 232, 122, 0.22) 0%,
+          rgba(90, 122, 24, 0.08) 28%,
+          rgba(251, 255, 232, 0.32) 50%,
+          rgba(90, 122, 24, 0.08) 72%,
+          rgba(212, 232, 122, 0.22) 100%
+        ),
+        rgba(45, 65, 18, 0.78);
       box-shadow:
-        0 8px 24px rgba(20, 35, 10, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+        0 8px 24px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(212, 232, 122, 0.18);
     }
     .slide-mercado .card:hover {
-      border-color: rgba(90, 122, 24, 0.7);
+      border-color: rgba(168, 219, 58, 0.6);
     }
     .slide-mercado .card.market-card-focus {
-      border-color: rgba(90, 122, 24, 0.85) !important;
-      background: linear-gradient(
-        135deg,
-        #fcffe8 0%,
-        #d4e87a 28%,
-        #fbffe8 50%,
-        #d4e87a 72%,
-        #fcffe8 100%
-      );
+      border-color: rgba(168, 219, 58, 0.7) !important;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(212, 232, 122, 0.32) 0%,
+          rgba(90, 122, 24, 0.10) 28%,
+          rgba(251, 255, 232, 0.45) 50%,
+          rgba(90, 122, 24, 0.10) 72%,
+          rgba(212, 232, 122, 0.32) 100%
+        ),
+        rgba(45, 65, 18, 0.78);
       box-shadow:
-        0 12px 36px rgba(168, 219, 58, 0.32),
-        inset 0 1px 0 rgba(255, 255, 255, 0.75);
+        0 12px 36px rgba(168, 219, 58, 0.30),
+        inset 0 1px 0 rgba(212, 232, 122, 0.28);
     }
-    /* Recolor card text to dark olive (logo shadow color) so it reads
-       on the light metallic surface. */
-    .slide-mercado .market-tier { color: rgba(70, 90, 25, 0.78); }
-    .slide-mercado .market-tier.is-focus { color: #2d4012; }
+    /* Text reverts to white-on-dark hierarchy — readable on the new
+       darker base + visible against the metallic sheen highlights. */
+    .slide-mercado .market-tier { color: rgba(255, 255, 255, 0.55); }
+    .slide-mercado .market-tier.is-focus { color: var(--primary); }
     .slide-mercado .number-xl {
-      color: #2d4012;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      text-shadow: 0 0 18px rgba(168, 219, 58, 0.5);
     }
-    .slide-mercado .market-desc { color: rgba(40, 55, 15, 0.78); }
-    .slide-mercado .market-bar { background: rgba(40, 55, 15, 0.18); }
+    .slide-mercado .market-desc { color: rgba(255, 255, 255, 0.72); }
+    .slide-mercado .market-bar { background: rgba(255, 255, 255, 0.14); }
     .slide-mercado .market-bar-fill {
-      background: linear-gradient(90deg, #5a7a18, #94b048);
-      box-shadow: 0 0 8px rgba(90, 122, 24, 0.4);
+      background: linear-gradient(90deg, rgba(168, 219, 58, 0.85), #d4e87a);
+      box-shadow: 0 0 12px rgba(168, 219, 58, 0.5);
     }
 
     /* Slide 5 — Why Now: traction pill bar (responsive) */

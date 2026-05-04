@@ -10,8 +10,9 @@
   <defs>
     <!-- High-contrast polished-metal gradient. Alternating bright
          highlights and dark shadows give the wordmark depth and
-         simulate light catching a 3D metallic surface. -->
-    <linearGradient id="juice-olive-metal" x1="0" y1="0" x2="0" y2="1">
+         simulate light catching a 3D metallic surface — applied
+         diagonally so the highlight band sweeps across the letters. -->
+    <linearGradient id="juice-olive-metal" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%"  stop-color="#fbffe0"/>
       <stop offset="15%" stop-color="#d4e87a"/>
       <stop offset="34%" stop-color="#5a7a18"/>
@@ -20,12 +21,15 @@
       <stop offset="85%" stop-color="#d4e87a"/>
       <stop offset="100%" stop-color="#fbffe0"/>
     </linearGradient>
-    <linearGradient id="juice-olive-metal-cool" x1="0" y1="0" x2="0" y2="1">
+    <!-- 'Cool' variant: same metallic structure but the lower-shadow
+         stop swaps olive for a blue gleam (#6db8e0), giving the "CE"
+         letters a cool-tinted reflection like polished steel. -->
+    <linearGradient id="juice-olive-metal-cool" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%"  stop-color="#fbffe0"/>
       <stop offset="15%" stop-color="#d4e87a"/>
       <stop offset="34%" stop-color="#5a7a18"/>
       <stop offset="50%" stop-color="#fbffe8"/>
-      <stop offset="66%" stop-color="#5a7a18"/>
+      <stop offset="66%" stop-color="#6db8e0"/>
       <stop offset="85%" stop-color="#d4e87a"/>
       <stop offset="100%" stop-color="#fbffe0"/>
     </linearGradient>

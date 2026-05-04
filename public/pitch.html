@@ -1309,6 +1309,15 @@
       box-shadow: 0 0 12px rgba(168, 219, 58, 0.5);
     }
 
+    /* Slide 5 — Why Now: flatter pillar cards (no icons, less padding) */
+    .slide-why-now .card.pillar {
+      padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px);
+    }
+    .slide-why-now .card.pillar h3 {
+      font-size: clamp(15px, 1.4vw, 18px);
+      margin: 0 0 8px;
+    }
+
     /* Slide 5 — Why Now: traction pill bar (responsive) */
     .traction-pillbar {
       margin-top: clamp(24px, 3vw, 36px);
@@ -1681,7 +1690,7 @@
     </section>
 
     <!-- SLIDE 5: WHY NOW — swapped to come after MERCADO ====================== -->
-    <section class="slide" data-slide="3" aria-label="Por que agora">
+    <section class="slide slide-why-now" data-slide="3" aria-label="Por que agora">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Por que agora</p>
@@ -1704,56 +1713,29 @@
 
         <div class="grid-3" style="margin-top: clamp(28px, 3.5vw, 44px);">
           <div class="card pillar">
-            <div class="pillar-icon">
-              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M13 2 4 14h7l-2 8 9-12h-7l2-8z"/>
-              </svg>
-            </div>
             <h3>Solana custo zero</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-              Settlement com taxa
-              <strong style="color: #fff;">&lt; US$ 0,001</strong>
-              por transação — e
-              <strong style="color: #fff;">milhares de vezes mais barato</strong>
-              ainda via ZK Compression (Light Protocol).
-              A primeira chain onde recompensar bilhões de eventos diários é economicamente viável.
+              Settlement com taxa <strong style="color: #fff;">&lt; US$ 0,001</strong>
+              por transação — milhares de vezes mais barato via ZK Compression.
+              Primeira chain onde recompensar bilhões de eventos diários é viável.
             </p>
           </div>
           <div class="card pillar">
-            <div class="pillar-icon">
-              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="6" y="2" width="12" height="20" rx="2"/>
-                <path d="M11 18h2"/>
-              </svg>
-            </div>
-            <h3>5,84 bi de smartphones</h3>
+            <h3>Smartphones onipresentes</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-              Assinantes únicos de mobile no mundo
-              <strong style="color: #fff;">(GSMA, 2026)</strong>.
-              ~1 recarga/dia por usuário. +2 trilhões de eventos/ano sem retorno.*
+              <strong style="color: #fff;">15 bi de dispositivos conectados</strong> até 2030
+              em mercados sem rede bancária ou energia elétrica estável.
             </p>
           </div>
           <div class="card pillar">
-            <div class="pillar-icon">
-              <svg class="tile-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"/>
-                <path d="M3 12h18"/>
-                <path d="M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-6-4-9s1.5-6.5 4-9z"/>
-              </svg>
-            </div>
             <h3>Solana mobile + stablecoins</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
               Saga/Seeker, Solana Pay com PIX,
-              <strong style="color: #fff;">USDT/USDC com fees &lt;US$ 0,001</strong>.
-              Primeira vez que uma chain de alta performance é
-              <strong style="color: #fff;">mobile-native</strong> — e chega a quem nunca teve banco.
+              <strong style="color: #fff;">USDT/USDC com fees &lt; US$ 0,001</strong>.
+              Chain de alta performance, mobile-native, chegando a quem nunca teve banco.
             </p>
           </div>
         </div>
-
-        <p style="margin-top: clamp(20px, 2.5vw, 32px); font-size: 11px; color: rgba(255,255,255,0.4); font-family: monospace;">
-          *Estimativa derivada de GSMA "Mobile Economy 2026" + Ericsson Mobility Report (~1 charge/dia).
-        </p>
       </div>
     </section>
 

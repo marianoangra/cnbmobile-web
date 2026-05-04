@@ -1672,7 +1672,7 @@
           <div style="text-align: center;">
             <p class="eyebrow" style="margin: 0 0 18px;">A Solução</p>
             <img src="brand/juice-wordmark-pitch.svg" alt="JUICE"
-                 style="display: block; height: clamp(44px, 5vw, 72px); width: auto; margin: 0 auto 22px; filter: drop-shadow(0 0 24px rgba(168, 219, 58, 0.3));" />
+                 style="display: block; height: clamp(44px, 5vw, 72px); width: auto; margin: 0 auto 22px; filter: drop-shadow(0 0 60px rgba(0, 255, 127, 0.45));" />
             <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
               DePIN<br />
               <span class="metal-text" style="font-size: 1em; font-weight: 900; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.05)) drop-shadow(0 2px 12px rgba(168,219,58,0.25)) drop-shadow(0 0 28px rgba(168,219,58,0.5));">com Prova de Atividade Humana.</span>
@@ -1840,7 +1840,7 @@
         <div class="card card-glow" style="margin-top: clamp(16px, 2vw, 24px); border-color: rgba(168, 219, 58, 0.45); padding: clamp(16px, 2vw, 24px);">
           <div style="display: flex; align-items: center; gap: clamp(16px, 2vw, 24px); flex-wrap: wrap;">
             <div style="flex: 0 0 auto;">
-              <img src="brand/juice-wordmark-pitch.svg" alt="JUICE" style="height: clamp(36px, 3.6vw, 50px); display: block; filter: drop-shadow(0 0 18px rgba(168, 219, 58, 0.45));" />
+              <img src="brand/juice-wordmark-pitch.svg" alt="JUICE" style="height: clamp(36px, 3.6vw, 50px); display: block; filter: drop-shadow(0 0 60px rgba(0, 255, 127, 0.45));" />
             </div>
             <div style="flex: 1; min-width: 220px;">
               <p style="font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 6px;">Charging time · DePIN</p>
@@ -2027,7 +2027,7 @@
         </div>
 
         <!-- Store buttons — App Store, Google Play, Seeker -->
-        <div style="margin-top: clamp(28px, 3.5vw, 44px); display: flex; justify-content: center; align-items: center; gap: 12px; flex-wrap: wrap;">
+        <div style="margin-top: clamp(28px, 3.5vw, 44px); display: flex; justify-content: space-evenly; align-items: center; gap: clamp(20px, 3vw, 48px); flex-wrap: wrap; max-width: 760px; margin-left: auto; margin-right: auto;">
           <a href="https://apps.apple.com/br/app/cnb-mobile/id6762065336" target="_blank" rel="noopener noreferrer"
              aria-label="Download on the App Store"
              style="display: inline-flex; align-items: center; gap: 10px; padding: 0 16px; height: 44px; min-width: 160px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none; transition: border-color 200ms ease;">
@@ -2300,72 +2300,97 @@
           <div aria-hidden="true" style="flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), transparent);"></div>
         </div>
 
-        <!-- Founder section -->
-        <div class="grid-2" style="align-items: center; gap: clamp(28px, 4vw, 56px);">
-          <!-- Foto + nome + role (Rafael) -->
-          <div style="text-align: center;">
-            <div style="position: relative; display: inline-block;">
-              <div style="width: clamp(200px, 20vw, 280px); height: clamp(200px, 20vw, 280px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 50px rgba(168, 219, 58, 0.18);">
+        <!-- Founder section — Rafael à esquerda, Carol à direita -->
+        <div class="grid-2" style="align-items: flex-start; gap: clamp(28px, 3.5vw, 48px);">
+          <!-- Rafael: foto + formações + tese -->
+          <div style="display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: flex-start;">
+            <div style="text-align: center; flex-shrink: 0;">
+              <div style="width: clamp(140px, 13vw, 180px); height: clamp(140px, 13vw, 180px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 40px rgba(168, 219, 58, 0.18);">
                 <img src="images/founder.jpg" alt="Rafael Mariano" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
+              <h3 style="font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; margin: 12px 0 3px; letter-spacing: -0.02em;">
+                Rafael Mariano
+              </h3>
+              <p style="font-size: clamp(10px, 0.95vw, 13px); color: var(--primary); font-weight: 600; letter-spacing: 0.04em; margin: 0;">
+                CEO &amp; Founder
+              </p>
             </div>
-            <h3 style="font-size: clamp(18px, 2vw, 26px); font-weight: 900; margin: 16px 0 4px; letter-spacing: -0.02em;">
-              Rafael Mariano
-            </h3>
-            <p style="font-size: clamp(12px, 1.1vw, 14px); color: var(--primary); font-weight: 600; letter-spacing: 0.04em; margin: 0;">
-              CEO &amp; Founder
-            </p>
+            <div style="flex: 1; min-width: 0;">
+              <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 10px;">
+                Formações
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px;">
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Analista de Investimentos CNPI</strong></span>
+                </li>
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span>Ex-<strong style="color: #fff;">XP Inc.</strong> · <strong style="color: #fff;">Rico</strong> · <strong style="color: #fff;">Terra</strong></span>
+                </li>
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Educador SENAI</strong> — entre os mais influentes da região</span>
+                </li>
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Piloto</strong> · <strong style="color: #fff;">Full-stack Developer</strong></span>
+                </li>
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Empresário</strong> — soluções no mercado financeiro e cripto</span>
+                </li>
+              </ul>
+              <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 8px;">
+                A tese
+              </p>
+              <p style="font-size: clamp(12px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.78); line-height: 1.5; margin: 0; font-style: italic;">
+                "Une mercado financeiro, educação e tecnologia para fazer diferença na vida de milhares de pessoas."
+              </p>
+            </div>
           </div>
 
-          <!-- Formações + tese (com foto da Carol ao lado) -->
-          <div style="display: flex; gap: clamp(20px, 2.4vw, 32px); align-items: flex-start;">
-            <!-- Carol — foto + nome + role -->
+          <!-- Carol: foto + formações MKT & Comercial -->
+          <div style="display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: flex-start;">
             <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: clamp(120px, 11vw, 160px); height: clamp(120px, 11vw, 160px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 40px rgba(168, 219, 58, 0.18);">
+              <div style="width: clamp(140px, 13vw, 180px); height: clamp(140px, 13vw, 180px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 40px rgba(168, 219, 58, 0.18);">
                 <img src="images/carol.png" alt="Carol Uchoas" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
-              <h3 style="font-size: clamp(13px, 1.25vw, 16px); font-weight: 900; margin: 10px 0 2px; letter-spacing: -0.02em;">
+              <h3 style="font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; margin: 12px 0 3px; letter-spacing: -0.02em;">
                 Carol Uchoas
               </h3>
-              <p style="font-size: clamp(10px, 0.9vw, 12px); color: var(--primary); font-weight: 600; letter-spacing: 0.04em; margin: 0;">
+              <p style="font-size: clamp(10px, 0.95vw, 13px); color: var(--primary); font-weight: 600; letter-spacing: 0.04em; margin: 0;">
                 MKT &amp; Comercial
               </p>
             </div>
-
-            <!-- Bloco de formações + tese -->
             <div style="flex: 1; min-width: 0;">
-            <p style="font-family: 'Inter', system-ui; font-size: 12px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 12px;">
-              Formações
-            </p>
-            <ul style="list-style: none; padding: 0; margin: 0 0 22px; display: flex; flex-direction: column; gap: 7px;">
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.3vw, 16px); color: rgba(255, 255, 255, 0.85); line-height: 1.45;">
-                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                <span><strong style="color: #fff;">Analista de Investimentos CNPI</strong></span>
-              </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.3vw, 16px); color: rgba(255, 255, 255, 0.85); line-height: 1.45;">
-                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                <span>Ex-<strong style="color: #fff;">XP Inc.</strong> · <strong style="color: #fff;">Rico</strong> · <strong style="color: #fff;">Terra Investimentos</strong></span>
-              </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.3vw, 16px); color: rgba(255, 255, 255, 0.85); line-height: 1.45;">
-                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                <span><strong style="color: #fff;">Educador SENAI</strong> — premiado como um dos professores mais influentes da região</span>
-              </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.3vw, 16px); color: rgba(255, 255, 255, 0.85); line-height: 1.45;">
-                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                <span><strong style="color: #fff;">Piloto de Helicóptero</strong> · <strong style="color: #fff;">Full-stack Developer</strong></span>
-              </li>
-              <li style="display: flex; gap: 12px; align-items: flex-start; font-size: clamp(13px, 1.3vw, 16px); color: rgba(255, 255, 255, 0.85); line-height: 1.45;">
-                <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                <span><strong style="color: #fff;">Empresário</strong> — soluções inovadoras no mercado financeiro e cripto</span>
-              </li>
-            </ul>
-
-            <p style="font-family: 'Inter', system-ui; font-size: 12px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 10px;">
-              A tese
-            </p>
-            <p style="font-size: clamp(14px, 1.4vw, 18px); color: rgba(255, 255, 255, 0.78); line-height: 1.55; margin: 0; font-style: italic;">
-              "Une mercado financeiro, educação e tecnologia para fazer diferença na vida de milhares de pessoas."
-            </p>
+              <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 10px;">
+                Track record
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px;">
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Growth &amp; Aquisição</strong> — funis CAC/LTV escaláveis em LATAM</span>
+                </li>
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Vendas B2B &amp; Parcerias</strong> — varejo, marcas e operadoras</span>
+                </li>
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Brand &amp; Comunidade</strong> — narrativa que converte no-coiner em embaixador</span>
+                </li>
+                <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
+                  <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
+                  <span><strong style="color: #fff;">Performance &amp; Funil de Receita</strong> — Sponsored Quests e ads on-chain</span>
+                </li>
+              </ul>
+              <p style="font-family: 'Inter', system-ui; font-size: 11px; font-weight: 700; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); margin: 0 0 8px;">
+                A tese
+              </p>
+              <p style="font-size: clamp(12px, 1.2vw, 15px); color: rgba(255, 255, 255, 0.78); line-height: 1.5; margin: 0; font-style: italic;">
+                "Cripto só vence quando o usuário comum entende — e a gente traduz."
+              </p>
             </div>
           </div>
         </div>

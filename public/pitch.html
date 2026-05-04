@@ -1044,24 +1044,23 @@
       .cover-logo-shine { display: none; }
     }
 
-    /* Auto metallic sheen sweep — bright diagonal stripe that scans
-       across the wordmark every ~5s, brightening the underlying olive
-       metal gradient where it passes. Masked to the logo silhouette
-       so the sheen never leaks onto the background. */
+    /* Static metallic sheen — bright diagonal highlight fixed across
+       the wordmark (light hitting from upper-right). Masked to the
+       logo silhouette so the sheen never leaks onto the background. */
     .cover-logo-sheen {
       position: absolute;
       inset: 0;
       pointer-events: none;
       background: linear-gradient(
-        110deg,
-        transparent 30%,
-        rgba(255, 255, 255, 0.45) 44%,
-        rgba(255, 255, 255, 0.95) 50%,
-        rgba(255, 255, 255, 0.45) 56%,
-        transparent 70%
+        115deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.18) 22%,
+        rgba(255, 255, 255, 0.55) 38%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.55) 62%,
+        rgba(255, 255, 255, 0.18) 78%,
+        transparent 100%
       );
-      background-size: 280% 100%;
-      background-position: 150% 0;
       mix-blend-mode: screen;
       -webkit-mask-image: url(brand/juice-wordmark-pitch.svg);
       mask-image: url(brand/juice-wordmark-pitch.svg);
@@ -1069,16 +1068,6 @@
       mask-size: 100% 100%;
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
-      animation: cover-sheen 5.5s cubic-bezier(0.55, 0, 0.4, 1) infinite;
-      animation-delay: 1.2s;
-    }
-    @keyframes cover-sheen {
-      0%   { background-position: 150% 0; }
-      55%  { background-position: -50% 0; }
-      100% { background-position: -50% 0; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .cover-logo-sheen { animation: none; display: none; }
     }
 
 

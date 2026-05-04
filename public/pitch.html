@@ -233,6 +233,97 @@
       margin: 0 auto;
       aspect-ratio: 9 / 19.5;
     }
+    /* Slide 3 — phone showcase: real 3D box with 6 faces + Y-axis rotation. */
+    .iphone-spin-stage {
+      perspective: 1600px;
+      transform-style: preserve-3d;
+      padding: 30px 0;  /* room for the rotating box not to clip */
+    }
+    .iphone-spin {
+      animation: phone-spin-y 8s linear infinite;
+      will-change: transform;
+    }
+    @keyframes phone-spin-y {
+      0%   { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .iphone-spin { animation: none; }
+    }
+    /* Real 3D box: front face (screen), back face, and 4 edges with depth. */
+    .iphone-3d {
+      --w: 220px;
+      --d: 24px;          /* phone thickness */
+      position: relative;
+      width: var(--w);
+      aspect-ratio: 9 / 19.5;
+      transform-style: preserve-3d;
+      margin: 0 auto;
+    }
+    .iphone-3d > * {
+      position: absolute;
+      backface-visibility: hidden;
+    }
+    .if-front {
+      inset: 0;
+      border: 8px solid #0a0a0a;
+      border-radius: 40px;
+      background: #000;
+      padding: 4px;
+      transform: translateZ(calc(var(--d) / 2));
+      box-shadow:
+        0 0 60px rgba(0, 255, 127, 0.14),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.07);
+      overflow: hidden;
+    }
+    .if-front img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 28px;
+    }
+    .if-back {
+      inset: 0;
+      border-radius: 40px;
+      background:
+        radial-gradient(ellipse 70% 40% at 32% 22%, rgba(168, 219, 58, 0.14), transparent 60%),
+        radial-gradient(ellipse 30% 18% at 75% 14%, rgba(255, 255, 255, 0.06), transparent 60%),
+        linear-gradient(135deg, #2a2a2a 0%, #0a0a0a 50%, #262626 100%);
+      transform: translateZ(calc(var(--d) / -2)) rotateY(180deg);
+      box-shadow: inset 0 0 90px rgba(0, 0, 0, 0.55);
+    }
+    .if-edge {
+      background: linear-gradient(180deg, #1a1a1a 0%, #2c2c2c 50%, #0a0a0a 100%);
+    }
+    .if-edge-r {
+      top: 0;
+      left: 0;
+      width: var(--d);
+      height: 100%;
+      transform: rotateY(90deg) translateX(calc(var(--w) - var(--d) / 2));
+    }
+    .if-edge-l {
+      top: 0;
+      left: 0;
+      width: var(--d);
+      height: 100%;
+      transform: rotateY(-90deg) translateX(calc(var(--d) / -2));
+    }
+    .if-edge-t {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--d);
+      transform: rotateX(-90deg) translateY(calc(var(--d) / -2));
+    }
+    .if-edge-b {
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: var(--d);
+      transform: rotateX(90deg) translateY(calc(var(--d) / 2));
+    }
     .iphone-frame img {
       display: block;
       width: 100%;
@@ -1651,11 +1742,11 @@
 
         <h2 style="font-size: clamp(30px, 4.6vw, 64px); font-weight: 900; line-height: 1.18; letter-spacing: -0.02em; max-width: 26ch; margin: clamp(28px, 4vh, 56px) auto 0; color: rgba(255, 255, 255, 0.94);">
           <span class="metal-text">675 milhões de pessoas</span> vivem sem acesso à eletricidade,
-          mas a maioria tem um celular na mão.
+          mas possuem um celular.
         </h2>
 
         <p style="font-size: clamp(15px, 1.5vw, 20px); color: rgba(255, 255, 255, 0.62); line-height: 1.55; max-width: 56ch; margin: clamp(24px, 3vh, 40px) auto 0;">
-          Em países emergentes, o número de famílias com celular supera o de famílias com acesso à energia elétrica ou água potável.
+          Em países emergentes o número de famílias com celular supera o de famílias com acesso à energia elétrica ou água potável.
         </p>
 
         <p style="margin: clamp(32px, 4vh, 56px) auto 0; max-width: 72ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55;">
@@ -1674,18 +1765,25 @@
             <img src="brand/juice-wordmark-pitch.svg" alt="JUICE"
                  style="display: block; height: clamp(44px, 5vw, 72px); width: auto; margin: 0 auto 22px; filter: brightness(1.45) saturate(1.05) drop-shadow(0 0 60px rgba(0, 255, 127, 0.45));" />
             <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
-              DePIN<br />
-              <span class="metal-text" style="font-size: 1em; font-weight: 900; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.05)) drop-shadow(0 2px 12px rgba(168,219,58,0.25)) drop-shadow(0 0 28px rgba(168,219,58,0.5));">com Prova de Atividade Humana.</span>
+              DePIN com<br />
+              <span class="metal-text" style="font-size: 1em; font-weight: 900; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.05)) drop-shadow(0 2px 12px rgba(168,219,58,0.25)) drop-shadow(0 0 28px rgba(168,219,58,0.5));">Prova de Atividade Humana.</span>
             </h2>
             <p class="subtitle" style="margin: 20px auto 0;">
               Prova física de presença na Solana.
               Cada minuto carregando é validado, contabilizado e recompensado on-chain.
             </p>
           </div>
-          <div>
-            <!-- TODO: substituir por IMG_7079.PNG quando disponível -->
-            <div class="iphone-frame card-glow" style="max-width: 220px;">
-              <img src="images/screen-charging.png" alt="Tela de carregamento" />
+          <div class="iphone-spin-stage">
+            <!-- Real 3D phone: 6 faces (front/back + 4 edges) — true thickness during rotation. -->
+            <div class="iphone-3d iphone-spin">
+              <div class="if-back"></div>
+              <div class="if-edge if-edge-r"></div>
+              <div class="if-edge if-edge-l"></div>
+              <div class="if-edge if-edge-t"></div>
+              <div class="if-edge if-edge-b"></div>
+              <div class="if-front">
+                <img src="images/screen-charging.png" alt="Tela de carregamento" />
+              </div>
             </div>
           </div>
         </div>
@@ -2362,7 +2460,7 @@
                 Carol Uchoas
               </h3>
               <p style="font-size: clamp(10px, 0.95vw, 13px); color: var(--primary); font-weight: 600; letter-spacing: 0.04em; margin: 0;">
-                MKT &amp; Comercial
+                CMO &amp; CCO
               </p>
             </div>
             <div style="flex: 1; min-width: 0;">

@@ -1,11 +1,12 @@
 import createMiddleware from 'next-intl/middleware';
 import { routing } from './i18n/routing';
 
-// Runs on every request to a non-static, non-API path. Responsible for:
-//   1. Reading the NEXT_LOCALE cookie (set when user switches manually).
-//   2. Falling back to the Accept-Language header for first-time visitors.
-//   3. 307-redirecting to /en or /es when needed (PT renders at /).
-// Locale-specific routing config lives in i18n/routing.ts.
+// Runs on every request to a non-static, non-API path. With
+// `localeDetection: false` in i18n/routing.ts the middleware no longer
+// redirects based on Accept-Language — `/` always serves PT directly,
+// and /en, /es are reached only via explicit URL or LangSwitcher.
+// This eliminates the ~921ms first-paint redirect penalty that Lighthouse
+// surfaced on mobile audits.
 export default createMiddleware(routing);
 
 export const config = {

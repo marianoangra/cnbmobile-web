@@ -5,12 +5,15 @@ export const routing = defineRouting({
   locales: ['pt', 'en', 'es'],
   defaultLocale: 'pt',
   localePrefix: 'as-needed',
-  // Auto-detect locale from the browser's Accept-Language header on first
-  // visit. The NEXT_LOCALE cookie (set when the user switches manually via
-  // LangSwitcher) takes precedence — so explicit choice always wins over
-  // automatic detection. Default is `true`; setting it explicitly here so
-  // future maintainers know it's intentional.
-  localeDetection: true,
+  // Brazil-first product: `/` always serves PT immediately, no Accept-Language
+  // sniffing redirect. Lighthouse measured a ~921ms penalty from the previous
+  // behavior (PT default → 307 → /en for browsers reporting en-US), which
+  // hurt mobile perf scores for the global audience that hits the apex first.
+  //
+  // Trade-off: EN/ES users hitting `/` see PT initially and need one click on
+  // LangSwitcher. After that the URL itself carries the locale (/en/...,
+  // /es/...) and bookmarks/links/search results work without middleware help.
+  localeDetection: false,
 });
 
 export const { Link, redirect, usePathname, useRouter } = createNavigation(routing);

@@ -1,5 +1,6 @@
 import { setRequestLocale, getTranslations } from 'next-intl/server';
 import { PageHeader } from '@/components/ui/PageHeader';
+import { JsonLd } from '@/components/seo/JsonLd';
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -20,8 +21,24 @@ export default async function FaqPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: 'pages.faq' });
   const items: FaqItem[] = messages.pages.faq.items;
 
+  // FAQPage schema lives here — the canonical FAQ destination — not on
+  // the homepage section, to avoid duplicate-markup signals to Google.
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <>
+      <JsonLd data={faqSchema} />
       <PageHeader title={t('title')} intro={t('intro')} />
       <section className="mx-auto max-w-3xl px-5 md:px-8 pb-24">
         <div className="space-y-3">

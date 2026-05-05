@@ -21,6 +21,11 @@ const COUNT_SECONDS = 5;
 const PAUSE_SECONDS = 1.8;
 const LIME = '#a8db3a';
 
+// Auto-upgrade target: when NEXT_PUBLIC_CNB_MINT_ADDRESS is set in Vercel
+// the live badge starts deep-linking to the token page on Solscan.
+// Until then, falls back to solscan.io root with the memos claim.
+const MINT_ADDRESS = process.env.NEXT_PUBLIC_CNB_MINT_ADDRESS ?? '';
+
 export function Hero() {
   const t = useTranslations('hero');
   const headlineRef = useMetalSpotlight<HTMLSpanElement>();
@@ -88,6 +93,28 @@ export function Hero() {
             >
               <StoreButtons size="lg" />
             </motion.div>
+
+            <motion.a
+              href={MINT_ADDRESS ? `https://solscan.io/token/${MINT_ADDRESS}` : 'https://solscan.io/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+              className="group mt-6 inline-flex w-fit items-center gap-3 rounded-full border border-[rgba(168,219,58,0.32)] bg-[rgba(168,219,58,0.06)] px-4 py-2 backdrop-blur-sm transition-all hover:border-[rgba(168,219,58,0.55)] hover:bg-[rgba(168,219,58,0.10)]"
+              aria-label={MINT_ADDRESS ? '$JUICE no Solscan' : '460k+ memos no Solscan · Solana mainnet'}
+            >
+              <span className="relative inline-flex h-2 w-2 items-center justify-center">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#a8db3a] opacity-75" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#a8db3a]" />
+              </span>
+              <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a8db3a]">
+                {MINT_ADDRESS ? '$JUICE · Solana' : 'Live · Solana mainnet'}
+              </span>
+              <span className="font-mono text-xs text-white/65 group-hover:text-white/85 transition-colors">
+                {MINT_ADDRESS ? 'view on solscan' : '460k+ memos · solscan.io'}
+              </span>
+            </motion.a>
 
           </div>
 

@@ -96,7 +96,7 @@ export function Roadmap() {
                     done ? '' : 'opacity-80'
                   }`}
                 >
-                  <div className="font-mono text-[11px] uppercase tracking-wider text-white/40">
+                  <div className="font-mono text-[11px] uppercase tracking-wider text-white/60">
                     {m.when}
                   </div>
                   <div className="mt-1 text-base md:text-lg font-semibold text-white">

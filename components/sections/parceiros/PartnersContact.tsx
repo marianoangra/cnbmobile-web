@@ -96,7 +96,7 @@ export function PartnersContact() {
             </div>
 
             <div className="mt-8 pt-8 border-t border-white/[0.06]">
-              <p className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                 {t('founderLabel')}
               </p>
               <p className="mt-2 text-sm text-white/65">
@@ -105,7 +105,7 @@ export function PartnersContact() {
                 </span>{' '}
                 · {t('founderRole')}
               </p>
-              <p className="mt-3 text-xs text-white/40">{t('note')}</p>
+              <p className="mt-3 text-xs text-white/60">{t('note')}</p>
             </div>
           </div>
         </motion.div>

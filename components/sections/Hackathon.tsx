@@ -60,7 +60,7 @@ export function Hackathon() {
                     key={k}
                     className="metal-stat-card rounded-2xl backdrop-blur-sm p-5"
                   >
-                    <dt className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                       {t(`stats.${k}`)}
                     </dt>
                     <dd className="mt-1.5 text-xl font-semibold text-white">

@@ -183,7 +183,7 @@ export function MockedHomeScreen() {
             />
           </div>
           <div className="mt-1.5 flex items-center justify-between text-[9px]">
-            <span className="text-white/45">
+            <span className="text-white/65">
               Meta atingida — disponível para saque
             </span>
             <span className="font-semibold" style={{ color: LIME }}>

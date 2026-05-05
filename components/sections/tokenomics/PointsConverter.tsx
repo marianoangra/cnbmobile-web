@@ -68,7 +68,7 @@ export function PointsConverter() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="metal-card rounded-3xl p-6 md:p-8 lg:col-span-5"
           >
-            <p className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+            <p className="font-mono text-[10px] uppercase tracking-wider text-white/60">
               1 : {RATIO}
             </p>
             <p className="mt-3 text-2xl md:text-3xl font-bold tracking-tight text-white">
@@ -91,7 +91,7 @@ export function PointsConverter() {
               <div className="metal-step-icon inline-flex h-10 w-10 items-center justify-center rounded-xl">
                 <Calculator className="h-4 w-4 text-secondary-light" />
               </div>
-              <p className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+              <p className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                 {t('calculatorTitle')}
               </p>
             </div>
@@ -99,7 +99,7 @@ export function PointsConverter() {
             <div className="mt-6 grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] gap-4 sm:gap-5 items-end">
               {/* Input */}
               <label className="block">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('inputLabel')}
                 </span>
                 <input
@@ -121,7 +121,7 @@ export function PointsConverter() {
 
               {/* Output */}
               <div>
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('outputLabel')}
                 </span>
                 <div className="mt-2 py-2 border-b border-transparent">

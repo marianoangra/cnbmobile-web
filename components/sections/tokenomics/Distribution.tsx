@@ -134,7 +134,7 @@ export function Distribution() {
 
               {/* Center label */}
               <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('totalLabel')}
                 </span>
                 <span className="mt-1 text-2xl md:text-3xl font-bold tracking-tight metal-text">
@@ -187,7 +187,7 @@ export function Distribution() {
                           {slice.pct}%
                         </span>
                       </div>
-                      <div className="mt-1 ml-6 text-[12px] text-white/45">
+                      <div className="mt-1 ml-6 text-[12px] text-white/65">
                         {t(`slices.${slice.key}.tagline`)}
                       </div>
                     </button>
@@ -231,7 +231,7 @@ export function Distribution() {
 
               <div className="mt-4 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-4 sm:gap-8">
                 <div>
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                     {t('noteLabel')}
                   </p>
                   <p className="mt-2 text-sm md:text-base text-white/65 leading-relaxed">
@@ -239,7 +239,7 @@ export function Distribution() {
                   </p>
                 </div>
                 <div className="sm:text-right">
-                  <p className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  <p className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                     {t('supplyLabel')}
                   </p>
                   <p className="mt-2 font-mono text-base md:text-lg font-bold tabular-nums text-white">

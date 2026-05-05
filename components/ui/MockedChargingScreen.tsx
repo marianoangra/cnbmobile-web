@@ -158,7 +158,7 @@ export function MockedChargingScreen() {
           >
             +10
           </div>
-          <div className="text-[10px] text-white/45 mt-0.5">
+          <div className="text-[10px] text-white/65 mt-0.5">
             pontos · on-chain
           </div>
         </div>
@@ -182,7 +182,7 @@ export function MockedChargingScreen() {
             transition={{ duration: 6, ease: 'easeInOut', repeat: Infinity }}
           />
         </div>
-        <div className="mt-1 flex items-center justify-between text-[9.5px] text-white/40">
+        <div className="mt-1 flex items-center justify-between text-[9.5px] text-white/60">
           <span>+50 pts bônus ao completar 1h</span>
           <span>2%</span>
         </div>

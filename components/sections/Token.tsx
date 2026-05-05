@@ -93,7 +93,7 @@ export function Token() {
               />
               {/* Mint */}
               <div>
-                <div className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <div className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('mintAddress')}
                 </div>
                 <div className="mt-2 flex items-center gap-2">
@@ -116,7 +116,7 @@ export function Token() {
               <dl className="mt-7 grid grid-cols-3 gap-3">
                 {(['supply', 'holders', 'network'] as const).map((k) => (
                   <div key={k} className="metal-stat-card rounded-2xl p-4">
-                    <dt className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                    <dt className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                       {t(`stats.${k}`)}
                     </dt>
                     <dd className="mt-1.5 text-base md:text-lg font-semibold text-white truncate">

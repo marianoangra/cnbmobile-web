@@ -73,7 +73,7 @@ export function Nav() {
             >
               <Wallet className="h-4 w-4" />
               <span>{t('connectWallet')}</span>
-              <span className="ml-1 rounded-full bg-white/[0.06] px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-white/40">
+              <span className="ml-1 rounded-full bg-white/[0.06] px-1.5 py-0.5 text-[10px] uppercase tracking-wider text-white/60">
                 {t('comingSoon')}
               </span>
             </button>

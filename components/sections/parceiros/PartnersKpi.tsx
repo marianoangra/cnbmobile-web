@@ -62,7 +62,7 @@ export function PartnersKpi() {
                 className="metal-stat-card rounded-2xl p-5 md:p-6"
               >
                 <div className="flex items-start justify-between gap-3">
-                  <div className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  <div className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                     {t(`items.${item.key}.label`)}
                   </div>
                   <Icon className="h-4 w-4 text-secondary-light/70 shrink-0" />
@@ -70,7 +70,7 @@ export function PartnersKpi() {
                 <div className="mt-3 text-2xl md:text-3xl font-semibold text-white tracking-tight">
                   {t(`items.${item.key}.value`)}
                 </div>
-                <div className="mt-2 text-xs text-white/45 leading-relaxed">
+                <div className="mt-2 text-xs text-white/65 leading-relaxed">
                   {t(`items.${item.key}.note`)}
                 </div>
               </motion.div>

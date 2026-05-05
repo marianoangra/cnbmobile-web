@@ -85,7 +85,7 @@ export function Community() {
                   {handle}
                 </span>
               </span>
-              <ArrowUpRight className="h-4 w-4 text-white/40 group-hover:text-secondary-light transition-colors shrink-0" />
+              <ArrowUpRight className="h-4 w-4 text-white/60 group-hover:text-secondary-light transition-colors shrink-0" />
             </a>
           ))}
         </motion.div>

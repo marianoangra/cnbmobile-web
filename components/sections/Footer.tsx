@@ -119,7 +119,7 @@ export function Footer() {
               {t('tagline')}
             </p>
             <div className="mt-3 inline-flex items-center gap-2">
-              <span className="font-mono text-[10px] uppercase tracking-wider text-white/45">
+              <span className="font-mono text-[10px] uppercase tracking-wider text-white/65">
                 Brazil
               </span>
               <BrazilFlag />
@@ -147,7 +147,7 @@ export function Footer() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
               {/* Company */}
               <div>
-                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('company')}
                 </h4>
                 <ul className="mt-4 space-y-2.5">
@@ -166,7 +166,7 @@ export function Footer() {
 
               {/* Product */}
               <div>
-                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('product')}
                 </h4>
                 <ul className="mt-4 space-y-2.5">
@@ -185,7 +185,7 @@ export function Footer() {
 
               {/* Legal */}
               <div>
-                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('legal')}
                 </h4>
                 <ul className="mt-4 space-y-2.5">
@@ -220,7 +220,7 @@ export function Footer() {
 
               {/* Support */}
               <div>
-                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                <h4 className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                   {t('support')}
                 </h4>
                 <ul className="mt-4 space-y-2.5">
@@ -256,7 +256,7 @@ export function Footer() {
             <LangSwitcher variant="footer" />
           </div>
           <div className="flex flex-wrap items-center gap-4">
-            <p className="text-xs text-white/40">{t('copyright')}</p>
+            <p className="text-xs text-white/60">{t('copyright')}</p>
             <p className="font-mono text-[10px] uppercase tracking-wider text-white/30">
               Mainnet · Solana · v1.0
             </p>

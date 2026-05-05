@@ -64,7 +64,7 @@ export function TokenomicsHero() {
               key={stat.label}
               className="metal-stat-card rounded-2xl p-5 md:p-6"
             >
-              <dt className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+              <dt className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                 {stat.label}
               </dt>
               <dd className="mt-2 text-2xl md:text-3xl font-bold tracking-tight metal-text">

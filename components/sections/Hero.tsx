@@ -105,9 +105,11 @@ export function Hero({ stats }: HeroProps = {}) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
               className="group mt-10 inline-flex w-fit items-center gap-3 rounded-full border border-[rgba(168,219,58,0.32)] bg-[rgba(168,219,58,0.06)] px-4 py-2 backdrop-blur-sm transition-all hover:border-[rgba(168,219,58,0.55)] hover:bg-[rgba(168,219,58,0.10)]"
-              aria-label={MINT_ADDRESS ? '$JUICE no Solscan' : '460k+ memos no Solscan · Solana mainnet'}
             >
-              <span className="relative inline-flex h-2 w-2 items-center justify-center">
+              {/* aria-hidden on the dot so the accessible name comes purely
+                  from the two text spans below — visible text drives the
+                  accessible name, no aria-label/textContent mismatch. */}
+              <span aria-hidden="true" className="relative inline-flex h-2 w-2 items-center justify-center">
                 <span className="absolute inline-flex h-full w-full animate-ping [animation-duration:2.5s] rounded-full bg-[#a8db3a] opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-[#a8db3a]" />
               </span>

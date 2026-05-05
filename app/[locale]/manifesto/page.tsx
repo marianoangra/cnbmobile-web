@@ -30,7 +30,7 @@ export default async function ManifestoPage({ params }: Props) {
     <article className="relative pt-28 pb-24 md:pt-36 md:pb-32">
       {/* Hero */}
       <header className="mx-auto max-w-[920px] px-5 md:px-8">
-        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.32em] text-white/45">
+        <p className="font-mono text-[11px] font-bold uppercase tracking-[0.32em] text-white/65">
           Manifesto
         </p>
         <h1 className="metal-text mt-5 text-[clamp(36px,5.2vw,68px)] font-black leading-[1.04] tracking-[-0.02em]">
@@ -218,7 +218,7 @@ export default async function ManifestoPage({ params }: Props) {
           >
             Bem-vindos.
           </p>
-          <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.32em] text-white/45">
+          <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.32em] text-white/65">
             — Equipe Juice
           </p>
           <a

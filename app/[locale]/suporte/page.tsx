@@ -40,7 +40,7 @@ export default async function SupportPage({ params }: Props) {
               <Mail className="h-5 w-5 shrink-0" />
               {email}
             </a>
-            <p className="mt-5 text-xs md:text-sm text-white/45">
+            <p className="mt-5 text-xs md:text-sm text-white/65">
               {t('responseTime')}
             </p>
           </div>

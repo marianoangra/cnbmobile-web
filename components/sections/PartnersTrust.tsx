@@ -106,11 +106,11 @@ function TrustCard({
             <div className="text-sm font-semibold text-white tracking-tight">
               {tCases(`items.${partner.key}.name`)}
             </div>
-            <div className="font-mono text-[10px] uppercase tracking-wider text-white/40 mt-0.5">
+            <div className="font-mono text-[10px] uppercase tracking-wider text-white/60 mt-0.5">
               {tCases(`items.${partner.key}.role`)}
             </div>
           </div>
-          <ArrowRight className="h-4 w-4 text-white/40 group-hover:text-secondary-light group-hover:translate-x-0.5 transition-all" />
+          <ArrowRight className="h-4 w-4 text-white/60 group-hover:text-secondary-light group-hover:translate-x-0.5 transition-all" />
         </div>
       </motion.div>
     </Link>

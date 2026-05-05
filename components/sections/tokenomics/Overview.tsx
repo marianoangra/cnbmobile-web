@@ -67,7 +67,7 @@ export function Overview() {
                   key={key}
                   className="grid grid-cols-1 sm:grid-cols-[180px_1fr] gap-1 sm:gap-6 px-5 md:px-7 py-4 md:py-5"
                 >
-                  <dt className="font-mono text-[11px] uppercase tracking-wider text-white/40 self-center">
+                  <dt className="font-mono text-[11px] uppercase tracking-wider text-white/60 self-center">
                     {row[0]}
                   </dt>
                   <dd className="flex items-center gap-3 self-center">

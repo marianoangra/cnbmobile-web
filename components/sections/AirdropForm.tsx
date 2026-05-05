@@ -124,14 +124,14 @@ function AirdropFormInner() {
                 <div>
                   <label
                     htmlFor="airdrop-email"
-                    className="block font-mono text-[11px] uppercase tracking-wider text-white/45"
+                    className="block font-mono text-[11px] uppercase tracking-wider text-white/65"
                   >
                     {t('step1Label')}
                   </label>
                   <div className="relative mt-2">
                     <Mail
                       aria-hidden
-                      className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40"
+                      className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/60"
                     />
                     <input
                       id="airdrop-email"
@@ -153,7 +153,7 @@ function AirdropFormInner() {
 
                 {/* Step 2 — wallet */}
                 <div>
-                  <label className="block font-mono text-[11px] uppercase tracking-wider text-white/45">
+                  <label className="block font-mono text-[11px] uppercase tracking-wider text-white/65">
                     {t('step2Label')}
                     <span className="ml-2 text-white/30 normal-case">
                       {t('step2Optional')}
@@ -162,7 +162,7 @@ function AirdropFormInner() {
                   <div className="mt-2">
                     <WalletConnectButton className="w-full" />
                   </div>
-                  <p className="mt-2 text-xs text-white/40 leading-relaxed">
+                  <p className="mt-2 text-xs text-white/60 leading-relaxed">
                     {t('step2Help')}
                   </p>
                 </div>

@@ -58,7 +58,7 @@ export function PartnersTiers() {
                   <h3 className="text-2xl font-bold text-white tracking-tight">
                     {t(`items.${tier.key}.name`)}
                   </h3>
-                  <span className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                     {t(`items.${tier.key}.duration`)}
                   </span>
                 </div>

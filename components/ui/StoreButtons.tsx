@@ -38,7 +38,10 @@ export function StoreButtons({ className, size = 'md' }: StoreButtonsProps) {
         )}
       >
         <AppleLogo />
-        <span className="flex flex-col items-start leading-none">
+        {/* aria-hidden so the link's accessible name is just the aria-label
+            instead of the textContent concatenation of the two inner spans
+            (which Lighthouse flags as label-content-name-mismatch). */}
+        <span aria-hidden="true" className="flex flex-col items-start leading-none">
           <span className={cn('text-white/70', dim.textTop)}>Download on the</span>
           <span className={cn('font-semibold text-white', dim.textBot)}>App Store</span>
         </span>
@@ -56,7 +59,7 @@ export function StoreButtons({ className, size = 'md' }: StoreButtonsProps) {
         )}
       >
         <GoogleplayLogo />
-        <span className="flex flex-col items-start leading-none">
+        <span aria-hidden="true" className="flex flex-col items-start leading-none">
           <span className={cn('text-white/70', dim.textTop)}>Get it on</span>
           <span className={cn('font-semibold text-white', dim.textBot)}>Google Play</span>
         </span>
@@ -66,7 +69,7 @@ export function StoreButtons({ className, size = 'md' }: StoreButtonsProps) {
         href={SEEKER_URL}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Get it on Seeker — Solana Mobile"
+        aria-label="Get it on Seeker"
         className={cn(
           'group inline-flex items-center gap-2.5 rounded-[12px] border border-white/15 bg-black px-4 transition-all',
           'hover:border-white/30 hover:bg-[#0c0c0c] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50',
@@ -74,7 +77,7 @@ export function StoreButtons({ className, size = 'md' }: StoreButtonsProps) {
         )}
       >
         <SeekerLogo />
-        <span className="flex flex-col items-start leading-none">
+        <span aria-hidden="true" className="flex flex-col items-start leading-none">
           <span className={cn('text-white/70', dim.textTop)}>Get it on</span>
           <span className={cn('font-semibold text-white', dim.textBot)}>Seeker</span>
         </span>

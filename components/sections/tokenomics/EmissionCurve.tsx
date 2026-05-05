@@ -50,13 +50,13 @@ function CustomTooltip({
   const { year, amount } = payload[0].payload;
   return (
     <div className="metal-card rounded-xl px-4 py-3 text-sm">
-      <div className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+      <div className="font-mono text-[10px] uppercase tracking-wider text-white/60">
         {yearLabel} {year}
       </div>
       <div className="mt-1 font-bold text-white">
         {amount} {amountSuffix}
       </div>
-      <div className="mt-0.5 font-mono text-[10px] text-white/40">
+      <div className="mt-0.5 font-mono text-[10px] text-white/60">
         {amountLabel}
       </div>
     </div>

@@ -200,7 +200,7 @@ export function PartnersHero() {
                         <span className="metal-text relative mt-3 text-3xl md:text-4xl font-black leading-tight tracking-tight text-center">
                           {t('billboard.yourBrandHere')}
                         </span>
-                        <span className="relative mt-3 text-xs text-white/45">
+                        <span className="relative mt-3 text-xs text-white/65">
                           {t('billboard.availableSub')}
                         </span>
                       </motion.div>

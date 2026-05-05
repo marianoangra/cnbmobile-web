@@ -102,7 +102,7 @@ export function PartnersOfferings() {
 
                 <div className="mt-5 pt-5 border-t border-white/[0.06] space-y-3">
                   <div>
-                    <div className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                    <div className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                       {t('labels.metric')}
                     </div>
                     <div className="mt-1 text-xs font-medium text-secondary-light/90">
@@ -110,7 +110,7 @@ export function PartnersOfferings() {
                     </div>
                   </div>
                   <div>
-                    <div className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+                    <div className="font-mono text-[10px] uppercase tracking-wider text-white/60">
                       {t('labels.example')}
                     </div>
                     <div className="mt-1 text-xs text-white/50 leading-relaxed">

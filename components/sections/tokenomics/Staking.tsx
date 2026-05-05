@@ -48,10 +48,10 @@ export function Staking() {
           className="metal-card mt-10 rounded-3xl overflow-hidden"
         >
           <div className="grid grid-cols-2 gap-4 px-6 md:px-8 py-4 border-b border-white/[0.06]">
-            <span className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-white/60">
               {t('tableHeaders.lockup')}
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-wider text-white/40 text-right">
+            <span className="font-mono text-[10px] uppercase tracking-wider text-white/60 text-right">
               {t('tableHeaders.multiplier')}
             </span>
           </div>

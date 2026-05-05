@@ -75,7 +75,7 @@ export function Waitlist() {
             <div className="relative flex-1">
               <Mail
                 aria-hidden
-                className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/40"
+                className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-white/60"
               />
               <input
                 type="email"

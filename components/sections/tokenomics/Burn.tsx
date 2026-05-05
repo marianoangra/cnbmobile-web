@@ -86,7 +86,7 @@ export function Burn() {
             transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             className="metal-card rounded-3xl p-6 md:p-8"
           >
-            <p className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+            <p className="font-mono text-[10px] uppercase tracking-wider text-white/60">
               {t('sourcesTitle')}
             </p>
             <ul className="mt-5 space-y-3">
@@ -113,7 +113,7 @@ export function Burn() {
             transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
             className="metal-card rounded-3xl p-6 md:p-8 flex flex-col justify-between"
           >
-            <p className="font-mono text-[10px] uppercase tracking-wider text-white/40">
+            <p className="font-mono text-[10px] uppercase tracking-wider text-white/60">
               {t('counterLabel')}
             </p>
             <div className="my-6 md:my-8">

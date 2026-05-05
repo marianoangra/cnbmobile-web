@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next';
 
-const BASE_URL = 'https://cnbmobile.com';
+const BASE_URL = 'https://www.usejuicemobile.com';
 const LOCALES = ['pt', 'en', 'es'] as const;
 const DEFAULT_LOCALE = 'pt' as const;
 

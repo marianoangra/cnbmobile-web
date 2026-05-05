@@ -9,7 +9,8 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
-      { protocol: 'https', hostname: 'cnbmobile.com' },
+      { protocol: 'https', hostname: 'www.usejuicemobile.com' },
+      { protocol: 'https', hostname: 'usejuicemobile.com' },
     ],
   },
   experimental: {
@@ -37,7 +38,7 @@ const nextConfig = {
               '(www\\.)?(cnbmobile\\.(com|net|online|xyz|store|app)|cryptoinpocket\\.com)',
           },
         ],
-        destination: 'https://usejuicemobile.com/:path*',
+        destination: 'https://www.usejuicemobile.com/:path*',
         permanent: true,
       },
     ];

@@ -145,7 +145,7 @@ export default async function OpenGraphImage() {
               DEPIN · SOLANA · BRASIL
             </div>
             <div style={{ display: 'flex', fontSize: 22, color: 'rgba(255,255,255,0.55)' }}>
-              cnbmobile.com
+              usejuicemobile.com
             </div>
           </div>
         </div>

@@ -19,7 +19,7 @@ export function PartnersContact() {
     [
       'Oi Rafael,',
       '',
-      'Vim do site cnbmobile.com/parceiros e queria conversar sobre uma parceria.',
+      'Vim do site usejuicemobile.com/parceiros e queria conversar sobre uma parceria.',
       '',
       '— Empresa:',
       '— Cargo:',

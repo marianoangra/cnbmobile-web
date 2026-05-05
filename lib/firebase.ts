@@ -33,17 +33,21 @@ function getDb(): Firestore | null {
 }
 
 export type PublicStats = {
-  users?: number;
-  minutes?: number;
-  juice?: number;
-  downloads?: number;
+  users?: number;       // global user count (Android + iOS)
+  minutes?: number;     // total minutes validated on-chain
+  juice?: number;       // total $JUICE distributed (totalPontos / 1000)
+  saquesPix?: number;   // total PIX cashouts processed
+  indicacoes?: number;  // total active referrals
 };
 
 /**
- * Reads the public-facing aggregate counters (users, minutes validated, etc.)
- * from `stats/public` in Firestore. Resilient by design — any failure mode
- * (Firebase not configured, doc missing, permission-denied) returns null so
- * the caller can fall back to a static placeholder without breaking the UI.
+ * Reads the public-facing aggregate counters from `stats/public` in
+ * Firestore. The doc is maintained by an external Cloud Function that
+ * runs ~daily; field names below mirror what's already on disk.
+ *
+ * Resilient by design — any failure mode (Firebase not configured, doc
+ * missing, permission-denied) returns null so the caller can fall back
+ * to a static placeholder without breaking the UI.
  */
 export async function getPublicStats(): Promise<PublicStats | null> {
   const db = getDb();
@@ -57,11 +61,14 @@ export async function getPublicStats(): Promise<PublicStats | null> {
     const data = snap.data() as Record<string, unknown>;
     const num = (v: unknown): number | undefined =>
       typeof v === 'number' && Number.isFinite(v) ? v : undefined;
+
+    const totalPontos = num(data.totalPontos);
     return {
-      users: num(data.users),
-      minutes: num(data.minutes),
-      juice: num(data.juice),
-      downloads: num(data.downloads),
+      users: num(data.totalUsuarios),
+      minutes: num(data.totalMinutos),
+      juice: typeof totalPontos === 'number' ? Math.floor(totalPontos / 1000) : undefined,
+      saquesPix: num(data.totalSaquesPIX),
+      indicacoes: num(data.totalIndicacoes),
     };
   } catch {
     // permission-denied, network error, or anything else → fall back silently.

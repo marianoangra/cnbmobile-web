@@ -155,7 +155,7 @@ function AirdropFormInner() {
                 <div>
                   <label className="block font-mono text-[11px] uppercase tracking-wider text-white/65">
                     {t('step2Label')}
-                    <span className="ml-2 text-white/30 normal-case">
+                    <span className="ml-2 text-white/55 normal-case">
                       {t('step2Optional')}
                     </span>
                   </label>

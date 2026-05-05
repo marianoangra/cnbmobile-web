@@ -107,7 +107,7 @@ export function LangSwitcher({ variant = 'header' }: LangSwitcherProps) {
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        aria-label="Change language"
+        aria-label={`Change language — current: ${current.name}`}
         className={cn(
           'inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm transition-colors',
           variant === 'header'
@@ -116,8 +116,10 @@ export function LangSwitcher({ variant = 'header' }: LangSwitcherProps) {
         )}
       >
         <CurrentFlag />
-        <span className="font-medium text-white/80">{current.label}</span>
-        <ChevronDown className="h-3.5 w-3.5 text-white/50" />
+        {/* aria-hidden so the link's accessible name is fully driven by
+            the aria-label above (which already names the current locale). */}
+        <span aria-hidden="true" className="font-medium text-white/80">{current.label}</span>
+        <ChevronDown aria-hidden="true" className="h-3.5 w-3.5 text-white/50" />
       </button>
 
       {open && (

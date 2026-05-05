@@ -115,7 +115,7 @@ export function PointsConverter() {
               </label>
 
               {/* Arrow */}
-              <div className="hidden sm:flex items-center justify-center pb-3 text-white/30">
+              <div className="hidden sm:flex items-center justify-center pb-3 text-white/55">
                 <ArrowRight className="h-5 w-5" />
               </div>
 

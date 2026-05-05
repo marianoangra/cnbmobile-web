@@ -86,7 +86,7 @@ export function Roadmap() {
                   {done ? (
                     <Check className="h-4 w-4 md:h-5 md:w-5 text-secondary-light" />
                   ) : (
-                    <Circle className="h-3 w-3 md:h-4 md:w-4 text-white/30" />
+                    <Circle className="h-3 w-3 md:h-4 md:w-4 text-white/55" />
                   )}
                 </div>
 

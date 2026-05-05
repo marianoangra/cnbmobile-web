@@ -257,7 +257,7 @@ export function Footer() {
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <p className="text-xs text-white/60">{t('copyright')}</p>
-            <p className="font-mono text-[10px] uppercase tracking-wider text-white/30">
+            <p className="font-mono text-[10px] uppercase tracking-wider text-white/55">
               Mainnet · Solana · v1.0
             </p>
           </div>

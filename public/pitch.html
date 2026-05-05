@@ -1479,7 +1479,7 @@
       color: var(--primary);
     }
 
-    /* Slide 12 — CTA button */
+    /* Slide 11 — CTA button (Founder + Ask) */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -1512,7 +1512,7 @@
     }
 
     /* === Stacked export mode (?stacked=1) ====================================
-       Renders all 12 slides as a vertical stack so the deck can be printed
+       Renders all 11 slides as a vertical stack so the deck can be printed
        to PDF or captured as a long screenshot. Used as offline brief / Canva
        reference. No interactivity; controls hidden. */
     @media print {
@@ -1577,51 +1577,25 @@
       </div>
     </section>
 
-    <!-- SLIDE 2: ORIGEM (founder anecdote — Nordeste user clicking 18h for food) -->
-    <section class="slide" data-slide="2" aria-label="Origem">
-      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
-      <div class="slide-inner" style="text-align: center;">
-        <p class="eyebrow">Origem</p>
-
-        <h2 style="font-size: clamp(28px, 4.2vw, 60px); font-weight: 900; line-height: 1.18; letter-spacing: -0.02em; max-width: 100%; margin: clamp(28px, 4vh, 56px) auto 0; color: rgba(255, 255, 255, 0.94);">
-          Conheci um usuário do Nordeste<br />
-          clicando <span class="metal-text">18 horas por dia</span> em anúncios.
-        </h2>
-
-        <p style="font-size: clamp(15px, 1.6vw, 22px); color: rgba(255, 255, 255, 0.78); line-height: 1.55; max-width: 60ch; margin: clamp(20px, 2.6vh, 36px) auto 0;">
-          Ele queria <strong style="color: #fff; font-weight: 700;">500 mil pontos</strong> pra ganhar um celular.
-          Não tinha comida em casa.
-        </p>
-
-        <p style="font-size: clamp(14px, 1.4vw, 18px); color: rgba(168, 219, 58, 0.85); line-height: 1.55; max-width: 60ch; margin: clamp(20px, 2.5vh, 32px) auto 0; font-style: italic;">
-          Estava jogando o jogo do Web2 — e perdendo.
-          <strong style="color: var(--primary); font-weight: 700; font-style: normal;">JUICE nasceu pra inverter isso.</strong>
-        </p>
-
-        <p style="margin: clamp(28px, 3.5vh, 48px) auto 0; max-width: 60ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55;">
-          Dezembro 2025 · MVP feedback real · 4k usuários ativos hoje.
-        </p>
-      </div>
-    </section>
-
-    <!-- SLIDE 3: O PROBLEMA (Web2 captures the value, user gets nothing) ====== -->
+    <!-- SLIDE 2: O PROBLEMA — abertura do pitch.
+         Hook: "Você paga pelo celular. O celular paga o Google."
+         Indictment ancorada em IAB Brasil 2025 (R$ 42,7 bi · publicidade digital). -->
     <section class="slide" data-slide="2" aria-label="O Problema">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner" style="text-align: center;">
         <p class="eyebrow">O Problema</p>
 
         <h2 style="font-size: clamp(30px, 4.6vw, 64px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; max-width: 100%; margin: clamp(28px, 4vh, 56px) auto 0; color: rgba(255, 255, 255, 0.94);">
-          Você dá seu tempo, seus dados<br />
-          e sua atenção para as empresas.<br />
-          <span class="metal-text">E não recebe nada de volta.</span>
+          Você paga pelo celular.<br />
+          <span class="metal-text">O celular paga o Google.</span>
         </h2>
 
-        <p style="font-size: clamp(14px, 1.55vw, 22px); color: rgba(255, 255, 255, 0.62); line-height: 1.55; max-width: 100%; margin: clamp(24px, 3vh, 40px) auto 0;">
-          <strong style="color: rgba(255,255,255,0.85); font-weight: 700;">8,4 bilhões</strong> de celulares no mundo · <strong style="color: rgba(255,255,255,0.85); font-weight: 700;">$6 bi/ano</strong> em cashback no Brasil. Quanto desse dinheiro chega no seu bolso?
+        <p style="font-size: clamp(14px, 1.55vw, 22px); color: rgba(255, 255, 255, 0.62); line-height: 1.55; max-width: 72ch; margin: clamp(24px, 3vh, 40px) auto 0;">
+          <strong style="color: rgba(255,255,255,0.85); font-weight: 700;">R$ 42,7 bilhões</strong> em publicidade digital no Brasil em 2025. <strong style="color: rgba(255,255,255,0.85); font-weight: 700;">120 milhões</strong> de aparelhos geraram esse valor. <strong style="color: rgba(255,255,255,0.85); font-weight: 700;">R$ 355 por celular, por ano.</strong> Pro dono do celular: zero.
         </p>
 
         <p style="margin: clamp(32px, 4vh, 56px) auto 0; max-width: 72ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55;">
-          Fontes: GSMA Mobile Economy 2024 · ABT (Associação Brasileira das Empresas do Mercado de Fidelização) 2024.
+          Fontes: IAB Brasil + Kantar Ibope, Digital Adspend 2026 · Anatel 2025 — 120 milhões de smartphones ativos.
         </p>
       </div>
     </section>
@@ -1790,46 +1764,46 @@
       <div class="slide-inner">
         <p class="eyebrow" style="margin-bottom: 14px;">Mercado</p>
         <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); text-align: center; margin: 0;">
-          $6 bilhões/ano em cashback no Brasil.
+          R$ 42,7 bilhões/ano em publicidade digital no Brasil.
         </h2>
         <p class="subtitle" style="text-align: center; max-width: 64ch; margin: 14px auto 0;">
-          Capturado por TudoAzul, Smiles, Multiplus — zero pro usuário que gerou o valor. Redirecionável on-chain.
+          Capturado por Google, Meta, TikTok — zero pro celular que gerou o valor. Redirecionável on-chain via JUICE.
         </p>
 
         <div class="grid-3" style="margin-top: clamp(22px, 2.8vw, 36px);">
-          <!-- TAM — Global loyalty & mobile rewards market -->
+          <!-- TAM — Global digital ad spend -->
           <div class="card">
             <p class="market-tier">TAM · Global</p>
-            <div class="number-xl">$200<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
-            <p class="market-desc">mercado global de loyalty + rewards mobile (2024).</p>
+            <div class="number-xl">$750<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
+            <p class="market-desc">publicidade digital global · receita total 2025.</p>
             <div class="market-bar" aria-hidden="true">
               <div class="market-bar-fill" style="width: 100%;"></div>
             </div>
           </div>
 
-          <!-- SAM — LATAM cashback & rewards -->
+          <!-- SAM — LATAM digital ad spend -->
           <div class="card">
             <p class="market-tier">SAM · LATAM</p>
-            <div class="number-xl">$25<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
-            <p class="market-desc">cashback + fidelidade em LATAM, mobile-first.</p>
+            <div class="number-xl">$28<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
+            <p class="market-desc">publicidade digital LATAM · 6 mercados-chave · 2025.</p>
             <div class="market-bar" aria-hidden="true">
-              <div class="market-bar-fill" style="width: 12%;"></div>
+              <div class="market-bar-fill" style="width: 4%;"></div>
             </div>
           </div>
 
-          <!-- SOM — Brasil cashback + fidelidade ICP -->
+          <!-- SOM — Brasil digital ad spend ICP -->
           <div class="card market-card-focus">
             <p class="market-tier is-focus">SOM · Brasil · ICP inicial</p>
-            <div class="number-xl">$6<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
-            <p class="market-desc">cashback + fidelidade no Brasil · <strong style="color:#fff;">4k já carregando hoje</strong>, on-chain.</p>
+            <div class="number-xl">$8,5<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
+            <p class="market-desc">R$ 42,7 bi · 120M smartphones · <strong style="color:#fff;">4k já carregando hoje</strong>, on-chain.</p>
             <div class="market-bar" aria-hidden="true">
-              <div class="market-bar-fill" style="width: 3%;"></div>
+              <div class="market-bar-fill" style="width: 1.1%;"></div>
             </div>
           </div>
         </div>
 
         <p style="margin-top: clamp(28px, 3vw, 40px); font-size: 11px; color: var(--secondary); letter-spacing: 0.08em; opacity: 0.55;">
-          Fontes: Allied Market Research — Loyalty Management Market 2024 · ABT (Associação Brasileira das Empresas do Mercado de Fidelização) 2024 · Anatel 2026 · GSMA LATAM 2026.
+          Fontes: WARC / Magna Global Ad Outlook 2025 · Statista LATAM Digital Advertising 2025 · IAB Brasil + Kantar Ibope, Digital Adspend 2026 · Anatel 2025.
         </p>
       </div>
     </section>
@@ -2278,7 +2252,7 @@
 
   <!-- Progress + counter -->
   <nav class="controls" aria-label="Navegação dos slides">
-    <span class="counter mono" id="counter">01 / 12</span>
+    <span class="counter mono" id="counter">01 / 11</span>
     <button class="dot active" data-go="0" aria-label="Slide 1"></button>
     <button class="dot" data-go="1" aria-label="Slide 2"></button>
     <button class="dot" data-go="2" aria-label="Slide 3"></button>
@@ -2290,7 +2264,6 @@
     <button class="dot" data-go="8" aria-label="Slide 9"></button>
     <button class="dot" data-go="9" aria-label="Slide 10"></button>
     <button class="dot" data-go="10" aria-label="Slide 11"></button>
-    <button class="dot" data-go="11" aria-label="Slide 12"></button>
   </nav>
 
   <button class="btn-fs" id="btn-fs" aria-label="Tela cheia" title="Tela cheia (F)">

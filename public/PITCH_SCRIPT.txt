@@ -1,13 +1,14 @@
 ================================================================================
 JUICE — PITCH SCRIPT VERBAL · FRONTIER COLOSSEUM 2026
-v2 · pós-tightening pass · alinhado ao deck atual
+v4 · slide-2 reframe ("Você paga / O celular paga o Google" · ad spend ancorado)
 ================================================================================
 
 Autor: Rafael Mariano
 Data: 2026-05-05
 Duração alvo: 2 min (~310 palavras · 155 wpm)
 Idioma: PT-BR (versão EN no fim)
-Estrutura: 12 slides
+Estrutura: 11 slides
+Número-mestre do deck: R$ 42,7 bilhões — IAB Brasil 2025
 
 --------------------------------------------------------------------------------
 PRINCÍPIOS DA ENTREGA (LEIA ANTES DE ENSAIAR)
@@ -25,7 +26,7 @@ PRINCÍPIOS DA ENTREGA (LEIA ANTES DE ENSAIAR)
   7. RESPIRA. Os winners pausam depois de números. Você também.
 
 --------------------------------------------------------------------------------
-SCRIPT — VERSÃO 2 MINUTOS (FULL · 12 SLIDES)
+SCRIPT — VERSÃO 2 MINUTOS (FULL · 11 SLIDES)
 --------------------------------------------------------------------------------
 
 [SLIDE 1 — CAPA]
@@ -33,32 +34,26 @@ SCRIPT — VERSÃO 2 MINUTOS (FULL · 12 SLIDES)
 respira, e avança pro slide 2 já começando a falar.)
 
 
-[SLIDE 2 — ORIGEM]  ← HOOK. PRIMEIRA FRASE = O PITCH INTEIRO.
+[SLIDE 2 — PROBLEMA]  ← HOOK. PRIMEIRA FRASE = O PITCH INTEIRO.
 
-  "Conheci um cara no Nordeste do Brasil
-   que clica em anúncio dezoito horas por dia."
+  "Você paga pelo celular."
 
-  [pausa 1s — deixa o número assentar]
+  [pausa 1s]
 
-  "Pra ganhar comida.
-   Ele queria quinhentos mil pontos pra trocar por um celular.
-   Não tinha o que comer em casa.
-   Estava jogando o jogo do Web2 — e perdendo.
-   Construí o JUICE pra inverter isso."
+  "O celular paga o Google."
+
+  [pausa 1s — olha pro jurado]
+
+  "Quarenta e dois vírgula sete bilhões de reais
+   em publicidade digital no Brasil em 2025 — IAB Brasil.
+   Cento e vinte milhões de aparelhos geraram esse valor.
+   Trezentos e cinquenta e cinco reais por celular, por ano.
+   Pro dono do celular: zero."
 
   [pausa 1s — avança]
 
 
-[SLIDE 3 — PROBLEMA]
-
-  "Você dá seu tempo. Seus dados. Sua atenção.
-   Pras empresas. E não recebe NADA de volta.
-   Oito vírgula quatro bilhões de celulares no mundo.
-   Seis bilhões de dólares por ano em cashback só no Brasil.
-   Quanto desse dinheiro chega no seu bolso? Zero."
-
-
-[SLIDE 4 — SOLUÇÃO]
+[SLIDE 3 — SOLUÇÃO]
 
   "JUICE é uma DePIN com Prova de Atividade Humana.
    Cada minuto carregando o celular vira valor on-chain —
@@ -67,7 +62,7 @@ respira, e avança pro slide 2 já começando a falar.)
    já escritos. Auditável no Solscan agora."
 
 
-[SLIDE 5 — TRAÇÃO]  ← MOMENTO CRÍTICO. ALTA ENERGIA. PAUSAS.
+[SLIDE 4 — TRAÇÃO]  ← MOMENTO CRÍTICO. ALTA ENERGIA. PAUSAS.
 
   "E não estamos pedindo pra acreditar."
   [pausa]
@@ -82,16 +77,20 @@ respira, e avança pro slide 2 já começando a falar.)
   "Tudo na mainnet. Tudo verificável agora."
 
 
-[SLIDE 6 — MERCADO]
+[SLIDE 5 — MERCADO]
 
-  "Seis bilhões de dólares por ano em cashback no Brasil.
-   Hoje capturado por TudoAzul, Smiles, Multiplus.
-   Pontos travados, valor não-portável.
-   A gente redireciona on-chain — pro usuário que GEROU o valor.
+  "Quarenta e dois vírgula sete bilhões em publicidade digital no Brasil.
+   Capturados por Google, Meta, TikTok — zero pro celular
+   que gerou o valor.
+   TAM global: setecentos e cinquenta bilhões de dólares.
+   SAM LATAM: vinte e oito bilhões.
+   SOM Brasil: oito vírgula cinco bilhões — cento e vinte milhões
+   de smartphones ativos.
+   A gente redireciona on-chain — pro dono do celular.
    Os primeiros quatro mil já estão carregando."
 
 
-[SLIDE 7 — WHY NOW]
+[SLIDE 6 — WHY NOW]
 
   "A janela técnica abriu em dois mil e vinte e quatro.
    ZK Compression do Light Protocol entrega
@@ -100,16 +99,16 @@ respira, e avança pro slide 2 já começando a falar.)
    Hoje é trivial."
 
 
-[SLIDE 8 — MAPA DePIN]
+[SLIDE 7 — MAPA DePIN]
 
   "Helium pede modem. Hivemapper pede dashcam.
    DeCharge pede carregador. UpRock pede bandwidth ociosa.
-   A gente pede o celular que já tá na sua mão.
+   A gente pede o celular que já está na sua mão.
    Zero hardware adicional. Zero fricção.
    É a quinta lane — e a única que escala sem instalação."
 
 
-[SLIDE 9 — PRODUTO]
+[SLIDE 8 — PRODUTO]
 
   "Plug. Validação. Reward.
    Conectou o cabo, o app detecta a sessão,
@@ -119,7 +118,7 @@ respira, e avança pro slide 2 já começando a falar.)
    missões, dados, comunidade."
 
 
-[SLIDE 10 — MODELO]
+[SLIDE 9 — MODELO]
 
   "Quatro linhas de receita.
    Lidera Sponsored Charging — marcas pagam pro usuário
@@ -131,7 +130,7 @@ respira, e avança pro slide 2 já começando a falar.)
    Referência é Mercado Pago + Pix, não STEPN."
 
 
-[SLIDE 11 — MOAT]
+[SLIDE 10 — MOAT]
 
   "Bot não recarrega celular.
    Sybil-resistance física, em camadas.
@@ -139,7 +138,7 @@ respira, e avança pro slide 2 já começando a falar.)
    Sem inflar o que ainda não foi feito."
 
 
-[SLIDE 12 — FOUNDER + ASK]
+[SLIDE 11 — FOUNDER + ASK]
 
   "Sou Rafael Mariano.
    Construí o primeiro DePIN com usuário real em LATAM.
@@ -166,20 +165,18 @@ VERSÃO COMPRIMIDA — 90 SEGUNDOS (ELEVATOR)
 
 Pra Q&A em 1 minuto ou abertura informal:
 
-  "Conheci um cara no Nordeste que clica em anúncio dezoito horas por dia
-   pra ganhar comida no Web2. Construí JUICE pra inverter isso.
+  "Você paga pelo celular. O celular paga o Google.
+   Quarenta e dois vírgula sete bilhões em publicidade digital
+   no Brasil em 2025 — IAB. Trezentos e cinquenta e cinco reais
+   por celular, por ano. Pro dono do celular: zero.
 
    JUICE é a primeira DePIN brasileira na Solana.
    Cada minuto que você carrega o celular vira $JUICE on-chain.
    Live mainnet, hoje. Quatro mil usuários ativos,
    quatrocentos e sessenta mil minutos validados, dez mil downloads.
 
-   Mercado: seis bilhões de cashback por ano só no Brasil,
-   hoje capturado por TudoAzul, Smiles, Multiplus —
-   a gente redireciona pro usuário, on-chain.
-
    Diferença pra Helium, Hivemapper, DeCharge?
-   Zero hardware extra. Só o celular que já tá na sua mão.
+   Zero hardware extra. Só o celular que já está na sua mão.
    Diferença pra STEPN? Supply fixo, distribuição proporcional ao uso real.
 
    Sou Rafael, oito anos em fintech, CNPI, ex-XP/Rico/Terra.
@@ -209,30 +206,54 @@ PALAVRAS-VÍCIO A EVITAR (corte na hora)
 NÚMEROS-CHAVE — DECORE DE COR
 --------------------------------------------------------------------------------
 
-Métricas de tração (slides 4 e 5):
-  • 4.000 usuários ativos        → "quatro mil"
-  • 460.000+ minutos validados   → "quatrocentos e sessenta mil"
-  • 10.200 $JUICE distribuídos   → "dez mil duzentos"
-  • +10.000 downloads            → "mais de dez mil"
+Problema (slide 2):
+  • R$ 42,7 bi/ano publicidade digital BR  → "quarenta e dois vírgula sete bilhões"
+  • Fonte: IAB Brasil + Kantar Ibope, Digital Adspend 2026
+  • 120 mi smartphones ativos              → "cento e vinte milhões"
+  • Fonte: Anatel 2025
+  • R$ 355 por celular por ano             → "trezentos e cinquenta e cinco reais"
 
-Mercado (slides 3, 6):
-  • 8,4 bilhões de celulares     → "oito vírgula quatro bilhões"
-  • $6 bi/ano cashback Brasil    → "seis bilhões de dólares por ano"
-  • $200 bi TAM global           → só fala se perguntarem
+Métricas de tração (slides 3 e 4):
+  • 4.000 usuários ativos                  → "quatro mil"
+  • 460.000+ minutos validados             → "quatrocentos e sessenta mil"
+  • 10.200 $JUICE distribuídos             → "dez mil duzentos"
+  • +10.000 downloads                      → "mais de dez mil"
 
-Tech moat (slide 7):
-  • ZK Compression 5000×         → "cinco mil vezes"
-  • Janela aberta em 2024        → "dois mil e vinte e quatro"
+Mercado (slide 5):
+  • TAM global ad digital: $750 bi         → "setecentos e cinquenta bilhões"
+  • Fonte: WARC / Magna Global Ad Outlook 2025
+  • SAM LATAM ad digital: $28 bi           → "vinte e oito bilhões"
+  • Fonte: Statista LATAM Digital Advertising 2025
+  • SOM Brasil ad digital: $8,5 bi         → "oito vírgula cinco bilhões"
+  • Fonte: IAB Brasil 2025 (R$ 42,7 bi @ R$ 5,00/USD)
 
-Tokenomics (slide 10):
-  • Supply 1B                    → "um bilhão"
+Tech moat (slide 6):
+  • ZK Compression 5000×                   → "cinco mil vezes"
+  • Janela aberta em 2024                  → "dois mil e vinte e quatro"
 
-Ask (slide 12):
-  • 100k usuários até Q3 2026    → "cem mil usuários até Q3"
+Tokenomics (slide 9):
+  • Supply 1B                              → "um bilhão"
+
+Ask (slide 11):
+  • 100k usuários até Q3 2026              → "cem mil usuários até Q3"
 
 --------------------------------------------------------------------------------
 PERGUNTAS PROVÁVEIS DO JURADO + RESPOSTAS PRONTAS (Q&A)
 --------------------------------------------------------------------------------
+
+Q: "Onde tirou os R$ 42,7 bi em publicidade digital?"
+A: "IAB Brasil em parceria com Kantar Ibope — Digital Adspend 2026, divulgado em
+    abril deste ano. Crescimento de 12,7% sobre 2024. Cento e vinte milhões de
+    smartphones ativos pela Anatel 2025. Dividido, dá trezentos e cinquenta e
+    cinco reais por aparelho por ano. Auditado por associação setorial e empresa
+    de pesquisa, não cherry-pick."
+
+Q: "Mas o usuário não recebe YouTube, Instagram, Spotify de graça em troca?"
+A: "Não é grátis. Você pagou o plano de celular que entrega o conteúdo. O
+    brasileiro paga em média oitenta a duzentos reais por mês de plano. Você paga
+    duas vezes — uma em dinheiro pelo plano, outra em atenção pra quem anuncia.
+    Os dois recebimentos vão pro mesmo lugar: Google, Meta, TikTok. Nenhum volta
+    pra você. JUICE redireciona o segundo recebimento — em PIX, no Brasil, agora."
 
 Q: "Como vocês evitam farm bot?"
 A: "Quatro camadas em produção: memo on-chain por sessão, rules cap server-side
@@ -275,9 +296,11 @@ A: "Brazil-first. Quatro mil usuários atuais cresceram organicamente em três m
     pra México e Colômbia. Brasil é o flagship LATAM da Solana — a gente é o veículo."
 
 Q: "Por que não é só mais um app de cashback?"
-A: "Cashback Web2 trava o valor dentro da empresa que emitiu — TudoAzul, Smiles,
-    Multiplus. JUICE é token líquido on-chain, portável, com saque PIX ou cripto.
-    O usuário gerou o valor, então o usuário leva o valor. Sem intermediário."
+A: "Cashback Web2 trava o valor dentro da empresa que emitiu — Smiles, LATAM Pass,
+    Livelo. JUICE não compete com cashback — é uma fonte de receita completamente
+    nova: ad-spend redirecionado on-chain. A gente não substitui o programa de
+    fidelidade, redireciona o que Google e Meta capturam — diretamente pro dono
+    do celular, em token líquido com saque PIX."
 
 Q: "Vocês têm algum partnership confirmado?"
 A: "BingX, OKX e KAST em conversa pra créditos publicitários. Quatro mil usuários
@@ -288,54 +311,53 @@ A: "BingX, OKX e KAST em conversa pra créditos publicitários. Quatro mil usuá
 ENGLISH VERSION (PARA APRESENTAÇÃO INTERNACIONAL)
 --------------------------------------------------------------------------------
 
-[SLIDE 2 — ORIGIN]
-"I met a guy in Northeast Brazil who clicks ads eighteen hours a day. To earn food.
-He needed five hundred thousand points to trade for a phone. He had nothing to eat.
-He was playing the Web2 game — and losing. I built JUICE to flip that."
+[SLIDE 2 — PROBLEM]
+"You pay for the phone. The phone pays Google.
+Forty-two point seven billion reais in Brazilian digital ad spend, 2025 — IAB.
+One hundred twenty million phones generated that value.
+Three hundred and fifty-five reais per phone per year.
+For the phone's owner: zero."
 
-[SLIDE 3 — PROBLEM]
-"You give your time. Your data. Your attention. To corporations.
-And you get nothing back. Eight point four billion phones in the world.
-Six billion dollars a year in cashback in Brazil alone.
-How much of it reaches your pocket? Zero."
-
-[SLIDE 4 — SOLUTION]
+[SLIDE 3 — SOLUTION]
 "JUICE is a DePIN with Proof-of-Human-Activity.
 Every minute charging your phone becomes value on-chain —
 validated, accounted, rewarded on Solana.
 Live, today, mainnet. Four hundred sixty thousand memos already written.
 Verifiable on Solscan right now."
 
-[SLIDE 5 — TRACTION]
+[SLIDE 4 — TRACTION]
 "And we're not asking you to believe. We've already proven it.
 Four thousand active users. Four hundred sixty thousand minutes validated.
 Ten thousand JUICE distributed. Ten thousand downloads.
 All on mainnet. All verifiable now."
 
-[SLIDE 6 — MARKET]
-"Six billion dollars a year in cashback in Brazil.
-Captured by TudoAzul, Smiles, Multiplus — points locked, value non-portable.
-We redirect it on-chain — to the user who actually generated the value.
+[SLIDE 5 — MARKET]
+"Forty-two point seven billion reais a year in Brazilian digital ad spend.
+Captured by Google, Meta, TikTok — zero for the phone that generated the value.
+TAM: seven hundred fifty billion dollars in global digital ad spend.
+SAM: twenty-eight billion in LATAM. SOM: eight and a half billion in Brazil —
+one hundred twenty million active smartphones.
+We redirect it on-chain — to the phone's owner.
 The first four thousand are already charging."
 
-[SLIDE 7 — WHY NOW]
+[SLIDE 6 — WHY NOW]
 "The technical window opened in 2024.
 ZK Compression by Light Protocol delivers five thousand times state cost reduction.
 Before that, writing one billion memos a year was impossible. Now it's trivial."
 
-[SLIDE 8 — DePIN MAP]
+[SLIDE 7 — DePIN MAP]
 "Helium needs a modem. Hivemapper needs a dashcam.
 DeCharge needs an EV charger. UpRock needs idle bandwidth.
 We need the phone already in your hand. Zero extra hardware. Zero friction.
 It's the fifth lane — the only one that scales without installation."
 
-[SLIDE 9 — PRODUCT]
+[SLIDE 8 — PRODUCT]
 "Plug. Validate. Reward. Plug the cable, app detects the session,
 JUICE hits the wallet. PIX or crypto cashout. Settlement in seconds.
 Charging is just the trigger — the product lives inside:
 missions, data, community."
 
-[SLIDE 10 — MODEL]
+[SLIDE 9 — MODEL]
 "Four revenue lines, in priority order:
 Sponsored Charging — brands pay users to charge while watching content,
 attention verified via on-chain PoHA. Then ad partnerships with BingX, OKX, KAST.
@@ -343,11 +365,11 @@ Real-yield staking distributed to holders. And token buyback-and-burn.
 We're not Move-to-Earn. Fixed one-billion supply.
 Reference is Mercado Pago + Pix, not STEPN."
 
-[SLIDE 11 — MOAT]
+[SLIDE 10 — MOAT]
 "Bots don't charge phones. Physical Sybil-resistance, layered.
 Four defenses live. Four more shipping Q3. No vaporware."
 
-[SLIDE 12 — FOUNDER + ASK]
+[SLIDE 11 — FOUNDER + ASK]
 "I'm Rafael Mariano. I built the first DePIN with real users in LATAM.
 CNPI certified, eight years in fintech — XP, Rico, Terra.
 Carol Uchoas with me — CMO and CCO, growth and B2B partnerships.
@@ -391,11 +413,12 @@ A primeira frase do pitch é a mais importante.
 Decora ela como decora o número de telefone da mãe.
 Diz ela com a voz firme. Olho no olho. Sem aquecimento.
 
-  "Conheci um cara no Nordeste do Brasil que clica em anúncio
-   dezoito horas por dia."
+  "Você paga pelo celular.
+   O celular paga o Google."
 
-Se essa frase vai como manteiga, o resto vem natural.
+Pausa um segundo entre as duas frases. Deixa o jurado sentir o peso
+da inversão. Aí dropa o número — quarenta e dois vírgula sete bilhões.
 
-Bora vencer.
+Se essas duas frases vão como manteiga, o resto vem natural.
 
 ================================================================================

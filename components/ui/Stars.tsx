@@ -227,12 +227,13 @@ export function Stars({
         className="absolute inset-0"
         style={reduce ? undefined : { y: yMV }}
       >
-        <div className="absolute inset-0">
+        <div data-stars-field className="absolute inset-0">
           <StarField stars={stars} reduce={!!reduce} />
         </div>
         {/* Duplicate field below the original — wraps seamlessly as the
             wrapper translates upward, so the sky never empties. */}
         <div
+          data-stars-field
           className="absolute inset-x-0"
           style={{ top: '100%', height: '100%' }}
         >

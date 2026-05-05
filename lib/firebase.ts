@@ -32,6 +32,43 @@ function getDb(): Firestore | null {
   return _db;
 }
 
+export type PublicStats = {
+  users?: number;
+  minutes?: number;
+  juice?: number;
+  downloads?: number;
+};
+
+/**
+ * Reads the public-facing aggregate counters (users, minutes validated, etc.)
+ * from `stats/public` in Firestore. Resilient by design — any failure mode
+ * (Firebase not configured, doc missing, permission-denied) returns null so
+ * the caller can fall back to a static placeholder without breaking the UI.
+ */
+export async function getPublicStats(): Promise<PublicStats | null> {
+  const db = getDb();
+  if (!db) return null;
+
+  const { doc, getDoc } = await import('firebase/firestore');
+
+  try {
+    const snap = await getDoc(doc(db, 'stats', 'public'));
+    if (!snap.exists()) return null;
+    const data = snap.data() as Record<string, unknown>;
+    const num = (v: unknown): number | undefined =>
+      typeof v === 'number' && Number.isFinite(v) ? v : undefined;
+    return {
+      users: num(data.users),
+      minutes: num(data.minutes),
+      juice: num(data.juice),
+      downloads: num(data.downloads),
+    };
+  } catch {
+    // permission-denied, network error, or anything else → fall back silently.
+    return null;
+  }
+}
+
 export type LeadInsert = {
   email: string;
   locale: string;

@@ -10,6 +10,11 @@ import { Founder } from '@/components/sections/Founder';
 import { Waitlist } from '@/components/sections/Waitlist';
 import { Faq } from '@/components/sections/Faq';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { getPublicStats } from '@/lib/firebase';
+
+// ISR — re-fetch the public stats doc at most every 5 min to keep the live
+// counter fresh without hammering Firestore on every request.
+export const revalidate = 300;
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -82,10 +87,12 @@ export default async function HomePage({ params }: Props) {
     ],
   };
 
+  const stats = await getPublicStats();
+
   return (
     <>
       <JsonLd data={jsonLd} />
-      <Hero />
+      <Hero stats={stats} />
       <PartnersTrust />
       <Features />
       <Community />

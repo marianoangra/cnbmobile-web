@@ -13,6 +13,7 @@ import { PhoneMockup } from '@/components/ui/PhoneMockup';
 import { Stars } from '@/components/ui/Stars';
 import { StoreButtons } from '@/components/ui/StoreButtons';
 import { useMetalSpotlight } from '@/lib/useMetalSpotlight';
+import type { PublicStats } from '@/lib/firebase';
 
 const POINTS_START = 60_000;
 const POINTS_END = 120_000;
@@ -26,7 +27,9 @@ const LIME = '#a8db3a';
 // Until then, falls back to solscan.io root with the memos claim.
 const MINT_ADDRESS = process.env.NEXT_PUBLIC_CNB_MINT_ADDRESS ?? '';
 
-export function Hero() {
+type HeroProps = { stats?: PublicStats | null };
+
+export function Hero({ stats }: HeroProps = {}) {
   const t = useTranslations('hero');
   const headlineRef = useMetalSpotlight<HTMLSpanElement>();
 
@@ -111,9 +114,7 @@ export function Hero() {
               <span className="font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-[#a8db3a]">
                 {MINT_ADDRESS ? '$JUICE · Solana' : 'Live · Solana mainnet'}
               </span>
-              <span className="font-mono text-xs text-white/65 group-hover:text-white/85 transition-colors">
-                {MINT_ADDRESS ? 'view on solscan' : '460k+ memos · solscan.io'}
-              </span>
+              <LiveBadgeMetric mintExists={Boolean(MINT_ADDRESS)} stats={stats} />
             </motion.a>
 
           </div>
@@ -134,6 +135,56 @@ export function Hero() {
         </div>
       </div>
     </section>
+  );
+}
+
+// Secondary text inside the live Solscan badge.
+//
+// Rendering rules:
+//   1. If the token mint is set, badge deep-links to the token page —
+//      show a generic CTA ("view on solscan") regardless of stats.
+//   2. Otherwise: prefer a live "{users} brasileiros" pulled from
+//      stats/public, animated count-up on mount. Falls back to the
+//      static memo claim when stats aren't available.
+function LiveBadgeMetric({
+  mintExists,
+  stats,
+}: {
+  mintExists: boolean;
+  stats?: PublicStats | null;
+}) {
+  const reduce = useReducedMotion();
+  const target = stats?.users && stats.users > 0 ? stats.users : null;
+  const motionValue = useMotionValue(reduce && target ? target : 0);
+
+  useEffect(() => {
+    if (target == null || reduce) return;
+    const c = animate(motionValue, target, {
+      duration: 1.6,
+      ease: [0.16, 1, 0.3, 1],
+    });
+    return () => c.stop();
+  }, [motionValue, target, reduce]);
+
+  const label = useTransform(motionValue, (v) =>
+    `${Math.floor(v).toLocaleString('pt-BR')} brasileiros · solscan.io`
+  );
+
+  const baseClass =
+    'font-mono text-xs text-white/65 group-hover:text-white/85 transition-colors';
+
+  if (mintExists) {
+    return <span className={baseClass}>view on solscan</span>;
+  }
+
+  if (target == null) {
+    return <span className={baseClass}>460k+ memos · solscan.io</span>;
+  }
+
+  return (
+    <motion.span className={`${baseClass} tabular-nums`}>
+      {label}
+    </motion.span>
   );
 }
 

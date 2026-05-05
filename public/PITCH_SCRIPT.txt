@@ -1,0 +1,357 @@
+================================================================================
+JUICE — PITCH SCRIPT VERBAL · FRONTIER COLOSSEUM 2026
+================================================================================
+
+Autor: Rafael Mariano
+Data: 2026-05-05
+Duração alvo: 2 min (~310 palavras · 155 wpm)
+Idioma: PT-BR (versão EN no fim)
+Estrutura: 12 slides · ordem nova após análise de winners passados
+
+--------------------------------------------------------------------------------
+PRINCÍPIOS DA ENTREGA (LEIA ANTES DE ENSAIAR)
+--------------------------------------------------------------------------------
+
+1. NÃO LEIA O SLIDE. O slide é apoio visual. Você narra POR CIMA.
+2. NÚMEROS EM VOZ ALTA, COM PAUSA. "Quatro mil brasileiros." [pausa 1s]
+   "Quatrocentos e sessenta mil minutos validados." [pausa 1s]
+3. ZERO HEDGING. Não fale "esperamos atingir" — fale "já fizemos".
+   Não fale "queremos tentar" — fale "vamos fazer".
+4. PACING DENSO. Cada frase carrega informação. Sem "tipo, sabe...".
+5. CONFIANÇA NO PRIMEIRO SEGUNDO. Sua primeira frase deve doer.
+   Sem aquecimento, sem "olá pessoal, meu nome é".
+6. CONTATO VISUAL. Olha pro jurado, não pro slide.
+7. RESPIRA. Os winners pausam depois de números. Você também.
+
+--------------------------------------------------------------------------------
+SCRIPT — VERSÃO 2 MINUTOS (FULL)
+--------------------------------------------------------------------------------
+
+[SLIDE 1 — CAPA]
+(Aparece o wordmark JUICE. NÃO leia "JUICE". Dá 1 segundo de pausa,
+respira, e avança pro slide 2 já começando a falar.)
+
+
+[SLIDE 2 — ORIGEM]
+
+  "Conheci um cara no Nordeste do Brasil
+   que clica em anúncio dezoito horas por dia."
+
+  [pausa 1s — deixa o número assentar]
+
+  "Pra ganhar comida.
+   Ele queria quinhentos mil pontos pra trocar por um celular.
+   Não tinha o que comer em casa.
+   Estava jogando o jogo do Web2 — e perdendo.
+   Construí o JUICE pra inverter isso."
+
+  [pausa 1s — avança]
+
+
+[SLIDE 3 — PROBLEMA]
+
+  "Você dá seu tempo. Seus dados. Sua atenção.
+   Pras empresas. E não recebe NADA de volta.
+   Oito vírgula quatro bilhões de celulares no mundo.
+   Seis bilhões de dólares por ano em cashback só no Brasil.
+   Quanto desse dinheiro chega no seu bolso? Zero."
+
+
+[SLIDE 4 — SOLUÇÃO]
+
+  "JUICE é uma DePIN com Prova de Atividade Humana.
+   Cada minuto carregando o celular vira valor on-chain —
+   validado, contabilizado, recompensado na Solana.
+   Live, hoje, mainnet. Auditável no Solscan."
+
+
+[SLIDE 5 — TRAÇÃO]  ← MOMENTO CRÍTICO. ALTA ENERGIA. NÚMEROS COM PAUSA.
+
+  "E não estamos pedindo pra acreditar.
+   Já provamos."
+
+  [pausa]
+
+  "Quatro mil usuários ativos." [pausa]
+  "Quatrocentos e sessenta mil minutos validados." [pausa]
+  "Dez mil duzentos JUICE distribuídos." [pausa]
+  "Mais de dez mil downloads — Android, iOS e Seeker."
+
+  "Tudo na mainnet. Tudo verificável agora."
+
+
+[SLIDE 6 — MERCADO]
+
+  "Seis bilhões de dólares por ano em cashback no Brasil.
+   Hoje capturado por TudoAzul, Smiles, Multiplus.
+   Pontos travados, valor não-portável.
+   A gente redireciona on-chain — pro usuário que GEROU o valor."
+
+
+[SLIDE 7 — WHY NOW]
+
+  "Isso só é viável agora por causa da Solana.
+   ZK Compression do Light Protocol entrega
+   cinco mil vezes redução de custo de state.
+   Antes de 2024 era inviável. Hoje é trivial."
+
+
+[SLIDE 8 — MAPA DePIN]
+
+  "Helium pede modem. Hivemapper pede dashcam.
+   DeCharge pede carregador.
+   A gente pede o celular que já tá na sua mão.
+   Zero hardware adicional. Zero fricção."
+
+
+[SLIDE 9 — PRODUTO]
+
+  "Plug. Validação. Reward.
+   Conectou o cabo, app detecta a sessão,
+   JUICE cai na carteira.
+   Saque via PIX ou cripto. Liquidação em segundos."
+
+
+[SLIDE 10 — MODELO]
+
+  "Quatro linhas de receita:
+   token utility, real-yield staking,
+   parcerias com BingX, OKX, KAST,
+   e Sponsored Charging — marcas pagam pra usuário
+   recarregar enquanto vê tutorial.
+   Não somos Move-to-Earn. Supply fixo de um bilhão.
+   Referência é Mercado Pago + Pix, não STEPN."
+
+
+[SLIDE 11 — MOAT]
+
+  "Bot não recarrega celular.
+   Sybil-resistance física, em camadas.
+   Quatro defesas no ar. Quatro a caminho no Q3.
+   Sem inflar o que ainda não foi feito."
+
+
+[SLIDE 12 — FOUNDER + ASK]
+
+  "Sou Rafael Mariano.
+   Construí o primeiro DePIN com usuário real em LATAM.
+   CNPI, oito anos em fintech — XP, Rico, Terra.
+   Carol Uchoas comigo: CMO e CCO,
+   growth, parcerias B2B, narrativa que converte."
+
+  [pausa — olha pro jurado]
+
+  "Buscamos:
+   um — grant e aceleração pra escalar pra cem mil usuários até Q3.
+   dois — cosign Solana Foundation pro track LATAM.
+   três — intro com Light Protocol e KORA, ZK Compression e gasless."
+
+  [pausa final — voz baixa, firme]
+
+  "Brasil vai ser o flagship market da Solana.
+   Não é IF. É WHEN.
+   JUICE é o veículo. Obrigado."
+
+--------------------------------------------------------------------------------
+VERSÃO COMPRIMIDA — 90 SEGUNDOS (ELEVATOR)
+--------------------------------------------------------------------------------
+
+Para abertura informal de conversa com VC ou para Q&A em 1 minuto:
+
+  "Conheci um cara no Nordeste que clica em anúncio dezoito horas por dia
+   pra ganhar comida no Web2. Construí JUICE pra inverter isso.
+
+   JUICE é uma DePIN brasileira na Solana.
+   Cada minuto que você carrega o celular vira $JUICE on-chain.
+   Live mainnet, hoje. Quatro mil usuários ativos,
+   quatrocentos e sessenta mil minutos validados, dez mil downloads.
+
+   Mercado: seis bilhões de cashback por ano só no Brasil,
+   hoje capturado por TudoAzul, Smiles, Multiplus —
+   a gente redireciona pro usuário, on-chain.
+
+   Diferença pra Helium, Hivemapper, DeCharge?
+   Zero hardware extra. Só o celular que já tá na sua mão.
+   Diferença pra STEPN? Supply fixo, supply real, distribuição proporcional.
+
+   Sou Rafael, oito anos em fintech, CNPI, ex-XP/Rico/Terra.
+   Carol Uchoas, CMO e CCO. Buscamos grant + cosign Solana Foundation
+   pra escalar pra cem mil usuários até Q3.
+
+   Brasil é o flagship market da Solana. JUICE é o veículo."
+
+--------------------------------------------------------------------------------
+PALAVRAS-FALSAS-A-EVITAR (vícios de fala que enfraquecem)
+--------------------------------------------------------------------------------
+
+  ❌ "tipo"          → corte
+  ❌ "sabe"          → corte
+  ❌ "a gente quer"  → "a gente vai" / "a gente faz"
+  ❌ "esperamos"     → "vamos"
+  ❌ "tentamos"      → "fizemos"
+  ❌ "uns 4 mil"     → "quatro mil"
+  ❌ "é meio que"    → corte
+  ❌ "no fim do dia" → corte
+  ❌ "obviamente"    → corte
+  ❌ "basicamente"   → corte
+
+--------------------------------------------------------------------------------
+NÚMEROS-CHAVE — DECORE DE COR
+--------------------------------------------------------------------------------
+
+Métricas de tração (slide 5):
+  • 4.000 usuários ativos        → "quatro mil"
+  • 460.000+ minutos validados   → "quatrocentos e sessenta mil"
+  • 10.200 $JUICE distribuídos   → "dez mil duzentos"
+  • +10.000 downloads            → "mais de dez mil"
+
+Mercado (slides 3, 6):
+  • 8,4 bilhões de celulares     → "oito vírgula quatro bilhões"
+  • $6 bi/ano cashback Brasil    → "seis bilhões de dólares por ano"
+
+Tech moat (slide 7):
+  • ZK Compression 5000×         → "cinco mil vezes"
+
+Tokenomics (slide 10):
+  • Supply 1B                    → "um bilhão"
+
+Ask (slide 12):
+  • 100k usuários até Q3 2026    → "cem mil usuários até Q3"
+
+--------------------------------------------------------------------------------
+PERGUNTAS PROVÁVEIS DO JURADO + RESPOSTAS PRONTAS (Q&A)
+--------------------------------------------------------------------------------
+
+Q: "Como vocês evitam farm bot?"
+A: "Quatro camadas em produção: memo on-chain por sessão, rules cap server-side
+    sessenta pontos por minuto, anti-bot oito horas diárias, e SHA-256 pseudonymity.
+    Mais quatro a caminho no Q3 — Play Integrity, App Attest, nonce server-issued
+    e battery delta validation. Bot não recarrega celular físico — esse é o moat."
+
+Q: "Qual o token utility real?"
+A: "Quatro linhas: recompra e queima de receita do app, real-yield staking
+    distribuído pros holders, créditos publicitários em parcerias com BingX/OKX/KAST,
+    e Sponsored Charging — marcas pagam JUICE pro usuário consumir conteúdo durante
+    a recarga, com PoHA verificável on-chain."
+
+Q: "Por que Solana?"
+A: "ZK Compression do Light Protocol — cinco mil vezes redução de custo de state.
+    É o único caminho técnico pra escrever um bilhão de memos por ano. Sem isso,
+    a economia não fecha. Stack 100% nativo: KORA pra gasless, Solana Pay pro PIX,
+    Attestations pro PoHA verificável."
+
+Q: "Diferença pra STEPN?"
+A: "Supply fixo de um bilhão, não inflacionário. Distribuição proporcional ao uso
+    real, não dependente de novos compradores. Referência mental é Mercado Pago + Pix,
+    não Move-to-Earn. STEPN caiu 91% em um mês quando crescimento parou — JUICE
+    reflete adoção real, não momentum marginal."
+
+Q: "Quem é Carol?"
+A: "Carol Uchoas, CMO e CCO. Growth e aquisição em LATAM, vendas B2B com varejo
+    e operadoras, brand e comunidade — converte no-coiner em embaixador. Ela traduz
+    cripto pro brasileiro comum. Cripto só vence quando o usuário comum entende."
+
+Q: "Quanto vocês precisam levantar?"
+A: "Frontier Colosseum não é fundraising tradicional, mas pra escalar de quatro mil
+    pra cem mil usuários até Q3 a gente precisa de três coisas:
+    grant para growth e infra, cosign da Solana Foundation pra parcerias B2B no Brasil,
+    e intro com os times do Light Protocol e KORA pra implementação ZK Compression."
+
+Q: "Qual o GTM?"
+A: "Brazil-first. Quatro mil usuários atuais cresceram organicamente em três meses
+    via Telegram e WhatsApp. SDK B2B no Q4 pra parcerias com varejo. Q1 2027 expansão
+    pra México e Colômbia. Brasil é o flagship LATAM da Solana — a gente é o veículo."
+
+--------------------------------------------------------------------------------
+ENGLISH VERSION (PARA APRESENTAÇÃO INTERNACIONAL)
+--------------------------------------------------------------------------------
+
+[SLIDE 2 — ORIGIN]
+"I met a guy in Northeast Brazil who clicks ads eighteen hours a day. To earn food.
+He needed five hundred thousand points to trade for a phone. He had nothing to eat.
+He was playing the Web2 game — and losing. I built JUICE to flip that."
+
+[SLIDE 3 — PROBLEM]
+"You give your time. Your data. Your attention. To corporations.
+And you get nothing back. Eight point four billion phones in the world.
+Six billion dollars a year in cashback in Brazil alone.
+How much of it reaches your pocket? Zero."
+
+[SLIDE 4 — SOLUTION]
+"JUICE is a DePIN with Proof-of-Human-Activity.
+Every minute charging your phone becomes value on-chain —
+validated, accounted, rewarded on Solana.
+Live, today, mainnet. Verifiable on Solscan."
+
+[SLIDE 5 — TRACTION]
+"And we're not asking you to believe. We've already proven it.
+Four thousand active users. Four hundred sixty thousand minutes validated.
+Ten thousand JUICE distributed. Ten thousand downloads.
+All on mainnet. All verifiable right now."
+
+[SLIDE 6 — MARKET]
+"Six billion dollars a year in cashback in Brazil.
+Captured by TudoAzul, Smiles, Multiplus — points locked in, value non-portable.
+We redirect it on-chain — to the user who actually generated the value."
+
+[SLIDE 7 — WHY NOW]
+"This is only viable now because of Solana.
+ZK Compression by Light Protocol delivers five thousand times state cost reduction.
+Before 2024, writing one billion memos a year was impossible. Now it's trivial."
+
+[SLIDE 8 — DePIN MAP]
+"Helium needs a modem. Hivemapper needs a dashcam. DeCharge needs an EV charger.
+We need the phone already in your hand. Zero extra hardware. Zero friction."
+
+[SLIDE 9 — PRODUCT]
+"Plug. Validate. Reward. Plug the cable, app detects the session,
+JUICE hits the wallet. PIX or crypto cashout. Settlement in seconds."
+
+[SLIDE 10 — MODEL]
+"Four revenue lines: token utility buyback-and-burn, real-yield staking,
+ad partnerships with BingX, OKX, KAST, and Sponsored Charging —
+brands pay users to charge while watching content. We're not Move-to-Earn.
+Fixed one-billion supply. Reference is Mercado Pago + Pix, not STEPN."
+
+[SLIDE 11 — MOAT]
+"Bots don't charge phones. Physical Sybil-resistance, layered.
+Four defenses live. Four more shipping Q3. No vaporware."
+
+[SLIDE 12 — FOUNDER + ASK]
+"I'm Rafael Mariano. I built the first DePIN with real users in LATAM.
+CNPI certified, eight years in fintech — XP, Rico, Terra.
+Carol Uchoas with me — CMO and CCO, growth and B2B partnerships.
+We're asking for: grant and acceleration to scale from four to a hundred thousand
+users by Q3, Solana Foundation cosign for the LATAM track, and intros to Light
+Protocol and KORA for ZK Compression and gasless infrastructure.
+Brazil will be Solana's flagship market. It's not IF. It's WHEN.
+JUICE is the vehicle. Thank you."
+
+--------------------------------------------------------------------------------
+ROTINA DE ENSAIO (RECOMENDADO — 5 SESSÕES MÍNIMAS)
+--------------------------------------------------------------------------------
+
+Sessão 1 (45 min): leitura sentado, sem cronômetro. Marca o que travou.
+Sessão 2 (30 min): em pé, com cronômetro. Anota onde excedeu o tempo.
+Sessão 3 (30 min): grava em vídeo. Reassiste sem som — postura, gestos.
+Sessão 4 (30 min): grava em áudio. Reassiste só audio — pacing, hedging.
+Sessão 5 (30 min): pratica com alguém ouvindo. Q&A pós-pitch.
+
+Meta: 1m50 a 2m00. Se passar de 2m05 estás cozinhando — corte algo.
+
+--------------------------------------------------------------------------------
+ÚLTIMA INSTRUÇÃO
+--------------------------------------------------------------------------------
+
+A primeira frase do pitch é a mais importante.
+Decora ela como decora o número de telefone da mãe.
+Diz ela com a voz firme. Olho no olho. Sem aquecimento.
+
+  "Conheci um cara no Nordeste do Brasil que clica em anúncio
+   dezoito horas por dia."
+
+Se essa frase vai como manteiga, o resto vem natural.
+
+Bora vencer. — Kuka style.
+
+================================================================================

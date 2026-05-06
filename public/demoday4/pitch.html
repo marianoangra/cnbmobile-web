@@ -1854,8 +1854,47 @@
       0%, 100% { transform: translateY(0) translateX(0); }
       50%      { transform: translateY(-4px) translateX(2px); }
     }
+
+    /* ADS = modelo de negócio · destaque visual após o reveal:
+       cresce ~15% e pulsa pra atrair atenção como peça central */
+    .slide-modelo.active .modelo-chips > div:nth-child(4) {
+      animation: modelo-ads-pulse 3.6s ease-in-out infinite;
+      animation-delay: 2.0s;
+      transform-origin: left center;
+      box-shadow: 0 4px 22px rgba(168, 219, 58, 0.30);
+      border-color: rgba(168, 219, 58, 0.55) !important;
+      background: rgba(168, 219, 58, 0.10) !important;
+    }
+    @keyframes modelo-ads-pulse {
+      0%, 100% {
+        transform: translateY(0) translateX(0) scale(1.14);
+        box-shadow: 0 4px 22px rgba(168, 219, 58, 0.28);
+      }
+      50% {
+        transform: translateY(-4px) translateX(2px) scale(1.20);
+        box-shadow: 0 8px 32px rgba(168, 219, 58, 0.45);
+      }
+    }
     @media (prefers-reduced-motion: reduce) {
       .modelo-chips > div { transition: none; animation: none; opacity: 1; transform: none; }
+      .slide-modelo.active .modelo-chips > div:nth-child(4) { transform: scale(1.14); animation: none; }
+    }
+
+    /* Slide 9 (Road Map) — 4 mini phones com float suave escalonado */
+    .roadmap-phone {
+      animation: roadmap-phone-float 5.8s ease-in-out infinite;
+      will-change: transform;
+    }
+    .roadmap-phone:nth-child(1) { animation-delay: 0s;    }
+    .roadmap-phone:nth-child(2) { animation-delay: 0.7s;  }
+    .roadmap-phone:nth-child(3) { animation-delay: 1.4s;  }
+    .roadmap-phone:nth-child(4) { animation-delay: 2.1s;  }
+    @keyframes roadmap-phone-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-6px) scale(1.02); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .roadmap-phone { animation: none; }
     }
 
     /* Slide 4 — partner banners (Solflare / X Pay / BingX) gentle
@@ -2050,7 +2089,7 @@
           <!-- Copy + store buttons -->
           <div class="solucao-copy" style="transform: translateY(-clamp(24px, 4vh, 56px));">
             <h2 style="font-size: clamp(28px, 3.6vw, 56px); font-weight: 900; line-height: 1.14; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.96); margin: 0 0 clamp(28px, 3.4vw, 44px);">
-              <span class="metal-text" style="white-space: nowrap;">SUPER APP DEPIN</span><br /><span style="font-size: 0.8em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe</span>
+              <span class="metal-text" style="white-space: nowrap;">SUPER APP DEPIN</span><br /><span style="font-size: 1em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe</span>
             </h2>
 
             <div style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); flex-wrap: wrap;">
@@ -2623,25 +2662,25 @@
 
         <!-- Phones hero abaixo do roadmap (4 unidades lado a lado) -->
         <div class="juice-phone-hero-wrap" style="display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.8vw, 28px); margin-top: clamp(24px, 3vw, 40px);">
-          <div class="juice-phone-stage" style="width: clamp(110px, 11vw, 170px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-solflare.png"
-                 alt="JUICE app — tela inicial: pontos sobem ao vivo"
+          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-superteam.png"
+                 alt="JUICE app — tela inicial com banner Superteam Brasil em PARCEIROS"
                  style="width: 100%;" />
             <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
-          <div class="juice-phone-stage" style="width: clamp(110px, 11vw, 170px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-solflare.png"
-                 alt="JUICE app — tela inicial (segunda vista)"
+          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-redotpay.png"
+                 alt="JUICE app — tela inicial com banner RedotPay × StraitsX × VISA em PARCEIROS"
                  style="width: 100%;" />
             <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
-          <div class="juice-phone-stage" style="width: clamp(110px, 11vw, 170px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-solflare.png"
-                 alt="JUICE app — tela inicial (terceira vista)"
+          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-jet-latam.png"
+                 alt="JUICE app — tela inicial com banner JET LATAM em PARCEIROS"
                  style="width: 100%;" />
             <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
-          <div class="juice-phone-stage" style="width: clamp(110px, 11vw, 170px);">
+          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
             <img class="juice-phone-hero" src="brand/juice-phone-hero-solflare.png"
                  alt="JUICE app — tela inicial (quarta vista)"
                  style="width: 100%;" />
@@ -2679,7 +2718,7 @@
               <ul style="list-style: none; padding: 0; margin: 0 0 16px; display: flex; flex-direction: column; gap: 6px;">
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                  <span>Vendeu mais de <strong style="color: #fff;">400 Rigs de Mineração</strong> no Brasil</span>
+                  <span>Vendeu <strong style="color: #fff;">400 Rigs de Mineração</strong> no Brasil</span>
                 </li>
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>

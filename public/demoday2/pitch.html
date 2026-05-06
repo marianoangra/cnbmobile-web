@@ -1583,6 +1583,51 @@
       .slide-solucao.active .iphone-frame { animation: none; }
     }
 
+    /* =================================================================
+       Slide 2 — JUICE phone hero
+       Uses juice-phone-hero-clean.png — a flood-filled cut-out where
+       the olive-green musgo backdrop has been keyed to alpha 0. The
+       phone (with its baked-in glow) sits on a true transparent
+       canvas, so it composites cleanly against the slide's dark
+       surface without any rectangular halo.
+       ================================================================= */
+    .juice-phone-hero-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .juice-phone-hero {
+      display: block;
+      position: relative;
+      width: clamp(260px, 30vw, 460px);
+      height: auto;
+      margin: 0 auto;
+      z-index: 1;
+      will-change: transform, filter;
+      filter:
+        contrast(1.06)
+        saturate(1.1)
+        drop-shadow(0 20px 44px rgba(0, 0, 0, 0.6));
+      image-rendering: -webkit-optimize-contrast;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+    .slide-solucao.active .juice-phone-hero {
+      animation: juicePhoneFloat 7s ease-in-out infinite;
+    }
+    @keyframes juicePhoneFloat {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      50%      { transform: translate3d(0, -10px, 0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .slide-solucao.active .juice-phone-hero { animation: none; }
+    }
+    @media (max-width: 900px) {
+      .solucao-grid { grid-template-columns: 1fr !important; }
+      .juice-phone-hero { width: clamp(220px, 60vw, 320px); }
+    }
+
     @media (max-width: 768px) {
       .timeline {
         grid-template-columns: 1fr;
@@ -1717,21 +1762,26 @@
       </p>
     </section>
 
-    <!-- SLIDE 3: SOLUÇÃO ====================================================== -->
+    <!-- SLIDE 2: SOLUÇÃO ===================================================
+         Hero 3D phone — neobankless-style stage. JUICE home screen on
+         display, ambient green glow, blurred ground shadow, subtle float.
+         ================================================================== -->
     <section class="slide slide-solucao" data-slide="4" aria-label="A Solução">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <div class="grid-2" style="align-items: flex-start;">
-          <div style="text-align: center;">
-            <h2 style="font-size: clamp(24px, 3.6vw, 56px); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(80px, 12vh, 180px) auto 0;">
+        <div class="solucao-grid"
+             style="display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 4vw, 72px); align-items: center; min-height: 72vh;">
+
+          <!-- Copy + store buttons -->
+          <div class="solucao-copy">
+            <h2 style="font-size: clamp(28px, 3.6vw, 56px); font-weight: 900; line-height: 1.14; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.96); margin: 0 0 clamp(28px, 3.4vw, 44px);">
               Cada minuto carregado é validado, contabilizado e <span class="metal-text">recompensado on-chain</span>
             </h2>
 
-            <!-- Store buttons — App Store · Google Play · Seeker -->
-            <div style="margin-top: clamp(20px, 2.6vw, 32px); display: flex; justify-content: center; align-items: center; gap: clamp(8px, 1.2vw, 16px); flex-wrap: nowrap;">
+            <div style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); flex-wrap: wrap;">
               <a href="https://apps.apple.com/br/app/cnb-mobile/id6762065336" target="_blank" rel="noopener noreferrer"
                  aria-label="Download on the App Store"
-                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path d="M17.05 12.04c-.03-3.16 2.58-4.68 2.7-4.75-1.47-2.15-3.76-2.45-4.57-2.49-1.95-.2-3.8 1.15-4.79 1.15-.99 0-2.51-1.12-4.13-1.09-2.13.03-4.09 1.24-5.18 3.14-2.21 3.83-.57 9.5 1.59 12.61 1.05 1.52 2.31 3.23 3.96 3.17 1.59-.06 2.19-1.03 4.11-1.03 1.92 0 2.46 1.03 4.14.99 1.71-.03 2.79-1.55 3.83-3.08 1.21-1.77 1.71-3.49 1.74-3.58-.04-.02-3.34-1.28-3.4-5.04zM13.92 3.05C14.79 1.99 15.38.52 15.21-.95c-1.26.05-2.79.84-3.69 1.89-.81.94-1.51 2.44-1.32 3.88 1.4.11 2.84-.71 3.72-1.77z" />
                 </svg>
@@ -1742,7 +1792,7 @@
               </a>
               <a href="https://play.google.com/store/apps/details?id=com.cnb.cnbappv2" target="_blank" rel="noopener noreferrer"
                  aria-label="Get it on Google Play"
-                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
                 <svg viewBox="0 0 512 512" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <path fill="#00d4ff" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"/>
                   <path fill="#ffce00" d="m104.6 499 220.7-221.3 60.1 60.1L104.6 499z"/>
@@ -1756,7 +1806,7 @@
               </a>
               <a href="https://solanamobile.com/seeker" target="_blank" rel="noopener noreferrer"
                  aria-label="Get it on Seeker — Solana Mobile"
-                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
                 <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                   <defs>
                     <linearGradient id="seeker-sol-grad-slide2" x1="0" y1="0" x2="1" y2="1">
@@ -1776,12 +1826,15 @@
               </a>
             </div>
           </div>
-          <div>
-            <!-- TODO: substituir por IMG_7079.PNG quando disponível -->
-            <div class="iphone-frame card-glow" style="max-width: 220px;">
-              <img src="images/screen-charging.png" alt="Tela de carregamento" />
-            </div>
+
+          <!-- JUICE phone hero — pre-rendered mockup, blended onto the
+               slide. Wrap holds an extra green halo so the phone keeps
+               its glow once the asset's own dark background blends out. -->
+          <div class="solucao-phone juice-phone-hero-wrap">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-clean.png"
+                 alt="JUICE app — tela inicial: pontos, ações rápidas, parceiros e atividades" />
           </div>
+
         </div>
       </div>
     </section>

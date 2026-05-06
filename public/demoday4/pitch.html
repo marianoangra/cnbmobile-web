@@ -731,6 +731,7 @@
     /* === Corner logo (decorative, slides 4+) ============================
        Mantém a marca presente nos slides que não têm o wordmark hero. */
     .slide-corner-logo {
+      display: none;
       position: absolute;
       top: clamp(20px, 2.6vh, 32px);
       right: clamp(24px, 2.5vw, 40px);
@@ -1221,13 +1222,13 @@
     .slide-mercado .market-tier.is-focus { color: var(--primary); }
     .slide-mercado .number-xl {
       color: #ffffff;
-      text-shadow: 0 0 18px rgba(168, 219, 58, 0.5);
+      text-shadow: none;
     }
     .slide-mercado .market-desc { color: rgba(255, 255, 255, 0.72); }
     .slide-mercado .market-bar { background: rgba(255, 255, 255, 0.14); }
     .slide-mercado .market-bar-fill {
       background: linear-gradient(90deg, rgba(168, 219, 58, 0.85), #d4e87a);
-      box-shadow: 0 0 12px rgba(168, 219, 58, 0.5);
+      box-shadow: none;
     }
 
     /* Slide 4 (Mercado) — animated reveal + gentle floating motion.
@@ -1948,15 +1949,6 @@
        this file. Ambient upward drift + mouse-boost; track wraps over
        a duplicate field for infinite parallax. Satellites + starlink
        train sit OUTSIDE the moving track so they pass independently. -->
-  <div class="stars-bg" aria-hidden="true">
-    <div class="stars-track" id="stars-track">
-      <div class="stars-field" id="stars-field-1"></div>
-      <div class="stars-field below" id="stars-field-2"></div>
-    </div>
-    <span class="satellite satellite-1"></span>
-    <span class="satellite satellite-2"></span>
-  </div>
-
   <main class="deck" id="deck" aria-roledescription="apresentação">
 
     <!-- SLIDE 1: ABERTURA — número-mestre solo, fonte no canto inferior esquerdo. -->
@@ -1964,7 +1956,7 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner" style="text-align: center;">
         <h2 style="font-size: clamp(32px, 4.8vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(80px, 12vh, 180px) auto 0;">
-          Publicidade digital movimentou <span class="metal-text">US$ 750 bilhões</span> em 2025
+          Publicidade digital concentrou <span class="metal-text">US$ 750 bilhões</span> em apenas 3 empresas (2025)
         </h2>
       </div>
       <p style="position: absolute; left: clamp(24px, 4vw, 56px); bottom: clamp(88px, 13vh, 180px); margin: 0; max-width: 60ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55; text-align: left;">
@@ -1980,12 +1972,12 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <div class="solucao-grid"
-             style="display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 4vw, 72px); align-items: center; min-height: 72vh; transform: translateY(clamp(-96px, -10vh, -56px));">
+             style="display: grid; grid-template-columns: 1fr 1.1fr 0.7fr; gap: clamp(20px, 3vw, 48px); align-items: center; min-height: 72vh; transform: translateY(clamp(-96px, -10vh, -56px));">
 
           <!-- Copy + store buttons -->
           <div class="solucao-copy" style="transform: translateY(-clamp(24px, 4vh, 56px));">
             <h2 style="font-size: clamp(28px, 3.6vw, 56px); font-weight: 900; line-height: 1.14; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.96); margin: 0 0 clamp(28px, 3.4vw, 44px);">
-              Cada minuto carregado é validado, contabilizado e <span class="metal-text">recompensado on-chain</span>
+              <span class="metal-text" style="white-space: nowrap;">Super App DePIN.</span><br /><span style="font-size: 0.6em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe.</span>
             </h2>
 
             <div style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); flex-wrap: wrap;">
@@ -2037,13 +2029,18 @@
             </div>
           </div>
 
-          <!-- JUICE phone hero — pre-rendered mockup, blended onto the
-               slide. Wrap holds an extra green halo so the phone keeps
-               its glow once the asset's own dark background blends out. -->
-          <div class="solucao-phone juice-phone-hero-wrap">
-            <div class="juice-phone-stage">
+          <!-- Centro: logomarca JUICE grande, hero visual -->
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <img src="brand/juice-wordmark-pitch.svg" alt="JUICE"
+                 style="width: clamp(240px, 32vw, 460px); height: auto; display: block; filter: drop-shadow(0 0 56px rgba(168, 219, 58, 0.45));" />
+          </div>
+
+          <!-- Direita: telefone pequeno -->
+          <div class="solucao-phone juice-phone-hero-wrap" style="display: flex; align-items: center; justify-content: center;">
+            <div class="juice-phone-stage" style="width: clamp(130px, 14vw, 220px);">
               <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
-                   alt="JUICE app — tela inicial: pontos sobem ao vivo, ações rápidas, parceiros e atividades" />
+                   alt="JUICE app — tela inicial: pontos sobem ao vivo, ações rápidas, parceiros e atividades"
+                   style="width: 100%;" />
               <span class="juice-phone-points" id="juice-phone-points"
                     data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
             </div>
@@ -2053,7 +2050,39 @@
       </div>
     </section>
 
-    <!-- SLIDE 5: TRAÇÃO + ROADMAP — moved up so proof-of-life follows the solution. -->
+    <!-- SLIDE 3: COMO FUNCIONA — moved up to follow SOLUÇÃO ==================== -->
+    <section class="slide slide-produto" data-slide="3" aria-label="Produto">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
+      <div class="slide-inner">
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; text-align: center;">
+          <span class="metal-text">Três passos, sem fricção.</span>
+        </h2>
+
+        <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); align-items: stretch;">
+          <div class="card journey-step">
+            <div class="iphone-frame">
+              <img src="images/screen-charging.png" alt="Tela de carregamento" />
+            </div>
+            <h3 class="journey-step-title">Conectou o cabo.</h3>
+          </div>
+          <div class="card journey-step">
+            <div class="iphone-frame">
+              <img src="images/screen-home.png" alt="Tela inicial — pontos" />
+            </div>
+            <h3 class="journey-step-title">Proof-of-Human-Activity.</h3>
+          </div>
+          <div class="card journey-step">
+            <div class="iphone-frame">
+              <img src="images/screen-ranking.png" alt="Tela de ranking" />
+            </div>
+            <h3 class="journey-step-title">$JUICE na carteira.</h3>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SLIDE 4: TRAÇÃO ======================================================= -->
     <section class="slide" data-slide="5" aria-label="Tração & Roadmap">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
@@ -2072,40 +2101,6 @@
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">+10k</p>
             <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Downloads</p>
-          </div>
-        </div>
-
-        <!-- Roadmap timeline — abreviado abaixo dos números -->
-        <p class="eyebrow" style="margin-top: clamp(80px, 10vw, 140px);">12 meses adiante</p>
-        <div class="timeline" style="margin-top: clamp(10px, 1.2vw, 16px);">
-          <div class="milestone done">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q2 · 2026</div>
-            <div class="milestone-title">
-              Lançamento Android + iOS · MVP
-              <span style="display: inline-block; margin-left: 6px; color: var(--primary);">✓</span>
-            </div>
-          </div>
-          <div class="milestone">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q3 · 2026</div>
-            <div class="milestone-title">
-              Mainnet 100k usuários · monetização ads
-            </div>
-          </div>
-          <div class="milestone">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q4 · 2026</div>
-            <div class="milestone-title">
-              SDK B2B · Sponsored Charging
-            </div>
-          </div>
-          <div class="milestone">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q1 · 2027</div>
-            <div class="milestone-title">
-              Expansão LATAM
-            </div>
           </div>
         </div>
 
@@ -2477,40 +2472,50 @@
       </div>
     </section>
 
-    <!-- SLIDE 5: COMO FUNCIONA ================================================ -->
-    <section class="slide slide-produto" data-slide="5" aria-label="Produto">
+    <!-- SLIDE 9: CRESCIMENTO / ROADMAP — 12 meses adiante ===================== -->
+    <section class="slide" data-slide="9" aria-label="Crescimento e roadmap">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; text-align: center;">
-          Plug. Validação. Ganhou. <span class="metal-text">Três passos, sem fricção.</span>
+        <p class="eyebrow">Crescimento</p>
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+          12 meses <span class="metal-text">adiante.</span>
         </h2>
 
-        <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); align-items: stretch;">
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-charging.png" alt="Tela de carregamento" />
+        <div class="timeline" style="margin-top: clamp(28px, 3.5vw, 44px);">
+          <div class="milestone done">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q2 · 2026</div>
+            <div class="milestone-title">
+              Lançamento Android + iOS · MVP
+              <span style="display: inline-block; margin-left: 6px; color: var(--primary);">✓</span>
             </div>
-            <h3 class="journey-step-title">Conectou o cabo.</h3>
           </div>
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-home.png" alt="Tela inicial — pontos" />
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q3 · 2026</div>
+            <div class="milestone-title">
+              Mainnet 100k usuários · monetização ads
             </div>
-            <h3 class="journey-step-title">Proof-of-Human-Activity.</h3>
           </div>
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-ranking.png" alt="Tela de ranking" />
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q4 · 2026</div>
+            <div class="milestone-title">
+              SDK B2B · Sponsored Charging
             </div>
-            <h3 class="journey-step-title">$JUICE na carteira.</h3>
+          </div>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q1 · 2027</div>
+            <div class="milestone-title">
+              Expansão LATAM
+            </div>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- SLIDE 9: CRESCIMENTO =================================================== -->
-    <!-- SLIDE 6: MOAT TÉCNICO (Bot não recarrega celular) ===================== -->
+    <!-- SLIDE 10: MOAT TÉCNICO (Bot não recarrega celular) ====================== -->
     <section class="slide" data-slide="10" aria-label="Moat Técnico">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">

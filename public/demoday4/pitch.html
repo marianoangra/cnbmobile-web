@@ -731,7 +731,6 @@
     /* === Corner logo (decorative, slides 4+) ============================
        Mantém a marca presente nos slides que não têm o wordmark hero. */
     .slide-corner-logo {
-      display: none;
       position: absolute;
       top: clamp(20px, 2.6vh, 32px);
       right: clamp(24px, 2.5vw, 40px);
@@ -1687,6 +1686,20 @@
       pointer-events: none;
       z-index: 2;
     }
+    /* Screen overlay — substitui a tela do template juice-phone-hero-blank.
+       Percentuais calibrados para o bezel do PNG (mesma técnica do counter
+       acima). Ajuste fino aqui se precisar afinar mais. */
+    .juice-phone-stage .juice-phone-screen-overlay {
+      position: absolute;
+      top: 3.4%;
+      left: 4.2%;
+      width: 91.6%;
+      height: 93.2%;
+      object-fit: cover;
+      border-radius: 11% / 5.4%;
+      z-index: 2;
+      pointer-events: none;
+    }
     /* When supported, lock font-size to a precise % of the stage width
        so the overlay scales 1:1 with the phone art at any viewport. */
     @supports (container-type: inline-size) {
@@ -1824,6 +1837,9 @@
     .slide-mapa h2 { max-width: 28ch; }
     /* Soften white-on-black to reduce TV halation */
     .metal-text { filter: brightness(0.96); }
+
+    /* Slide 2 já tem a logomarca grande no centro — esconder o canto */
+    .slide-solucao .slide-corner-logo { display: none; }
 
     /* Slide 5 — partner banners gentle float. Each banner drifts on its
        own phase so the grid breathes instead of moving in lockstep. */
@@ -1972,12 +1988,12 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <div class="solucao-grid"
-             style="display: grid; grid-template-columns: 1fr 1.1fr 0.7fr; gap: clamp(20px, 3vw, 48px); align-items: center; min-height: 72vh; transform: translateY(clamp(-96px, -10vh, -56px));">
+             style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 72px); align-items: center; min-height: 72vh; transform: translateY(clamp(-96px, -10vh, -56px));">
 
           <!-- Copy + store buttons -->
           <div class="solucao-copy" style="transform: translateY(-clamp(24px, 4vh, 56px));">
             <h2 style="font-size: clamp(28px, 3.6vw, 56px); font-weight: 900; line-height: 1.14; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.96); margin: 0 0 clamp(28px, 3.4vw, 44px);">
-              <span class="metal-text" style="white-space: nowrap;">Super App DePIN.</span><br /><span style="font-size: 0.6em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe.</span>
+              <span class="metal-text" style="white-space: nowrap;">Super App DePIN</span><br /><span style="font-size: 0.6em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe</span>
             </h2>
 
             <div style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); flex-wrap: wrap;">
@@ -2029,21 +2045,10 @@
             </div>
           </div>
 
-          <!-- Centro: logomarca JUICE grande, hero visual -->
+          <!-- Direita: logomarca JUICE como único elemento visual -->
           <div style="display: flex; align-items: center; justify-content: center;">
             <img src="brand/juice-wordmark-pitch.svg" alt="JUICE"
-                 style="width: clamp(240px, 32vw, 460px); height: auto; display: block; filter: drop-shadow(0 0 56px rgba(168, 219, 58, 0.45));" />
-          </div>
-
-          <!-- Direita: telefone pequeno -->
-          <div class="solucao-phone juice-phone-hero-wrap" style="display: flex; align-items: center; justify-content: center;">
-            <div class="juice-phone-stage" style="width: clamp(130px, 14vw, 220px);">
-              <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
-                   alt="JUICE app — tela inicial: pontos sobem ao vivo, ações rápidas, parceiros e atividades"
-                   style="width: 100%;" />
-              <span class="juice-phone-points" id="juice-phone-points"
-                    data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
-            </div>
+                 style="width: clamp(280px, 38vw, 540px); height: auto; display: block; filter: drop-shadow(0 0 56px rgba(168, 219, 58, 0.45));" />
           </div>
 
         </div>
@@ -2055,27 +2060,32 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; text-align: center;">
-          <span class="metal-text">Três passos, sem fricção.</span>
+          <span class="metal-text">Três passos sem fricção</span>
         </h2>
 
-        <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); align-items: stretch;">
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-charging.png" alt="Tela de carregamento" />
-            </div>
-            <h3 class="journey-step-title">Conectou o cabo.</h3>
+        <!-- JUICE phone hero — 3 unidades lado a lado -->
+        <div class="juice-phone-hero-wrap" style="display: flex; align-items: center; justify-content: center; gap: clamp(20px, 2.6vw, 40px); margin-top: clamp(18px, 2.4vw, 28px);">
+          <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
+                 alt="JUICE app — tela inicial: pontos sobem ao vivo, ações rápidas, parceiros e atividades"
+                 style="width: 100%;" />
+            <span class="juice-phone-points" id="juice-phone-points"
+                  data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-home.png" alt="Tela inicial — pontos" />
-            </div>
-            <h3 class="journey-step-title">Proof-of-Human-Activity.</h3>
+          <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
+                 alt="JUICE app — tela de carregamento ativa (+10 pts)"
+                 style="width: 100%;" />
+            <img class="juice-phone-screen-overlay"
+                 src="brand/juice-phone-screen-charging.jpg"
+                 alt="Tela de sessão de carregamento — Recompensa acumulada +10 pts"
+                 aria-hidden="true" />
           </div>
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-ranking.png" alt="Tela de ranking" />
-            </div>
-            <h3 class="journey-step-title">$JUICE na carteira.</h3>
+          <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
+                 alt="JUICE app — tela inicial (terceira vista)"
+                 style="width: 100%;" />
+            <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
         </div>
 

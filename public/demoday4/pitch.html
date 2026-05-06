@@ -1476,10 +1476,11 @@
     .timeline::before {
       content: '';
       position: absolute;
-      top: 12px;
+      top: 7px;
       left: 6%;
       right: 6%;
-      height: 2px;
+      height: 12px;
+      border-radius: 6px;
       background: linear-gradient(
         to right,
         var(--primary) 0%,
@@ -1487,6 +1488,7 @@
         rgba(168, 219, 58, 0.20) 25%,
         rgba(168, 219, 58, 0.20) 100%
       );
+      box-shadow: 0 0 18px rgba(168, 219, 58, 0.45);
     }
     .milestone {
       position: relative;
@@ -2027,7 +2029,7 @@
           <!-- Copy + store buttons -->
           <div class="solucao-copy" style="transform: translateY(-clamp(24px, 4vh, 56px));">
             <h2 style="font-size: clamp(28px, 3.6vw, 56px); font-weight: 900; line-height: 1.14; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.96); margin: 0 0 clamp(28px, 3.4vw, 44px);">
-              <span class="metal-text" style="white-space: nowrap;">Super App DePIN</span><br /><span style="font-size: 0.6em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe</span>
+              <span class="metal-text" style="white-space: nowrap;">SUPER APP DEPIN</span><br /><span style="font-size: 0.6em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe</span>
             </h2>
 
             <div style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); flex-wrap: wrap;">
@@ -2082,7 +2084,7 @@
           <!-- Direita: logomarca JUICE como único elemento visual -->
           <div style="display: flex; align-items: center; justify-content: center;">
             <img src="brand/juice-wordmark-pitch.svg" alt="JUICE"
-                 style="width: clamp(280px, 38vw, 540px); height: auto; display: block; filter: drop-shadow(0 0 56px rgba(168, 219, 58, 0.45));" />
+                 style="width: clamp(280px, 38vw, 540px); height: auto; display: block; filter: drop-shadow(0 0 28px rgba(168, 219, 58, 0.18));" />
           </div>
 
         </div>
@@ -2243,11 +2245,6 @@
           <!-- Iceberg hero -->
           <div style="position: relative; width: 100%; max-width: 720px; min-height: clamp(360px, 56vh, 560px);" aria-hidden="true">
 
-            <!-- Top zone label -->
-            <h2 style="position: absolute; left: 0; top: clamp(-56px, -4vh, -28px); font-size: clamp(18px, 1.9vw, 24px); letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); font-weight: 800; margin: 0; opacity: 0.95;">
-              ↑ Visível ao mercado
-            </h2>
-
             <!-- Iceberg SVG with depth + glow -->
             <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid meet"
                  style="position: absolute; inset: 0; width: 100%; height: 100%;">
@@ -2334,11 +2331,6 @@
               <line x1="430" y1="288" x2="520" y2="288" stroke="rgba(168, 219, 58, 0.15)" stroke-width="1" stroke-dasharray="2,6" />
             </svg>
 
-            <!-- Bottom zone label -->
-            <h2 style="position: absolute; left: 0; bottom: clamp(-56px, -4vh, -28px); font-size: clamp(18px, 1.9vw, 24px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255, 255, 255, 0.55); font-weight: 800; margin: 0;">
-              ↓ Infraestrutura proprietária
-            </h2>
-
             <!-- Iceberg flow arrows — connect below-water infra pills up to
                  above-water market pills. Sequential animation tells the
                  narrative "infra alimenta o produto visível". -->
@@ -2401,7 +2393,7 @@
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgba(255,255,255,0.7);" aria-hidden="true">
                 <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
               </svg>
-              <span style="font-size: clamp(12px, 1.2vw, 15px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92);">Raw data</span>
+              <span style="font-size: clamp(12px, 1.2vw, 15px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92);">Data Annotation</span>
             </div>
           </div>
 
@@ -2492,11 +2484,7 @@
       <div class="slide-inner">
         <p class="eyebrow">Moat técnico</p>
         <h2 class="metal-text">Bot não recarrega celular.</h2>
-        <p class="subtitle" style="margin-top: 20px;">
-          Sybil-resistance física, em camadas.
-        </p>
-
-        <div class="grid-2" style="margin-top: clamp(32px, 4vw, 48px); gap: clamp(20px, 3vw, 32px); align-items: stretch;">
+        <div class="grid-2" style="margin-top: clamp(14px, 1.6vw, 22px); gap: clamp(20px, 3vw, 32px); align-items: stretch;">
 
           <!-- COLUNA 1 — HOJE / EM PRODUÇÃO -->
           <div class="card" style="border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
@@ -2543,8 +2531,8 @@
 
           <!-- COLUNA 2 — Vídeo de demo do moat (12s loop, sem som) -->
           <div style="border-radius: 18px; overflow: hidden; border: 1px solid rgba(168, 219, 58, 0.26); background: #050805; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); position: relative; aspect-ratio: 16 / 11;">
-            <video src="moat-demo-12s.mp4"
-                   autoplay muted loop playsinline preload="metadata"
+            <video src="/demoday4/moat-demo-12s.mp4"
+                   autoplay muted loop playsinline preload="auto"
                    aria-label="Demo do moat técnico — 12s"
                    style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
           </div>
@@ -2757,7 +2745,22 @@
         current = n;
         deck.style.setProperty('--i', current);
         slides.forEach(function (s, i) {
-          s.classList.toggle('active', i === current);
+          var isActive = i === current;
+          s.classList.toggle('active', isActive);
+          // Auto-play videos on active slide; pause + reset on inactive slides
+          var v = s.querySelector('video');
+          if (v) {
+            if (isActive) {
+              v.muted = true;        // ensure muted (required for autoplay)
+              var p = v.play();
+              if (p && typeof p.catch === 'function') {
+                p.catch(function () { /* swallow autoplay block */ });
+              }
+            } else {
+              v.pause();
+              try { v.currentTime = 0; } catch (e) {}
+            }
+          }
         });
         dots.forEach(function (d, i) {
           d.classList.toggle('active', i === current);

@@ -1248,6 +1248,24 @@
     .slide-mercado.active .grid-3 .card:nth-child(2) { transition-delay: 500ms; }
     .slide-mercado.active .grid-3 .card:nth-child(3) { transition-delay: 800ms; }
 
+    /* Float contínuo dos 3 cards de mercado — começa após o reveal,
+       fases escalonadas pra dar respiração orgânica em vez de pulso
+       sincronizado. */
+    .slide-mercado.active .grid-3 .card {
+      animation: market-card-float 5.6s ease-in-out infinite;
+      animation-delay: 1.6s;
+      will-change: transform;
+    }
+    .slide-mercado.active .grid-3 .card:nth-child(2) { animation-delay: 2.4s; }
+    .slide-mercado.active .grid-3 .card:nth-child(3) { animation-delay: 3.2s; }
+    @keyframes market-card-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-7px) scale(1.012); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .slide-mercado.active .grid-3 .card { animation: none; }
+    }
+
     /* Bar grows horizontally from 0 to its inline width on slide reveal. */
     .slide-mercado .market-bar-fill {
       transform-origin: left center;
@@ -2127,7 +2145,7 @@
         </div>
 
         <!-- 3 banners de parceiros — alinhados abaixo dos cards de tração -->
-        <p class="eyebrow" style="margin-top: clamp(20px, 2.6vw, 32px); margin-bottom: 10px;">Parceiros Ativos</p>
+        <p class="eyebrow" style="margin-top: clamp(20px, 2.6vw, 32px); margin-bottom: 10px;">Publicidade Ativa</p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.4vw, 16px);">
           <div role="img" aria-label="BingX — Official Crypto Exchange Partner of Chelsea FC" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-bingx.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
           <div role="img" aria-label="X Pay — pagamentos USDT" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-xpay.png'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
@@ -2212,19 +2230,18 @@
     </section>
 
     <!-- SLIDE 6: WHY NOW ====================================================== -->
-    <section class="slide slide-why-now" data-slide="3" aria-label="Por que agora">
+    <section class="slide slide-why-now" data-slide="3" aria-label="Por que Solana">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <p class="eyebrow">Por que agora</p>
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
-          DePIN na Solana <span class="metal-text">já tracionou.</span>
+        <p class="eyebrow">Por que Solana</p>
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; max-width: none; white-space: nowrap;">
+          DePIN na Solana <span class="metal-text">prova de</span> <span style="color: #ffffff;">Atividade Humana</span>
         </h2>
 
         <div class="grid-3" style="margin-top: clamp(28px, 3.5vw, 44px); gap: clamp(16px, 2vw, 24px);">
 
           <!-- Card 01 — ZK Compression -->
           <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
-            <span style="position: absolute; top: clamp(14px, 1.6vw, 18px); right: clamp(14px, 1.6vw, 18px); font-family: 'Inter', system-ui; font-size: clamp(12px, 1.1vw, 14px); font-weight: 700; letter-spacing: 0.1em; color: var(--primary); opacity: 0.7;">01</span>
             <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
               <svg width="60%" height="60%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -2235,13 +2252,12 @@
             <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">ZK Compression<br />destrava escala</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
               <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">CLOAK</span>
-              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">SAS</span>
+              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">Attestations</span>
             </div>
           </div>
 
           <!-- Card 02 — Stack 100% Solana — exibe os logos reais (Kora + Solana) -->
           <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
-            <span style="position: absolute; top: clamp(14px, 1.6vw, 18px); right: clamp(14px, 1.6vw, 18px); font-family: 'Inter', system-ui; font-size: clamp(12px, 1.1vw, 14px); font-weight: 700; letter-spacing: 0.1em; color: var(--primary); opacity: 0.7;">02</span>
             <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(168, 219, 58, 0.22);">
               <img src="brand/solana-icon.png" alt="" aria-hidden="true" style="width: 100%; height: 100%; object-fit: cover;" />
             </div>
@@ -2260,7 +2276,6 @@
 
           <!-- Card 03 — Mobile + stablecoins maduros -->
           <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
-            <span style="position: absolute; top: clamp(14px, 1.6vw, 18px); right: clamp(14px, 1.6vw, 18px); font-family: 'Inter', system-ui; font-size: clamp(12px, 1.1vw, 14px); font-weight: 700; letter-spacing: 0.1em; color: var(--primary); opacity: 0.7;">03</span>
             <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
               <svg width="60%" height="60%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <rect x="6" y="2" width="12" height="20" rx="2"/>
@@ -2268,7 +2283,7 @@
                 <text x="12" y="14" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="currentColor" stroke="none">$</text>
               </svg>
             </div>
-            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">Mobile + stablecoins<br />maduros</h3>
+            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">Solana Mobile</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
               <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">Seeker Mobile</span>
             </div>
@@ -2477,7 +2492,7 @@
       <div class="slide-inner">
         <p class="eyebrow">Crescimento</p>
         <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
-          12 meses <span class="metal-text">adiante.</span>
+          Road <span class="metal-text">Map</span>
         </h2>
 
         <div class="timeline" style="margin-top: clamp(28px, 3.5vw, 44px);">

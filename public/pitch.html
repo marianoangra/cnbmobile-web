@@ -1247,6 +1247,47 @@
       box-shadow: 0 0 12px rgba(168, 219, 58, 0.5);
     }
 
+    /* Slide 4 (Mercado) — animated reveal + gentle floating motion.
+       (a) staggered fade-in/translate-up on slide active,
+       (b) continuous gentle vertical float per card with offset phases,
+       (c) market-bar fills horizontally from scaleX(0) to scaleX(1). */
+    .slide-mercado .grid-3 .card {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .slide-mercado.active .grid-3 .card {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-mercado.active .grid-3 .card:nth-child(1) { transition-delay: 200ms; }
+    .slide-mercado.active .grid-3 .card:nth-child(2) { transition-delay: 500ms; }
+    .slide-mercado.active .grid-3 .card:nth-child(3) { transition-delay: 800ms; }
+
+    /* Bar grows horizontally from 0 to its inline width on slide reveal. */
+    .slide-mercado .market-bar-fill {
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 1.4s cubic-bezier(0.65, 0, 0.35, 1);
+    }
+    .slide-mercado.active .market-bar-fill {
+      transform: scaleX(1);
+    }
+    .slide-mercado.active .grid-3 .card:nth-child(1) .market-bar-fill { transition-delay: 700ms; }
+    .slide-mercado.active .grid-3 .card:nth-child(2) .market-bar-fill { transition-delay: 1000ms; }
+    .slide-mercado.active .grid-3 .card:nth-child(3) .market-bar-fill { transition-delay: 1300ms; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide-mercado .grid-3 .card {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+      .slide-mercado.active .grid-3 .card { animation: none; }
+      .slide-mercado .market-bar-fill { transform: scaleX(1); transition: none; }
+    }
+
     /* Slide 6 — Onde estamos no mapa: lift content cluster (matches slide 1 feel) */
     .slide-mapa .slide-inner {
       margin-top: clamp(-80px, -7vh, -40px);
@@ -1320,7 +1361,7 @@
       justify-content: space-between;
     }
     .traction-label {
-      font-size: 11px;
+      font-size: clamp(16px, 2vw, 22px);
       letter-spacing: 0.3em;
       text-transform: uppercase;
       color: var(--primary);
@@ -1334,11 +1375,11 @@
       flex-wrap: wrap;
     }
     .traction-stats > span {
-      font-size: clamp(13px, 1.25vw, 15px);
+      font-size: clamp(22px, 2.6vw, 32px);
       color: rgba(255, 255, 255, 0.85);
     }
     .traction-source {
-      font-size: 10px;
+      font-size: clamp(11px, 1.05vw, 13px);
       letter-spacing: 0.06em;
       color: rgba(255, 255, 255, 0.4);
       margin: 0;
@@ -1438,6 +1479,110 @@
       margin-top: 6px;
       line-height: 1.4;
     }
+
+    /* Timeline animations — runs when the slide becomes active.
+       Theatrical mode: dramatic stagger reveal, double-ring pulse on the
+       done dot, brilliant scanner sweep along the connector line.
+       Each milestone gets a moment on stage. */
+    .timeline .milestone {
+      opacity: 0;
+      transform: translateY(28px) scale(0.96);
+      transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .slide.active .timeline .milestone {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .slide.active .timeline .milestone:nth-child(1) { transition-delay: 300ms; }
+    .slide.active .timeline .milestone:nth-child(2) { transition-delay: 750ms; }
+    .slide.active .timeline .milestone:nth-child(3) { transition-delay: 1200ms; }
+    .slide.active .timeline .milestone:nth-child(4) { transition-delay: 1650ms; }
+
+    /* Double-ring pulse — two concentric ripples expanding from the dot,
+       offset by half a cycle so the green halo is always alive. */
+    @keyframes milestoneDotPulse {
+      0% {
+        box-shadow: 0 0 24px var(--primary),
+                    0 0 0 0 rgba(0, 255, 127, 0.85),
+                    0 0 0 0 rgba(0, 255, 127, 0.55);
+      }
+      50% {
+        box-shadow: 0 0 36px var(--primary),
+                    0 0 0 12px rgba(0, 255, 127, 0.0),
+                    0 0 0 8px rgba(0, 255, 127, 0.25);
+      }
+      100% {
+        box-shadow: 0 0 24px var(--primary),
+                    0 0 0 22px rgba(0, 255, 127, 0.0),
+                    0 0 0 18px rgba(0, 255, 127, 0.0);
+      }
+    }
+    .slide.active .milestone.done .milestone-dot {
+      animation: milestoneDotPulse 3.2s ease-out 2.2s infinite;
+    }
+
+    /* Scanner sweep — wider, brighter glow with a faint trailing tail
+       that travels along the connector line from done → upcoming. */
+    .timeline::after {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 6%;
+      width: 110px;
+      height: 14px;
+      background: radial-gradient(ellipse at center,
+                  rgba(0, 255, 127, 1) 0%,
+                  rgba(0, 255, 127, 0.65) 25%,
+                  rgba(0, 255, 127, 0.20) 55%,
+                  transparent 80%);
+      opacity: 0;
+      pointer-events: none;
+      filter: blur(2px);
+      mix-blend-mode: screen;
+    }
+    .timeline::before {
+      /* Lift the connector line so the scanner reads on top */
+      z-index: 0;
+    }
+    .slide.active .timeline::after {
+      animation: timelineScan 6s cubic-bezier(0.65, 0, 0.35, 1) 2.4s infinite;
+    }
+    @keyframes timelineScan {
+      0%   { left: 6%;  opacity: 0; transform: scaleX(0.6); }
+      6%   { opacity: 1; transform: scaleX(1); }
+      82%  { opacity: 1; transform: scaleX(1); }
+      100% { left: 94%; opacity: 0; transform: scaleX(0.6); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .timeline .milestone {
+        transition: none;
+        opacity: 1;
+        transform: none;
+      }
+      .slide.active .milestone.done .milestone-dot { animation: none; }
+      .slide.active .timeline::after { animation: none; opacity: 0; }
+    }
+
+    /* Slide 2 (Solução) — gentle floating motion on the iPhone frame.
+       Subtle vertical drift + micro-rotation, suggests "alive". */
+    @keyframes solucaoPhoneFloat {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25%      { transform: translateY(-9px) rotate(0.5deg); }
+      50%      { transform: translateY(-14px) rotate(0deg); }
+      75%      { transform: translateY(-9px) rotate(-0.5deg); }
+    }
+    .slide-solucao .iphone-frame {
+      will-change: transform;
+    }
+    .slide-solucao.active .iphone-frame {
+      animation: solucaoPhoneFloat 5.6s ease-in-out 0.6s infinite;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .slide-solucao.active .iphone-frame { animation: none; }
+    }
+
     @media (max-width: 768px) {
       .timeline {
         grid-template-columns: 1fr;
@@ -1563,7 +1708,7 @@
     <section class="slide" data-slide="1" aria-label="R$ 42,7 bilhões em publicidade digital no Brasil em 2025">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner" style="text-align: center;">
-        <h2 style="font-size: clamp(32px, 4.8vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(28px, 4vh, 56px) auto 0;">
+        <h2 style="font-size: clamp(32px, 4.8vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(80px, 12vh, 180px) auto 0;">
           Publicidade digital no Brasil movimentou <span class="metal-text">US$ 9 bilhões</span> em 2025
         </h2>
       </div>
@@ -1573,17 +1718,17 @@
     </section>
 
     <!-- SLIDE 3: SOLUÇÃO ====================================================== -->
-    <section class="slide" data-slide="4" aria-label="A Solução">
+    <section class="slide slide-solucao" data-slide="4" aria-label="A Solução">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <div class="grid-2" style="align-items: flex-start;">
           <div style="text-align: center;">
-            <h2 style="font-size: clamp(32px, 4.8vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(28px, 4vh, 56px) auto 0;">
+            <h2 style="font-size: clamp(24px, 3.6vw, 56px); font-weight: 900; line-height: 1.2; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(80px, 12vh, 180px) auto 0;">
               Cada minuto carregando é validado, contabilizado e <span class="metal-text">recompensado on-chain</span>
             </h2>
 
             <!-- Store buttons — App Store · Google Play · Seeker -->
-            <div style="margin-top: clamp(20px, 2.6vw, 32px); display: flex; justify-content: center; align-items: center; gap: clamp(12px, 1.6vw, 20px); flex-wrap: wrap;">
+            <div style="margin-top: clamp(20px, 2.6vw, 32px); display: flex; justify-content: center; align-items: center; gap: clamp(8px, 1.2vw, 16px); flex-wrap: nowrap;">
               <a href="https://apps.apple.com/br/app/cnb-mobile/id6762065336" target="_blank" rel="noopener noreferrer"
                  aria-label="Download on the App Store"
                  style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
@@ -1650,20 +1795,20 @@
         <!-- 4 stat cards FIRST — biggest impact, Credible-style -->
         <div class="grid-4" style="margin-top: clamp(20px, 2.4vw, 32px); gap: clamp(10px, 1.4vw, 16px);">
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">4k</p>
-            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">4k</p>
+            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">460k+</p>
-            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">460k+</p>
+            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">10,2k</p>
-            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">$JUICE distribuídos</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">10,2k</p>
+            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">$JUICE distribuídos</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">+10k</p>
-            <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Downloads</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">+10k</p>
+            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Downloads</p>
           </div>
         </div>
 
@@ -1713,7 +1858,7 @@
       <div class="slide-inner">
         <p class="eyebrow" style="margin-bottom: 14px;">Mercado</p>
 
-        <div class="grid-3" style="margin-top: clamp(22px, 2.8vw, 36px);">
+        <div class="grid-3" style="margin-top: clamp(80px, 12vh, 180px);">
           <!-- TAM — Global digital ad spend -->
           <div class="card">
             <p class="market-tier">TAM · Global</p>
@@ -1742,10 +1887,10 @@
           </div>
         </div>
 
-        <p style="margin-top: clamp(28px, 3vw, 40px); font-size: 11px; color: var(--secondary); letter-spacing: 0.08em; opacity: 0.55;">
-          Fontes: WARC / Magna Global Ad Outlook 2025 · Statista LATAM Digital Advertising 2025 · IAB Brasil + Kantar Ibope, Digital Adspend 2026 · Anatel 2025.
-        </p>
       </div>
+      <p style="position: absolute; left: clamp(24px, 4vw, 56px); bottom: clamp(88px, 13vh, 180px); margin: 0; max-width: 60ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55; text-align: left;">
+        Fontes: WARC / Magna Global Ad Outlook 2025 · Statista LATAM Digital Advertising 2025 · IAB Brasil + Kantar Ibope, Digital Adspend 2026 · Anatel 2025.
+      </p>
     </section>
 
     <!-- SLIDE 5: WHY NOW — swapped to come after MERCADO ====================== -->
@@ -1753,9 +1898,6 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Por que agora</p>
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px);">
-          A janela técnica abriu em 2024.
-        </h2>
 
         <!-- Tração Solana DePIN — validação de tese (vem ANTES dos 3 pillars) -->
         <div class="traction-pillbar">
@@ -1773,9 +1915,6 @@
         <div class="grid-3" style="margin-top: clamp(28px, 3.5vw, 44px);">
           <div class="card pillar" style="border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
             <h3>ZK Compression destrava escala</h3>
-            <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-              Light Protocol entrega <strong style="color: #fff;">~5000× redução</strong> de custo de state. Janela técnica que não existia em 2023.
-            </p>
           </div>
           <div class="card pillar">
             <h3>Stack 100% Solana</h3>
@@ -1783,13 +1922,13 @@
               <strong style="color: #fff;">CLOAK</strong> ·
               <strong style="color: #fff;">Solana Pay/PIX</strong> ·
               <strong style="color: #fff;">KORA</strong> ·
-              <strong style="color: #fff;">Attestations</strong>. Stack 100% Solana-native.
+              <strong style="color: #fff;">Attestations</strong>.
             </p>
           </div>
           <div class="card pillar">
             <h3>Mobile + stablecoins maduros</h3>
             <p class="text-secondary" style="font-size: 14px; line-height: 1.55; margin: 0;">
-              <strong style="color: #fff;">Saga/Seeker</strong> + stablecoins com fees &lt; US$ 0,001. Mobile-native, banca quem não tem banco.
+              <strong style="color: #fff;">Saga/Seeker</strong>
             </p>
           </div>
         </div>
@@ -1861,40 +2000,25 @@
         <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; text-align: center;">
           Plug. Validação. Reward. <span class="metal-text">Três passos, sem fricção.</span>
         </h2>
-        <p style="margin: 12px auto 0; max-width: 64ch; text-align: center; font-size: clamp(13px, 1.2vw, 16px); color: rgba(255, 255, 255, 0.62); line-height: 1.55;">
-          Carregar é só o gatilho. <strong style="color: rgba(255, 255, 255, 0.88); font-weight: 700;">O produto vive dentro</strong> — missões, dados, comunidade.
-        </p>
 
         <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); align-items: stretch;">
           <div class="card journey-step">
-            <div class="journey-step-num">01 · Plug</div>
             <div class="iphone-frame">
               <img src="images/screen-charging.png" alt="Tela de carregamento" />
             </div>
             <h3 class="journey-step-title">Conectou o cabo.</h3>
-            <p class="journey-step-desc">
-              App detecta a sessão automaticamente. Sem cartão, sem assinatura.
-            </p>
           </div>
           <div class="card journey-step">
-            <div class="journey-step-num">02 · Validação</div>
             <div class="iphone-frame">
               <img src="images/screen-home.png" alt="Tela inicial — pontos" />
             </div>
             <h3 class="journey-step-title">Proof-of-Human-Activity.</h3>
-            <p class="journey-step-desc">
-              Cada minuto carregando vira prova física, validada on-chain na Solana.
-            </p>
           </div>
           <div class="card journey-step">
-            <div class="journey-step-num">03 · Reward</div>
             <div class="iphone-frame">
               <img src="images/screen-ranking.png" alt="Tela de ranking" />
             </div>
             <h3 class="journey-step-title">$JUICE na carteira.</h3>
-            <p class="journey-step-desc">
-              Saque cripto ou PIX direto. Liquidação em segundos.
-            </p>
           </div>
         </div>
 
@@ -2075,25 +2199,6 @@
             </div>
             <div style="flex: 0 0 auto;">
               <img src="images/qr-telegram-juice.png" alt="QR Code — Telegram JUICE Community" style="width: clamp(130px, 12vw, 160px); height: auto; display: block; border-radius: 14px; padding: 10px; background: #ffffff; box-shadow: 0 12px 32px rgba(168, 219, 58, 0.22), 0 0 0 1px rgba(168, 219, 58, 0.32);" />
-            </div>
-          </div>
-        </div>
-
-        <!-- ASK — what we need from Frontier Colosseum / Solana Foundation -->
-        <div style="margin-top: clamp(20px, 2.4vw, 28px); padding: clamp(16px, 2vw, 22px) clamp(20px, 2.4vw, 28px); border-radius: 18px; border: 1px solid rgba(168, 219, 58, 0.32); background: linear-gradient(135deg, rgba(168, 219, 58, 0.06) 0%, rgba(168, 219, 58, 0.01) 100%);">
-          <div style="display: flex; gap: clamp(16px, 2vw, 24px); align-items: center; flex-wrap: wrap;">
-            <p style="font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0; flex-shrink: 0;">
-              O que precisamos
-            </p>
-            <div style="flex: 1; min-width: 280px; display: flex; flex-wrap: wrap; gap: clamp(14px, 1.8vw, 22px); font-size: clamp(12px, 1.1vw, 14px); color: rgba(255, 255, 255, 0.86); line-height: 1.45;">
-              <span style="display: inline-flex; align-items: baseline; gap: 8px;">
-                <span style="color: var(--primary); font-weight: 700;">▸</span>
-                <span><strong style="color: #fff;">Grant + acceleration</strong> pra escalar de 4k → 100k MAU até Q3</span>
-              </span>
-              <span style="display: inline-flex; align-items: baseline; gap: 8px;">
-                <span style="color: var(--primary); font-weight: 700;">▸</span>
-                <span><strong style="color: #fff;">Solana Foundation</strong> pra parcerias B2B no Brasil</span>
-              </span>
             </div>
           </div>
         </div>

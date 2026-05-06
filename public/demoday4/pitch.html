@@ -1827,6 +1827,36 @@
     /* Slide 2 já tem a logomarca grande no centro — esconder o canto */
     .slide-solucao .slide-corner-logo { display: none; }
 
+    /* Slide 3 — phone 2 (charging) rotating green arc.
+       Posicionado sobre o anel central da tela de charging (lightning
+       bolt). Arco fino de borda verde que gira continuamente, dando
+       sensação de "carregando ao vivo". */
+    .juice-phone-stage .charging-arc {
+      position: absolute;
+      top: 24.3%;
+      left: 32.8%;
+      width: 42%;
+      aspect-ratio: 1;
+      border: 2px solid transparent;
+      border-top-color: #cbf35e;
+      border-right-color: #cbf35e;
+      border-radius: 50%;
+      box-shadow:
+        0 0 6px rgba(203, 243, 94, 0.65),
+        0 0 14px rgba(168, 219, 58, 0.35);
+      filter: drop-shadow(0 0 3px rgba(203, 243, 94, 0.5));
+      animation: charging-arc-spin 2.6s linear infinite;
+      pointer-events: none;
+      z-index: 2;
+      will-change: transform;
+    }
+    @keyframes charging-arc-spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .juice-phone-stage .charging-arc { animation: none; }
+    }
+
     /* Slide 5 — partner banners gentle float. Each banner drifts on its
        own phase so the grid breathes instead of moving in lockstep. */
     .partner-banner {
@@ -2062,6 +2092,7 @@
             <img class="juice-phone-hero" src="brand/juice-phone-hero-charging.png"
                  alt="JUICE app — sessão de carregamento ativa (+10 pts)"
                  style="width: 100%;" />
+            <div class="charging-arc" aria-hidden="true"></div>
           </div>
           <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
             <img class="juice-phone-hero" src="brand/juice-phone-hero-ranking.png"
@@ -2082,17 +2113,24 @@
         <!-- 3 stat cards FIRST — biggest impact, Credible-style -->
         <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); gap: clamp(10px, 1.4vw, 16px);">
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">4k</p>
-            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0; color: #ffffff;">4k</p>
+            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;"><span id="minutos-counter" data-from="460" data-to="468">460</span>k+</p>
-            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0; color: #ffffff;"><span id="minutos-counter" data-from="460" data-to="468">460</span>k+</p>
+            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">+10k</p>
-            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Downloads</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0; color: #ffffff;">+10k</p>
+            <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; font-weight: 700; margin: 6px 0 1px;">Downloads</p>
           </div>
+        </div>
+
+        <!-- 3 banners de parceiros — alinhados abaixo dos cards de tração -->
+        <div style="margin-top: clamp(18px, 2.2vw, 28px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.4vw, 16px);">
+          <div role="img" aria-label="BingX — Official Crypto Exchange Partner of Chelsea FC" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-bingx.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
+          <div role="img" aria-label="X Pay — pagamentos USDT" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-xpay.png'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
+          <div role="img" aria-label="KAST — Visa Platinum crypto card" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-kast.png'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
         </div>
 
       </div>

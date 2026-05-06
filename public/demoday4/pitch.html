@@ -1248,24 +1248,6 @@
     .slide-mercado.active .grid-3 .card:nth-child(2) { transition-delay: 500ms; }
     .slide-mercado.active .grid-3 .card:nth-child(3) { transition-delay: 800ms; }
 
-    /* Float contínuo dos 3 cards de mercado — começa após o reveal,
-       fases escalonadas pra dar respiração orgânica em vez de pulso
-       sincronizado. */
-    .slide-mercado.active .grid-3 .card {
-      animation: market-card-float 5.6s ease-in-out infinite;
-      animation-delay: 1.6s;
-      will-change: transform;
-    }
-    .slide-mercado.active .grid-3 .card:nth-child(2) { animation-delay: 2.4s; }
-    .slide-mercado.active .grid-3 .card:nth-child(3) { animation-delay: 3.2s; }
-    @keyframes market-card-float {
-      0%, 100% { transform: translateY(0) scale(1); }
-      50%      { transform: translateY(-7px) scale(1.012); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .slide-mercado.active .grid-3 .card { animation: none; }
-    }
-
     /* Bar grows horizontally from 0 to its inline width on slide reveal. */
     .slide-mercado .market-bar-fill {
       transform-origin: left center;
@@ -1845,6 +1827,24 @@
     /* Slide 2 já tem a logomarca grande no centro — esconder o canto */
     .slide-solucao .slide-corner-logo { display: none; }
 
+    /* Slide 4 — partner banners (Solflare / X Pay / BingX) gentle
+       float. Same pattern as the partner-banner class — translateY
+       + scale leve com fases escalonadas. */
+    .tracao-banner {
+      animation: tracao-banner-float 6.4s ease-in-out infinite;
+      will-change: transform;
+    }
+    .tracao-banner:nth-child(1) { animation-delay: 0s;   }
+    .tracao-banner:nth-child(2) { animation-delay: 0.9s; }
+    .tracao-banner:nth-child(3) { animation-delay: 1.8s; }
+    @keyframes tracao-banner-float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50%      { transform: translateY(-7px) scale(1.014); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .tracao-banner { animation: none; }
+    }
+
     /* Slide 3 — phone 2 (charging) rotating green arc.
        Posicionado sobre o anel central da tela de charging (lightning
        bolt). Arco fino de borda verde que gira continuamente, dando
@@ -2031,31 +2031,6 @@
             </h2>
 
             <div style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); flex-wrap: wrap;">
-              <a href="https://apps.apple.com/br/app/cnb-mobile/id6762065336" target="_blank" rel="noopener noreferrer"
-                 aria-label="Download on the App Store"
-                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
-                <svg viewBox="0 0 24 24" width="18" height="18" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path d="M17.05 12.04c-.03-3.16 2.58-4.68 2.7-4.75-1.47-2.15-3.76-2.45-4.57-2.49-1.95-.2-3.8 1.15-4.79 1.15-.99 0-2.51-1.12-4.13-1.09-2.13.03-4.09 1.24-5.18 3.14-2.21 3.83-.57 9.5 1.59 12.61 1.05 1.52 2.31 3.23 3.96 3.17 1.59-.06 2.19-1.03 4.11-1.03 1.92 0 2.46 1.03 4.14.99 1.71-.03 2.79-1.55 3.83-3.08 1.21-1.77 1.71-3.49 1.74-3.58-.04-.02-3.34-1.28-3.4-5.04zM13.92 3.05C14.79 1.99 15.38.52 15.21-.95c-1.26.05-2.79.84-3.69 1.89-.81.94-1.51 2.44-1.32 3.88 1.4.11 2.84-.71 3.72-1.77z" />
-                </svg>
-                <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
-                  <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Download on the</span>
-                  <span style="font-size: 12px; font-weight: 600; color: #fff;">App Store</span>
-                </span>
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.cnb.cnbappv2" target="_blank" rel="noopener noreferrer"
-                 aria-label="Get it on Google Play"
-                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
-                <svg viewBox="0 0 512 512" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                  <path fill="#00d4ff" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"/>
-                  <path fill="#ffce00" d="m104.6 499 220.7-221.3 60.1 60.1L104.6 499z"/>
-                  <path fill="#ff3a44" d="m385.4 337.8-60.1-60.1 76.7-76.7 76.7 44.1c19.5 11 19.5 33.3 0 44.4l-93.3 48.3z"/>
-                  <path fill="#00f076" d="M104.6 13c-7.4 5.4-12.9 13.6-12.9 24.2v437.5c0 10.6 5.5 18.8 12.9 24.2l220.7-221.3L104.6 13z"/>
-                </svg>
-                <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
-                  <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Get it on</span>
-                  <span style="font-size: 12px; font-weight: 600; color: #fff;">Google Play</span>
-                </span>
-              </a>
               <a href="https://solanamobile.com/seeker" target="_blank" rel="noopener noreferrer"
                  aria-label="Get it on Seeker — Solana Mobile"
                  style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
@@ -2074,6 +2049,31 @@
                 <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
                   <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Get it on</span>
                   <span style="font-size: 12px; font-weight: 600; color: #fff;">Seeker</span>
+                </span>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.cnb.cnbappv2" target="_blank" rel="noopener noreferrer"
+                 aria-label="Get it on Google Play"
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                <svg viewBox="0 0 512 512" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="#00d4ff" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"/>
+                  <path fill="#ffce00" d="m104.6 499 220.7-221.3 60.1 60.1L104.6 499z"/>
+                  <path fill="#ff3a44" d="m385.4 337.8-60.1-60.1 76.7-76.7 76.7 44.1c19.5 11 19.5 33.3 0 44.4l-93.3 48.3z"/>
+                  <path fill="#00f076" d="M104.6 13c-7.4 5.4-12.9 13.6-12.9 24.2v437.5c0 10.6 5.5 18.8 12.9 24.2l220.7-221.3L104.6 13z"/>
+                </svg>
+                <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
+                  <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Get it on</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #fff;">Google Play</span>
+                </span>
+              </a>
+              <a href="https://apps.apple.com/br/app/cnb-mobile/id6762065336" target="_blank" rel="noopener noreferrer"
+                 aria-label="Download on the App Store"
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 40px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M17.05 12.04c-.03-3.16 2.58-4.68 2.7-4.75-1.47-2.15-3.76-2.45-4.57-2.49-1.95-.2-3.8 1.15-4.79 1.15-.99 0-2.51-1.12-4.13-1.09-2.13.03-4.09 1.24-5.18 3.14-2.21 3.83-.57 9.5 1.59 12.61 1.05 1.52 2.31 3.23 3.96 3.17 1.59-.06 2.19-1.03 4.11-1.03 1.92 0 2.46 1.03 4.14.99 1.71-.03 2.79-1.55 3.83-3.08 1.21-1.77 1.71-3.49 1.74-3.58-.04-.02-3.34-1.28-3.4-5.04zM13.92 3.05C14.79 1.99 15.38.52 15.21-.95c-1.26.05-2.79.84-3.69 1.89-.81.94-1.51 2.44-1.32 3.88 1.4.11 2.84-.71 3.72-1.77z" />
+                </svg>
+                <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
+                  <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Download on the</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #fff;">App Store</span>
                 </span>
               </a>
             </div>
@@ -2147,9 +2147,9 @@
         <!-- 3 banners de parceiros — alinhados abaixo dos cards de tração -->
         <p class="eyebrow" style="margin-top: clamp(20px, 2.6vw, 32px); margin-bottom: 10px;">Publicidade Ativa</p>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.4vw, 16px);">
-          <div role="img" aria-label="BingX — Official Crypto Exchange Partner of Chelsea FC" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-bingx.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
-          <div role="img" aria-label="X Pay — pagamentos USDT" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-xpay.png'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
-          <div role="img" aria-label="Solflare — wallet Solana" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-solflare.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #000; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
+          <div class="tracao-banner" role="img" aria-label="Solflare — wallet Solana" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-solflare.png'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #000; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
+          <div class="tracao-banner" role="img" aria-label="X Pay — pagamentos USDT" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-xpay.png'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
+          <div class="tracao-banner" role="img" aria-label="BingX — Official Crypto Exchange Partner of Chelsea FC" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-bingx.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
         </div>
 
       </div>
@@ -2229,70 +2229,7 @@
       </p>
     </section>
 
-    <!-- SLIDE 6: WHY NOW ====================================================== -->
-    <section class="slide slide-why-now" data-slide="3" aria-label="Por que Solana">
-      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
-      <div class="slide-inner">
-        <p class="eyebrow">Por que Solana</p>
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; max-width: none; white-space: nowrap;">
-          DePIN na Solana <span class="metal-text">prova de</span> <span style="color: #ffffff;">Atividade Humana</span>
-        </h2>
-
-        <div class="grid-3" style="margin-top: clamp(28px, 3.5vw, 44px); gap: clamp(16px, 2vw, 24px);">
-
-          <!-- Card 01 — ZK Compression -->
-          <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
-            <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
-              <svg width="60%" height="60%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                <rect x="7" y="7" width="10" height="10" rx="1"/>
-                <rect x="10" y="10" width="4" height="4"/>
-              </svg>
-            </div>
-            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">ZK Compression<br />destrava escala</h3>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
-              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">CLOAK</span>
-              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">Attestations</span>
-            </div>
-          </div>
-
-          <!-- Card 02 — Stack 100% Solana — exibe os logos reais (Kora + Solana) -->
-          <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
-            <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(168, 219, 58, 0.22);">
-              <img src="brand/solana-icon.png" alt="" aria-hidden="true" style="width: 100%; height: 100%; object-fit: cover;" />
-            </div>
-            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">Stack 100% Solana</h3>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
-              <span style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">
-                <img src="brand/kora-icon.png" alt="Kora" style="width: 22px; height: 22px; border-radius: 6px; display: block;" />
-                KORA
-              </span>
-              <span style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">
-                <img src="brand/solana-icon.png" alt="Solana" style="width: 22px; height: 22px; border-radius: 6px; display: block;" />
-                Solana Pay/PIX
-              </span>
-            </div>
-          </div>
-
-          <!-- Card 03 — Mobile + stablecoins maduros -->
-          <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
-            <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
-              <svg width="60%" height="60%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
-                <rect x="6" y="2" width="12" height="20" rx="2"/>
-                <line x1="12" y1="18" x2="12" y2="18"/>
-                <text x="12" y="14" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="currentColor" stroke="none">$</text>
-              </svg>
-            </div>
-            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">Solana Mobile</h3>
-            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
-              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">Seeker Mobile</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 8: MODELO DE NEGÓCIO — Iceberg viz refinada.
+    <!-- SLIDE 6: MODELO DE NEGÓCIO — Iceberg viz refinada.
          Visual hero: glow radial + iceberg multi-facetado + chips com blur,
          linha d'água com glow, reflexo sutil. Income streams num card
          elegante com numeração ordinal. -->
@@ -2301,10 +2238,10 @@
       <div class="slide-inner">
         <p class="eyebrow">Modelo de Negócio</p>
 
-        <div style="margin-top: clamp(56px, 7vh, 88px); display: grid; grid-template-columns: minmax(0, 1.4fr) clamp(240px, 28vw, 320px); gap: clamp(28px, 4vw, 56px); align-items: center;">
+        <div style="margin-top: clamp(56px, 7vh, 88px); display: flex; justify-content: center; align-items: center;">
 
           <!-- Iceberg hero -->
-          <div style="position: relative; min-height: clamp(360px, 56vh, 560px);" aria-hidden="true">
+          <div style="position: relative; width: 100%; max-width: 720px; min-height: clamp(360px, 56vh, 560px);" aria-hidden="true">
 
             <!-- Top zone label -->
             <h2 style="position: absolute; left: 0; top: clamp(-56px, -4vh, -28px); font-size: clamp(18px, 1.9vw, 24px); letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); font-weight: 800; margin: 0; opacity: 0.95;">
@@ -2315,21 +2252,27 @@
             <svg viewBox="0 0 600 560" preserveAspectRatio="xMidYMid meet"
                  style="position: absolute; inset: 0; width: 100%; height: 100%;">
               <defs>
-                <linearGradient id="ice-peak-grad" x1="0.5" y1="0" x2="0.5" y2="1">
-                  <stop offset="0%"   stop-color="rgba(220, 245, 175, 0.5)" />
-                  <stop offset="40%"  stop-color="rgba(168, 219, 58, 0.28)" />
-                  <stop offset="100%" stop-color="rgba(168, 219, 58, 0.10)" />
+                <!-- 3D bolt body — diagonal lime gradient (light top-left → dark bottom-right) -->
+                <linearGradient id="bolt-body-grad" x1="0.2" y1="0" x2="0.85" y2="1">
+                  <stop offset="0%"   stop-color="#f4faca" />
+                  <stop offset="28%"  stop-color="#d4e87a" />
+                  <stop offset="55%"  stop-color="#a8db3a" />
+                  <stop offset="85%"  stop-color="#5e8520" />
+                  <stop offset="100%" stop-color="#3a5310" />
                 </linearGradient>
-                <linearGradient id="ice-base-grad" x1="0.3" y1="0" x2="0.7" y2="1">
-                  <stop offset="0%"   stop-color="rgba(168, 219, 58, 0.18)" />
-                  <stop offset="50%"  stop-color="rgba(94, 145, 200, 0.10)" />
-                  <stop offset="100%" stop-color="rgba(168, 219, 58, 0.05)" />
+                <!-- Front-face highlight — mimics light catching the left edge -->
+                <linearGradient id="bolt-highlight-grad" x1="0" y1="0" x2="1" y2="0.4">
+                  <stop offset="0%"   stop-color="rgba(255, 255, 255, 0.55)" />
+                  <stop offset="40%"  stop-color="rgba(255, 255, 255, 0.18)" />
+                  <stop offset="100%" stop-color="rgba(255, 255, 255, 0)" />
                 </linearGradient>
-                <radialGradient id="ice-aura" cx="0.5" cy="0.5" r="0.55">
-                  <stop offset="0%"   stop-color="rgba(168, 219, 58, 0.20)" />
-                  <stop offset="60%"  stop-color="rgba(168, 219, 58, 0.04)" />
+                <!-- Soft outer aura -->
+                <radialGradient id="bolt-aura" cx="0.5" cy="0.5" r="0.55">
+                  <stop offset="0%"   stop-color="rgba(168, 219, 58, 0.32)" />
+                  <stop offset="55%"  stop-color="rgba(168, 219, 58, 0.08)" />
                   <stop offset="100%" stop-color="transparent" />
                 </radialGradient>
+                <!-- Water line gradient -->
                 <linearGradient id="water-line-grad" x1="0" y1="0" x2="1" y2="0">
                   <stop offset="0%"   stop-color="rgba(168, 219, 58, 0.05)" />
                   <stop offset="20%"  stop-color="rgba(168, 219, 58, 0.55)" />
@@ -2340,33 +2283,44 @@
                 <filter id="soft-glow" x="-50%" y="-50%" width="200%" height="200%">
                   <feGaussianBlur stdDeviation="8" />
                 </filter>
+                <filter id="bolt-blur-glow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="14" />
+                </filter>
               </defs>
 
-              <!-- Soft aura behind iceberg -->
-              <ellipse cx="300" cy="290" rx="280" ry="220" fill="url(#ice-aura)" />
+              <!-- Outer aura — soft halo behind the bolt -->
+              <ellipse cx="300" cy="290" rx="280" ry="240" fill="url(#bolt-aura)" />
 
-              <!-- Above water — peak with inner facet -->
-              <path d="M 300 40 L 200 280 L 400 280 Z"
-                    fill="url(#ice-peak-grad)"
-                    stroke="rgba(168, 219, 58, 0.65)"
-                    stroke-width="1.8"
-                    stroke-linejoin="round" />
-              <!-- Inner facet highlight -->
-              <path d="M 300 70 L 250 260 L 300 260 Z"
-                    fill="rgba(255, 255, 255, 0.08)" stroke="none" />
+              <!-- Bolt blurred backdrop — creates the radiant glow -->
+              <path d="M 340 40 L 190 280 L 290 280 L 250 520 L 410 280 L 310 280 Z"
+                    fill="rgba(168, 219, 58, 0.42)"
+                    filter="url(#bolt-blur-glow)" />
 
-              <!-- Below water — base with depth + inner facet -->
-              <path d="M 200 280 L 100 540 L 500 540 L 400 280 Z"
-                    fill="url(#ice-base-grad)"
-                    stroke="rgba(168, 219, 58, 0.30)"
-                    stroke-width="1.2"
-                    stroke-dasharray="6,5"
+              <!-- Drop shadow (subtle, offset down-right) -->
+              <path d="M 340 40 L 190 280 L 290 280 L 250 520 L 410 280 L 310 280 Z"
+                    fill="rgba(0, 0, 0, 0.45)"
+                    transform="translate(6, 14)"
+                    filter="url(#soft-glow)"
+                    opacity="0.7" />
+
+              <!-- Main bolt body — gradient gives the 3D form -->
+              <path d="M 340 40 L 190 280 L 290 280 L 250 520 L 410 280 L 310 280 Z"
+                    fill="url(#bolt-body-grad)"
+                    stroke="rgba(255, 255, 255, 0.32)"
+                    stroke-width="1.5"
                     stroke-linejoin="round" />
-              <!-- Inner facet on base -->
-              <path d="M 200 280 L 175 410 L 240 540 L 100 540 Z"
-                    fill="rgba(255, 255, 255, 0.04)" stroke="none" />
-              <path d="M 400 280 L 425 410 L 360 540 L 500 540 Z"
-                    fill="rgba(0, 0, 0, 0.10)" stroke="none" />
+
+              <!-- 3D facet — front face highlight (left edge of bolt) -->
+              <path d="M 340 40 L 215 268 L 280 268 L 290 280 L 250 520 L 252 510 L 287 270 L 295 270 L 340 40 Z"
+                    fill="url(#bolt-highlight-grad)"
+                    opacity="0.85" />
+
+              <!-- Inner core highlight — bright spine down the bolt -->
+              <path d="M 332 70 L 270 250 L 280 250 L 252 480"
+                    stroke="rgba(255, 255, 255, 0.42)"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round" />
 
               <!-- Water line — glow + crisp line layered -->
               <line x1="0" y1="280" x2="600" y2="280"
@@ -2376,8 +2330,8 @@
                     stroke="url(#water-line-grad)" stroke-width="1.5" />
 
               <!-- Water reflection ripples (subtle) -->
-              <line x1="80" y1="288" x2="220" y2="288" stroke="rgba(168, 219, 58, 0.15)" stroke-width="1" stroke-dasharray="2,6" />
-              <line x1="380" y1="288" x2="520" y2="288" stroke="rgba(168, 219, 58, 0.15)" stroke-width="1" stroke-dasharray="2,6" />
+              <line x1="80" y1="288" x2="170" y2="288" stroke="rgba(168, 219, 58, 0.15)" stroke-width="1" stroke-dasharray="2,6" />
+              <line x1="430" y1="288" x2="520" y2="288" stroke="rgba(168, 219, 58, 0.15)" stroke-width="1" stroke-dasharray="2,6" />
             </svg>
 
             <!-- Bottom zone label -->
@@ -2410,7 +2364,7 @@
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <path d="M5 12h14M13 5l7 7-7 7"/>
               </svg>
-              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; color: #fff;">User on-ramp</span>
+              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; color: #fff;">Entrada</span>
             </div>
 
             <div style="position: absolute; right: 2%; top: 16%; display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.40); background: rgba(168, 219, 58, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(168, 219, 58, 0.10);">
@@ -2451,92 +2405,95 @@
             </div>
           </div>
 
-          <!-- Income streams card — elegant numbered list -->
-          <aside style="padding: clamp(20px, 2.4vw, 28px); border-radius: 20px; border: 1px solid rgba(168, 219, 58, 0.24); background: linear-gradient(160deg, rgba(168, 219, 58, 0.08) 0%, rgba(168, 219, 58, 0.015) 60%, rgba(168, 219, 58, 0.04) 100%); box-shadow: 0 8px 40px rgba(168, 219, 58, 0.08); display: flex; flex-direction: column;">
-            <p style="font-size: clamp(11px, 1.1vw, 14px); letter-spacing: 0.32em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0;">
-              Available Income
-            </p>
-            <p style="font-size: clamp(12px, 1.1vw, 14px); color: rgba(255, 255, 255, 0.5); margin: 6px 0 22px; line-height: 1.4;">
-              Como a JUICE monetiza o dado humano.
-            </p>
-            <ol style="list-style: none; counter-reset: stream; padding: 0; margin: 0; display: flex; flex-direction: column; gap: clamp(10px, 1.2vw, 14px);">
-              <li style="counter-increment: stream; display: flex; align-items: center; gap: 12px; padding-bottom: clamp(10px, 1.2vw, 14px); border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: clamp(24px, 2.2vw, 30px); height: clamp(24px, 2.2vw, 30px); border-radius: 8px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.32); font-size: clamp(11px, 1vw, 13px); font-weight: 700; color: var(--primary); font-family: 'Inter', system-ui;">01</span>
-                <span style="font-size: clamp(15px, 1.5vw, 19px); color: rgba(255, 255, 255, 0.94); font-weight: 600;">Data Annotation</span>
-              </li>
-              <li style="counter-increment: stream; display: flex; align-items: center; gap: 12px; padding-bottom: clamp(10px, 1.2vw, 14px); border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: clamp(24px, 2.2vw, 30px); height: clamp(24px, 2.2vw, 30px); border-radius: 8px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.32); font-size: clamp(11px, 1vw, 13px); font-weight: 700; color: var(--primary); font-family: 'Inter', system-ui;">02</span>
-                <span style="font-size: clamp(15px, 1.5vw, 19px); color: rgba(255, 255, 255, 0.94); font-weight: 600;">Prediction</span>
-              </li>
-              <li style="counter-increment: stream; display: flex; align-items: center; gap: 12px; padding-bottom: clamp(10px, 1.2vw, 14px); border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: clamp(24px, 2.2vw, 30px); height: clamp(24px, 2.2vw, 30px); border-radius: 8px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.32); font-size: clamp(11px, 1vw, 13px); font-weight: 700; color: var(--primary); font-family: 'Inter', system-ui;">03</span>
-                <span style="font-size: clamp(15px, 1.5vw, 19px); color: rgba(255, 255, 255, 0.94); font-weight: 600;">Social Media</span>
-              </li>
-              <li style="counter-increment: stream; display: flex; align-items: center; gap: 12px; padding-bottom: clamp(10px, 1.2vw, 14px); border-bottom: 1px solid rgba(255, 255, 255, 0.06);">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: clamp(24px, 2.2vw, 30px); height: clamp(24px, 2.2vw, 30px); border-radius: 8px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.32); font-size: clamp(11px, 1vw, 13px); font-weight: 700; color: var(--primary); font-family: 'Inter', system-ui;">04</span>
-                <span style="font-size: clamp(15px, 1.5vw, 19px); color: rgba(255, 255, 255, 0.94); font-weight: 600;">Gaming</span>
-              </li>
-              <li style="counter-increment: stream; display: flex; align-items: center; gap: 12px;">
-                <span style="display: inline-flex; align-items: center; justify-content: center; width: clamp(24px, 2.2vw, 30px); height: clamp(24px, 2.2vw, 30px); border-radius: 8px; background: rgba(168, 219, 58, 0.20); border: 1px solid rgba(168, 219, 58, 0.55); font-size: clamp(11px, 1vw, 13px); font-weight: 700; color: var(--primary); font-family: 'Inter', system-ui;">05</span>
-                <span style="font-size: clamp(15px, 1.5vw, 19px); color: #fff; font-weight: 700;">$JUICE Yield</span>
-              </li>
-            </ol>
-          </aside>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 9: CRESCIMENTO / ROADMAP — 12 meses adiante ===================== -->
-    <section class="slide" data-slide="9" aria-label="Crescimento e roadmap">
+    <!-- SLIDE 7: WHY NOW — moved after MODELO ================================= -->
+    <section class="slide slide-why-now" data-slide="3" aria-label="Por que Solana">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <p class="eyebrow">Crescimento</p>
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
-          Road <span class="metal-text">Map</span>
+        <p class="eyebrow">Por que Solana</p>
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; max-width: none; white-space: nowrap;">
+          DePIN na Solana <span class="metal-text">prova de</span> <span style="color: #ffffff; -webkit-text-fill-color: #ffffff; background: none;">Atividade Humana</span>
         </h2>
 
-        <div class="timeline" style="margin-top: clamp(28px, 3.5vw, 44px);">
-          <div class="milestone done">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q2 · 2026</div>
-            <div class="milestone-title">
-              Lançamento Android + iOS · MVP
-              <span style="display: inline-block; margin-left: 6px; color: var(--primary);">✓</span>
+        <div class="grid-3" style="margin-top: clamp(28px, 3.5vw, 44px); gap: clamp(16px, 2vw, 24px);">
+
+          <!-- Card 01 — ZK Compression -->
+          <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
+            <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
+              <svg width="60%" height="60%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="solana-icon-grad-card1" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#eaf5b8"/>
+                    <stop offset="50%" stop-color="#a8db3a"/>
+                    <stop offset="100%" stop-color="#5e8520"/>
+                  </linearGradient>
+                </defs>
+                <path d="M4.5 17.6 L7.6 14.5 L20 14.5 L16.9 17.6 Z" fill="url(#solana-icon-grad-card1)"/>
+                <path d="M4.5 12 L7.6 8.9 L20 8.9 L16.9 12 Z" fill="url(#solana-icon-grad-card1)"/>
+                <path d="M4.5 6.4 L7.6 3.3 L20 3.3 L16.9 6.4 Z" fill="url(#solana-icon-grad-card1)"/>
+              </svg>
+            </div>
+            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">ZK Compression<br />destrava escala</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
+              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">CLOAK</span>
+              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">Attestations</span>
             </div>
           </div>
-          <div class="milestone">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q3 · 2026</div>
-            <div class="milestone-title">
-              Mainnet 100k usuários · monetização ads
+
+          <!-- Card 02 — Stack 100% Solana -->
+          <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
+            <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(168, 219, 58, 0.22);">
+              <img src="brand/solana-icon.png" alt="" aria-hidden="true" style="width: 100%; height: 100%; object-fit: cover;" />
+            </div>
+            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">Stack 100% Solana</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
+              <span style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">
+                <img src="brand/kora-icon.png" alt="Kora" style="width: 22px; height: 22px; border-radius: 6px; display: block;" />
+                KORA
+              </span>
+              <span style="display: inline-flex; align-items: center; gap: 8px; padding: 4px 12px 4px 4px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">
+                <img src="brand/solana-icon.png" alt="Solana" style="width: 22px; height: 22px; border-radius: 6px; display: block;" />
+                Solana Pay/PIX
+              </span>
             </div>
           </div>
-          <div class="milestone">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q4 · 2026</div>
-            <div class="milestone-title">
-              SDK B2B · Sponsored Charging
+
+          <!-- Card 03 — Solana Mobile -->
+          <div class="card pillar why-now-card" style="position: relative; display: flex; flex-direction: column; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
+            <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(168, 219, 58, 0.22); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
+              <svg width="60%" height="60%" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <linearGradient id="solana-icon-grad-card3" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stop-color="#9945ff"/>
+                    <stop offset="50%" stop-color="#14f195"/>
+                    <stop offset="100%" stop-color="#19fb9b"/>
+                  </linearGradient>
+                </defs>
+                <path d="M4.5 17.6 L7.6 14.5 L20 14.5 L16.9 17.6 Z" fill="url(#solana-icon-grad-card3)"/>
+                <path d="M4.5 12 L7.6 8.9 L20 8.9 L16.9 12 Z" fill="url(#solana-icon-grad-card3)"/>
+                <path d="M4.5 6.4 L7.6 3.3 L20 3.3 L16.9 6.4 Z" fill="url(#solana-icon-grad-card3)"/>
+              </svg>
             </div>
-          </div>
-          <div class="milestone">
-            <div class="milestone-dot"></div>
-            <div class="milestone-quarter">Q1 · 2027</div>
-            <div class="milestone-title">
-              Expansão LATAM
+            <h3 style="margin: 0 0 clamp(14px, 1.5vw, 18px); font-size: clamp(20px, 1.9vw, 26px); font-weight: 800; line-height: 1.22; color: rgba(255, 255, 255, 0.96); letter-spacing: -0.01em;">Solana Mobile</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: auto;">
+              <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">Seeker Mobile</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 10: MOAT TÉCNICO (Bot não recarrega celular) ====================== -->
+    <!-- SLIDE 8: MOAT TÉCNICO (Bot não recarrega celular) — moved up ============ -->
     <section class="slide" data-slide="10" aria-label="Moat Técnico">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Moat técnico</p>
         <h2 class="metal-text">Bot não recarrega celular.</h2>
         <p class="subtitle" style="margin-top: 20px;">
-          Sybil-resistance física, em camadas. 5 defesas no ar hoje · 3 em rollout.
+          Sybil-resistance física, em camadas.
         </p>
 
         <div class="grid-2" style="margin-top: clamp(32px, 4vw, 48px); gap: clamp(20px, 3vw, 32px); align-items: stretch;">
@@ -2584,37 +2541,57 @@
             </div>
           </div>
 
-          <!-- COLUNA 2 — EM ROLLOUT -->
-          <div class="card" style="border-color: rgba(168, 219, 58, 0.18); border-style: dashed; background: linear-gradient(180deg, rgba(255, 255, 255, 0.02) 0%, transparent 70%);">
-            <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px;">
-              <p style="font-size: clamp(12px, 1.1vw, 14px); letter-spacing: 0.28em; text-transform: uppercase; color: rgba(168, 219, 58, 0.78); font-weight: 700; margin: 0;">
-                ⟶ Em rollout · próximas iterações
-              </p>
-              <p style="font-size: clamp(12px, 1.1vw, 14px); color: rgba(168, 219, 58, 0.45); margin: 0; font-weight: 600;">3 camadas</p>
-            </div>
-
-            <div style="display: flex; flex-direction: column; gap: 14px;">
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <span style="color: rgba(168, 219, 58, 0.6); font-size: 18px; line-height: 1.3; flex-shrink: 0; margin-top: 2px;">○</span>
-                <div>
-                  <p style="font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; color: rgba(255, 255, 255, 0.88); margin: 0; line-height: 1.3;">App Attest (iOS)</p>
-                </div>
-              </div>
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <span style="color: rgba(168, 219, 58, 0.6); font-size: 18px; line-height: 1.3; flex-shrink: 0; margin-top: 2px;">○</span>
-                <div>
-                  <p style="font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; color: rgba(255, 255, 255, 0.88); margin: 0; line-height: 1.3;">Nonce server-issued per session</p>
-                </div>
-              </div>
-              <div style="display: flex; gap: 12px; align-items: flex-start;">
-                <span style="color: rgba(168, 219, 58, 0.6); font-size: 18px; line-height: 1.3; flex-shrink: 0; margin-top: 2px;">○</span>
-                <div>
-                  <p style="font-size: clamp(16px, 1.6vw, 20px); font-weight: 700; color: rgba(255, 255, 255, 0.88); margin: 0; line-height: 1.3;">Battery delta validation</p>
-                </div>
-              </div>
-            </div>
+          <!-- COLUNA 2 — Vídeo de demo do moat (12s loop, sem som) -->
+          <div style="border-radius: 18px; overflow: hidden; border: 1px solid rgba(168, 219, 58, 0.26); background: #050805; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); position: relative; aspect-ratio: 16 / 11;">
+            <video src="moat-demo-12s.mp4"
+                   autoplay muted loop playsinline preload="metadata"
+                   aria-label="Demo do moat técnico — 12s"
+                   style="width: 100%; height: 100%; object-fit: cover; display: block;"></video>
           </div>
 
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 9: CRESCIMENTO / ROADMAP — moved after MOAT ====================== -->
+    <section class="slide" data-slide="9" aria-label="Crescimento e roadmap">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
+      <div class="slide-inner">
+        <p class="eyebrow">Crescimento</p>
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+          Road <span class="metal-text">Map</span>
+        </h2>
+
+        <div class="timeline" style="margin-top: clamp(28px, 3.5vw, 44px);">
+          <div class="milestone done">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q2 · 2026</div>
+            <div class="milestone-title">
+              Lançamento Android + iOS · MVP
+              <span style="display: inline-block; margin-left: 6px; color: var(--primary);">✓</span>
+            </div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q3 · 2026</div>
+            <div class="milestone-title">
+              Mainnet 100k usuários · monetização ads
+            </div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q4 · 2026</div>
+            <div class="milestone-title">
+              SDK B2B · Sponsored Charging
+            </div>
+          </div>
+          <div class="milestone">
+            <div class="milestone-dot"></div>
+            <div class="milestone-quarter">Q1 · 2027</div>
+            <div class="milestone-title">
+              Expansão LATAM
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -2623,37 +2600,14 @@
     <section class="slide" data-slide="12" aria-label="Ask & Founder">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner" style="margin-top: clamp(-80px, -7vh, -40px);">
-        <p class="eyebrow">Ask · Founder · CTA</p>
-        <!-- CTA HERO — headline do slide + Telegram QR -->
-        <div style="margin-top: clamp(16px, 2vw, 24px); padding: clamp(20px, 2.5vw, 32px) clamp(22px, 2.8vw, 36px); border-radius: 22px; border: 1px solid rgba(168, 219, 58, 0.24); background: linear-gradient(135deg, rgba(168, 219, 58, 0.08) 0%, rgba(168, 219, 58, 0.015) 100%); box-shadow: 0 0 60px rgba(168, 219, 58, 0.12);">
-          <div style="display: flex; gap: clamp(20px, 3vw, 36px); align-items: center; justify-content: space-between; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 240px;">
-              <h2 class="metal-text" style="font-size: clamp(22px, 3vw, 38px); font-weight: 900; letter-spacing: -0.02em; margin: 0; line-height: 1.15;">
-                Quem está construindo<br />
-                <span class="metal-text">a primeira DePIN brasileira na Solana.</span>
-              </h2>
-            </div>
-            <div style="flex: 0 0 auto;">
-              <img src="images/qr-telegram-juice.png" alt="QR Code — Telegram JUICE Community" style="width: clamp(130px, 12vw, 160px); height: auto; display: block; border-radius: 14px; padding: 10px; background: #ffffff; box-shadow: 0 12px 32px rgba(168, 219, 58, 0.22), 0 0 0 1px rgba(168, 219, 58, 0.32);" />
-            </div>
-          </div>
-        </div>
+        <p class="eyebrow">Equipe</p>
 
-        <!-- Divider editorial conectando QR hero ao founder block -->
-        <div style="margin: clamp(28px, 3.5vw, 44px) 0 clamp(20px, 2.5vw, 32px); display: flex; align-items: center; gap: 14px;">
-          <div aria-hidden="true" style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14));"></div>
-          <span style="font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); font-weight: 700; flex-shrink: 0;">
-            Quem está por trás
-          </span>
-          <div aria-hidden="true" style="flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), transparent);"></div>
-        </div>
-
-        <!-- Founder section — Rafael à esquerda, Carol à direita -->
+        <!-- Founder section — Rafael à esquerda, Carol à direita (posição em destaque) -->
         <div class="grid-2" style="align-items: flex-start; gap: clamp(28px, 3.5vw, 48px);">
           <!-- Rafael: foto + formações + tese -->
           <div style="display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: flex-start;">
             <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: clamp(140px, 13vw, 180px); height: clamp(140px, 13vw, 180px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 40px rgba(168, 219, 58, 0.18);">
+              <div style="width: clamp(200px, 19vw, 260px); height: clamp(200px, 19vw, 260px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.40); box-shadow: 0 0 56px rgba(168, 219, 58, 0.28);">
                 <img src="images/founder.jpg" alt="Rafael Mariano" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h3 style="font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; margin: 12px 0 3px; letter-spacing: -0.02em;">
@@ -2691,7 +2645,7 @@
           <!-- Carol: foto + formações MKT & Comercial -->
           <div style="display: flex; gap: clamp(18px, 2.2vw, 28px); align-items: flex-start;">
             <div style="text-align: center; flex-shrink: 0;">
-              <div style="width: clamp(140px, 13vw, 180px); height: clamp(140px, 13vw, 180px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.35); box-shadow: 0 0 40px rgba(168, 219, 58, 0.18);">
+              <div style="width: clamp(200px, 19vw, 260px); height: clamp(200px, 19vw, 260px); overflow: hidden; border: 2px solid rgba(168, 219, 58, 0.40); box-shadow: 0 0 56px rgba(168, 219, 58, 0.28);">
                 <img src="images/carol.png" alt="Carol Uchoas" style="width: 100%; height: 100%; object-fit: cover; display: block;" />
               </div>
               <h3 style="font-size: clamp(14px, 1.4vw, 18px); font-weight: 900; margin: 12px 0 3px; letter-spacing: -0.02em;">
@@ -2723,6 +2677,30 @@
                   <span><strong style="color: #fff;">Performance &amp; Funil de Receita</strong> — Sponsored Quests e ads on-chain</span>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Divider editorial conectando team → CTA Telegram -->
+        <div style="margin: clamp(28px, 3.5vw, 44px) 0 clamp(16px, 2vw, 24px); display: flex; align-items: center; gap: 14px;">
+          <div aria-hidden="true" style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14));"></div>
+          <span style="font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255, 255, 255, 0.45); font-weight: 700; flex-shrink: 0;">
+            Conecte-se
+          </span>
+          <div aria-hidden="true" style="flex: 1; height: 1px; background: linear-gradient(90deg, rgba(255, 255, 255, 0.14), transparent);"></div>
+        </div>
+
+        <!-- CTA HERO — headline + Telegram QR (agora abaixo da equipe) -->
+        <div style="padding: clamp(14px, 1.8vw, 22px) clamp(18px, 2.2vw, 28px); border-radius: 18px; border: 1px solid rgba(168, 219, 58, 0.18); background: linear-gradient(135deg, rgba(168, 219, 58, 0.05) 0%, rgba(168, 219, 58, 0.01) 100%);">
+          <div style="display: flex; gap: clamp(16px, 2.4vw, 28px); align-items: center; justify-content: space-between; flex-wrap: wrap;">
+            <div style="flex: 1; min-width: 240px;">
+              <h2 class="metal-text" style="font-size: clamp(20px, 2.6vw, 32px); font-weight: 900; letter-spacing: -0.02em; margin: 0; line-height: 1.15;">
+                Muito Obrigado.<br />
+                <span style="color: #ffffff; -webkit-text-fill-color: #ffffff; background: none; white-space: nowrap;">A primeira DePIN brasileira na Solana.</span>
+              </h2>
+            </div>
+            <div style="flex: 0 0 auto;">
+              <img src="images/qr-telegram-juice.png" alt="QR Code — Telegram JUICE Community" style="width: clamp(78px, 7.5vw, 104px); height: auto; display: block; border-radius: 10px; padding: 6px; background: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);" />
             </div>
           </div>
         </div>

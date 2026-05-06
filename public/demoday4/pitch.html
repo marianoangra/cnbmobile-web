@@ -1686,20 +1686,6 @@
       pointer-events: none;
       z-index: 2;
     }
-    /* Screen overlay — substitui a tela do template juice-phone-hero-blank.
-       Percentuais calibrados para o bezel do PNG (mesma técnica do counter
-       acima). Ajuste fino aqui se precisar afinar mais. */
-    .juice-phone-stage .juice-phone-screen-overlay {
-      position: absolute;
-      top: 3.4%;
-      left: 4.2%;
-      width: 91.6%;
-      height: 93.2%;
-      object-fit: cover;
-      border-radius: 11% / 5.4%;
-      z-index: 2;
-      pointer-events: none;
-    }
     /* When supported, lock font-size to a precise % of the stage width
        so the overlay scales 1:1 with the phone art at any viewport. */
     @supports (container-type: inline-size) {
@@ -2073,19 +2059,14 @@
                   data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
           <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
-                 alt="JUICE app — tela de carregamento ativa (+10 pts)"
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-charging.png"
+                 alt="JUICE app — sessão de carregamento ativa (+10 pts)"
                  style="width: 100%;" />
-            <img class="juice-phone-screen-overlay"
-                 src="brand/juice-phone-screen-charging.jpg"
-                 alt="Tela de sessão de carregamento — Recompensa acumulada +10 pts"
-                 aria-hidden="true" />
           </div>
           <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
-                 alt="JUICE app — tela inicial (terceira vista)"
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-ranking.png"
+                 alt="JUICE app — Ranking Semanal: top 3 + posição do usuário"
                  style="width: 100%;" />
-            <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
         </div>
 

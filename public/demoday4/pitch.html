@@ -2108,7 +2108,7 @@
     <section class="slide" data-slide="5" aria-label="Tração & Roadmap">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
-        <p class="eyebrow">Tração hoje · Solana mainnet</p>
+        <p class="eyebrow">Solana mainnet</p>
 
         <!-- 3 stat cards FIRST — biggest impact, Credible-style -->
         <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); gap: clamp(10px, 1.4vw, 16px);">
@@ -2117,7 +2117,7 @@
             <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
-            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0; color: #ffffff;"><span id="minutos-counter" data-from="460" data-to="468">460</span>k+</p>
+            <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0; color: #ffffff;"><span id="minutos-counter" data-from="468120" data-to="468800">468.120</span></p>
             <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: #ffffff; font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
@@ -2127,7 +2127,8 @@
         </div>
 
         <!-- 3 banners de parceiros — alinhados abaixo dos cards de tração -->
-        <div style="margin-top: clamp(18px, 2.2vw, 28px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.4vw, 16px);">
+        <p class="eyebrow" style="margin-top: clamp(20px, 2.6vw, 32px); margin-bottom: 10px;">Parceiros</p>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.4vw, 16px);">
           <div role="img" aria-label="BingX — Official Crypto Exchange Partner of Chelsea FC" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-bingx.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
           <div role="img" aria-label="X Pay — pagamentos USDT" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-xpay.png'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
           <div role="img" aria-label="KAST — Visa Platinum crypto card" style="aspect-ratio: 16 / 9; border-radius: 14px; background-image: url('brand/partners/banner-kast.png'); background-size: cover; background-position: center; background-repeat: no-repeat; -webkit-mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%); mask-image: radial-gradient(130% 140% at 50% 50%, #000 76%, transparent 100%);"></div>
@@ -3014,9 +3015,9 @@
             // ease-out so the climb decelerates naturally
             var eased = 1 - Math.pow(1 - t, 2);
             current = fromN + (toN - fromN) * eased;
-            minutosEl.textContent = current.toFixed(0);
+            minutosEl.textContent = Math.round(current).toLocaleString('pt-BR');
             if (t < 1) requestAnimationFrame(step);
-            else minutosEl.textContent = String(toN);
+            else minutosEl.textContent = toN.toLocaleString('pt-BR');
           }
           requestAnimationFrame(step);
         }

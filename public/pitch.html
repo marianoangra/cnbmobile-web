@@ -1479,7 +1479,7 @@
       color: var(--primary);
     }
 
-    /* Slide 11 — CTA button (Founder + Ask) */
+    /* Slide 10 — CTA button (Founder + Ask) */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -1512,7 +1512,7 @@
     }
 
     /* === Stacked export mode (?stacked=1) ====================================
-       Renders all 11 slides as a vertical stack so the deck can be printed
+       Renders all 10 slides as a vertical stack so the deck can be printed
        to PDF or captured as a long screenshot. Used as offline brief / Canva
        reference. No interactivity; controls hidden. */
     @media print {
@@ -1559,45 +1559,17 @@
 
   <main class="deck" id="deck" aria-roledescription="apresentação">
 
-    <!-- SLIDE 1: CAPA ========================================================= -->
-    <section class="slide" data-slide="1" aria-label="Capa">
-      <div class="slide-inner cover" style="margin-top: clamp(40px, 5vh, 80px);">
-        <div class="cover-logo" id="cover-logo">
-          <!-- Wordmark JUICE — variante do pitch.
-               Sheen/shine overlays intencionalmente removidas: mask-image com SVG
-               <text> não renderiza no Safari/macOS, o que fazia aparecer um
-               retângulo iluminado em volta da logo na projeção. O gradiente
-               metálico DENTRO do SVG já entrega o efeito. -->
-          <img src="brand/juice-wordmark-pitch.svg" alt="Juice" />
-        </div>
-        <div class="cover-tagline">
-          <strong>Recarregou. Validou. Ganhou.</strong>
-        </div>
-        <div class="cover-footer">PRIMEIRA DEPIN BRASILEIRA · SOLANA · Frontier Colosseum 2026</div>
-      </div>
-    </section>
-
-    <!-- SLIDE 2: O PROBLEMA — abertura do pitch.
-         Hook: "Você paga pelo celular. O celular paga o Google."
-         Indictment ancorada em IAB Brasil 2025 (R$ 42,7 bi · publicidade digital). -->
-    <section class="slide" data-slide="2" aria-label="O Problema">
+    <!-- SLIDE 1: ABERTURA — número-mestre solo, fonte no canto inferior esquerdo. -->
+    <section class="slide" data-slide="1" aria-label="R$ 42,7 bilhões em publicidade digital no Brasil em 2025">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner" style="text-align: center;">
-        <p class="eyebrow">O Problema</p>
-
-        <h2 style="font-size: clamp(30px, 4.6vw, 64px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; max-width: 100%; margin: clamp(28px, 4vh, 56px) auto 0; color: rgba(255, 255, 255, 0.94);">
-          Você paga pelo celular.<br />
-          <span class="metal-text">O celular paga o Google.</span>
+        <h2 style="font-size: clamp(32px, 4.8vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(28px, 4vh, 56px) auto 0;">
+          Publicidade digital no Brasil movimentou <span class="metal-text">US$ 9 bilhões</span> em 2025
         </h2>
-
-        <p style="font-size: clamp(14px, 1.55vw, 22px); color: rgba(255, 255, 255, 0.62); line-height: 1.55; max-width: 72ch; margin: clamp(24px, 3vh, 40px) auto 0;">
-          <strong style="color: rgba(255,255,255,0.85); font-weight: 700;">R$ 42,7 bilhões</strong> em publicidade digital no Brasil em 2025. <strong style="color: rgba(255,255,255,0.85); font-weight: 700;">120 milhões</strong> de aparelhos geraram esse valor.
-        </p>
-
-        <p style="margin: clamp(32px, 4vh, 56px) auto 0; max-width: 72ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55;">
-          Fontes: IAB Brasil + Kantar Ibope, Digital Adspend 2026 · Anatel 2025 — 120 milhões de smartphones ativos.
-        </p>
       </div>
+      <p style="position: absolute; left: clamp(24px, 4vw, 56px); bottom: clamp(88px, 13vh, 180px); margin: 0; max-width: 60ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55; text-align: left;">
+        Fontes: IAB Brasil + Kantar Ibope, Digital Adspend 2026.
+      </p>
     </section>
 
     <!-- SLIDE 3: SOLUÇÃO ====================================================== -->
@@ -1606,25 +1578,58 @@
       <div class="slide-inner">
         <div class="grid-2" style="align-items: flex-start;">
           <div style="text-align: center;">
-            <p class="eyebrow" style="margin: 0 0 18px;">A Solução</p>
-            <img src="brand/juice-wordmark-pitch.svg" alt="JUICE"
-                 style="display: block; height: clamp(44px, 5vw, 72px); width: auto; margin: 0 auto 22px; filter: brightness(1.45) saturate(1.05) drop-shadow(0 0 60px rgba(0, 255, 127, 0.45));" />
-            <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
-              DePIN com<br />
-              <span class="metal-text" style="font-size: 1em; font-weight: 900; filter: drop-shadow(0 1px 0 rgba(255,255,255,0.05)) drop-shadow(0 2px 12px rgba(168,219,58,0.25)) drop-shadow(0 0 28px rgba(168,219,58,0.5));">Prova de Atividade Humana.</span>
+            <h2 style="font-size: clamp(32px, 4.8vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(28px, 4vh, 56px) auto 0;">
+              Cada minuto carregando é validado, contabilizado e <span class="metal-text">recompensado on-chain</span>
             </h2>
-            <p class="subtitle" style="margin: 20px auto 0;">
-              Prova física de presença na Solana.
-              Cada minuto carregando é validado, contabilizado e recompensado on-chain.
-            </p>
 
-            <!-- Live proof badge — Solscan / mainnet verifiable -->
-            <div style="margin: clamp(20px, 2.4vw, 28px) auto 0; display: inline-flex; align-items: center; gap: 12px; padding: 10px 18px; border-radius: 999px; border: 1px solid rgba(0, 255, 127, 0.32); background: rgba(0, 255, 127, 0.06); box-shadow: 0 0 24px rgba(0, 255, 127, 0.12);">
-              <span aria-hidden="true" style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--primary); box-shadow: 0 0 10px var(--primary); animation: livePulse 1.6s ease-in-out infinite;"></span>
-              <span style="font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary); font-weight: 700;">Live · Solana mainnet</span>
-              <span style="font-size: 12px; color: rgba(255, 255, 255, 0.78); font-family: monospace;">solscan.io · 460k+ memos</span>
+            <!-- Store buttons — App Store · Google Play · Seeker -->
+            <div style="margin-top: clamp(20px, 2.6vw, 32px); display: flex; justify-content: center; align-items: center; gap: clamp(12px, 1.6vw, 20px); flex-wrap: wrap;">
+              <a href="https://apps.apple.com/br/app/cnb-mobile/id6762065336" target="_blank" rel="noopener noreferrer"
+                 aria-label="Download on the App Store"
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path d="M17.05 12.04c-.03-3.16 2.58-4.68 2.7-4.75-1.47-2.15-3.76-2.45-4.57-2.49-1.95-.2-3.8 1.15-4.79 1.15-.99 0-2.51-1.12-4.13-1.09-2.13.03-4.09 1.24-5.18 3.14-2.21 3.83-.57 9.5 1.59 12.61 1.05 1.52 2.31 3.23 3.96 3.17 1.59-.06 2.19-1.03 4.11-1.03 1.92 0 2.46 1.03 4.14.99 1.71-.03 2.79-1.55 3.83-3.08 1.21-1.77 1.71-3.49 1.74-3.58-.04-.02-3.34-1.28-3.4-5.04zM13.92 3.05C14.79 1.99 15.38.52 15.21-.95c-1.26.05-2.79.84-3.69 1.89-.81.94-1.51 2.44-1.32 3.88 1.4.11 2.84-.71 3.72-1.77z" />
+                </svg>
+                <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
+                  <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Download on the</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #fff;">App Store</span>
+                </span>
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.cnb.cnbappv2" target="_blank" rel="noopener noreferrer"
+                 aria-label="Get it on Google Play"
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                <svg viewBox="0 0 512 512" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path fill="#00d4ff" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"/>
+                  <path fill="#ffce00" d="m104.6 499 220.7-221.3 60.1 60.1L104.6 499z"/>
+                  <path fill="#ff3a44" d="m385.4 337.8-60.1-60.1 76.7-76.7 76.7 44.1c19.5 11 19.5 33.3 0 44.4l-93.3 48.3z"/>
+                  <path fill="#00f076" d="M104.6 13c-7.4 5.4-12.9 13.6-12.9 24.2v437.5c0 10.6 5.5 18.8 12.9 24.2l220.7-221.3L104.6 13z"/>
+                </svg>
+                <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
+                  <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Get it on</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #fff;">Google Play</span>
+                </span>
+              </a>
+              <a href="https://solanamobile.com/seeker" target="_blank" rel="noopener noreferrer"
+                 aria-label="Get it on Seeker — Solana Mobile"
+                 style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.15); background: #000; text-decoration: none;">
+                <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="seeker-sol-grad-slide2" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#9945ff"/>
+                      <stop offset="50%" stop-color="#14f195"/>
+                      <stop offset="100%" stop-color="#19fb9b"/>
+                    </linearGradient>
+                  </defs>
+                  <path d="M4.5 17.6 L7.6 14.5 L20 14.5 L16.9 17.6 Z" fill="url(#seeker-sol-grad-slide2)"/>
+                  <path d="M4.5 12 L7.6 8.9 L20 8.9 L16.9 12 Z" fill="url(#seeker-sol-grad-slide2)"/>
+                  <path d="M4.5 6.4 L7.6 3.3 L20 3.3 L16.9 6.4 Z" fill="url(#seeker-sol-grad-slide2)"/>
+                </svg>
+                <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
+                  <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Get it on</span>
+                  <span style="font-size: 12px; font-weight: 600; color: #fff;">Seeker</span>
+                </span>
+              </a>
             </div>
-            <style>@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.45}}</style>
           </div>
           <div>
             <!-- TODO: substituir por IMG_7079.PNG quando disponível -->
@@ -1641,85 +1646,29 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow">Tração hoje · Solana mainnet</p>
-        <h2 class="metal-text" style="font-size: clamp(22px, 3vw, 38px); margin: 0;">
-          Já provando no Brasil. <span class="metal-text">Loop orgânico, on-chain, hoje.</span>
-        </h2>
 
         <!-- 4 stat cards FIRST — biggest impact, Credible-style -->
         <div class="grid-4" style="margin-top: clamp(20px, 2.4vw, 32px); gap: clamp(10px, 1.4vw, 16px);">
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">4k</p>
             <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
-            <p style="font-size: 10px; color: var(--primary); margin: 0; font-weight: 600;">Analytics · MAU</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">460k+</p>
             <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
-            <p style="font-size: 10px; color: var(--primary); margin: 0; font-weight: 600;">Solana mainnet · auditável</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">10,2k</p>
             <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">$JUICE distribuídos</p>
-            <p style="font-size: 10px; color: var(--primary); margin: 0; font-weight: 600;">10,2M pts ÷ 1000</p>
           </div>
           <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(26px, 3.2vw, 40px); margin: 0;">+10k</p>
             <p style="font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.6); font-weight: 700; margin: 6px 0 1px;">Downloads</p>
-            <p style="font-size: 10px; color: var(--primary); margin: 0; font-weight: 600;">Android + iOS ✓</p>
           </div>
         </div>
 
-        <!-- Store buttons — compact, below stats -->
-        <div style="margin-top: clamp(14px, 1.8vw, 22px); display: flex; justify-content: flex-start; align-items: center; gap: clamp(14px, 1.8vw, 22px); flex-wrap: wrap;">
-          <a href="https://apps.apple.com/br/app/cnb-mobile/id6762065336" target="_blank" rel="noopener noreferrer"
-             aria-label="Download on the App Store"
-             style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); text-decoration: none;">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="white" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path d="M17.05 12.04c-.03-3.16 2.58-4.68 2.7-4.75-1.47-2.15-3.76-2.45-4.57-2.49-1.95-.2-3.8 1.15-4.79 1.15-.99 0-2.51-1.12-4.13-1.09-2.13.03-4.09 1.24-5.18 3.14-2.21 3.83-.57 9.5 1.59 12.61 1.05 1.52 2.31 3.23 3.96 3.17 1.59-.06 2.19-1.03 4.11-1.03 1.92 0 2.46 1.03 4.14.99 1.71-.03 2.79-1.55 3.83-3.08 1.21-1.77 1.71-3.49 1.74-3.58-.04-.02-3.34-1.28-3.4-5.04zM13.92 3.05C14.79 1.99 15.38.52 15.21-.95c-1.26.05-2.79.84-3.69 1.89-.81.94-1.51 2.44-1.32 3.88 1.4.11 2.84-.71 3.72-1.77z" />
-            </svg>
-            <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
-              <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Download on the</span>
-              <span style="font-size: 12px; font-weight: 600; color: #fff;">App Store</span>
-            </span>
-          </a>
-          <a href="https://play.google.com/store/apps/details?id=com.cnb.cnbappv2" target="_blank" rel="noopener noreferrer"
-             aria-label="Get it on Google Play"
-             style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); text-decoration: none;">
-            <svg viewBox="0 0 512 512" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <path fill="#00d4ff" d="M325.3 234.3 104.6 13l280.8 161.2-60.1 60.1z"/>
-              <path fill="#ffce00" d="m104.6 499 220.7-221.3 60.1 60.1L104.6 499z"/>
-              <path fill="#ff3a44" d="m385.4 337.8-60.1-60.1 76.7-76.7 76.7 44.1c19.5 11 19.5 33.3 0 44.4l-93.3 48.3z"/>
-              <path fill="#00f076" d="M104.6 13c-7.4 5.4-12.9 13.6-12.9 24.2v437.5c0 10.6 5.5 18.8 12.9 24.2l220.7-221.3L104.6 13z"/>
-            </svg>
-            <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
-              <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Get it on</span>
-              <span style="font-size: 12px; font-weight: 600; color: #fff;">Google Play</span>
-            </span>
-          </a>
-          <a href="https://solanamobile.com/seeker" target="_blank" rel="noopener noreferrer"
-             aria-label="Get it on Seeker — Solana Mobile"
-             style="display: inline-flex; align-items: center; gap: 8px; padding: 0 14px; height: 38px; min-width: 140px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.28); background: rgba(255,255,255,0.08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); text-decoration: none;">
-            <svg viewBox="0 0 24 24" width="18" height="18" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-              <defs>
-                <linearGradient id="seeker-sol-grad-pitch" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#9945ff"/>
-                  <stop offset="50%" stop-color="#14f195"/>
-                  <stop offset="100%" stop-color="#19fb9b"/>
-                </linearGradient>
-              </defs>
-              <path d="M4.5 17.6 L7.6 14.5 L20 14.5 L16.9 17.6 Z" fill="url(#seeker-sol-grad-pitch)"/>
-              <path d="M4.5 12 L7.6 8.9 L20 8.9 L16.9 12 Z" fill="url(#seeker-sol-grad-pitch)"/>
-              <path d="M4.5 6.4 L7.6 3.3 L20 3.3 L16.9 6.4 Z" fill="url(#seeker-sol-grad-pitch)"/>
-            </svg>
-            <span style="display: flex; flex-direction: column; align-items: flex-start; line-height: 1;">
-              <span style="font-size: 8px; color: rgba(255,255,255,0.75);">Get it on</span>
-              <span style="font-size: 12px; font-weight: 600; color: #fff;">Seeker</span>
-            </span>
-          </a>
-        </div>
-
         <!-- Roadmap timeline — abreviado abaixo dos números -->
-        <p class="eyebrow" style="margin-top: clamp(20px, 2.6vw, 32px);">12 meses adiante</p>
+        <p class="eyebrow" style="margin-top: clamp(80px, 10vw, 140px);">12 meses adiante</p>
         <div class="timeline" style="margin-top: clamp(10px, 1.2vw, 16px);">
           <div class="milestone done">
             <div class="milestone-dot"></div>
@@ -1752,10 +1701,10 @@
           </div>
         </div>
 
-        <p style="margin-top: clamp(12px, 1.4vw, 18px); font-size: 10px; color: rgba(255,255,255,0.35); font-family: monospace;">
-          Fonte: <code style="font-family: monospace;">stats/public</code> Firebase + Solana mainnet memo · 2026-05-05
-        </p>
       </div>
+      <p style="position: absolute; left: clamp(24px, 4vw, 56px); bottom: clamp(88px, 13vh, 180px); margin: 0; max-width: 60ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55; text-align: left;">
+        Fonte: stats/public Firebase + Solana mainnet memo · 2026-05-05
+      </p>
     </section>
 
     <!-- SLIDE 6: MERCADO ===================================================== -->
@@ -1763,19 +1712,12 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
         <p class="eyebrow" style="margin-bottom: 14px;">Mercado</p>
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); text-align: center; margin: 0;">
-          R$ 42,7 bilhões/ano em publicidade digital no Brasil.
-        </h2>
-        <p class="subtitle" style="text-align: center; max-width: 64ch; margin: 14px auto 0;">
-          Capturado por Google, Meta, TikTok — zero pro celular que gerou o valor. Redirecionável on-chain via JUICE.
-        </p>
 
         <div class="grid-3" style="margin-top: clamp(22px, 2.8vw, 36px);">
           <!-- TAM — Global digital ad spend -->
           <div class="card">
             <p class="market-tier">TAM · Global</p>
             <div class="number-xl">$750<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
-            <p class="market-desc">publicidade digital global · receita total 2025.</p>
             <div class="market-bar" aria-hidden="true">
               <div class="market-bar-fill" style="width: 100%;"></div>
             </div>
@@ -1785,7 +1727,6 @@
           <div class="card">
             <p class="market-tier">SAM · LATAM</p>
             <div class="number-xl">$28<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
-            <p class="market-desc">publicidade digital LATAM · 6 mercados-chave · 2025.</p>
             <div class="market-bar" aria-hidden="true">
               <div class="market-bar-fill" style="width: 4%;"></div>
             </div>
@@ -1794,8 +1735,7 @@
           <!-- SOM — Brasil digital ad spend ICP -->
           <div class="card market-card-focus">
             <p class="market-tier is-focus">SOM · Brasil · ICP inicial</p>
-            <div class="number-xl">$8,5<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
-            <p class="market-desc">R$ 42,7 bi · 120M smartphones · <strong style="color:#fff;">4k já carregando hoje</strong>, on-chain.</p>
+            <div class="number-xl">$9<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
             <div class="market-bar" aria-hidden="true">
               <div class="market-bar-fill" style="width: 1.1%;"></div>
             </div>
@@ -2252,7 +2192,7 @@
 
   <!-- Progress + counter -->
   <nav class="controls" aria-label="Navegação dos slides">
-    <span class="counter mono" id="counter">01 / 11</span>
+    <span class="counter mono" id="counter">01 / 10</span>
     <button class="dot active" data-go="0" aria-label="Slide 1"></button>
     <button class="dot" data-go="1" aria-label="Slide 2"></button>
     <button class="dot" data-go="2" aria-label="Slide 3"></button>
@@ -2263,7 +2203,6 @@
     <button class="dot" data-go="7" aria-label="Slide 8"></button>
     <button class="dot" data-go="8" aria-label="Slide 9"></button>
     <button class="dot" data-go="9" aria-label="Slide 10"></button>
-    <button class="dot" data-go="10" aria-label="Slide 11"></button>
   </nav>
 
   <button class="btn-fs" id="btn-fs" aria-label="Tela cheia" title="Tela cheia (F)">

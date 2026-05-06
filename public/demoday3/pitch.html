@@ -851,7 +851,7 @@
       box-shadow: 0 0 12px rgba(168, 219, 58, 0.3);
     }
     .market-card-focus {
-      border-color: rgba(168, 219, 58, 0.45) !important;
+      border-color: rgba(168, 219, 58, 0.30) !important;
       box-shadow: 0 0 28px rgba(168, 219, 58, 0.12);
     }
     .market-engagement {
@@ -1002,7 +1002,7 @@
     .cover-logo {
       position: relative;
       width: clamp(220px, 36vw, 480px);
-      filter: drop-shadow(0 0 60px rgba(0, 255, 127, 0.45));
+      filter: drop-shadow(0 0 32px rgba(168, 219, 58, 0.30));
     }
     .cover-logo img,
     .cover-logo svg {
@@ -1217,20 +1217,9 @@
       border-color: rgba(168, 219, 58, 0.6);
     }
     .slide-mercado .card.market-card-focus {
-      border-color: rgba(168, 219, 58, 0.7) !important;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(212, 232, 122, 0.32) 0%,
-          rgba(90, 122, 24, 0.10) 28%,
-          rgba(251, 255, 232, 0.45) 50%,
-          rgba(90, 122, 24, 0.10) 72%,
-          rgba(212, 232, 122, 0.32) 100%
-        ),
-        rgba(45, 65, 18, 0.78);
-      box-shadow:
-        0 12px 36px rgba(168, 219, 58, 0.30),
-        inset 0 1px 0 rgba(212, 232, 122, 0.28);
+      border-color: rgba(168, 219, 58, 0.32) !important;
+      background: #081208;
+      box-shadow: 0 0 22px rgba(168, 219, 58, 0.10);
     }
     /* Text reverts to white-on-dark hierarchy — readable on the new
        darker base + visible against the metallic sheen highlights. */
@@ -1278,6 +1267,64 @@
     .slide-mercado.active .grid-3 .card:nth-child(2) .market-bar-fill { transition-delay: 1000ms; }
     .slide-mercado.active .grid-3 .card:nth-child(3) .market-bar-fill { transition-delay: 1300ms; }
 
+    /* After the bars settle, a continuous "data flowing" shimmer sweeps
+       across each card's bar TRACK — placed on the parent .market-bar
+       (not the fill) so the sweep reads identically on cards 2 & 3 even
+       though their fill is only 4% / 1% wide. */
+    .slide-mercado .market-bar {
+      position: relative;
+    }
+    .slide-mercado .market-bar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0) 25%,
+        rgba(255, 255, 255, 0.95) 50%,
+        rgba(255, 255, 255, 0) 75%,
+        transparent 100%
+      );
+      transform: translateX(-100%);
+      pointer-events: none;
+      z-index: 2;
+    }
+    .slide-mercado.active .market-bar::after {
+      animation: marketBarShimmer 2.4s ease-in-out infinite;
+    }
+    .slide-mercado.active .grid-3 .card:nth-child(1) .market-bar::after { animation-delay: 2.0s; }
+    .slide-mercado.active .grid-3 .card:nth-child(2) .market-bar::after { animation-delay: 2.4s; }
+    .slide-mercado.active .grid-3 .card:nth-child(3) .market-bar::after { animation-delay: 2.8s; }
+    @keyframes marketBarShimmer {
+      0%   { transform: translateX(-100%); }
+      55%  { transform: translateX(100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Brightness "breathe" — pulse so all 3 bars feel alive, even
+       SAM/SOM where the shimmer sweep is too brief to read. */
+    .slide-mercado.active .market-bar-fill {
+      animation: marketBarBreathe 2.4s ease-in-out 1.8s infinite;
+    }
+    .slide-mercado.active .grid-3 .card:nth-child(2) .market-bar-fill { animation-delay: 2.2s; }
+    .slide-mercado.active .grid-3 .card:nth-child(3) .market-bar-fill { animation-delay: 2.6s; }
+    @keyframes marketBarBreathe {
+      0%, 100% { filter: brightness(1) saturate(1); }
+      50%      { filter: brightness(1.45) saturate(1.3); }
+    }
+    /* Outer halo on the bar track — box-shadow on the parent so it isn't
+       clipped, and pulses bigger so it reads from the back of the room. */
+    .slide-mercado.active .market-bar {
+      animation: marketBarHalo 2.4s ease-in-out 1.8s infinite;
+    }
+    .slide-mercado.active .grid-3 .card:nth-child(2) .market-bar { animation-delay: 2.2s; }
+    .slide-mercado.active .grid-3 .card:nth-child(3) .market-bar { animation-delay: 2.6s; }
+    @keyframes marketBarHalo {
+      0%, 100% { box-shadow: 0 0 0 rgba(168, 219, 58, 0); }
+      50%      { box-shadow: 0 0 28px rgba(168, 219, 58, 0.65); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .slide-mercado .grid-3 .card {
         opacity: 1;
@@ -1285,7 +1332,8 @@
         transition: none;
       }
       .slide-mercado.active .grid-3 .card { animation: none; }
-      .slide-mercado .market-bar-fill { transform: scaleX(1); transition: none; }
+      .slide-mercado .market-bar-fill { transform: scaleX(1); transition: none; animation: none; }
+      .slide-mercado .market-bar::after { animation: none; }
     }
 
     /* Slide 6 — Onde estamos no mapa: lift content cluster (matches slide 1 feel) */
@@ -1613,15 +1661,52 @@
       backface-visibility: hidden;
       transform: translateZ(0);
     }
-    .slide-solucao.active .juice-phone-hero {
+    /* Stage wraps the phone img + the live points overlay. Width is
+       locked to the img's clamp so the absolute-positioned overlay
+       anchors precisely to the phone bounds (not the wider flex
+       parent). Float animation lives here so img + overlay sync. */
+    .juice-phone-stage {
+      position: relative;
+      width: clamp(260px, 30vw, 460px);
+      line-height: 0;
+      flex: 0 0 auto;          /* don't stretch in the flex parent */
+    }
+    .juice-phone-stage .juice-phone-hero {
+      display: block;
+      width: 100%;             /* fill the stage exactly */
+      height: auto;
+    }
+    .slide-solucao.active .juice-phone-stage {
       animation: juicePhoneFloat 7s ease-in-out infinite;
+    }
+    .juice-phone-stage .juice-phone-points {
+      position: absolute;
+      top: 24.7%;              /* matches where "120.700" sat in the asset */
+      left: 25.7%;             /* left edge of the original digit "1" */
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-size: clamp(22px, 2.5vw, 38px);   /* fallback */
+      font-weight: 800;
+      color: #cbf35e;          /* sampled from the original baked digits */
+      letter-spacing: -0.02em;
+      line-height: 1;
+      pointer-events: none;
+      z-index: 2;
+    }
+    /* When supported, lock font-size to a precise % of the stage width
+       so the overlay scales 1:1 with the phone art at any viewport. */
+    @supports (container-type: inline-size) {
+      .juice-phone-stage { container-type: inline-size; }
+      .juice-phone-stage .juice-phone-points { font-size: 7.5cqw; }
+    }
+    @media (max-width: 900px) {
+      .juice-phone-stage { width: clamp(220px, 60vw, 320px); }
     }
     @keyframes juicePhoneFloat {
       0%, 100% { transform: translate3d(0, 0, 0); }
       50%      { transform: translate3d(0, -10px, 0); }
     }
     @media (prefers-reduced-motion: reduce) {
-      .slide-solucao.active .juice-phone-hero { animation: none; }
+      .slide-solucao.active .juice-phone-stage { animation: none; }
     }
     @media (max-width: 900px) {
       .solucao-grid { grid-template-columns: 1fr !important; }
@@ -1730,6 +1815,117 @@
     }
     body.stacked .controls,
     body.stacked .btn-fs { display: none !important; }
+
+    /* TV legibility pass — softer rendering for big-screen presentation.
+       Tested on a TV display (overly saturated by default), this reduces
+       harsh blowouts and prevents awkward text wraps without weakening
+       the brand. Slides 1 & 2 already tested well; these rules apply to
+       all slides but are conservative enough to leave them intact. */
+    h1, h2, h3 { text-wrap: balance; }
+    .subtitle, p { text-wrap: pretty; }
+    .slide-inner h2 { max-width: 22ch; }
+    .slide-mercado h2,
+    .slide-why-now h2,
+    .slide-mapa h2 { max-width: 28ch; }
+    /* Soften white-on-black to reduce TV halation */
+    .metal-text { filter: brightness(0.96); }
+
+    /* Brand logo strip — used in slide 4 concentration cards. All logos
+       normalized to monochrome white via filter so any source SVG (mono
+       or full-color) renders consistently on the dark deck. */
+    .brand-logo-strip {
+      display: inline-flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: clamp(12px, 1.6vw, 22px);
+    }
+    .brand-logo-strip img {
+      display: block;
+      height: clamp(22px, 2.2vw, 30px);
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    .brand-logo-strip .logo-wordmark { height: clamp(24px, 2.4vw, 32px); }
+
+    /* Slide 4 (Mercado) — slightly darker card surfaces for TV legibility */
+    .slide-mercado .card {
+      background: #060d06;
+      border-color: rgba(255, 255, 255, 0.07);
+    }
+    .slide-mercado .market-card-focus {
+      border-color: rgba(168, 219, 58, 0.32);
+    }
+
+    /* Iceberg flow arrows — animated paths connecting the below-water
+       infrastructure pills (Pessoas, ADS, Sybil, Raw data) up to the
+       above-water market pills (User on-ramp, TAU+GRIND). Tells the
+       story "infra alimenta o produto visível" without extra copy. */
+    .iceberg-flow {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+    .iceberg-flow path {
+      fill: none;
+      stroke: rgba(168, 219, 58, 0.55);
+      stroke-width: 0.55;
+      stroke-linecap: round;
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      filter: drop-shadow(0 0 1px rgba(168, 219, 58, 0.4));
+    }
+    .iceberg-flow .arrow-head {
+      fill: rgba(168, 219, 58, 0.85);
+      opacity: 0;
+    }
+    .slide-modelo.active .iceberg-flow path { animation: icebergFlowDraw 9s ease-in-out infinite; }
+    .slide-modelo.active .iceberg-flow .arrow-head { animation: icebergFlowHead 9s ease-in-out infinite; }
+    .slide-modelo.active .iceberg-flow path:nth-of-type(1),
+    .slide-modelo.active .iceberg-flow .arrow-head[data-flow="1"] { animation-delay: 0s; }
+    .slide-modelo.active .iceberg-flow path:nth-of-type(2),
+    .slide-modelo.active .iceberg-flow .arrow-head[data-flow="2"] { animation-delay: 1s; }
+    .slide-modelo.active .iceberg-flow path:nth-of-type(3),
+    .slide-modelo.active .iceberg-flow .arrow-head[data-flow="3"] { animation-delay: 2s; }
+    .slide-modelo.active .iceberg-flow path:nth-of-type(4),
+    .slide-modelo.active .iceberg-flow .arrow-head[data-flow="4"] { animation-delay: 3s; }
+    @keyframes icebergFlowDraw {
+      0%, 4%   { stroke-dashoffset: 100; opacity: 0; }
+      10%      { opacity: 1; }
+      26%      { stroke-dashoffset: 0; opacity: 1; }
+      85%      { stroke-dashoffset: 0; opacity: 1; }
+      100%     { stroke-dashoffset: 0; opacity: 0; }
+    }
+    @keyframes icebergFlowHead {
+      0%, 24%  { opacity: 0; transform: scale(0.6); }
+      28%      { opacity: 1; transform: scale(1); }
+      85%      { opacity: 1; }
+      100%     { opacity: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .iceberg-flow path { stroke-dashoffset: 0; opacity: 1; animation: none; }
+      .iceberg-flow .arrow-head { opacity: 1; animation: none; }
+    }
+
+    /* Solana brand effect — subtle purple→white→green gradient with halo,
+       used to highlight "DePin Solana" on the slide-6 ribbon. */
+    .solana-text-effect {
+      background: linear-gradient(120deg,
+        #c8b8ff 0%,
+        #ffffff 35%,
+        #e0f8ec 65%,
+        #8cffc7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      filter: drop-shadow(0 0 14px rgba(153, 69, 255, 0.18))
+              drop-shadow(0 0 14px rgba(20, 241, 149, 0.18));
+    }
   </style>
 </head>
 
@@ -1754,7 +1950,7 @@
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner" style="text-align: center;">
         <h2 style="font-size: clamp(32px, 4.8vw, 72px); font-weight: 900; line-height: 1.15; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.94); max-width: 100%; margin: clamp(80px, 12vh, 180px) auto 0;">
-          Publicidade digital no Brasil movimentou <span class="metal-text">US$ 9 bilhões</span> em 2025
+          Publicidade digital movimentou <span class="metal-text">US$ 750 bilhões</span> em 2025
         </h2>
       </div>
       <p style="position: absolute; left: clamp(24px, 4vw, 56px); bottom: clamp(88px, 13vh, 180px); margin: 0; max-width: 60ch; font-size: 11px; color: var(--secondary); letter-spacing: 0.06em; opacity: 0.55; line-height: 1.55; text-align: left;">
@@ -1831,8 +2027,12 @@
                slide. Wrap holds an extra green halo so the phone keeps
                its glow once the asset's own dark background blends out. -->
           <div class="solucao-phone juice-phone-hero-wrap">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-clean.png"
-                 alt="JUICE app — tela inicial: pontos, ações rápidas, parceiros e atividades" />
+            <div class="juice-phone-stage">
+              <img class="juice-phone-hero" src="brand/juice-phone-hero-blank.png"
+                   alt="JUICE app — tela inicial: pontos sobem ao vivo, ações rápidas, parceiros e atividades" />
+              <span class="juice-phone-points" id="juice-phone-points"
+                    data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
+            </div>
           </div>
 
         </div>
@@ -1847,15 +2047,15 @@
 
         <!-- 3 stat cards FIRST — biggest impact, Credible-style -->
         <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); gap: clamp(10px, 1.4vw, 16px);">
-          <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
+          <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">4k</p>
             <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Usuários ativos</p>
           </div>
-          <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
+          <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;"><span id="minutos-counter" data-from="460" data-to="468">460</span>k+</p>
             <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Minutos validados</p>
           </div>
-          <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
+          <div class="card" style="padding: clamp(14px, 1.6vw, 20px); border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
             <p class="number-lg" style="font-size: clamp(36px, 4.8vw, 64px); margin: 0;">+10k</p>
             <p style="font-size: clamp(13px, 1.3vw, 16px); letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.92); font-weight: 700; margin: 6px 0 1px;">Downloads</p>
           </div>
@@ -1868,7 +2068,7 @@
             <div class="milestone-dot"></div>
             <div class="milestone-quarter">Q2 · 2026</div>
             <div class="milestone-title">
-              Lançamento Android + iOS · MVP PoHA
+              Lançamento Android + iOS · MVP
               <span style="display: inline-block; margin-left: 6px; color: var(--primary);">✓</span>
             </div>
           </div>
@@ -1922,7 +2122,7 @@
             <p class="market-tier">SAM · LATAM</p>
             <div class="number-xl">$28<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
             <div class="market-bar" aria-hidden="true">
-              <div class="market-bar-fill" style="width: 4%;"></div>
+              <div class="market-bar-fill" style="width: 50%;"></div>
             </div>
           </div>
 
@@ -1931,8 +2131,38 @@
             <p class="market-tier is-focus">SOM · Brasil · ICP inicial</p>
             <div class="number-xl">$9<span style="font-size: 0.55em; margin-left: 6px;">B</span></div>
             <div class="market-bar" aria-hidden="true">
-              <div class="market-bar-fill" style="width: 1.1%;"></div>
+              <div class="market-bar-fill" style="width: 33.33%;"></div>
             </div>
+          </div>
+        </div>
+
+        <!-- Concentration row — quem leva o bolo em cada escopo -->
+        <div style="margin-top: clamp(24px, 3vw, 40px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 22px);">
+          <div style="padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px); border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.07); background: #060d06;">
+            <p style="font-size: clamp(11px, 1vw, 13px); letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 10px; opacity: 0.85;">GLOBAL</p>
+            <div class="brand-logo-strip" style="margin: 0 0 14px;">
+              <img src="brand/logos/google.svg" alt="Alphabet" />
+              <img src="brand/logos/meta.svg" alt="Meta" />
+              <img src="brand/logos/amazon.svg" alt="Amazon" class="logo-wordmark" />
+            </div>
+            <p style="font-size: clamp(22px, 2.4vw, 32px); font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">&asymp; 62%</p>
+          </div>
+          <div style="padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px); border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.07); background: #060d06;">
+            <p style="font-size: clamp(11px, 1vw, 13px); letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 10px; opacity: 0.85;">LATAM</p>
+            <div class="brand-logo-strip" style="margin: 0 0 14px;">
+              <img src="brand/logos/google.svg" alt="Google" />
+              <img src="brand/logos/meta.svg" alt="Meta" />
+              <img src="brand/logos/mercadolivre.svg" alt="Mercado Livre" class="logo-wordmark" />
+            </div>
+            <p style="font-size: clamp(22px, 2.4vw, 32px); font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">&asymp; 90%</p>
+          </div>
+          <div style="padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px); border-radius: 14px; border: 1px solid rgba(168, 219, 58, 0.30); background: #081208;">
+            <p style="font-size: clamp(11px, 1vw, 13px); letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary); font-weight: 800; margin: 0 0 10px;">Brasil</p>
+            <div class="brand-logo-strip" style="margin: 0 0 14px;">
+              <img src="brand/logos/google.svg" alt="Google" />
+              <img src="brand/logos/meta.svg" alt="Meta" />
+            </div>
+            <p style="font-size: clamp(22px, 2.4vw, 32px); font-weight: 800; color: #fff; margin: 0; letter-spacing: -0.01em;">&asymp; 96%</p>
           </div>
         </div>
 
@@ -1942,7 +2172,23 @@
       </p>
     </section>
 
-    <!-- SLIDE 5: WHY NOW — swapped to come after MERCADO ====================== -->
+    <!-- SLIDE 5: PARCEIROS ATIVOS — banners reais já integrados no app ======== -->
+    <section class="slide slide-partners" data-slide="13" aria-label="Parceiros ativos no app">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
+      <div class="slide-inner">
+        <p class="eyebrow">Parceiros ativos no app</p>
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
+          Integrações <span class="metal-text">já em produção.</span>
+        </h2>
+
+        <div style="margin-top: clamp(28px, 3.5vw, 44px); display: flex; flex-direction: column; gap: clamp(14px, 1.8vw, 22px);">
+          <img src="brand/partners/row-1.png" alt="Parceiros: BingX, Solana Pay, KAST" style="width: 100%; height: auto; display: block; border-radius: 14px;" />
+          <img src="brand/partners/row-2.png" alt="Parceiros: KAXIS Club, Solflare, Solana A2A" style="width: 100%; height: auto; display: block; border-radius: 14px;" />
+        </div>
+      </div>
+    </section>
+
+    <!-- SLIDE 6 (was 5): WHY NOW ============================================== -->
     <section class="slide slide-why-now" data-slide="3" aria-label="Por que agora">
       <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner">
@@ -1955,7 +2201,7 @@
         <div class="traction-pillbar" style="margin-top: clamp(16px, 2vw, 24px);">
           <div class="traction-stats">
             <span><strong style="color: #fff;">US$ 600M+</strong> funding</span>
-            <span><strong style="color: #fff;">US$ 3,25B</strong> mcap agregado</span>
+            <span><strong style="color: #fff;">US$ 3B</strong> mcap agregado</span>
           </div>
           <p class="traction-source">Helius H1 2025</p>
         </div>
@@ -1963,7 +2209,7 @@
         <div class="grid-3" style="margin-top: clamp(28px, 3.5vw, 44px); gap: clamp(16px, 2vw, 24px);">
 
           <!-- Card 01 — ZK Compression -->
-          <div class="card pillar why-now-card" style="position: relative; border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
+          <div class="card pillar why-now-card" style="position: relative; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
             <span style="position: absolute; top: clamp(14px, 1.6vw, 18px); right: clamp(14px, 1.6vw, 18px); font-family: 'Inter', system-ui; font-size: clamp(12px, 1.1vw, 14px); font-weight: 700; letter-spacing: 0.1em; color: var(--primary); opacity: 0.7;">01</span>
             <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
               <svg width="60%" height="60%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
@@ -1980,7 +2226,7 @@
           </div>
 
           <!-- Card 02 — Stack 100% Solana — exibe os logos reais (Kora + Solana) -->
-          <div class="card pillar why-now-card" style="position: relative; border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
+          <div class="card pillar why-now-card" style="position: relative; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
             <span style="position: absolute; top: clamp(14px, 1.6vw, 18px); right: clamp(14px, 1.6vw, 18px); font-family: 'Inter', system-ui; font-size: clamp(12px, 1.1vw, 14px); font-weight: 700; letter-spacing: 0.1em; color: var(--primary); opacity: 0.7;">02</span>
             <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; overflow: hidden; display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px); background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(168, 219, 58, 0.22);">
               <img src="brand/solana-icon.png" alt="" aria-hidden="true" style="width: 100%; height: 100%; object-fit: cover;" />
@@ -1999,7 +2245,7 @@
           </div>
 
           <!-- Card 03 — Mobile + stablecoins maduros -->
-          <div class="card pillar why-now-card" style="position: relative; border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
+          <div class="card pillar why-now-card" style="position: relative; border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%); padding: clamp(20px, 2.4vw, 28px); border-radius: 18px;">
             <span style="position: absolute; top: clamp(14px, 1.6vw, 18px); right: clamp(14px, 1.6vw, 18px); font-family: 'Inter', system-ui; font-size: clamp(12px, 1.1vw, 14px); font-weight: 700; letter-spacing: 0.1em; color: var(--primary); opacity: 0.7;">03</span>
             <div style="width: clamp(48px, 4.8vw, 60px); height: clamp(48px, 4.8vw, 60px); border-radius: 14px; background: rgba(168, 219, 58, 0.12); border: 1px solid rgba(168, 219, 58, 0.35); display: flex; align-items: center; justify-content: center; margin-bottom: clamp(16px, 2vw, 22px);">
               <svg width="60%" height="60%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
@@ -2012,92 +2258,6 @@
             <span style="display: inline-flex; padding: 6px 12px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.32); background: rgba(168, 219, 58, 0.06); font-size: clamp(13px, 1.1vw, 15px); font-weight: 600; color: #fff;">Seeker Mobile</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5b: ONDE ESTAMOS NO MAPA (DePIN landscape) ===================== -->
-    <section class="slide slide-mapa" data-slide="13" aria-label="Onde estamos no mapa">
-      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
-      <div class="slide-inner">
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0;">
-          A única <span class="metal-text">sem hardware extra.</span>
-        </h2>
-        <div class="grid-4" style="margin-top: clamp(28px, 3.5vw, 44px); gap: clamp(12px, 1.6vw, 20px);">
-          <div class="card" style="padding: clamp(14px, 1.8vw, 22px);">
-            <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 8px;">Telco · dados</p>
-            <h3 style="margin: 0 0 8px; font-size: clamp(15px, 1.5vw, 18px);">Helium Mobile</h3>
-            <p class="text-secondary" style="font-size: 12px; line-height: 1.45; margin: 0;">
-              Requer <strong style="color:#fff;">modem doméstico</strong>. 1.3M DAU.
-            </p>
-          </div>
-          <div class="card" style="padding: clamp(14px, 1.8vw, 22px);">
-            <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 8px;">Bandwidth · dados</p>
-            <h3 style="margin: 0 0 8px; font-size: clamp(15px, 1.5vw, 18px);">UpRock + Grass</h3>
-            <p class="text-secondary" style="font-size: 12px; line-height: 1.45; margin: 0;">
-              <strong style="color:#fff;">Bandwidth ociosa</strong> doada · valor invisível.
-            </p>
-          </div>
-          <div class="card" style="padding: clamp(14px, 1.8vw, 22px);">
-            <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 8px;">Mapping</p>
-            <h3 style="margin: 0 0 8px; font-size: clamp(15px, 1.5vw, 18px);">Hivemapper</h3>
-            <p class="text-secondary" style="font-size: 12px; line-height: 1.45; margin: 0;">
-              <strong style="color:#fff;">Dashcam dedicada</strong> · mercado profissional.
-            </p>
-          </div>
-          <div class="card" style="padding: clamp(14px, 1.8vw, 22px);">
-            <p style="font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 8px;">Charging · EV</p>
-            <h3 style="margin: 0 0 8px; font-size: clamp(15px, 1.5vw, 18px);">DeCharge</h3>
-            <p class="text-secondary" style="font-size: 12px; line-height: 1.45; margin: 0;">
-              <strong style="color:#fff;">Carregador EV</strong> instalado · lane veicular.
-            </p>
-          </div>
-        </div>
-
-        <!-- Web2 incumbents — mesma jogada, valor preso na empresa -->
-        <div class="card card-glow" style="margin-top: clamp(20px, 2.4vw, 32px); border-color: rgba(168, 219, 58, 0.45); padding: clamp(16px, 2vw, 24px);">
-          <div style="display: flex; align-items: center; gap: clamp(32px, 5vw, 64px); flex-wrap: wrap;">
-            <div style="flex: 0 0 auto;">
-              <img src="brand/juice-wordmark-pitch.svg" alt="JUICE" style="height: clamp(36px, 3.6vw, 50px); display: block; filter: brightness(1.45) saturate(1.05) drop-shadow(0 0 60px rgba(0, 255, 127, 0.45));" />
-            </div>
-            <div style="flex: 1; min-width: 220px;">
-              <p style="font-size: clamp(26px, 2.9vw, 40px); letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; margin: 0; line-height: 1.2; color: #fff;">
-                Super App DePin Solana
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SLIDE 5: COMO FUNCIONA ================================================ -->
-    <section class="slide slide-produto" data-slide="5" aria-label="Produto">
-      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
-      <div class="slide-inner">
-        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; text-align: center;">
-          Plug. Validação. Ganhou. <span class="metal-text">Três passos, sem fricção.</span>
-        </h2>
-
-        <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); align-items: stretch;">
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-charging.png" alt="Tela de carregamento" />
-            </div>
-            <h3 class="journey-step-title">Conectou o cabo.</h3>
-          </div>
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-home.png" alt="Tela inicial — pontos" />
-            </div>
-            <h3 class="journey-step-title">Proof-of-Human-Activity.</h3>
-          </div>
-          <div class="card journey-step">
-            <div class="iphone-frame">
-              <img src="images/screen-ranking.png" alt="Tela de ranking" />
-            </div>
-            <h3 class="journey-step-title">$JUICE na carteira.</h3>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -2194,15 +2354,35 @@
               ↓ Infraestrutura proprietária
             </h2>
 
+            <!-- Iceberg flow arrows — connect below-water infra pills up to
+                 above-water market pills. Sequential animation tells the
+                 narrative "infra alimenta o produto visível". -->
+            <svg class="iceberg-flow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              <!-- Path 1: Pessoas → User on-ramp (left vertical) -->
+              <path d="M 15 60 C 12 52, 12 42, 14 36" pathLength="100" vector-effect="non-scaling-stroke" />
+              <!-- Path 2: ADS → TAU+GRIND (right vertical) -->
+              <path d="M 89 60 C 88 50, 87 30, 86 22" pathLength="100" vector-effect="non-scaling-stroke" />
+              <!-- Path 3: Sybil resilience → User on-ramp (left diagonal) -->
+              <path d="M 28 77 C 24 65, 18 48, 16 38" pathLength="100" vector-effect="non-scaling-stroke" />
+              <!-- Path 4: Raw data → TAU+GRIND (right diagonal) -->
+              <path d="M 72 77 C 76 65, 82 40, 84 24" pathLength="100" vector-effect="non-scaling-stroke" />
+
+              <!-- Arrow heads at each path end (small upward triangles) -->
+              <polygon class="arrow-head" data-flow="1" points="14,35 12.6,38.5 15.4,38.5" />
+              <polygon class="arrow-head" data-flow="2" points="86,21 84.6,24.5 87.4,24.5" />
+              <polygon class="arrow-head" data-flow="3" points="16,37 14.6,40.5 17.4,40.5" />
+              <polygon class="arrow-head" data-flow="4" points="84,23 82.6,26.5 85.4,26.5" />
+            </svg>
+
             <!-- ABOVE-WATER chips (primary green pills, backdrop-blurred) -->
-            <div style="position: absolute; left: 2%; top: 28%; display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.55); background: rgba(168, 219, 58, 0.10); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 24px rgba(168, 219, 58, 0.15);">
+            <div style="position: absolute; left: 2%; top: 28%; display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.40); background: rgba(168, 219, 58, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(168, 219, 58, 0.10);">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <path d="M5 12h14M13 5l7 7-7 7"/>
               </svg>
               <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; color: #fff;">User on-ramp</span>
             </div>
 
-            <div style="position: absolute; right: 2%; top: 16%; display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.55); background: rgba(168, 219, 58, 0.10); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 24px rgba(168, 219, 58, 0.15);">
+            <div style="position: absolute; right: 2%; top: 16%; display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.40); background: rgba(168, 219, 58, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(168, 219, 58, 0.10);">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <circle cx="12" cy="12" r="3"/>
                 <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>
@@ -2275,6 +2455,38 @@
       </div>
     </section>
 
+    <!-- SLIDE 5: COMO FUNCIONA ================================================ -->
+    <section class="slide slide-produto" data-slide="5" aria-label="Produto">
+      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
+      <div class="slide-inner">
+        <h2 class="metal-text" style="font-size: clamp(24px, 3.4vw, 42px); margin: 0; text-align: center;">
+          Plug. Validação. Ganhou. <span class="metal-text">Três passos, sem fricção.</span>
+        </h2>
+
+        <div class="grid-3" style="margin-top: clamp(20px, 2.4vw, 32px); align-items: stretch;">
+          <div class="card journey-step">
+            <div class="iphone-frame">
+              <img src="images/screen-charging.png" alt="Tela de carregamento" />
+            </div>
+            <h3 class="journey-step-title">Conectou o cabo.</h3>
+          </div>
+          <div class="card journey-step">
+            <div class="iphone-frame">
+              <img src="images/screen-home.png" alt="Tela inicial — pontos" />
+            </div>
+            <h3 class="journey-step-title">Proof-of-Human-Activity.</h3>
+          </div>
+          <div class="card journey-step">
+            <div class="iphone-frame">
+              <img src="images/screen-ranking.png" alt="Tela de ranking" />
+            </div>
+            <h3 class="journey-step-title">$JUICE na carteira.</h3>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <!-- SLIDE 9: CRESCIMENTO =================================================== -->
     <!-- SLIDE 6: MOAT TÉCNICO (Bot não recarrega celular) ===================== -->
     <section class="slide" data-slide="10" aria-label="Moat Técnico">
@@ -2289,7 +2501,7 @@
         <div class="grid-2" style="margin-top: clamp(32px, 4vw, 48px); gap: clamp(20px, 3vw, 32px); align-items: stretch;">
 
           <!-- COLUNA 1 — HOJE / EM PRODUÇÃO -->
-          <div class="card" style="border-color: rgba(168, 219, 58, 0.40); background: linear-gradient(180deg, rgba(168, 219, 58, 0.05) 0%, transparent 70%);">
+          <div class="card" style="border-color: rgba(168, 219, 58, 0.26); background: linear-gradient(180deg, rgba(168, 219, 58, 0.025) 0%, transparent 70%);">
             <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px;">
               <p style="font-size: clamp(12px, 1.1vw, 14px); letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0;">
                 ✓ Hoje · em produção
@@ -2421,7 +2633,7 @@
                 </li>
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                  <span><strong style="color: #fff;">CNPI</strong> + 8 anos em fintech (<strong style="color: #fff;">XP, Rico, Terra</strong>) — vendendo produto financeiro para brasileiro</span>
+                  <span><strong style="color: #fff;">CNPI</strong> + 8 anos em fintech (<strong style="color: #fff;">XP, Rico, Terra</strong>)</span>
                 </li>
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
@@ -2765,6 +2977,48 @@
           io.observe(minutosEl);
         } else {
           rampMinutos();
+        }
+      }
+
+      // Slide 2 — JUICE phone live points counter inside the screen.
+      // Climbs 120.700 → 122.300 over 12s (BR thousands separator).
+      // Starts when the slide becomes active.
+      var pointsEl = document.getElementById('juice-phone-points');
+      if (pointsEl && !prefersReduceMotion) {
+        var pFrom = parseInt(pointsEl.dataset.from, 10) || 120700;
+        var pTo   = parseInt(pointsEl.dataset.to,   10) || 122300;
+        var pStarted = false;
+        function fmtBR(n) {
+          return Math.round(n).toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+        }
+        function rampPoints() {
+          if (pStarted) return;
+          pStarted = true;
+          var startTs = performance.now();
+          var DURATION = 12000;
+          function step(now) {
+            var t = Math.min((now - startTs) / DURATION, 1);
+            var eased = 1 - Math.pow(1 - t, 2);
+            pointsEl.textContent = fmtBR(pFrom + (pTo - pFrom) * eased);
+            if (t < 1) requestAnimationFrame(step);
+            else pointsEl.textContent = fmtBR(pTo);
+          }
+          requestAnimationFrame(step);
+        }
+        var solucaoSlide = pointsEl.closest('.slide');
+        if (solucaoSlide && 'MutationObserver' in window) {
+          if (solucaoSlide.classList.contains('active')) rampPoints();
+          else {
+            var mo = new MutationObserver(function () {
+              if (solucaoSlide.classList.contains('active')) {
+                rampPoints();
+                mo.disconnect();
+              }
+            });
+            mo.observe(solucaoSlide, { attributes: true, attributeFilter: ['class'] });
+          }
+        } else {
+          rampPoints();
         }
       }
 

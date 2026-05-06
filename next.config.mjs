@@ -25,6 +25,8 @@ const nextConfig = {
         { source: '/demoday2', destination: '/demoday2/pitch.html' },
         // Next iteration on top of /demoday2 — keep /demoday2 stable.
         { source: '/demoday3', destination: '/demoday3/pitch.html' },
+        // Working copy on top of /demoday3 — iterate sem mexer em /demoday3.
+        { source: '/demoday4', destination: '/demoday4/pitch.html' },
         // Verbal pitch script — plain-text companion to the deck.
         { source: '/txt', destination: '/PITCH_SCRIPT.txt' },
       ],

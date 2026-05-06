@@ -23,6 +23,8 @@ const nextConfig = {
         { source: '/demoday', destination: '/pitch.html' },
         // Working copy of the deck — iterate independently without touching /demoday.
         { source: '/demoday2', destination: '/demoday2/pitch.html' },
+        // Next iteration on top of /demoday2 — keep /demoday2 stable.
+        { source: '/demoday3', destination: '/demoday3/pitch.html' },
         // Verbal pitch script — plain-text companion to the deck.
         { source: '/txt', destination: '/PITCH_SCRIPT.txt' },
       ],

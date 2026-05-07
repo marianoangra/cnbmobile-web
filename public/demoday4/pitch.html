@@ -3089,8 +3089,9 @@
       // enquanto eu falo." Slow ramp (~12s) + tiny twitch = organic.
       var minutosEl = document.getElementById('minutos-counter');
       if (minutosEl && !prefersReduceMotion) {
-        var fromN = parseInt(minutosEl.dataset.from, 10) || 460;
-        var toN   = parseInt(minutosEl.dataset.to,   10) || 468;
+        // Fallback values from data attrs (used if /api/total-minutes falha)
+        var fromN = parseInt(minutosEl.dataset.from, 10) || 468120;
+        var toN   = parseInt(minutosEl.dataset.to,   10) || 468800;
         var started = false;
 
         function rampMinutos() {
@@ -3101,7 +3102,6 @@
           var DURATION = 12000; // 12s, slow drift
           function step(now) {
             var t = Math.min((now - start) / DURATION, 1);
-            // ease-out so the climb decelerates naturally
             var eased = 1 - Math.pow(1 - t, 2);
             current = fromN + (toN - fromN) * eased;
             minutosEl.textContent = Math.round(current).toLocaleString('pt-BR');
@@ -3111,18 +3111,41 @@
           requestAnimationFrame(step);
         }
 
+        // Tenta puxar valor real do Firebase via /api/total-minutes; se ok,
+        // substitui fromN/toN antes de animar. Falha silenciosa = fallback
+        // pros valores hardcoded.
+        function loadAndRamp() {
+          if (started) return;
+          var ctrl = ('AbortController' in window) ? new AbortController() : null;
+          var timeout = setTimeout(function () { if (ctrl) ctrl.abort(); }, 4000);
+          fetch('/api/total-minutes', { signal: ctrl ? ctrl.signal : undefined })
+            .then(function (r) { return r.ok ? r.json() : null; })
+            .then(function (data) {
+              clearTimeout(timeout);
+              var live = data && typeof data.minutes === 'number' ? data.minutes : null;
+              if (live && live > 0) {
+                fromN = live;
+                // delta estimado pra animação parecer ao vivo (~+0.15% no ciclo)
+                toN = live + Math.max(120, Math.round(live * 0.0015));
+                minutosEl.textContent = fromN.toLocaleString('pt-BR');
+              }
+            })
+            .catch(function () { /* mantém fallback */ })
+            .finally(function () { rampMinutos(); });
+        }
+
         if ('IntersectionObserver' in window) {
           var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (e) {
               if (e.isIntersecting) {
-                rampMinutos();
+                loadAndRamp();
                 io.disconnect();
               }
             });
           }, { threshold: 0.4 });
           io.observe(minutosEl);
         } else {
-          rampMinutos();
+          loadAndRamp();
         }
       }
 

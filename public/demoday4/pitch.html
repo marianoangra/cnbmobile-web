@@ -1922,6 +1922,268 @@
       .roadmap-phone { animation: none; }
     }
 
+    /* =================================================================
+       Slide 6 — Realistic 3D phone chassis (Modelo de Negócio)
+       Wraps the existing juice-phone-hero-solflare.png screen content
+       inside a CSS-built Android-style chassis with side buttons,
+       glossy edge highlights, camera punch-hole and a subtle 3D tilt.
+       The screenshot inside is oversized + offset to crop out the
+       PNG's baked bezel, so only the in-app content shows.
+       ================================================================= */
+    .phone3d-stage {
+      position: relative;
+      aspect-ratio: 9 / 19.2;
+      flex: 0 0 auto;
+      perspective: 1600px;
+      perspective-origin: 65% 50%;
+      filter:
+        drop-shadow(0 22px 44px rgba(0, 0, 0, 0.55))
+        drop-shadow(0 4px 14px rgba(168, 219, 58, 0.05));
+      will-change: transform;
+      container-type: inline-size;
+    }
+    .slide-modelo.active .phone3d-stage {
+      animation: phone3dFloat 7s ease-in-out infinite;
+    }
+    @keyframes phone3dFloat {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-9px); }
+    }
+
+    /* Body — chassis with brushed-metal gradient + subtle 3D tilt */
+    .phone3d-body {
+      position: absolute;
+      inset: 0;
+      border-radius: 13.5% / 6.4%;
+      transform: rotateY(-8deg) rotateX(1.5deg);
+      transform-style: preserve-3d;
+      background:
+        linear-gradient(135deg,
+          rgba(255,255,255,0.14) 0%,
+          rgba(255,255,255,0.04) 9%,
+          transparent 24%,
+          transparent 76%,
+          rgba(0,0,0,0.45) 100%),
+        linear-gradient(150deg,
+          #2c3845 0%,
+          #1a2230 22%,
+          #0b1119 60%,
+          #060a10 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(0, 0, 0, 0.55),
+        inset 1.2px 1.2px 0 rgba(255, 255, 255, 0.10),
+        inset -1px -1px 0 rgba(0, 0, 0, 0.45);
+    }
+
+    /* Frame — inner black bezel surrounding the screen + camera */
+    .phone3d-frame {
+      position: absolute;
+      inset: 4.6%;
+      border-radius: 9% / 4.4%;
+      background: #000;
+      overflow: hidden;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 0 18px rgba(0, 0, 0, 0.95);
+    }
+
+    /* Screen — clip the existing PNG so only the inner app content shows */
+    .phone3d-screen {
+      position: absolute;
+      inset: 1.6%;
+      border-radius: 7.5% / 3.6%;
+      overflow: hidden;
+      background: #050608;
+    }
+    /* Wrapper sized to the FULL original PNG; sits oversized + offset
+       inside the screen so the baked bezel is cropped out. Measured
+       on the source PNG (439×806): the phone body occupies 74.9% of
+       width starting at x=16.4%, and 87.6% of height starting at
+       y=6.95%. Scale = 1/0.749 = 1.335 → wrapper width 133.5% of
+       screen, with negative offsets so the body's screen rectangle
+       fills the new chassis screen container exactly. The points
+       overlay is a child of this wrapper so the original 24.7% /
+       25.7% coordinates remain valid. */
+    .phone3d-screen-wrap {
+      position: absolute;
+      top: -8%;
+      left: -22%;
+      width: 133.5%;
+      height: auto;
+      pointer-events: none;
+    }
+    .phone3d-screen-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: contrast(1.04) saturate(1.06);
+      -webkit-user-drag: none;
+      user-select: none;
+    }
+    .phone3d-screen-wrap .juice-phone-points {
+      position: absolute;
+      top: 24.7%;
+      left: 25.7%;
+      font-family: 'Inter', -apple-system, system-ui, sans-serif;
+      font-weight: 800;
+      color: #cbf35e;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      font-size: 7.5cqw;
+      pointer-events: none;
+      z-index: 5;
+    }
+    @supports not (container-type: inline-size) {
+      .phone3d-screen-wrap .juice-phone-points {
+        font-size: clamp(20px, 2.4vw, 36px);
+      }
+    }
+
+    /* Camera punch-hole at top-center of screen */
+    .phone3d-camera {
+      position: absolute;
+      top: 1.6%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 32% 30%,
+          #232b38 0%,
+          #0b0e14 55%,
+          #000 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.10),
+        0 0 4px rgba(0, 0, 0, 0.6);
+      z-index: 4;
+      pointer-events: none;
+    }
+
+    /* Glass reflection — soft diagonal sheen on top of the screen */
+    .phone3d-glint {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(118deg,
+        rgba(255, 255, 255, 0.10) 0%,
+        rgba(255, 255, 255, 0.03) 14%,
+        transparent 30%,
+        transparent 72%,
+        rgba(255, 255, 255, 0.025) 92%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: 3;
+    }
+
+    /* Side buttons — peek from the chassis edge with metallic gradient */
+    .phone3d-btn {
+      position: absolute;
+      background: linear-gradient(90deg,
+        #424d5c 0%,
+        #2a3340 35%,
+        #161d27 70%,
+        #08101a 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.20),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+        -1px 0 1.5px rgba(0, 0, 0, 0.55);
+      z-index: 0;
+    }
+    .phone3d-btn--vol-up {
+      left: -1.4%;
+      top: 21.5%;
+      width: 1.6%;
+      height: 4.6%;
+      border-radius: 1.5px 0 0 1.5px;
+    }
+    .phone3d-btn--vol-dn {
+      left: -1.4%;
+      top: 28.4%;
+      width: 1.6%;
+      height: 7.4%;
+      border-radius: 1.5px 0 0 1.5px;
+    }
+    .phone3d-btn--power {
+      right: -1.4%;
+      top: 24.5%;
+      width: 1.6%;
+      height: 5.2%;
+      border-radius: 0 1.5px 1.5px 0;
+      background: linear-gradient(270deg,
+        #424d5c 0%,
+        #2a3340 35%,
+        #161d27 70%,
+        #08101a 100%);
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.20),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.55),
+        1px 0 1.5px rgba(0, 0, 0, 0.55);
+    }
+
+    /* Edge highlights — thin glossy strips along chassis curves */
+    .phone3d-edge {
+      position: absolute;
+      pointer-events: none;
+      z-index: 2;
+    }
+    .phone3d-edge--top {
+      top: 0;
+      left: 8%;
+      right: 8%;
+      height: 1.2px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.32) 38%,
+        rgba(255, 255, 255, 0.20) 62%,
+        transparent 100%);
+    }
+    .phone3d-edge--right {
+      top: 8%;
+      bottom: 8%;
+      right: 0;
+      width: 1.2px;
+      background: linear-gradient(180deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.12) 30%,
+        rgba(255, 255, 255, 0.05) 75%,
+        transparent 100%);
+    }
+    .phone3d-edge--bottom {
+      bottom: 0;
+      left: 12%;
+      right: 12%;
+      height: 1px;
+      background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.06) 50%,
+        transparent 100%);
+    }
+
+    /* Soft contact shadow under the phone */
+    .phone3d-floor {
+      position: absolute;
+      bottom: -7%;
+      left: 8%;
+      right: 8%;
+      height: 7%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse,
+        rgba(0, 0, 0, 0.5) 0%,
+        rgba(0, 0, 0, 0.22) 45%,
+        transparent 72%);
+      filter: blur(5px);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .slide-modelo.active .phone3d-stage { animation: none; }
+    }
+    @media (max-width: 900px) {
+      .phone3d-stage { width: clamp(170px, 48vw, 230px) !important; }
+    }
+
     /* Slide 4 — partner banners (Solflare / X Pay / BingX) gentle
        float. Same pattern as the partner-banner class — translateY
        + scale leve com fases escalonadas. */
@@ -2501,13 +2763,33 @@
 
           </div>
 
-          <!-- JUICE phone hero — variante com Solflare no lugar do Frontier banner -->
-          <div class="juice-phone-hero-wrap" style="display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-            <div class="juice-phone-stage" style="width: clamp(150px, 16vw, 230px);">
-              <img class="juice-phone-hero" src="brand/juice-phone-hero-solflare.png"
-                   alt="JUICE app — tela inicial com banner Solflare em PARCEIROS"
-                   style="width: 100%;" />
-              <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
+          <!-- JUICE phone hero — realistic 3D Android-style chassis (slide 6 only).
+               Uses the existing juice-phone-hero-solflare.png screen content,
+               cropped via the .phone3d-screen-wrap oversize/offset, and wraps it
+               in a CSS-built chassis with side buttons, glossy edges, camera
+               punch-hole and a subtle perspective tilt. -->
+          <div class="phone3d-hero-wrap" style="display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <div class="phone3d-stage" style="width: clamp(180px, 17vw, 250px);">
+              <span class="phone3d-floor" aria-hidden="true"></span>
+              <div class="phone3d-body">
+                <span class="phone3d-btn phone3d-btn--vol-up" aria-hidden="true"></span>
+                <span class="phone3d-btn phone3d-btn--vol-dn" aria-hidden="true"></span>
+                <span class="phone3d-btn phone3d-btn--power" aria-hidden="true"></span>
+                <div class="phone3d-frame">
+                  <div class="phone3d-screen">
+                    <div class="phone3d-screen-wrap">
+                      <img class="phone3d-screen-img" src="brand/juice-phone-hero-solflare.png"
+                           alt="JUICE app — tela inicial com banner Solflare em PARCEIROS" />
+                      <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
+                    </div>
+                    <span class="phone3d-glint" aria-hidden="true"></span>
+                  </div>
+                  <span class="phone3d-camera" aria-hidden="true"></span>
+                </div>
+                <span class="phone3d-edge phone3d-edge--top" aria-hidden="true"></span>
+                <span class="phone3d-edge phone3d-edge--right" aria-hidden="true"></span>
+                <span class="phone3d-edge phone3d-edge--bottom" aria-hidden="true"></span>
+              </div>
             </div>
           </div>
 

@@ -1855,29 +1855,38 @@
       50%      { transform: translateY(-4px) translateX(2px); }
     }
 
-    /* ADS = modelo de negócio · destaque visual após o reveal:
-       cresce ~15% e pulsa pra atrair atenção como peça central */
+    /* ADS = modelo de negócio · principal · maior que os outros chips
+       com pulse contínuo pós-reveal */
     .slide-modelo.active .modelo-chips > div:nth-child(4) {
       animation: modelo-ads-pulse 3.6s ease-in-out infinite;
       animation-delay: 2.0s;
       transform-origin: left center;
-      box-shadow: 0 4px 22px rgba(168, 219, 58, 0.30);
-      border-color: rgba(168, 219, 58, 0.55) !important;
-      background: rgba(168, 219, 58, 0.10) !important;
+      box-shadow: 0 6px 32px rgba(168, 219, 58, 0.40);
+      border-color: rgba(168, 219, 58, 0.70) !important;
+      background: rgba(168, 219, 58, 0.16) !important;
+      padding: 14px 28px !important;
+    }
+    .slide-modelo.active .modelo-chips > div:nth-child(4) svg {
+      width: 22px !important;
+      height: 22px !important;
+    }
+    .slide-modelo.active .modelo-chips > div:nth-child(4) span {
+      font-size: clamp(18px, 1.9vw, 24px) !important;
+      letter-spacing: 0.10em !important;
     }
     @keyframes modelo-ads-pulse {
       0%, 100% {
-        transform: translateY(0) translateX(0) scale(1.14);
-        box-shadow: 0 4px 22px rgba(168, 219, 58, 0.28);
+        transform: translateY(0) translateX(0) scale(1.32);
+        box-shadow: 0 6px 32px rgba(168, 219, 58, 0.40);
       }
       50% {
-        transform: translateY(-4px) translateX(2px) scale(1.20);
-        box-shadow: 0 8px 32px rgba(168, 219, 58, 0.45);
+        transform: translateY(-5px) translateX(3px) scale(1.40);
+        box-shadow: 0 10px 44px rgba(168, 219, 58, 0.60);
       }
     }
     @media (prefers-reduced-motion: reduce) {
       .modelo-chips > div { transition: none; animation: none; opacity: 1; transform: none; }
-      .slide-modelo.active .modelo-chips > div:nth-child(4) { transform: scale(1.14); animation: none; }
+      .slide-modelo.active .modelo-chips > div:nth-child(4) { transform: scale(1.32); animation: none; }
     }
 
     /* Slide 9 (Road Map) — 4 mini phones com float suave escalonado */
@@ -2641,14 +2650,14 @@
             <div class="milestone-dot"></div>
             <div class="milestone-quarter">Q3 · 2026</div>
             <div class="milestone-title">
-              Mainnet 100k usuários
+              Mainnet 100k usuários - Tokenomics
             </div>
           </div>
           <div class="milestone">
             <div class="milestone-dot"></div>
             <div class="milestone-quarter">Q4 · 2026</div>
             <div class="milestone-title">
-              SDK B2B
+              SDK B2B - Seed 5Mi
             </div>
           </div>
           <div class="milestone">
@@ -2660,7 +2669,7 @@
           </div>
         </div>
 
-        <!-- Phones hero abaixo do roadmap (4 unidades lado a lado) -->
+        <!-- Phones hero abaixo do roadmap (4 unidades) + QR code à direita -->
         <div class="juice-phone-hero-wrap" style="display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.8vw, 28px); margin-top: clamp(24px, 3vw, 40px);">
           <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
             <img class="juice-phone-hero" src="brand/juice-phone-hero-superteam.png"
@@ -2686,6 +2695,7 @@
                  style="width: 100%;" />
             <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
+
         </div>
       </div>
     </section>
@@ -2788,14 +2798,21 @@
         <div style="padding: clamp(14px, 1.8vw, 22px) clamp(18px, 2.2vw, 28px); border-radius: 18px; border: 1px solid rgba(168, 219, 58, 0.18); background: linear-gradient(135deg, rgba(168, 219, 58, 0.05) 0%, rgba(168, 219, 58, 0.01) 100%);">
           <div style="display: flex; gap: clamp(16px, 2.4vw, 28px); align-items: center; justify-content: space-between; flex-wrap: wrap;">
             <div style="flex: 1; min-width: 240px;">
-              <h2 class="metal-text" style="font-size: clamp(20px, 2.6vw, 32px); font-weight: 900; letter-spacing: -0.02em; margin: 0; line-height: 1.15;">
+              <h2 class="metal-text" style="font-size: clamp(20px, 2.6vw, 32px); font-weight: 900; letter-spacing: -0.02em; margin: 0; line-height: 1.55;">
                 www.usejuicemobile.com<br />
                 <span style="color: #ffffff; -webkit-text-fill-color: #ffffff; background: none; white-space: nowrap;">A primeira DePIN brasileira na Solana.</span>
               </h2>
             </div>
             <div style="flex: 0 0 auto; display: flex; align-items: center; gap: clamp(14px, 1.6vw, 22px);">
               <img src="brand/juice-wordmark-pitch.svg" alt="JUICE" style="height: clamp(48px, 4.6vw, 66px); width: auto; display: block; filter: drop-shadow(0 0 18px rgba(168, 219, 58, 0.22));" />
-              <img src="images/qr-telegram-juice.png" alt="QR Code — Telegram JUICE Community" style="width: clamp(78px, 7.5vw, 104px); height: auto; display: block; border-radius: 10px; padding: 6px; background: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);" />
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+                <p style="margin: 0; font-size: clamp(11px, 1.05vw, 13px); font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase; color: var(--primary);">Baixe Aqui</p>
+                <a href="https://www.usejuicemobile.com/" target="_blank" rel="noopener noreferrer"
+                   aria-label="Acessar usejuicemobile.com via QR Code"
+                   style="display: inline-flex;">
+                  <img src="images/qr-juice-site.png" alt="QR Code → usejuicemobile.com" style="width: clamp(78px, 7.5vw, 104px); height: auto; display: block; border-radius: 10px; padding: 6px; background: #ffffff; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);" />
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -1692,8 +1692,24 @@
       0%, 100% { transform: translate3d(0, 0, 0); }
       50%      { transform: translate3d(0, -10px, 0); }
     }
+    /* Slide 3 phone 2 — alterna Superteam <-> Solflare a cada 4s */
+    .juice-phone-stage--alt .juice-phone-hero--top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      opacity: 0;
+      animation: juicePhoneCrossfade 8s ease-in-out infinite;
+      z-index: 1;
+    }
+    @keyframes juicePhoneCrossfade {
+      0%, 45%, 100% { opacity: 0; }
+      50%, 95%      { opacity: 1; }
+    }
     @media (prefers-reduced-motion: reduce) {
       .slide-solucao.active .juice-phone-stage { animation: none; }
+      .juice-phone-stage--alt .juice-phone-hero--top { animation: none; }
     }
     @media (max-width: 900px) {
       .solucao-grid { grid-template-columns: 1fr !important; }
@@ -2178,16 +2194,19 @@
                   data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
           </div>
           <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-superteam.png"
-                 alt="JUICE app — banner Superteam Brasil em destaque no card de parceiros"
-                 style="width: 100%;" />
-            <span class="juice-phone-points" aria-hidden="true">122.300</span>
-          </div>
-          <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
             <img class="juice-phone-hero" src="brand/juice-phone-hero-charging.png"
                  alt="JUICE app — sessão de carregamento ativa (+10 pts)"
                  style="width: 100%;" />
             <div class="charging-arc" aria-hidden="true"></div>
+          </div>
+          <div class="juice-phone-stage juice-phone-stage--alt" style="width: clamp(160px, 17vw, 240px);">
+            <img class="juice-phone-hero" src="brand/juice-phone-hero-superteam.png"
+                 alt="JUICE app — banner Superteam Brasil em destaque no card de parceiros"
+                 style="width: 100%;" />
+            <img class="juice-phone-hero juice-phone-hero--top" src="brand/juice-phone-hero-solflare.png"
+                 alt="JUICE app — banner Solflare em destaque no card de parceiros"
+                 aria-hidden="true" />
+            <span class="juice-phone-points" aria-hidden="true">122.300</span>
           </div>
           <div class="juice-phone-stage" style="width: clamp(160px, 17vw, 240px);">
             <img class="juice-phone-hero" src="brand/juice-phone-hero-ranking.png"

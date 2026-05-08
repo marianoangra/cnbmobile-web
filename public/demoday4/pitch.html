@@ -734,7 +734,7 @@
       position: absolute;
       top: clamp(20px, 2.6vh, 32px);
       right: clamp(24px, 2.5vw, 40px);
-      height: clamp(30px, 2.85vw, 39px);
+      height: clamp(40px, 3.8vw, 52px);
       opacity: 0.42;
       z-index: 1;
       pointer-events: none;
@@ -1319,6 +1319,24 @@
       50%      { box-shadow: 0 0 28px rgba(168, 219, 58, 0.65); }
     }
 
+    /* Concentration row (GLOBAL / LATAM / Brasil) — same staggered
+       fade-in + translate-up reveal as the TAM/SAM/SOM cards above,
+       but with delays continuing after the top row's stagger so the
+       sequence reads top → bottom. */
+    .slide-mercado .concentration-row > div {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .slide-mercado.active .concentration-row > div {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-mercado.active .concentration-row > div:nth-child(1) { transition-delay: 1100ms; }
+    .slide-mercado.active .concentration-row > div:nth-child(2) { transition-delay: 1400ms; }
+    .slide-mercado.active .concentration-row > div:nth-child(3) { transition-delay: 1700ms; }
+
     @media (prefers-reduced-motion: reduce) {
       .slide-mercado .grid-3 .card {
         opacity: 1;
@@ -1328,6 +1346,11 @@
       .slide-mercado.active .grid-3 .card { animation: none; }
       .slide-mercado .market-bar-fill { transform: scaleX(1); transition: none; animation: none; }
       .slide-mercado .market-bar::after { animation: none; }
+      .slide-mercado .concentration-row > div {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
     }
 
     /* Slide 6 — Onde estamos no mapa: lift content cluster (matches slide 1 feel) */
@@ -1867,8 +1890,8 @@
     .slide-modelo.active .modelo-chips > div:nth-child(5) { animation-delay: 3.4s; }
     .slide-modelo.active .modelo-chips > div:nth-child(6) { animation-delay: 3.9s; }
     @keyframes modelo-chip-float {
-      0%, 100% { transform: translateY(0) translateX(0); }
-      50%      { transform: translateY(-4px) translateX(2px); }
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-4px); }
     }
 
     /* ADS = modelo de negócio · principal · maior que os outros chips
@@ -1892,11 +1915,11 @@
     }
     @keyframes modelo-ads-pulse {
       0%, 100% {
-        transform: translateY(0) translateX(0) scale(1.32);
+        transform: translateY(0) scale(1.32);
         box-shadow: 0 6px 32px rgba(168, 219, 58, 0.40);
       }
       50% {
-        transform: translateY(-5px) translateX(3px) scale(1.40);
+        transform: translateY(-5px) scale(1.40);
         box-shadow: 0 10px 44px rgba(168, 219, 58, 0.60);
       }
     }
@@ -1950,12 +1973,15 @@
       50%      { transform: translateY(-9px); }
     }
 
-    /* Body — chassis with brushed-metal gradient + subtle 3D tilt */
+    /* Body — chassis with brushed-metal gradient + subtle 3D tilt.
+       The rotateY/X is necessary so the side buttons (vol/power) read
+       as edge-protrusions on the chassis. Tilt is mild (-4deg / 1deg)
+       so the head-on screenshot inside still feels coherent. */
     .phone3d-body {
       position: absolute;
       inset: 0;
       border-radius: 13.5% / 6.4%;
-      transform: rotateY(-8deg) rotateX(1.5deg);
+      transform: rotateY(-4deg) rotateX(1deg);
       transform-style: preserve-3d;
       background:
         linear-gradient(135deg,
@@ -1975,11 +2001,15 @@
         inset -1px -1px 0 rgba(0, 0, 0, 0.45);
     }
 
-    /* Frame — inner black bezel surrounding the screen + camera */
+    /* Frame — inner black bezel surrounding the screen + camera.
+       Thin bezel (2% of body) to mimic modern Pixel/Galaxy proportions
+       — earlier 4.6% looked like an old smartphone. Border-radius
+       slightly larger than the screen's so the frame's curve sits
+       cleanly outside the screen at every corner. */
     .phone3d-frame {
       position: absolute;
-      inset: 4.6%;
-      border-radius: 9% / 4.4%;
+      inset: 2%;
+      border-radius: 19% / 9%;
       background: #000;
       overflow: hidden;
       box-shadow:
@@ -1987,28 +2017,37 @@
         inset 0 0 18px rgba(0, 0, 0, 0.95);
     }
 
-    /* Screen — clip the existing PNG so only the inner app content shows */
+    /* Screen — clip the existing PNG so only the inner app content shows.
+       Border-radius bumped to 18%/8.4% so the screen's rounded corners
+       fully contain the source body's tighter circular arc — eliminates
+       the dark triangular gap that was visible especially in the upper-
+       left (accentuated by the rotateY(-8deg) tilt). */
     .phone3d-screen {
       position: absolute;
-      inset: 1.6%;
-      border-radius: 7.5% / 3.6%;
+      inset: 0.6%;
+      border-radius: 18% / 8.4%;
       overflow: hidden;
       background: #050608;
     }
     /* Wrapper sized to the FULL original PNG; sits oversized + offset
-       inside the screen so the baked bezel is cropped out. Measured
-       on the source PNG (439×806): the phone body occupies 74.9% of
-       width starting at x=16.4%, and 87.6% of height starting at
-       y=6.95%. Scale = 1/0.749 = 1.335 → wrapper width 133.5% of
-       screen, with negative offsets so the body's screen rectangle
-       fills the new chassis screen container exactly. The points
-       overlay is a child of this wrapper so the original 24.7% /
-       25.7% coordinates remain valid. */
+       inside the screen so the source's chassis + bezel are fully
+       cropped out and ONLY the lit screen content shows. Measured
+       precisely (pure-black pixel detection) on source PNG (439×806):
+       the LIT area occupies 74.94% of width starting at x=16.17%, and
+       86.97% of height starting at y=7.44%. Aspect of lit area =
+       0.4693 ≈ 9:19.18 (matches chassis 9:19.2 within 0.1%). Scale =
+       1/0.7494 = 1.334 → wrapper width 133.4% of screen. Top offset
+       = -7.44% × 1.334 × (806/439 × 9/19.2) = -8.5%; left offset =
+       -16.17% × 1.334 = -21.6%. The source body slightly overflows
+       the chassis screen (~0.75% per side, clipped by overflow:hidden)
+       so the source's bezel ring is invisible. The points overlay is
+       a child of this wrapper so the 24.7%/25.7% coordinates remain
+       valid relative to the source PNG. */
     .phone3d-screen-wrap {
       position: absolute;
-      top: -8%;
-      left: -22%;
-      width: 133.5%;
+      top: -8.5%;
+      left: -21.6%;
+      width: 133.4%;
       height: auto;
       pointer-events: none;
     }
@@ -2280,8 +2319,8 @@
     }
 
     /* Iceberg flow arrows — animated paths connecting the below-water
-       infrastructure pills (Pessoas, ADS, Sybil, Raw data) up to the
-       above-water market pills (User on-ramp, TAU+GRIND). Tells the
+       infrastructure pills (Suporte Automatizado, ADS, Sybil, Raw data) up to the
+       above-water market pills (User on-ramp, Cliente Qualificado). Tells the
        story "infra alimenta o produto visível" without extra copy. */
     .iceberg-flow {
       position: absolute;
@@ -2376,7 +2415,7 @@
           <!-- Copy + store buttons -->
           <div class="solucao-copy" style="transform: translateY(-clamp(24px, 4vh, 56px));">
             <h2 style="font-size: clamp(22px, 2.8vw, 44px); font-weight: 900; line-height: 1.14; letter-spacing: -0.02em; color: rgba(255, 255, 255, 0.96); margin: 0 0 clamp(28px, 3.4vw, 44px);">
-              <span class="metal-text" style="white-space: nowrap;">APP de Publicidade</span><br /><span class="metal-text" style="font-size: 0.7em; white-space: nowrap;">DePin Solana</span><br /><span style="font-size: 0.9em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe</span>
+              <span class="metal-text" style="font-size: 1.25em; white-space: nowrap;">APP de Publicidade</span><br /><span class="metal-text" style="white-space: nowrap;">DePin Solana</span><br /><span style="font-size: 0.9em; font-weight: 700; color: #ffffff;">Carregue, assista e ganhe</span>
             </h2>
 
             <div style="display: flex; align-items: center; gap: clamp(8px, 1.2vw, 14px); flex-wrap: wrap;">
@@ -2552,7 +2591,7 @@
         </div>
 
         <!-- Concentration row — quem leva o bolo em cada escopo -->
-        <div style="margin-top: clamp(24px, 3vw, 40px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 22px);">
+        <div class="concentration-row" style="margin-top: clamp(8px, 1vw, 14px); display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(12px, 1.6vw, 22px);">
           <div style="padding: clamp(14px, 1.6vw, 20px) clamp(16px, 1.8vw, 22px); border-radius: 14px; border: 1px solid rgba(255, 255, 255, 0.07); background: #060d06;">
             <p style="font-size: clamp(11px, 1vw, 13px); letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0 0 10px; opacity: 0.85;">GLOBAL</p>
             <div class="brand-logo-strip" style="margin: 0 0 14px;">
@@ -2599,31 +2638,31 @@
         <div style="margin-top: clamp(56px, 7vh, 88px); display: flex; justify-content: center; align-items: center; gap: clamp(20px, 3vw, 56px);">
 
           <!-- Coluna de chips (separada do raio, mais à esquerda) -->
-          <div class="modelo-chips" style="display: flex; flex-direction: column; align-items: flex-start; gap: clamp(10px, 1.2vw, 14px); flex-shrink: 0;">
+          <div class="modelo-chips" style="display: flex; flex-direction: column; align-items: flex-start; gap: clamp(18px, 2.2vw, 28px); flex-shrink: 0;">
 
             <!-- 1. Entrada (primary) -->
             <div style="display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.40); background: rgba(168, 219, 58, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(168, 219, 58, 0.10);">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <path d="M5 12h14M13 5l7 7-7 7"/>
               </svg>
-              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; color: #fff;">Entrada</span>
+              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #fff;">Entrada</span>
             </div>
 
-            <!-- 2. TAU + GRIND (primary) -->
+            <!-- 2. Cliente Qualificado (primary) -->
             <div style="display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.40); background: rgba(168, 219, 58, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(168, 219, 58, 0.10);">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <circle cx="12" cy="12" r="3"/>
                 <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M5 19l3-3M16 8l3-3"/>
               </svg>
-              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; color: #fff;">TAU + GRIND</span>
+              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #fff;">Cliente Qualificado</span>
             </div>
 
-            <!-- 3. Pessoas (dim) -->
+            <!-- 3. Suporte Automatizado (dim) -->
             <div style="display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, 0.18); background: rgba(255, 255, 255, 0.04); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: rgba(255,255,255,0.7);" aria-hidden="true">
                 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>
               </svg>
-              <span style="font-size: clamp(12px, 1.2vw, 15px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92);">Pessoas</span>
+              <span style="font-size: clamp(12px, 1.2vw, 15px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92);">Suporte Automatizado</span>
             </div>
 
             <!-- 4. ADS (dim) -->
@@ -2634,12 +2673,12 @@
               <span style="font-size: clamp(12px, 1.2vw, 15px); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255, 255, 255, 0.92);">ADS</span>
             </div>
 
-            <!-- 5. Sybil resilience (primary, mesmo estilo de TAU + GRIND) -->
+            <!-- 5. Sybil resilience (primary, mesmo estilo de Cliente Qualificado) -->
             <div style="display: inline-flex; align-items: center; gap: 10px; padding: 9px 18px; border-radius: 999px; border: 1px solid rgba(168, 219, 58, 0.40); background: rgba(168, 219, 58, 0.06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 4px 18px rgba(168, 219, 58, 0.10);">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);" aria-hidden="true">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
               </svg>
-              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; color: #fff;">Sybil resilience</span>
+              <span style="font-size: clamp(13px, 1.3vw, 17px); font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #fff;">Sybil resilience</span>
             </div>
 
             <!-- 6. Data Annotation (dim) -->
@@ -2745,13 +2784,13 @@
                  above-water market pills. Sequential animation tells the
                  narrative "infra alimenta o produto visível". -->
             <svg class="iceberg-flow" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              <!-- Path 1: Pessoas → User on-ramp (left vertical) -->
+              <!-- Path 1: Suporte Automatizado → User on-ramp (left vertical) -->
               <path d="M 15 60 C 12 52, 12 42, 14 36" pathLength="100" vector-effect="non-scaling-stroke" />
-              <!-- Path 2: ADS → TAU+GRIND (right vertical) -->
+              <!-- Path 2: ADS → Cliente Qualificado (right vertical) -->
               <path d="M 89 60 C 88 50, 87 30, 86 22" pathLength="100" vector-effect="non-scaling-stroke" />
               <!-- Path 3: Sybil resilience → User on-ramp (left diagonal) -->
               <path d="M 28 77 C 24 65, 18 48, 16 38" pathLength="100" vector-effect="non-scaling-stroke" />
-              <!-- Path 4: Raw data → TAU+GRIND (right diagonal) -->
+              <!-- Path 4: Raw data → Cliente Qualificado (right diagonal) -->
               <path d="M 72 77 C 76 65, 82 40, 84 24" pathLength="100" vector-effect="non-scaling-stroke" />
 
               <!-- Arrow heads at each path end (small upward triangles) -->
@@ -2870,7 +2909,7 @@
               <p style="font-size: clamp(15px, 1.45vw, 18px); letter-spacing: 0.28em; text-transform: uppercase; color: var(--primary); font-weight: 700; margin: 0;">
                 ✓ Hoje · em produção
               </p>
-              <p style="font-size: clamp(15px, 1.45vw, 18px); color: rgba(168, 219, 58, 0.6); margin: 0; font-weight: 600;">5 camadas</p>
+              <p style="font-size: clamp(15px, 1.45vw, 18px); color: rgba(168, 219, 58, 0.6); margin: 0; font-weight: 600;">6 meses</p>
             </div>
 
             <div style="display: flex; flex-direction: column; gap: 14px;">
@@ -2927,7 +2966,7 @@
           Road <span class="metal-text">Map</span>
         </h2>
 
-        <div class="timeline" style="margin-top: clamp(28px, 3.5vw, 44px);">
+        <div class="timeline" style="margin-top: clamp(140px, 18vh, 240px);">
           <div class="milestone done">
             <div class="milestone-dot"></div>
             <div class="milestone-quarter">Q2 · 2026</div>
@@ -2959,40 +2998,11 @@
           </div>
         </div>
 
-        <!-- Phones hero abaixo do roadmap (4 unidades) + QR code à direita -->
-        <div class="juice-phone-hero-wrap" style="display: flex; align-items: center; justify-content: center; gap: clamp(14px, 1.8vw, 28px); margin-top: clamp(24px, 3vw, 40px);">
-          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-superteam.png"
-                 alt="JUICE app — tela inicial com banner Superteam Brasil em PARCEIROS"
-                 style="width: 100%;" />
-            <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
-          </div>
-          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-redotpay.png"
-                 alt="JUICE app — tela inicial com banner RedotPay × StraitsX × VISA em PARCEIROS"
-                 style="width: 100%;" />
-            <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
-          </div>
-          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-jet-latam.png"
-                 alt="JUICE app — tela inicial com banner JET LATAM em PARCEIROS"
-                 style="width: 100%;" />
-            <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
-          </div>
-          <div class="juice-phone-stage roadmap-phone" style="width: clamp(70px, 7vw, 105px);">
-            <img class="juice-phone-hero" src="brand/juice-phone-hero-solflare.png"
-                 alt="JUICE app — tela inicial (quarta vista)"
-                 style="width: 100%;" />
-            <span class="juice-phone-points" data-from="120700" data-to="122300" aria-hidden="true">120.700</span>
-          </div>
-
-        </div>
       </div>
     </section>
 
     <!-- SLIDE 10: ASK / FOUNDER / CTA ========================================= -->
     <section class="slide" data-slide="12" aria-label="Ask & Founder">
-      <img src="brand/juice-wordmark.svg" alt="" aria-hidden="true" class="slide-corner-logo" />
       <div class="slide-inner" style="margin-top: clamp(-80px, -7vh, -40px);">
         <p class="eyebrow">Equipe</p>
 
@@ -3026,7 +3036,7 @@
                 </li>
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                  <span>Full-stack: <strong style="color: #fff;">shipou MVP solo</strong> (React Native + Solana mainnet) antes de levantar centavo</span>
+                  <span>Full-stack: <strong style="color: #fff;">shipou MVP solo</strong> (React Native + Solana mainnet)</span>
                 </li>
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
@@ -3064,11 +3074,11 @@
                 </li>
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                  <span><strong style="color: #fff;">Brand &amp; Comunidade</strong> — narrativa que converte no-coiner em embaixador</span>
+                  <span><strong style="color: #fff;">Brand &amp; Comunidade</strong></span>
                 </li>
                 <li style="display: flex; gap: 10px; align-items: flex-start; font-size: clamp(12px, 1.15vw, 14px); color: rgba(255, 255, 255, 0.85); line-height: 1.4;">
                   <span style="color: var(--primary); flex-shrink: 0; margin-top: 2px;">▸</span>
-                  <span><strong style="color: #fff;">Performance &amp; Funil de Receita</strong> — Sponsored Quests e ads on-chain</span>
+                  <span><strong style="color: #fff;">Performance &amp; Funil de Receita</strong></span>
                 </li>
               </ul>
             </div>
